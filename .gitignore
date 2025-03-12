@@ -1,0 +1,29 @@
+# Environment
+venv/
+immigration/
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+
+# Large model files
+models/
+*.bin
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+*.model
+
+# Embeddings and large data files
+data/embeddings/
+data/processed/
+*.npy
+*.npz
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+
+# Cache
+.cache/
