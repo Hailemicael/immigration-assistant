@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immigration Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .query-form {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .response {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .answer {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .sources, .forms, .next-steps {
+            margin-top: 20px;
+        }
+        .loading {
+            text-align: center;
+            display: none;
+            margin: 20px 0;
+        }
+        .error {
+            color: #e74c3c;
+            background-color: #fdeded;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Immigration Assistant</h1>
+    
+    <div class="query-form">
+        <div class="form-group">
+            <label for="query">Ask a question about US immigration:</label>
+            <input type="text" id="query" placeholder="e.g., How do I apply for a green card?">
+        </div>
+        <button onclick="submitQuery()">Ask Question</button>
+        <div class="error" id="error"></div>
+    </div>
+    
+    <div class="loading" id="loading">
+        <p>Processing your question...</p>
+    </div>
+    
+    <div class="response" id="response">
+        <div class="answer">
+            <h2>Answer</h2>
+            <p id="answer-text"></p>
+        </div>
+        
+        <div class="sources">
+            <h3>Sources</h3>
+            <ul id="sources-list"></ul>
+        </div>
+        
+        <div class="forms">
+            <h3>Related Forms</h3>
+            <ul id="forms-list"></ul>
+        </div>
+        
+        <div class="next-steps">
+            <h3>Suggested Next Steps</h3>
+            <ul id="steps-list"></ul>
+        </div>
+    </div>
+    
+    <script>
+        async function submitQuery() {
+            const query = document.getElementById('query').value.trim();
+            
+            if (!query) {
+                showError("Please enter a question");
+                return;
+            }
+            
+            // Show loading, hide previous response and errors
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('response').style.display = 'none';
+            document.getElementById('error').style.display = 'none';
+            
+            try {
+                const response = await fetch('/api/query', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: query,
+                        max_results: 3
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to get a response from the server');
+                }
+                
+                const data = await response.json();
+                displayResponse(data);
+            } catch (error) {
+                showError(error.message);
+            } finally {
+                document.getElementById('loading').style.display = 'none';
+            }
+        }
+        
+        function displayResponse(data) {
+            // Set answer text
+            document.getElementById('answer-text').textContent = data.answer;
+            
+            // Clear previous lists
+            document.getElementById('sources-list').innerHTML = '';
+            document.getElementById('forms-list').innerHTML = '';
+            document.getElementById('steps-list').innerHTML = '';
+            
+            // Add sources
+            const sourcesList = document.getElementById('sources-list');
+            if (data.sources && data.sources.length > 0) {
+                data.sources.forEach(source => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = source.url;
+                    a.textContent = source.title;
+                    a.target = '_blank';
+                    li.appendChild(a);
+                    
+                    if (source.snippet) {
+                        const snippet = document.createElement('p');
+                        snippet.textContent = source.snippet;
+                        snippet.style.color = '#666';
+                        snippet.style.fontSize = '0.9em';
+                        li.appendChild(snippet);
+                    }
+                    
+                    sourcesList.appendChild(li);
+                });
+            } else {
+                sourcesList.innerHTML = '<li>No sources available</li>';
+            }
+            
+            // Add forms
+            const formsList = document.getElementById('forms-list');
+            if (data.related_forms && data.related_forms.length > 0) {
+                data.related_forms.forEach(form => {
+                    const li = document.createElement('li');
+                    li.textContent = form;
+                    formsList.appendChild(li);
+                });
+            } else {
+                formsList.innerHTML = '<li>No related forms</li>';
+            }
+            
+            // Add next steps
+            const stepsList = document.getElementById('steps-list');
+            if (data.suggested_next_steps && data.suggested_next_steps.length > 0) {
+                data.suggested_next_steps.forEach(step => {
+                    const li = document.createElement('li');
+                    li.textContent = step;
+                    stepsList.appendChild(li);
+                });
+            } else {
+                stepsList.innerHTML = '<li>No suggested next steps</li>';
+            }
+            
+            // Show the response
+            document.getElementById('response').style.display = 'block';
+        }
+        
+        function showError(message) {
+            const errorElement = document.getElementById('error');
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+            document.getElementById('loading').style.display = 'none';
+        }
+        
+        // Allow pressing Enter to submit
+        document.getElementById('query').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                submitQuery();
+            }
+        });
+    </script>
+</body>
+</html>
