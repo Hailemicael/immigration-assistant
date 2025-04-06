@@ -1,0 +1,36 @@
+{
+	"id": "I-956K ",
+	"title": "I-956K | Registration for Direct and Third-Party Promoters",
+	"link": "https://www.uscis.gov/i-956k",
+	"description": "Each person acting as a direct or third-party promoter (including migration agents) of the following must complete Form I-956K: A regional center; Any new commercial enterprises; An affiliated job-creating entity; or An issuer of securities intended to be offered to immigrant investors in connection with a particular capital investment project.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-956k.pdf",
+			"title": "Form I-956K",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-956k.pdf",
+			"description": "(PDF, 515.98 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-956kinstr.pdf",
+			"title": "Instructions for Form I-956K",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-956kinstr.pdf",
+			"description": "(PDF, 1021.51 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-956k": {
+			"id": "i-956k",
+			"topic_id": "97349",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97349",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,47 @@
+{
+	"id": "G-845 ",
+	"title": "G-845 | Verification Request",
+	"link": "https://www.uscis.gov/g-845",
+	"description": "Use this form to verify the immigration status of applications for federal, state, or local public benefits and licenses.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "g-845.pdf",
+			"title": "Form G-845",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/g-845.pdf",
+			"description": "(PDF, 360.81 KB)",
+			"file_online": false
+		},
+		{
+			"id": "g-845instr.pdf",
+			"title": "Instructions for Form G-845",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/g-845instr.pdf",
+			"description": "(PDF, 293.84 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"g-845": {
+			"id": "g-845",
+			"topic_id": "97249",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97249",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		},
+		"g-845sup": {
+			"id": "g-845sup",
+			"topic_id": "97250",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97250",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

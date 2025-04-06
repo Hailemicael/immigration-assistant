@@ -1,0 +1,37 @@
+{
+	"id": "I-193 ",
+	"title": "I-193 | Application for Waiver of Passport and/or Visa",
+	"link": "https://www.uscis.gov/i-193",
+	"description": "For an alien who is a legal resident of the United States to reenter the United States without the alien's passport and/or visa.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-193.pdf",
+			"title": "Form I-193",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-193.pdf",
+			"description": "(PDF, 642.82 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-193": {
+			"id": "i-193",
+			"topic_id": "97278",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97278",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$695"
+				},
+				{
+					"category": "If you are filing as a petitioner for U nonimmigrant status (including derivatives).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as an applicant for T nonimmigrant status (including derivatives).",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

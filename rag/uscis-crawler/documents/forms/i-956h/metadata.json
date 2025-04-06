@@ -1,0 +1,23 @@
+{
+	"id": "I-956H ",
+	"title": "I-956H | Bona Fides of Persons Involved with Regional Center Program",
+	"link": "https://www.uscis.gov/i-956h",
+	"description": "Each person involved with a regional center, new commercial enterprise, or affiliated job-creating entity must complete and submit Form I-956H, Bona Fides of Persons Involved with Regional Center Program and the biometric services fee as a distinct filing along with Form I-956, Application for Regional Center Designation, Form I-956F, Application for Approval of Investment in a New Commercial Enterprise, or when persons must otherwise attest to their compliance with section 203(b)(5)(H) of the Immigration and Nationality Act.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-956h.pdf",
+			"title": "Form I-956H",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-956h.pdf",
+			"description": "(PDF, 503.9 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-956hinstr.pdf",
+			"title": "Instructions for Form I-956H",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-956hinstr.pdf",
+			"description": "(PDF, 1.02 MB)",
+			"file_online": false
+		}
+	]
+}

@@ -1,0 +1,99 @@
+{
+	"id": "I-765 ",
+	"title": "I-765 | Application for Employment Authorization",
+	"link": "https://www.uscis.gov/i-765",
+	"description": "Certain aliens aliens who are in the United States may file Form I-765, Application for Employment Authorization, to request employment authorization and an Employment Authorization Document (EAD). Other aliens aliens whose immigration status authorizes them to work in the United States without restrictions may also use Form I-765 to apply to U.S. Citizenship and Immigration Services (USCIS) for an EAD that shows such authorization.",
+	"file_online": true,
+	"forms": [
+		{
+			"id": "i-765.pdf",
+			"title": "Form I-765",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-765.pdf",
+			"description": "(PDF, 467.34 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-765instr.pdf",
+			"title": "Instructions for Form I-765",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-765instr.pdf",
+			"description": "(PDF, 751.24 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-765ws.pdf",
+			"title": "Form I-765 Worksheet",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-765ws.pdf",
+			"description": "(PDF, 254.21 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-765": {
+			"id": "i-765",
+			"topic_id": "97312",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97312",
+			"filings": [
+				{
+					"category": "General FilingReview all options below to confirm if you are eligible for a reduced fee or fee exemption.",
+					"paper_fee": "$520",
+					"online_fee": "$470"
+				},
+				{
+					"category": "If you filed Form I-485, Application to Register Permanent Residence or Adjust Status, with a fee on or after April 1, 2024, and your Form I-485 is still pending.",
+					"paper_fee": "$260",
+					"online_fee": "$260"
+				},
+				{
+					"category": "If you are filing for an initial, replacement, or renewal Employment Authorization Document (EAD) and you have a pending Form I-485, Application to Register Permanent Residence or Adjust Status, that you filed on or after July 30, 2007, and before April 1, 2024, and you paid the Form I-485 filing fee.",
+					"paper_fee": "$0",
+					"online_fee": "N/A"
+				},
+				{
+					"category": "If you are filing under the special ABC procedures for an initial Employment Authorization Document (EAD) for category (c)(8) as an asylum applicant with a pending Form I-589, Application for Asylum and for Withholding of Removal.",
+					"paper_fee": "$520",
+					"online_fee": "$470"
+				},
+				{
+					"category": "If you are requesting an EAD under category (a)(12) or (c)(19) as a Temporary Protected Status (TPS) applicant.",
+					"paper_fee": "$520",
+					"online_fee": "$470"
+				},
+				{
+					"category": "If you are filing under category (c)(33), on Form I-821D, Consideration of Deferred Action for Childhood Arrivals.",
+					"paper_fee": "$520",
+					"online_fee": "$470"
+				},
+				{
+					"category": "If you are filing for replacement EAD because the card we issued to you contains incorrect information due to our error, or we issued your previous card but you never received it due to United States Postal Service (USPS) error or our error.",
+					"paper_fee": "$0",
+					"online_fee": "$0"
+				},
+				{
+					"category": "If you are filing for an initial EAD under category (c)(8), an asylum applicant with a pending Form I-589 including derivatives, and you are not filing under the special ABC procedures.",
+					"paper_fee": "$0",
+					"online_fee": "$0"
+				},
+				{
+					"category": "Family Reunification Task Force (FRTF). If you are filing for an initial EAD based on an initial period of parole or a renewal EAD based on a period re-parole as a child or family member affected by family separations at the United States-Mexico border by DHS between the dates of January 20, 2017, and January 20, 2021 (Ms. L. v. ICE, 18-cv-00428 (S.D. Cal.)).",
+					"paper_fee": "$0 (through Dec. 11, 2029)",
+					"online_fee": "$0"
+				},
+				{
+					"category": "If you are filing for an initial Employment Authorization Document (EAD) under one of the following categories:(a)(3) Refugee;(a)(4) Paroled as refugee;(a)(5) Asylee;(a)(7) N-8 (Parent of alien classed as SK3) or N-9 nonimmigrant (Child of N-8) nonimmigrants;(a)(8) Citizen of Micronesia, Marshall Islands, or Palau;(a)(10) Granted Withholding of Deportation or Removal;(a)(16) Victim of severe form of trafficking (T-1);(a)(19) U-1 nonimmigrant;(a)(20) U-2, U-3, U-4, U-5 nonimmigrant;(c)(1), (c)(4), or (c)(7) Dependent of certain foreign government, international organization, or NATO personnel;(c)(2) Taiwanese dependents of Taipei Economic and Cultural Representative Office (TECRO) E-1 employees;(c)(8) All other Applicant for Asylum and Withholding of Deportation or Removal including derivatives with pending Form I-589;(c)(9) Special Immigrant Juvenile seeking to adjust status;(c)(9) T nonimmigrant seeking to adjust status under the Immigration and Nationality Act (INA) section 245(l);(c)(9) Persons seeking adjustment of status as a Special Immigrant Iraqi or Afghan national;(c)(9) Persons seeking adjustment of status as an abused spouse or child under the Cuban Adjustment Act (CAA);(c)(9) Persons seeking adjustment of status as an abused spouse or child under the Haitian Refugee Immigration Fairness Act (HRIFA);(c)(9) U nonimmigrant seeking to adjust status under INA section 245(m);(c)(9) Persons seeking adjustment of status as a Violence Against Women Act (VAWA) self-petitioner (including derivatives);(c)(10) Abused spouses and children applying for benefits under the Nicaraguan Adjustment and Central American Relief Act (NACARA);(c)(10) Abused spouses and children of lawful permanent residents or abused spouses and children of U.S. citizens applying for cancellation of removal and adjustment of status under INA section 240A(b)(2);(c)(11) Special Parole processes for Immigrant Military Members and Veterans Initiative (IMMVI) and you are a current or former U.S. armed forces service member;(c)(11) Special Parole processes for Ukrainian nationals paroled into the United States:Between February 24, 2022, and September 30, 2024;After September 30, 2023, and are spouses or children of Ukrainian nationals paroled between February 24, 2022, and September 30, 2024;After September 30, 2023, and are parents, legal guardians, or primary caregivers of Ukrainian unaccompanied children paroled between February 24, 2022, and September 30, 2024;(c)(14) Deferred action if filed by a petitioner seeking U-1, U-2, U-3, U-4, or U-5 nonimmigrant status;(c)(14) Deferred action if filed by a Special Immigrant Juvenile;(c)(14) Deferred action if filed by a VAWA self-petitioner (including derivatives);(c)(25) T-2, T-3, T-4, T-5, or T-6 nonimmigrant;(c)(31) Principal beneficiaries or derivative children of an approved VAWA self-petition;(c)(40) Applicant for T Nonimmigrant Status or Applicant for Derivative T Nonimmigrant Status With Bona Fide Application; orCurrent or former U.S. armed forces service members (does not apply to family members unless the family member is also a current or former U.S. armed forces service member).",
+					"paper_fee": "$0",
+					"online_fee": "$0"
+				},
+				{
+					"category": "If you are filing for a renewal EAD under one of the following categories:(a)(3) Refugee;(a)(4) Paroled as refugee;(a)(8) Citizen of Micronesia, Marshall Islands, or Palau;(a)(10) Granted Withholding of Deportation or Removal;(a)(16) Victim of severe form of trafficking (T-1 nonimmigrant);(a)(19) U-1 nonimmigrant;(a)(20) U-2, U-3, U-4, U-5 nonimmigrant;(c)(1), (c)(4), or (c)(7) Dependent of certain foreign government, international organization, or NATO personnel;(c)(9) Special Immigrant Juvenile seeking to adjust status;(c)(9) T nonimmigrant seeking to adjust status under INA section 245(l);(c)(9) U nonimmigrant seeking to adjust status under INA section 245(m);(c)(9) Persons seeking adjustment of status as a Special Immigrant Iraqi or Afghan national;(c)(9) Persons seeking adjustment of status as an abused spouse or child under the Cuban Adjustment Act (CAA);(c)(9) Persons seeking adjustment of status as an abused spouse or child under the Haitian Refugee Immigration Fairness Act (HRIFA);(c)(9) Persons seeking adjustment of status as a Violence Against Women Act (VAWA) Form I-360, Petition for Amerasian, Widow(er), or Special Immigrant, self-petitioner (including derivatives);(c)(10) Abused spouses and children applying for benefits under the Nicaraguan Adjustment and Central American Relief Act (NACARA);(c)(10) Abused spouses and children of a lawful permanent resident or abused spouses and children of a U.S. citizen applying for cancellation of removal and adjustment of status under INA section 240A(b)(2);(c)(11) Special Parole processes for Immigrant Military Members and Veterans Initiative (IMMVI) and you are a current or former U.S. armed forces service member;(c)(14) Deferred action if filed by a petitioner for U-1, U-2, U-3, U-4, or U-5 nonimmigrant status;(c)(14) Deferred action if filed by a Special Immigrant Juvenile;(c)(14) Deferred action if filed by a Violence Against Women Act (VAWA) Form I-360 self-petitioner (including derivatives);(c)(25) T-2, T-3, T-4, T-5, or T-6 nonimmigrant;(c)(31) Principal beneficiaries or derivative children of an approved Violence Against Women Act (VAWA) self-petition; orCurrent or former U.S. armed forces service members (does not apply to family members unless the family member is also a current or former U.S. armed forces service member).",
+					"paper_fee": "$0",
+					"online_fee": "$0"
+				},
+				{
+					"category": "If you are requesting a replacement EAD because your previously issued card was lost, stolen, or damaged, but has not expired, and you are filing under one of the following categories:(a)(3) Refugee;(a)(4) Paroled as refugee;(a)(8) Citizen of Micronesia, Marshall Islands, or Palau;(a)(10) Granted Withholding of Deportation or Removal;(a)(16) Victim of severe form of trafficking (T-1 nonimmigrant);(a)(19) U-1 nonimmigrant;(a)(20) U-2, U-3, U-4, U-5 nonimmigrant;(c)(1), (c)(4), or (c)(7) Dependent of certain foreign government, international organization, or NATO personnel;(c)(9) Special Immigrant Juvenile seeking to adjust status;(c)(9) T nonimmigrant seeking to adjust status under INA section 245(l);(c)(9) Persons seeking adjustment of status as a Special Immigrant Iraqi or Afghan national;(c)(9) Persons seeking adjustment of status as an abused spouse or child under the Cuban Adjustment Act (CAA);(c)(9) Persons seeking adjustment of status as an abused spouse or child under the Haitian Refugee Immigration Fairness Act (HRIFA);(c)(9) U nonimmigrant seeking to adjust status under INA section 245(m);(c)(9) Persons seeking adjustment of status as a Violence Against Women Act (VAWA) Form I-360 self-petitioner (including derivatives);(c)(10) Abused spouses and children applying for benefits under the Nicaraguan Adjustment and Central American Relief Act (NACARA);(c)(10) Abused spouses and children of lawful permanent residents or abused spouses and children of U.S. citizens applying for cancellation of removal and adjustment of status under INA section 240A(b)(2);(c)(11) Special Parole processes for Immigrant Military Members and Veterans Initiative (IMMVI) and you are a current or former U.S. armed forces service member;(c)(14) Deferred action if filed by a petitioner for U-1, U-2, U-3, U-4, or U-5 nonimmigrant status;(c)(14) Deferred action if filed by a Special Immigrant Juvenile; (c)(14) Deferred action if filed by a Violence Against Women Act (VAWA) Form I-360 self-petitioner (including derivatives);(c)(25) T-2, T-3, T-4, T-5, or T-6 nonimmigrant;(c)(31) Principal beneficiaries or derivative children of an approved VAWA self-petition; orCurrent or former U.S. armed forces service members (does not apply to family members unless the family member is also a current or former U.S. armed forces service member).",
+					"paper_fee": "$0",
+					"online_fee": "$0"
+				}
+			]
+		}
+	}
+}

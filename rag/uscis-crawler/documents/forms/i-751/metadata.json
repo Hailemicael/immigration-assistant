@@ -1,0 +1,40 @@
+{
+	"id": "I-751 ",
+	"title": "I-751 | Petition to Remove Conditions on Residence",
+	"link": "https://www.uscis.gov/i-751",
+	"description": "Use this form if you are a conditional permanent resident who obtained status through marriage and want to apply to remove the conditions on your permanent resident status.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-751.pdf",
+			"title": "Form I-751",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-751.pdf",
+			"description": "(PDF, 612.32 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-751instr.pdf",
+			"title": "Instructions for Form I-751",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-751instr.pdf",
+			"description": "(PDF, 290.32 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-751": {
+			"id": "i-751",
+			"topic_id": "97311",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97311",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$750"
+				},
+				{
+					"category": "Conditional permanent residents, spouse, or child who filed a waiver of the joint filing requirement based on battery or extreme cruelty.",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

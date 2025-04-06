@@ -1,0 +1,36 @@
+{
+	"id": "N-470 ",
+	"title": "N-470 | Application to Preserve Residence for Naturalization Purposes",
+	"link": "https://www.uscis.gov/n-470",
+	"description": "Use this form if you are a lawful permanent resident who must leave the United States for a period of one year or longer to engage in qualifying employment and you want to preserve your residence to pursue naturalization.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "n-470.pdf",
+			"title": "Form N-470",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/n-470.pdf",
+			"description": "(PDF, 454.89 KB)",
+			"file_online": false
+		},
+		{
+			"id": "n-470instr.pdf",
+			"title": "Instructions for Form N-470",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/n-470instr.pdf",
+			"description": "(PDF, 280.92 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"n-470": {
+			"id": "n-470",
+			"topic_id": "97354",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97354",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$420"
+				}
+			]
+		}
+	}
+}

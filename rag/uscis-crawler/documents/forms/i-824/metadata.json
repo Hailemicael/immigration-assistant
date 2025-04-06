@@ -1,0 +1,72 @@
+{
+	"id": "I-824 ",
+	"title": "I-824 | Application for Action on an Approved Application or Petition",
+	"link": "https://www.uscis.gov/i-824",
+	"description": "Use this form to request additional action on a previously approved application or petition.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-824.pdf",
+			"title": "Form I-824",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-824.pdf",
+			"description": "(PDF, 425.4 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-824instr.pdf",
+			"title": "Instructions for Form I-824",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-824instr.pdf",
+			"description": "(PDF, 264.94 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-824": {
+			"id": "i-824",
+			"topic_id": "97323",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97323",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$590"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted special immigrant visa or status as:An Afghan or Iraqi translator or interpreter;An Iraqi national employed by or on behalf of the U.S. Government;An Afghan national employed by or on behalf of the U.S. Government or employed by the International Security Assistance Force (ISAF); orA derivative beneficiary of one of the above.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted immigrant classification as a Violence Against Women Act (VAWA) self-petitioner (including derivatives).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted Special Immigrant Juvenile classification.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted T nonimmigrant status.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted adjustment of status as an abused spouse or child under the Cuban Adjustment Act (CAA).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted adjustment of status as an abused spouse or child under the Haitian Refugee Immigration Fairness Act (HRIFA).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted U nonimmigrant status.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are an abused spouse or child applying for benefits under the Nicaraguan Adjustment and Central American Relief Act (NACARA).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are a battered spouse or child of a lawful permanent resident or U.S. citizen applying for cancellation of removal or adjustment of status under the Immigration and Nationality Act (INA) section 240A(b)(2).",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

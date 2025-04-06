@@ -1,0 +1,36 @@
+{
+	"id": "I-508 ",
+	"title": "I-508 | Request for Waiver of Certain Rights, Privileges, Exemptions and Immunities",
+	"link": "https://www.uscis.gov/i-508",
+	"description": "Use this form to waive certain diplomatic rights privileges, exemptions, and immunities associated with your occupational status",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-508.pdf",
+			"title": "Form I-508",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-508.pdf",
+			"description": "(PDF, 343.82 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-508instr.pdf",
+			"title": "Instructions for Form I-508",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-508instr.pdf",
+			"description": "(PDF, 261.79 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-508": {
+			"id": "i-508",
+			"topic_id": "97289",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97289",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

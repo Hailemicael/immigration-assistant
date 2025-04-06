@@ -1,0 +1,24 @@
+{
+	"id": "G-1055 ",
+	"title": "G-1055 | Fee Schedule",
+	"link": "https://www.uscis.gov/g-1055",
+	"description": "Use this form to verify fee information for immigration forms.",
+	"file_online": false,
+	"fees": {
+		"/g-1055?form=iff": {
+			"id": "/g-1055?form=iff",
+			"topic_id": "97575",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97575",
+			"filings": [
+				{
+					"category": "Annual Integrity Fund Fee for regional centers with over 20 total investors in the preceding fiscal year.",
+					"paper_fee": "$20,000"
+				},
+				{
+					"category": "Annual Integrity Fund Fee for regional centers with 20 or fewer total investors in the preceding fiscal year.",
+					"paper_fee": "$10,000"
+				}
+			]
+		}
+	}
+}

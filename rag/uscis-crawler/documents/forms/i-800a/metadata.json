@@ -1,0 +1,111 @@
+{
+	"id": "I-800A ",
+	"title": "I-800A | Application for Determination of Suitability to Adopt a Child from a Convention Country",
+	"link": "https://www.uscis.gov/i-800a",
+	"description": "USCIS uses this form to adjudicate the eligibility and suitability of the applicant(s) who want to adopt a child who is habitually resident in a Hague Adoption Convention country.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-800a.pdf",
+			"title": "Form I-800A",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-800a.pdf",
+			"description": "(PDF, 621.91 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-800ainstr.pdf",
+			"title": "Instructions for Form I-800A",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-800ainstr.pdf",
+			"description": "(PDF, 534.85 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-800asup1.pdf",
+			"title": "Form I-800A Supplement 1 (Listing of Adult Member of the Household)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-800asup1.pdf",
+			"description": "(PDF, 427.56 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-800asup2.pdf",
+			"title": "Form I-800A Supplement 2 (Consent to Disclose Information)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-800asup2.pdf",
+			"description": "(PDF, 312.88 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-800asup3.pdf",
+			"title": "Form I-800A Supplement 3 (Request for Action on Approved Form I-800A)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-800asup3.pdf",
+			"description": "(PDF, 451.04 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-800a": {
+			"id": "i-800a",
+			"topic_id": "97316",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97316",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$920"
+				},
+				{
+					"category": "If filed due to a change in marital status after approval of a prior Form I-800A.",
+					"paper_fee": "$920"
+				},
+				{
+					"category": "If filed due to a change in marital status while a prior Form I-800A is pending.",
+					"paper_fee": "$0"
+				}
+			]
+		},
+		"i-800asup1": {
+			"id": "i-800asup1",
+			"topic_id": "97317",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97317",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		},
+		"i-800asup3": {
+			"id": "i-800asup3",
+			"topic_id": "97319",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97319",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$455"
+				},
+				{
+					"category": "Filed for a FIRST or SECOND extension of your Form I-800A.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "Filed for a THIRD or SUBSEQUENT extension of your Form I-800A.",
+					"paper_fee": "$455"
+				},
+				{
+					"category": "Filed for a new approval notice based on a significant change and updated home study after we approved your Form I-800A, and there is no request for a first or second extension of your Form I-800A approval or a first or second change of Hague Adoption Convention country on the same Supplement 3.",
+					"paper_fee": "$455"
+				},
+				{
+					"category": "Filed for a FIRST or SECOND change in Convention country after the approval of Form I-800A",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "Filed for a THIRD or SUBSEQUENT change in Convention country after we approved your Form I-800A.",
+					"paper_fee": "$455"
+				},
+				{
+					"category": "Filed for a duplicate approval notice.",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

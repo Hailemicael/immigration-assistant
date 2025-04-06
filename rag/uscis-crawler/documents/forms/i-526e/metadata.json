@@ -1,0 +1,40 @@
+{
+	"id": "I-526E ",
+	"title": "I-526E | Immigrant Petition by Regional Center Investor",
+	"link": "https://www.uscis.gov/i-526e",
+	"description": "An investor pooling their investment with one or more qualified immigrants participating in the Regional Center Program uses this form to petition USCIS for status as an immigrant to the United States under section 203(b)(5)(E) of the Immigration and Nationality Act (INA), as amended.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-526e.pdf",
+			"title": "Form I-526E",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-526e.pdf",
+			"description": "(PDF, 714.45 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-526einstr.pdf",
+			"title": "Instructions for Form I-526E",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-526einstr.pdf",
+			"description": "(PDF, 274.88 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-526e": {
+			"id": "i-526e",
+			"topic_id": "97291",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97291",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$11,160"
+				},
+				{
+					"category": "If you file an initial Form I-526E on or after October 1, 2022, you must include a separate fee of $1,000 as required by the EB-5 Reform and Integrity Act of 2022. This additional amount does not apply to an amendment request.If paying by check or money order, submit the fee separately.",
+					"paper_fee": "$1,000"
+				}
+			]
+		}
+	}
+}

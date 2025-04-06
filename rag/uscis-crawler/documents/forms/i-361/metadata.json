@@ -1,0 +1,36 @@
+{
+	"id": "I-361 ",
+	"title": "I-361 | Affidavit of Financial Support and Intent to Petition for Legal Custody for Public Law 97-359 Amerasian",
+	"link": "https://www.uscis.gov/i-361",
+	"description": "To be filed in support of Form I-360, Petition to Classify Public Law 97-359 Amerasian as the Child, Son, or Daughter of a United States Citizen.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-361.pdf",
+			"title": "Form I-361",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-361.pdf",
+			"description": "(PDF, 510.51 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-361instr.pdf",
+			"title": "Instructions for Form I-361",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-361instr.pdf",
+			"description": "(PDF, 294.99 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-361": {
+			"id": "i-361",
+			"topic_id": "97283",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97283",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

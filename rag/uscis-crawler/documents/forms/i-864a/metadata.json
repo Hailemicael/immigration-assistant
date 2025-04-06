@@ -1,0 +1,36 @@
+{
+	"id": "I-864A ",
+	"title": "I-864A | Contract Between Sponsor and Household Member",
+	"link": "https://www.uscis.gov/i-864a",
+	"description": "Use this form if you are a household member and want to promise to make your income and/or assets available to help support sponsored immigrants.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-864a.pdf",
+			"title": "Form I-864A",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-864a.pdf",
+			"description": "(PDF, 465.4 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-864ainstr.pdf",
+			"title": "Instructions for Form I-864A",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-864ainstr.pdf",
+			"description": "(PDF, 286.03 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-864a": {
+			"id": "i-864a",
+			"topic_id": "97327",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97327",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

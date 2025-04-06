@@ -1,0 +1,37 @@
+{
+	"id": "G-1041A ",
+	"title": "G-1041A | Genealogy Records Request",
+	"link": "https://www.uscis.gov/g-1041a",
+	"description": "Use Form G-1041A to obtain copies of USCIS historical records. (To request an index search of USCIS historical records, use Form G-1041, Genealogy Index Search Request.)",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "g-1041a.pdf",
+			"title": "Form G-1041A",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/g-1041a.pdf",
+			"description": "(PDF, 352.62 KB)",
+			"file_online": false
+		},
+		{
+			"id": "g-1041ainstr.pdf",
+			"title": "Instructions for Form G-1041A",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/g-1041ainstr.pdf",
+			"description": "(PDF, 223.22 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"g-1041a": {
+			"id": "g-1041a",
+			"topic_id": "97253",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97253",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$80",
+					"online_fee": "$30"
+				}
+			]
+		}
+	}
+}

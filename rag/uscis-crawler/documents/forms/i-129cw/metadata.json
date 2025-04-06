@@ -1,0 +1,52 @@
+{
+	"id": "I-129CW ",
+	"title": "I-129CW | Petition for a CNMI-Only Nonimmigrant Transitional Worker",
+	"link": "https://www.uscis.gov/i-129cw",
+	"description": "An employer uses this form to petition U.S. Citizenship and Immigration Services (USCIS) for an alien who is ineligible for another employment-based nonimmigrant classification to work as a nonimmigrant in the Commonwealth of the Northern Mariana Islands (CNMI) temporarily as a CW-1, CNMI-Only Transitional Worker.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-129cw.pdf",
+			"title": "Form I-129CW",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-129cw.pdf",
+			"description": "(PDF, 749.87 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-129cwinstr.pdf",
+			"title": "Instructions for Form I-129CW",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-129cwinstr.pdf",
+			"description": "(PDF, 522.02 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-129cw": {
+			"id": "i-129cw",
+			"topic_id": "97266",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97266",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$1,015 plus additional fees"
+				},
+				{
+					"category": "If you are filing as a Small Employer or Nonprofit.",
+					"paper_fee": "$510 plus additional fees"
+				},
+				{
+					"category": "Additional Fees:Asylum Program FeeIf you are filing as a Regular Petitioner;If you are filing as a Nonprofit; orIf you are filing as a Small EmployerIf paying by check or money order, submit the fee separately.",
+					"paper_fee": "$600$0$300"
+				},
+				{
+					"category": "Additional Fees:Pub. L. 110-229 requires you to pay a supplemental educational funding fee per beneficiary, per year.This fee cannot be waived.  If paying by check or money order, submit the fee separately.",
+					"paper_fee": "$210 per beneficiary, per year"
+				},
+				{
+					"category": "Additional Fees:Pub. L. 110-229, as revised by the Northern Mariana Islands U.S. Workforce Act of 2018, requires you to pay the Fraud Prevention and Detection Fee for each petition.This fee cannot be waived.  If paying by check or money order, submit the fee separately.",
+					"paper_fee": "$50"
+				}
+			]
+		}
+	}
+}

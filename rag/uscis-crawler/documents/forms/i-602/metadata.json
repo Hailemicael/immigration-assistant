@@ -1,0 +1,36 @@
+{
+	"id": "I-602 ",
+	"title": "I-602 | Application by Refugee for Waiver of Inadmissibility Grounds",
+	"link": "https://www.uscis.gov/i-602",
+	"description": "Use this form if you are a refugee who has been found inadmissible to the United States for reasons such as felony conviction or health conditions and you want to apply for a waiver of inadmissibility for humanitarian reasons, family unity, or national interest.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-602.pdf",
+			"title": "Form I-602",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-602.pdf",
+			"description": "(PDF, 513 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-602instr.pdf",
+			"title": "Instructions for Form I-602",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-602instr.pdf",
+			"description": "(PDF, 337.03 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-602": {
+			"id": "i-602",
+			"topic_id": "97303",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97303",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

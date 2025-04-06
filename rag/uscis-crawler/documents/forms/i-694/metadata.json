@@ -1,0 +1,36 @@
+{
+	"id": "I-694 ",
+	"title": "I-694 | Notice of Appeal of Decision Under Sections 210 or 245A of the Immigration and Nationality Act",
+	"link": "https://www.uscis.gov/i-694",
+	"description": "Use this form to notify USCIS that an alien who was denied permanent residence, temporary residence or a waiver of grounds of inadmissibility under the amnesty program provisions of the Immigration Reform and Control Act of 1986 (IRCA) is appealing the decision to the USCIS Administrative Appeals Office.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-694.pdf",
+			"title": "Form I-694",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-694.pdf",
+			"description": "(PDF, 1.03 MB)",
+			"file_online": false
+		},
+		{
+			"id": "i-694instr.pdf",
+			"title": "Instructions for Form I-694",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-694instr.pdf",
+			"description": "(PDF, 206.52 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-694": {
+			"id": "i-694",
+			"topic_id": "97308",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97308",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$1,125"
+				}
+			]
+		}
+	}
+}

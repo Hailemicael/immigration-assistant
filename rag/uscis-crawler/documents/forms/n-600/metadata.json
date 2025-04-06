@@ -1,0 +1,47 @@
+{
+	"id": "N-600 ",
+	"title": "N-600 | Application for Certificate of Citizenship",
+	"link": "https://www.uscis.gov/n-600",
+	"description": "Use this form to apply for a Certificate of Citizenship.",
+	"file_online": true,
+	"forms": [
+		{
+			"id": "n-600.pdf",
+			"title": "Form N-600",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/n-600.pdf",
+			"description": "(PDF, 711.49 KB)",
+			"file_online": false
+		},
+		{
+			"id": "n-600instr.pdf",
+			"title": "Instructions for Form N-600",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/n-600instr.pdf",
+			"description": "(PDF, 324.45 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"n-600": {
+			"id": "n-600",
+			"topic_id": "97356",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97356",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$1,385",
+					"online_fee": "$1,335"
+				},
+				{
+					"category": "If you, as a current or former member of any branch of the U.S. armed forces, are requesting a Certificate of Citizenship for yourself.NOTE: Children of service members do not qualify for this fee exemption.",
+					"paper_fee": "$0",
+					"online_fee": "$0"
+				},
+				{
+					"category": "If you are filing on behalf of an individual who is the subject of a final adoption for immigration purposes and meets (or met before 18 years of age) the definition of child under the Immigration and Nationality Act section 101(b)(1)(E), (F), or (G).",
+					"paper_fee": "$0",
+					"online_fee": "$0"
+				}
+			]
+		}
+	}
+}

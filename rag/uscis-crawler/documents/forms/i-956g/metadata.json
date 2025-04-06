@@ -1,0 +1,36 @@
+{
+	"id": "I-956G ",
+	"title": "I-956G | Regional Center Annual Statement",
+	"link": "https://www.uscis.gov/i-956g",
+	"description": "Designated regional centers use this form to provide required information, certifications and evidence to support their continued eligibility for regional center designation.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-956ginstr.pdf",
+			"title": "Instructions for Form I-956G",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-956ginstr.pdf",
+			"description": "(PDF, 200.44 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-956g.pdf",
+			"title": "Form I-956G",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-956g.pdf",
+			"description": "(PDF, 566.54 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-956g": {
+			"id": "i-956g",
+			"topic_id": "97347",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97347",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$4,470"
+				}
+			]
+		}
+	}
+}

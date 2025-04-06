@@ -1,0 +1,36 @@
+{
+	"id": "I-356 ",
+	"title": "I-356 | Request for Cancellation of Public Charge Bond",
+	"link": "https://www.uscis.gov/i-356",
+	"description": "This form should be used to request cancellation of a public charge bond that was submitted on behalf of an alien on Form I-945, Public Charge Bond.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-356.pdf",
+			"title": "Form I-356",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-356.pdf",
+			"description": "(PDF, 443.83 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-356instr.pdf",
+			"title": "Instructions for Form I-356",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-356instr.pdf",
+			"description": "(PDF, 323.86 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-356": {
+			"id": "i-356",
+			"topic_id": "97281",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97281",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

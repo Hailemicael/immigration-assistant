@@ -1,0 +1,36 @@
+{
+	"id": "N-648 ",
+	"title": "N-648 | Medical Certification for Disability Exceptions",
+	"link": "https://www.uscis.gov/n-648",
+	"description": "Use this form if you are applying for U.S. citizenship and need to request an exception to the English and civics testing requirements for naturalization because of physical or developmental disability or mental impairment.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "n-648.pdf",
+			"title": "Form N-648",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/n-648.pdf",
+			"description": "(PDF, 351.14 KB)",
+			"file_online": false
+		},
+		{
+			"id": "n-648instr.pdf",
+			"title": "Instructions for Form N-648",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/n-648instr.pdf",
+			"description": "(PDF, 311.1 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"n-648": {
+			"id": "n-648",
+			"topic_id": "97359",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97359",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,57 @@
+{
+	"id": "I-90 ",
+	"title": "I-90 | Application to Replace Permanent Resident Card (Green Card)",
+	"link": "https://www.uscis.gov/i-90",
+	"description": "Use this form to replace your Permanent Resident Card (also known as your Green Card).",
+	"file_online": true,
+	"forms": [
+		{
+			"id": "i-90.pdf",
+			"title": "Form I-90",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-90.pdf",
+			"description": "(PDF, 484.55 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-90instr.pdf",
+			"title": "Instructions for Form I-90",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-90instr.pdf",
+			"description": "(PDF, 293.04 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-90": {
+			"id": "i-90",
+			"topic_id": "97259",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97259",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$465",
+					"online_fee": "$415"
+				},
+				{
+					"category": "If you have reached your 14th birthday and your existing card will expire before your 16th birthday.",
+					"paper_fee": "$465",
+					"online_fee": "$415"
+				},
+				{
+					"category": "If you have reached your 14th birthday, and your existing card will expire after your 16th birthday.",
+					"paper_fee": "$0",
+					"online_fee": "$0"
+				},
+				{
+					"category": "If you are filing because we issued your previous card, but you never received it, and it was returned as undeliverable to USCIS.",
+					"paper_fee": "$0",
+					"online_fee": "$0"
+				},
+				{
+					"category": "If you are filing because we issued the card with incorrect information because of a Department of Homeland Security error.",
+					"paper_fee": "$0",
+					"online_fee": "$0"
+				}
+			]
+		}
+	}
+}

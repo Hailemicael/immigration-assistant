@@ -1,0 +1,36 @@
+{
+	"id": "N-300 ",
+	"title": "N-300 | Application to File Declaration of Intention",
+	"link": "https://www.uscis.gov/n-300",
+	"description": "Use this form if you are a permanent resident and want to declare your intent to become a U.S. citizen.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "n-300.pdf",
+			"title": "Form N-300",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/n-300.pdf",
+			"description": "(PDF, 423.31 KB)",
+			"file_online": false
+		},
+		{
+			"id": "n-300instr.pdf",
+			"title": "Instructions for Form N-300",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/n-300instr.pdf",
+			"description": "(PDF, 275.7 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"n-300": {
+			"id": "n-300",
+			"topic_id": "97350",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97350",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$320"
+				}
+			]
+		}
+	}
+}

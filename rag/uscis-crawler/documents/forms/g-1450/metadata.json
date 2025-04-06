@@ -1,0 +1,36 @@
+{
+	"id": "G-1450 ",
+	"title": "G-1450 | Authorization for Credit Card Transactions",
+	"link": "https://www.uscis.gov/g-1450",
+	"description": "Use this form to pay fees for any form processed at a USCIS lockbox. There is no additional fee to pay with your credit card.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "g-1450.pdf",
+			"title": "Form G-1450",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/g-1450.pdf",
+			"description": "(PDF, 261.57 KB)",
+			"file_online": false
+		},
+		{
+			"id": "g-1450instr.pdf",
+			"title": "Instructions for Form G-1450",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/g-1450instr.pdf",
+			"description": "(PDF, 231.22 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"g-1450": {
+			"id": "g-1450",
+			"topic_id": "97255",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97255",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

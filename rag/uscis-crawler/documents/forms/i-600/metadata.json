@@ -1,0 +1,77 @@
+{
+	"id": "I-600 ",
+	"title": "I-600 | Petition to Classify Orphan as an Immediate Relative",
+	"link": "https://www.uscis.gov/i-600",
+	"description": "U.S. citizens use this form to request that USCIS classify an orphan as an immediate relative. The U.S. citizen adoptive parent or legal custodian files the petition to finalize the immigration process of a child who is not habitually resident in a Hague Convention country.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-600.pdf",
+			"title": "Form I-600",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-600.pdf",
+			"description": "(PDF, 706.1 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-600instr.pdf",
+			"title": "Instructions for Form I-600",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-600instr.pdf",
+			"description": "(PDF, 518.03 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-600asup1.pdf",
+			"title": "Form I-600A/I-600 Supplement 1 (Listing of Adult Member of the Household)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-600asup1.pdf",
+			"description": "(PDF, 400.12 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-600asup2.pdf",
+			"title": "Form I-600A/I-600 Supplement 2 (Consent to Disclose Information)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-600asup2.pdf",
+			"description": "(PDF, 286.81 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-600asup3.pdf",
+			"title": "Form I-600A/I-600 Supplement 3 (Request for Action on Approved Form I-600A/I-600)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-600asup3.pdf",
+			"description": "(PDF, 447.12 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-600": {
+			"id": "i-600",
+			"topic_id": "97296",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97296",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$920"
+				},
+				{
+					"category": "If you are filing your first Form I-600 petition during your Form I-600A, Application for Advance Processing of an Orphan Petition, approval period.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you file more than one Form I-600 during your Form I-600A approval period for children who are not birth siblings before the proposed adoption.",
+					"paper_fee": "$920 for the second and any subsequent non-birth siblings"
+				},
+				{
+					"category": "If you are filing more than one Form I-600 during your Form I-600A approval period for children who are birth siblings before the proposed adoption.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "New Combination filing: If you previously filed a Form I-600 combination filing and your marital status changed after the suitability approval.",
+					"paper_fee": "$920"
+				},
+				{
+					"category": "New Combination filing: If your marital status changes while your previous Form I-600 combination filing petition is pending, you must submit a new Form I-600 combination filing.",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,63 @@
+{
+	"id": "I-360 ",
+	"title": "I-360 | Petition for Amerasian, Widow(er), or Special Immigrant",
+	"link": "https://www.uscis.gov/i-360",
+	"description": "Use this form to classify an alien as:\n\nAn Amerasian (Born after 12/31/1950 and before 10/23/1982);\nThe widow(er) of a U.S. citizen;\nSelf-petitioning spouse or child of an abusive U.S. citizen or lawful permanent resident;\nSelf-petitioning  parent of an abusive U.S. citizen; or",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-360.pdf",
+			"title": "Form I-360",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-360.pdf",
+			"description": "(PDF, 790.44 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-360instr.pdf",
+			"title": "Instructions for Form I-360",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-360instr.pdf",
+			"description": "(PDF, 321.8 KB)",
+			"file_online": false
+		},
+		{
+			"id": "m-737.pdf",
+			"title": "Optional Checklist for Form I-360 Special Immigrant Religious Worker Filings",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/m-737.pdf",
+			"description": "(PDF, 253.99 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-360": {
+			"id": "i-360",
+			"topic_id": "97282",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97282",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$515"
+				},
+				{
+					"category": "If you are filing for or as an Amerasian special immigrant.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are self-petitioning under Violence Against Women Act (VAWA) as an abused spouse or child of a U.S. citizen or lawful permanent resident, or an abused parent of a U.S. citizen son or daughter.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a Special Immigrant Juvenile.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as an:Afghan or Iraqi national who worked with the U.S. armed forces as a translator or interpreter, or the surviving spouse and children of a deceased principal;Iraqi national who worked for or on behalf of the U.S. Government in Iraq, or the surviving spouse and children of a deceased principal, orAfghan national who worked for or on behalf of the U.S. Government or the International Security Assistance Force (ISAF) in Afghanistan, or the surviving spouse and children of a deceased principal.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are a filing as a person who served honorably on active duty in the U.S. armed forces filing under the Immigration and Nationality Act section 101(a)(27)(K).",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}
