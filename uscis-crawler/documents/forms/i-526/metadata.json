@@ -1,0 +1,23 @@
+{
+	"id": "I-526 ",
+	"title": "I-526 | Immigrant Petition by Standalone Investor",
+	"link": "https://www.uscis.gov/i-526",
+	"description": "The form is used by a standalone investor to petition USCIS for status as an immigrant to the United States under section 203(b)(5) of the Immigration and Nationality Act (INA), as amended.",
+	"file-online": false,
+	"forms": [
+		{
+			"id": "i-526.pdf",
+			"title": "Form I-526",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-526.pdf",
+			"description": "(PDF, 701.87 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-526instr.pdf",
+			"title": "Instructions for Form I-526",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-526instr.pdf",
+			"description": "(PDF, 279.32 KB)",
+			"file-online": false
+		}
+	]
+}

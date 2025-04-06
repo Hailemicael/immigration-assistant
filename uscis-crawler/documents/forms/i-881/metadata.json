@@ -1,0 +1,23 @@
+{
+	"id": "I-881 ",
+	"title": "I-881 | Application for Suspension of Deportation or Special Rule Cancellation of Removal (Pursuant to Section 203 of Public Law 105-100 (NACARA))",
+	"link": "https://www.uscis.gov/i-881",
+	"description": "Use this form if you are an alien who is eligible to apply for suspension of deportation or special rule cancellation of removal under the Nicaraguan Adjustment and Central American Relief Act (NACARA).",
+	"file-online": false,
+	"forms": [
+		{
+			"id": "i-881.pdf",
+			"title": "Form I-881",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-881.pdf",
+			"description": "(PDF, 757.27 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-881instr.pdf",
+			"title": "Instructions for Form I-881",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-881instr.pdf",
+			"description": "(PDF, 431.99 KB)",
+			"file-online": false
+		}
+	]
+}

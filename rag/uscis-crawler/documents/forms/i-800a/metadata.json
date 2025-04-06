@@ -72,6 +72,17 @@
 				}
 			]
 		},
+		"i-800asup2": {
+			"id": "i-800asup2",
+			"topic_id": "97318",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97318",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		},
 		"i-800asup3": {
 			"id": "i-800asup3",
 			"topic_id": "97319",

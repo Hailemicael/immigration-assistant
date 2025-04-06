@@ -7,9 +7,9 @@ from pathlib import Path
 
 
 import asyncpg
-import pydantic_core
 from sentence_transformers import SentenceTransformer
 from pydantic import BaseModel, TypeAdapter
+
 import helpers
 
 
@@ -26,7 +26,7 @@ class LegislationMetadata(BaseModel):
 
 legislation_metadata_adapter = TypeAdapter(LegislationMetadata)
 
-async def populate_db(forms_dir: Path, pool: asyncpg.Pool, model: SentenceTransformer) -> None:
+async def populate_db(model:SentenceTransformer, pool: asyncpg.Pool, forms_dir: Path) -> None:
     """Build the forms database from JSON files."""
     print("Populating Legislation tables...")
     # If no JSON files exist yet, create a sample file
@@ -84,7 +84,12 @@ async def process_legislation_xhtml(
                         print(f"Skipping existing entry: {metadata.act} - {metadata.code} - chunk: {i}")
                         continue
 
-                    embedding_json = helpers.generate_embeddings(model, metadata.description)
+                    context = {
+                        "act": metadata.act,
+                        "code": metadata.code,
+                        "description": metadata.description,
+                    }
+                    embedding_json = helpers.generate_embeddings(model, metadata.description, context)
                     # Insert into database
                     await conn.execute(
                         '''
@@ -128,3 +133,66 @@ async def process_legislation_xhtml(
                 except Exception as e:
                     print("An error occurred, rolling back the transaction:", e)
                     raise
+
+async def search(model: SentenceTransformer, pool: asyncpg.Pool, search_query: str, limit: int = 10):
+    """
+    Search for immigration legislation based on query similarity.
+    Returns legislation objects with act, code, description, relevant chunks, and links.
+    Searches both legislation descriptions and content chunks.
+
+    Args:
+        model: SentenceTransformer model for encoding the search query
+        pool: Database connection pool
+        search_query: Query string to search for
+        limit: Maximum number of results to return
+
+    Returns:
+        List of legislation objects with relevant content and metadata
+    """
+    print(f"Searching legislation for: {search_query}")
+
+    # Generate embedding for the search query
+    embedding_json = helpers.generate_embeddings(model, search_query)
+
+    # Execute the query that fetches legislation, chunks, and links
+    rows = await pool.fetch(
+        helpers.read_file_to_string("./sql/search-legislation.sql"),
+        embedding_json,
+        limit
+    )
+
+    # Process and organize the results
+    legislation_dict = {}
+
+    for row in rows:
+        key = f"{row['act']}:{row['code']}"
+
+        # Create a new legislation object if it doesn't exist
+        if key not in legislation_dict:
+            legislation_dict[key] = {
+                'act': row['act'],
+                'code': row['code'],
+                'description': row['description'],
+                'link': row['link'],
+                'chunks': [],
+                'description_similarity': row['description_similarity'],
+                'combined_score': row['combined_score'],
+                'match_source': row['match_source']
+            }
+
+        # Add the chunk to the legislation (if not NULL)
+        if row['content_chunk']:
+            legislation_dict[key]['chunks'].append({
+                'content': row['content_chunk'],
+                'similarity_score': row['content_similarity']
+            })
+
+    # Convert the dictionary to a list of legislation objects
+    results = list(legislation_dict.values())
+
+    # Sort by the legislation's combined similarity score
+    results.sort(key=lambda x: x['combined_score'])
+
+    print(f"\nFound {len(results)} matching legislation items")
+
+    return results

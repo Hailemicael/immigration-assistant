@@ -1,0 +1,23 @@
+{
+	"id": "I-192 ",
+	"title": "I-192 | Application for Advance Permission to Enter as a Nonimmigrant",
+	"link": "https://www.uscis.gov/i-192",
+	"description": "Use this form if you want to apply for advance permission to temporarily enter the United States and you are an: Inadmissible nonimmigrant and already have the appropriate documents; or Applicant for T or U nonimmigrant status.",
+	"file-online": false,
+	"forms": [
+		{
+			"id": "i-192.pdf",
+			"title": "Form I-192",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-192.pdf",
+			"description": "(PDF, 440.84 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-192instr.pdf",
+			"title": "Instructions for Form I-192",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-192instr.pdf",
+			"description": "(PDF, 452.51 KB)",
+			"file-online": false
+		}
+	]
+}

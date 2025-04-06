@@ -1,0 +1,23 @@
+{
+	"id": "I-864 ",
+	"title": "I-864 | Affidavit of Support Under Section 213A of the INA",
+	"link": "https://www.uscis.gov/i-864",
+	"description": "Most family-based immigrants and some employment-based immigrants use this form to show they have adequate means of financial support and are not likely to rely on the U.S. government for financial support.",
+	"file-online": false,
+	"forms": [
+		{
+			"id": "i-864.pdf",
+			"title": "Form I-864",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-864.pdf",
+			"description": "(PDF, 527.95 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-864instr.pdf",
+			"title": "Instructions for Form I-864",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-864instr.pdf",
+			"description": "(PDF, 479.67 KB)",
+			"file-online": false
+		}
+	]
+}

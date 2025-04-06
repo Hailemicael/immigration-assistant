@@ -1,0 +1,23 @@
+{
+	"id": "G-1566 ",
+	"title": "G-1566 | Request for Certificate of Non-Existence",
+	"link": "https://www.uscis.gov/g-1566",
+	"description": "Use Form G-1566 to determine if specific immigration records exist within our database. If we determine the records you inquired about do not exist, we will issue a Certificate of Non-Existence.",
+	"file-online": false,
+	"forms": [
+		{
+			"id": "g-1566.pdf",
+			"title": "Form G-1566",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/g-1566.pdf",
+			"description": "(PDF, 357.7 KB)",
+			"file-online": false
+		},
+		{
+			"id": "g-1566instr.pdf",
+			"title": "Instructions for Form G-1566",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/g-1566instr.pdf",
+			"description": "(PDF, 235.12 KB)",
+			"file-online": false
+		}
+	]
+}

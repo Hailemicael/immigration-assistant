@@ -2,18 +2,24 @@ CREATE EXTENSION IF NOT EXISTS vector;
 
 CREATE TABLE IF NOT EXISTS form_pdfs
 (
-    id              SERIAL PRIMARY KEY,
-    form_id         TEXT NOT NULL,
-    file_name       TEXT NOT NULL,
-    file_url        TEXT NOT NULL,
-    title           TEXT NOT NULL,
-    metadata        TEXT NOT NULL,
-    is_instructions boolean default false
+    id                   SERIAL PRIMARY KEY,
+    form_id              TEXT NOT NULL,
+    file_name            TEXT NOT NULL,
+    file_url             TEXT NOT NULL,
+    title                TEXT NOT NULL,
+    description          TEXT NOT NULL,
+    metadata             TEXT NOT NULL,
+    is_instructions      BOOLEAN DEFAULT false,
+    title_embedding      VECTOR(384) NOT NULL,
+    description_embedding VECTOR(384) NOT NULL
 );
 
 CREATE INDEX IF NOT EXISTS idx_form_pdfs_form_id ON form_pdfs (form_id);
+CREATE INDEX IF NOT EXISTS idx_form_pdf_title_embedding ON form_pdfs USING hnsw (title_embedding vector_cosine_ops);
+CREATE INDEX IF NOT EXISTS idx_form_pdf_description_embedding ON form_pdfs USING hnsw (description_embedding vector_cosine_ops);
 
-CREATE TABLE IF NOT EXISTS form_chunks
+
+CREATE TABLE IF NOT EXISTS form_pdf_chunks
 (
     id              SERIAL PRIMARY KEY,
     form_id         TEXT        NOT NULL,
@@ -22,8 +28,8 @@ CREATE TABLE IF NOT EXISTS form_chunks
     chunk_embedding VECTOR(384) NOT NULL
 );
 
-CREATE INDEX IF NOT EXISTS idx_form_chunks_form_id ON form_chunks (form_id);
-CREATE INDEX IF NOT EXISTS idx_form_chunks_chunk_embedding ON form_chunks USING hnsw (chunk_embedding vector_cosine_ops);
+CREATE INDEX IF NOT EXISTS idx_form_pdf_chunks_form_id ON form_pdf_chunks (form_id);
+CREATE INDEX IF NOT EXISTS idx_form_pdf_chunks_chunk_embedding ON form_pdf_chunks USING hnsw (chunk_embedding vector_cosine_ops);
 
 CREATE TABLE IF NOT EXISTS form_fees
 (

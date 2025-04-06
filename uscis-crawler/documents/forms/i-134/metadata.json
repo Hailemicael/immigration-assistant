@@ -1,0 +1,23 @@
+{
+	"id": "I-134 ",
+	"title": "I-134 | Declaration of Financial Support",
+	"link": "https://www.uscis.gov/i-134",
+	"description": "Use this form to agree to provide financial support to a beneficiary of certain immigration benefits for the duration of their temporary stay in the United States.  You must file a separate Form I-134 for each beneficiary.",
+	"file-online": false,
+	"forms": [
+		{
+			"id": "i-134.pdf",
+			"title": "Form I-134",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-134.pdf",
+			"description": "(PDF, 489.68 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-134instr.pdf",
+			"title": "Instructions for Form I-134",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-134instr.pdf",
+			"description": "(PDF, 345.97 KB)",
+			"file-online": false
+		}
+	]
+}

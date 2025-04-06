@@ -1,0 +1,23 @@
+{
+	"id": "I-102 ",
+	"title": "I-102 | Application for Replacement/Initial Nonimmigrant Arrival-Departure Document",
+	"link": "https://www.uscis.gov/i-102",
+	"description": "Use this form if you are a nonimmigrant and need to apply for a new or replacement Form I-94 or I-95, Nonimmigrant Arrival-Departure Document.",
+	"file-online": false,
+	"forms": [
+		{
+			"id": "i-102.pdf",
+			"title": "Form I-102",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-102.pdf",
+			"description": "(PDF, 430.32 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-102instr.pdf",
+			"title": "Instructions for Form I-102",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-102instr.pdf",
+			"description": "(PDF, 320.3 KB)",
+			"file-online": false
+		}
+	]
+}

@@ -1,4 +1,6 @@
+import json
 from pathlib import Path
+from typing import Dict, Any
 
 import pydantic_core
 from PyPDF2 import PdfReader
@@ -66,6 +68,10 @@ def chunk_html_content(content: str, features: str, chunk_size: int = 512) -> li
     return chunks
 
 def generate_embeddings(model: SentenceTransformer, content: str) -> str:
+    # if context is None:
+    #     context = {}
+    #
+    # context[content] = content
     # Use sentence-transformers to generate the embedding
     embedding_vector = model.encode(content)
 

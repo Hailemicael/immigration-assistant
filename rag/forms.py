@@ -5,14 +5,12 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Dict, Optional
-from bs4 import BeautifulSoup
 
 import asyncpg
 import pydantic_core
 from sentence_transformers import SentenceTransformer
 from pydantic import BaseModel, TypeAdapter
 import helpers
-
 
 @dataclass
 class Deps:
@@ -50,7 +48,7 @@ class FormMetadata(BaseModel):
 
 form_metadata_adapter = TypeAdapter(FormMetadata)
 
-async def populate_db(forms_dir: Path, pool: asyncpg.Pool, model: SentenceTransformer) -> None:
+async def populate_db(model: SentenceTransformer, pool: asyncpg.Pool, forms_dir: Path) -> None:
     """Build the forms database from JSON files."""
     print("Populating Forms tables...")
     # If no JSON files exist yet, create a sample file
@@ -97,8 +95,12 @@ async  def process_form_pdfs(
         metadata_path: Path,
         metadata: FormMetadata,
 ) -> None:
-    for form in metadata.forms:
 
+    print(f"Generating description embedding for: {metadata.id}")
+    description_embedding_json = helpers.generate_embeddings(model, metadata.description)
+    for form in metadata.forms:
+        print(f"Generating title embedding for: {metadata.id} - {form.id}")
+        title_embedding_json = helpers.generate_embeddings(model, form.title)
         # Check if this pdf already exists
         exists = await pool.fetchval(
             'SELECT 1 FROM form_pdfs WHERE form_id = $1 AND file_name = $2',
@@ -113,17 +115,20 @@ async  def process_form_pdfs(
            async with conn.transaction():
                 try:
                     await conn.execute(
-                        '''
-                        INSERT INTO form_pdfs (form_id, file_name, file_url, title, metadata, is_instructions)
-                        VALUES ($1, $2, $3, $4, $5, $6)
-                        ''',
-                                    metadata.id,
-                                    form.id,
-                                    form.link,
-                                    form.title,
-                                    form.description,
-                                    "Instructions" in form.title or "instr" in form.id
-                                )
+                            '''
+                            INSERT INTO form_pdfs (form_id, file_name, file_url, title, description, metadata, is_instructions, title_embedding, description_embedding)
+                            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+                            ''',
+                                        metadata.id,
+                                        form.id,
+                                        form.link,
+                                        form.title,
+                                        metadata.description,
+                                        form.description,
+                                        "Instructions" in form.title or "instr" in form.id,
+                                        title_embedding_json,
+                                        description_embedding_json,
+                                    )
 
                     print(f"Inserted: {metadata.id} - {form.id}")
                     try:
@@ -136,7 +141,7 @@ async  def process_form_pdfs(
                     for i, chunk in enumerate(chunks):
                         # Check if this filing already exists
                         exists = await conn.fetchval(
-                            'SELECT 1 FROM form_chunks WHERE form_name = $1 AND content_chunk = $2',
+                            'SELECT 1 FROM form_pdf_chunks WHERE form_name = $1 AND content_chunk = $2',
                             form.id, chunk
                         )
 
@@ -147,16 +152,18 @@ async  def process_form_pdfs(
                         # Generate embedding for the category text
                         print(f"Generating embedding for: {metadata.id} - {form.id} - chunk: {i}")
 
-                        # Use sentence-transformers to generate the embedding
-                        embedding_vector = model.encode(chunk)
+                        context = {
+                            "form_id": [metadata.id, form.id],
+                            "form_title": [metadata.title, form.title],
+                            "description": metadata.description,
 
-                        # Convert numpy array to list for JSON serialization
-                        embedding_list = embedding_vector.tolist()
-                        embedding_json = pydantic_core.to_json(embedding_list).decode()
+                        }
+                        embedding_json = helpers.generate_embeddings(model, chunk)
+
                         # Insert into database
                         await conn.execute(
                             '''
-                            INSERT INTO form_chunks (form_id, form_name, content_chunk, chunk_embedding)
+                            INSERT INTO form_pdf_chunks (form_id, form_name, content_chunk, chunk_embedding)
                             VALUES ($1, $2, $3, $4)
                             ''',
                             metadata.id,
@@ -214,13 +221,13 @@ async def process_form_filings(
 
                         # Generate embedding for the category text
                         print(f"Generating embedding for: {filing.category}")
+                        context = {
+                            "form_id": metadata.id,
+                            "form_title": metadata.title,
+                            "description": metadata.description,
+                        }
+                        embedding_json = helpers.generate_embeddings(model, filing.category)
 
-                        # Use sentence-transformers to generate the embedding
-                        embedding_vector = model.encode(filing.category)
-
-                        # Convert numpy array to list for JSON serialization
-                        embedding_list = embedding_vector.tolist()
-                        embedding_json = pydantic_core.to_json(embedding_list).decode()
                         # Insert into database
                         await conn.execute(
                             '''
@@ -272,12 +279,13 @@ async def process_form_html(
                         # Generate embedding for the category text
                         print(f"Generating embedding for: {metadata.id} - {html_path.name} - chunk: {i}")
 
-                        # Use sentence-transformers to generate the embedding
-                        embedding_vector = model.encode(chunk)
+                        context = {
+                            "form_id": metadata.id,
+                            "form_title": metadata.title,
+                            "description": metadata.description,
+                        }
+                        embedding_json = helpers.generate_embeddings(model, chunk)
 
-                        # Convert numpy array to list for JSON serialization
-                        embedding_list = embedding_vector.tolist()
-                        embedding_json = pydantic_core.to_json(embedding_list).decode()
                         # Insert into database
                         await conn.execute(
                             '''
@@ -294,40 +302,62 @@ async def process_form_html(
                         print("An error occurred, rolling back the transaction:", e)
                         raise
 
-# async def search_forms(search_query: str):
-#     """Search for forms based on category similarity."""
-#     print(f"Searching for: {search_query}")
-#
-#     # Load the same model used for encoding
-#     model = SentenceTransformer('all-MiniLM-L6-v2')
-#
-#     # Generate embedding for the search query
-#     embedding_vector = model.encode(search_query)
-#
-#     # Convert numpy array to list for JSON serialization
-#     embedding_list = embedding_vector.tolist()
-#     embedding_json = pydantic_core.to_json(embedding_list).decode()
-#     # print(len(embedding_json))
-#     async with database_connect(False) as pool:
-#         # Search for similar categories
-#         rows = await pool.fetch(
-#             '''
-#             SELECT form_id, category, paper_fee, online_fee,
-#                    1 - (category_embedding <=> $1) AS similarity
-#             FROM form_filings
-#             ORDER BY similarity DESC
-#             LIMIT 10
-#             ''',
-#             embedding_json,
-#         )
-#
-#         print("\nSearch results:")
-#         print("=" * 80)
-#
-#         for row in rows:
-#             print(f"Form ID: {row['form_id']}")
-#             print(f"Category: {row['category']}")
-#             print(f"Paper Fee: {row['paper_fee']}")
-#             print(f"Online Fee: {row['online_fee']}")
-#             print(f"Similarity Score: {row['similarity']:.4f}")
-#             print("-" * 80)
+async def search(model: SentenceTransformer,  pool: asyncpg.Pool, search_query: str, limit: int = 10):
+    """
+    Search for immigration forms based on query similarity.
+    Returns form objects with form ID, links, relevant chunks, and appropriate fees.
+    """
+    print(f"Searching for: {search_query}")
+
+
+    # Generate embedding for the search query
+    embedding_json = helpers.generate_embeddings(model, search_query)
+
+    async with pool:
+        # Execute the optimized query that fetches forms, chunks, links and fees
+        rows = await pool.fetch(
+            helpers.read_file_to_string("./sql/search-forms.sql"),
+            embedding_json,
+            limit
+        )
+
+        forms_dict = {}
+
+        for row in rows:
+            form_id = row['form_id']
+
+            # Create a new form object if it doesn't exist
+            if form_id not in forms_dict:
+                forms_dict[form_id] = {
+                    'form_id': form_id,
+                    'form_title': row['form_title'],
+                    # 'form_description': row['form_description'],
+                    'form_url': row['form_url'],
+                    'instructions_url': row['instructions_url'],
+                    'fee_category': row['category'],
+                    'paper_fee': row['paper_fee'],
+                    'online_fee': row['online_fee'],
+                    'topic_id': row['topic_id'],
+                    'chunks': [],
+                    'title_similarity': row['title_similarity'],
+                    # 'description_similarity': row['description_similarity'],
+                    'combined_score': row['combined_score'],
+                    # 'match_source': row['match_source']
+                }
+
+            # Add the chunk to the form (if not NULL)
+            if row['content_chunk']:
+                forms_dict[form_id]['chunks'].append({
+                    'content': row['content_chunk'],
+                    'similarity_score': row['content_similarity']
+                })
+
+        # Convert the dictionary to a list of form objects
+        results = list(forms_dict.values())
+
+        # Sort by the form's combined similarity score
+        results.sort(key=lambda x: x['combined_score'])
+
+        print(f"\nFound {len(results)} matching forms")
+
+        return results

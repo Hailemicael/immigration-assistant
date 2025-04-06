@@ -83,25 +83,6 @@
 					"paper_fee": "$0 (through Sept. 30, 2025)"
 				}
 			]
-		},
-		"i-485supa": {
-			"id": "i-485supa",
-			"topic_id": "97287",
-			"link": "https://www.uscis.gov/g-1055?topic_id=97287",
-			"filings": [
-				{
-					"category": "General Filing",
-					"paper_fee": "$1,000"
-				},
-				{
-					"category": "If you are an unmarried child under 17 years of age.",
-					"paper_fee": "$0"
-				},
-				{
-					"category": "If you are the spouse or unmarried child under 21 years of age of a legalized alien and have attached a copy of a USCIS receipt or approval notice for a properly filed Form I-817, Application for Family Unity Benefits.",
-					"paper_fee": "$0"
-				}
-			]
 		}
 	}
 }
