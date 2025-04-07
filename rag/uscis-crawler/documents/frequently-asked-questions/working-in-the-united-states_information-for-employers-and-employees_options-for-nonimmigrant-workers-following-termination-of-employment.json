@@ -1,0 +1,758 @@
+[
+	{
+		"question": "Q: Why is the 60-day grace period important?",
+		"answer": "The grace period also provides time for certain spouses of nonimmigrant workers to continue their own employment if they have an Employment Authorization Document or are employment-authorized incident to status.\nWithin the grace period, eligible H-1B nonimmigrant workers may also begin employment again as soon as a new employer properly files a new H-1B petition, rather than waiting for the new petition to be approved. A worker filing for employment in another classification must wait to begin employment until the new petition is approved, but given the availability of premium processing, the wait for petition adjudication is often less than 15 business days."
+	},
+	{
+		"question": "Q: When does the 60-day grace period start?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How do I apply for the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Does the 60-day grace period apply to me if I voluntarily leave my job?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How many times can I use the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What is my status during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I work during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What if my employer rehires me during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I travel during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q. What happens if my employment is terminated while I am outside of the United States?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Is my dependent spouse’s Employment Authorization Document (EAD) valid during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens to my post-completion Optional Practical Training (OPT) EAD if my employment is terminated?",
+		"answer": "There are two kinds of job portability, or “porting,” available based on two different kinds of employer petitions:"
+	},
+	{
+		"question": "Q: Can I port to a new H-1B employer during the grace period?",
+		"answer": "If you are in another status apart from H-1B or use the grace period to change your status from H-1B to another status, you must wait for the petition with the new employer to be approved before beginning employment under the new status. As described below, however, if the petition or application for change of status is non-frivolous and filed before the end of the grace period (or your authorized validity period, whichever is shorter), you may remain in the United States in an authorized period of stay.\nAlso note that premium processing can considerably reduce the wait time for adjudication of Form I-129, Petition for Nonimmigrant Worker."
+	},
+	{
+		"question": "Q: If I find a new H-1B employer, can my new employer file the new H-1B petition without a certified Labor Condition Application (LCA)?",
+		"answer": "The timely filing of a non-frivolous application to change status will “toll,” or stop, the accrual of unlawful presence until the application is adjudicated, if the applicant did not work without authorization, either before the application was filed or while it was pending, and the applicant maintained their status prior to the filing of the request for change of status.\nFor example, if an individual files a non-frivolous application to change status before the end of the applicant’s maximum 60-day grace period, they will not accrue unlawful presence while the application remains pending, even after the maximum 60-day grace period has elapsed (again, as long as they did not work without authorization either before the application was filed or while it was pending). If the application is ultimately approved, then the individual’s status is changed, and the individual is considered to have been in a period of authorized stay for the entire time the application was pending.  If the application is denied, then the individual starts to accrue unlawful presence the day after the denial decision. Please see our Unlawful Presence and Inadmissibility page for more information.\nWorkers may use the maximum 60-day grace period to apply to change their nonimmigrant status, which, depending on eligibility, may include:"
+	},
+	{
+		"question": "Q: Can my change of status petition or application be expedited?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How soon can I start working if I change my status to an employment-authorized dependent status?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Will my pending I-539 change of status application to B-1 or B-2 be prioritized if I find a new employer who files an I-129 petition with a request for premium processing service?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I file a change of status to B-1 or B-2 if I have a pending or approved I-140?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I look for a new job while in B-1 or B-2 status?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if my prospective employer’s new petition or my application is denied? Can I file an appeal or a motion?",
+		"answer": "Some workers may be eligible to file a self-petitioned immigrant visa petition concurrently with an adjustment of status application. Examples of immigrant classifications that are eligible for self-petitioning include EB-1 Extraordinary Ability and EB-5 Immigrant Investor. Workers with a pending adjustment application are generally eligible to remain in the United States in a period of authorized stay and obtain an Employment Authorization Document (EAD).\nWorkers who are the beneficiary of an approved employment-based immigrant visa petition (Form I-140) may be eligible for a compelling circumstances Employment Authorization Document (EAD) for up to one year if they:\nA compelling circumstances EAD is a discretionary stopgap measure intended to assist certain individuals on the path to lawful permanent resident status by preventing the need to abruptly leave the United States. Workers who begin employment on a compelling circumstances EAD will no longer be maintaining nonimmigrant status but generally will be in a period of authorized stay and will not accrue unlawful presence in the United States while the EAD is valid. More information about eligibility requirements and the application process can be found on our Employment Authorization in Compelling Circumstances page."
+	},
+	{
+		"question": "Q: What is a compelling circumstances EAD?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What is my immigration status and work authorization if I’m within the grace period while a compelling circumstances EAD application is pending?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if I have a compelling circumstances EAD application approved, but a change of status application is still pending?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What will happen if I make an expedite request for my compelling circumstances EAD application?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I still file an Adjustment of Status application (Form I-485) if I am working based on a compelling circumstances EAD?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if I am working based on a compelling circumstances EAD and a new employer files a Form I-129 on my behalf?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Are my spouse and children eligible for a compelling circumstances EAD?",
+		"answer": "Some circumstances may warrant expedited adjudication, including applications to change status to a dependent status that includes eligibility for employment authorization. For example, an application to change status from H-1B to L-2 may be eligible for expedited adjudication to prevent severe financial loss. See the How to Make an Expedite Request page for additional information. Please note that USCIS generally does not consider expedite requests for petitions and applications if premium processing service is available.\nNotwithstanding the above options to extend a period of authorized stay, workers may choose to depart the United States. For H-1B and O workers who chose to depart the United States after involuntary cessation of employment, the H-1B employer or the O employer and O petitioner, as applicable, must pay the reasonable costs of transportation to the worker’s last place of foreign residence. In addition, for O workers, both the employer and the petitioner are jointly and severally liable for the reasonable cost of return transportation. (See 8 CFR 214.2(h)(4)(iii)(E) and 8 CFR 214.2(o)(16).)\nOnce abroad, H-1B holders may seek U.S. employment and readmission to the United States for any remaining period of their H-1B status. Those seeking another classification for which they may be eligible can complete the application or petition process abroad and seek readmission to the United States.\nRegulations permit a discretionary grace period that allows workers in E-1, E-2, E-3, H-1B, H-1B1, L-1, O-1, or TN classifications (and their dependents) to be considered as having maintained status in that same classification after the end of employment for up to 60 consecutive calendar days or until the end of the authorized nonimmigrant validity period, whichever is shorter (the “maximum 60-day grace period”). See 8 CFR 214.1(l)(2).\nThe worker can preserve their period of authorized stay in the United States, however, as long as the worker timely files, if eligible, an application for a change of nonimmigrant status, an application for adjustment of status, or an application for a compelling circumstances employment authorization document, or if the worker is the beneficiary of a nonfrivolous petition to change employer before their nonimmigrant status expires.\nIf the worker is an eligible H-1B nonimmigrant and an employer files a new nonfrivolous H-1B petition on their behalf, the worker can begin work immediately after USCIS receives the petition and continue to maintain their H-1B status.\nPlease see the additional sections below for a detailed overview of these options."
+	},
+	{
+		"question": "Q: Why is the 60-day grace period important?",
+		"answer": "The grace period also provides time for certain spouses of nonimmigrant workers to continue their own employment if they have an Employment Authorization Document or are employment-authorized incident to status.\nWithin the grace period, eligible H-1B nonimmigrant workers may also begin employment again as soon as a new employer properly files a new H-1B petition, rather than waiting for the new petition to be approved. A worker filing for employment in another classification must wait to begin employment until the new petition is approved, but given the availability of premium processing, the wait for petition adjudication is often less than 15 business days."
+	},
+	{
+		"question": "Q: When does the 60-day grace period start?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How do I apply for the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Does the 60-day grace period apply to me if I voluntarily leave my job?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How many times can I use the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What is my status during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I work during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What if my employer rehires me during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I travel during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q. What happens if my employment is terminated while I am outside of the United States?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Is my dependent spouse’s Employment Authorization Document (EAD) valid during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens to my post-completion Optional Practical Training (OPT) EAD if my employment is terminated?",
+		"answer": "There are two kinds of job portability, or “porting,” available based on two different kinds of employer petitions:"
+	},
+	{
+		"question": "Q: Can I port to a new H-1B employer during the grace period?",
+		"answer": "If you are in another status apart from H-1B or use the grace period to change your status from H-1B to another status, you must wait for the petition with the new employer to be approved before beginning employment under the new status. As described below, however, if the petition or application for change of status is non-frivolous and filed before the end of the grace period (or your authorized validity period, whichever is shorter), you may remain in the United States in an authorized period of stay.\nAlso note that premium processing can considerably reduce the wait time for adjudication of Form I-129, Petition for Nonimmigrant Worker."
+	},
+	{
+		"question": "Q: If I find a new H-1B employer, can my new employer file the new H-1B petition without a certified Labor Condition Application (LCA)?",
+		"answer": "The timely filing of a non-frivolous application to change status will “toll,” or stop, the accrual of unlawful presence until the application is adjudicated, if the applicant did not work without authorization, either before the application was filed or while it was pending, and the applicant maintained their status prior to the filing of the request for change of status.\nFor example, if an individual files a non-frivolous application to change status before the end of the applicant’s maximum 60-day grace period, they will not accrue unlawful presence while the application remains pending, even after the maximum 60-day grace period has elapsed (again, as long as they did not work without authorization either before the application was filed or while it was pending). If the application is ultimately approved, then the individual’s status is changed, and the individual is considered to have been in a period of authorized stay for the entire time the application was pending.  If the application is denied, then the individual starts to accrue unlawful presence the day after the denial decision. Please see our Unlawful Presence and Inadmissibility page for more information.\nWorkers may use the maximum 60-day grace period to apply to change their nonimmigrant status, which, depending on eligibility, may include:"
+	},
+	{
+		"question": "Q: Can my change of status petition or application be expedited?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How soon can I start working if I change my status to an employment-authorized dependent status?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Will my pending I-539 change of status application to B-1 or B-2 be prioritized if I find a new employer who files an I-129 petition with a request for premium processing service?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I file a change of status to B-1 or B-2 if I have a pending or approved I-140?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I look for a new job while in B-1 or B-2 status?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if my prospective employer’s new petition or my application is denied? Can I file an appeal or a motion?",
+		"answer": "Some workers may be eligible to file a self-petitioned immigrant visa petition concurrently with an adjustment of status application. Examples of immigrant classifications that are eligible for self-petitioning include EB-1 Extraordinary Ability and EB-5 Immigrant Investor. Workers with a pending adjustment application are generally eligible to remain in the United States in a period of authorized stay and obtain an Employment Authorization Document (EAD).\nWorkers who are the beneficiary of an approved employment-based immigrant visa petition (Form I-140) may be eligible for a compelling circumstances Employment Authorization Document (EAD) for up to one year if they:\nA compelling circumstances EAD is a discretionary stopgap measure intended to assist certain individuals on the path to lawful permanent resident status by preventing the need to abruptly leave the United States. Workers who begin employment on a compelling circumstances EAD will no longer be maintaining nonimmigrant status but generally will be in a period of authorized stay and will not accrue unlawful presence in the United States while the EAD is valid. More information about eligibility requirements and the application process can be found on our Employment Authorization in Compelling Circumstances page."
+	},
+	{
+		"question": "Q: What is a compelling circumstances EAD?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What is my immigration status and work authorization if I’m within the grace period while a compelling circumstances EAD application is pending?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if I have a compelling circumstances EAD application approved, but a change of status application is still pending?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What will happen if I make an expedite request for my compelling circumstances EAD application?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I still file an Adjustment of Status application (Form I-485) if I am working based on a compelling circumstances EAD?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if I am working based on a compelling circumstances EAD and a new employer files a Form I-129 on my behalf?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Are my spouse and children eligible for a compelling circumstances EAD?",
+		"answer": "Some circumstances may warrant expedited adjudication, including applications to change status to a dependent status that includes eligibility for employment authorization. For example, an application to change status from H-1B to L-2 may be eligible for expedited adjudication to prevent severe financial loss. See the How to Make an Expedite Request page for additional information. Please note that USCIS generally does not consider expedite requests for petitions and applications if premium processing service is available.\nNotwithstanding the above options to extend a period of authorized stay, workers may choose to depart the United States. For H-1B and O workers who chose to depart the United States after involuntary cessation of employment, the H-1B employer or the O employer and O petitioner, as applicable, must pay the reasonable costs of transportation to the worker’s last place of foreign residence. In addition, for O workers, both the employer and the petitioner are jointly and severally liable for the reasonable cost of return transportation. (See 8 CFR 214.2(h)(4)(iii)(E) and 8 CFR 214.2(o)(16).)\nOnce abroad, H-1B holders may seek U.S. employment and readmission to the United States for any remaining period of their H-1B status. Those seeking another classification for which they may be eligible can complete the application or petition process abroad and seek readmission to the United States.\nRegulations permit a discretionary grace period that allows workers in E-1, E-2, E-3, H-1B, H-1B1, L-1, O-1, or TN classifications (and their dependents) to be considered as having maintained status in that same classification after the end of employment for up to 60 consecutive calendar days or until the end of the authorized nonimmigrant validity period, whichever is shorter (the “maximum 60-day grace period”). See 8 CFR 214.1(l)(2).\nThe worker can preserve their period of authorized stay in the United States, however, as long as the worker timely files, if eligible, an application for a change of nonimmigrant status, an application for adjustment of status, or an application for a compelling circumstances employment authorization document, or if the worker is the beneficiary of a nonfrivolous petition to change employer before their nonimmigrant status expires.\nIf the worker is an eligible H-1B nonimmigrant and an employer files a new nonfrivolous H-1B petition on their behalf, the worker can begin work immediately after USCIS receives the petition and continue to maintain their H-1B status.\nPlease see the additional sections below for a detailed overview of these options."
+	},
+	{
+		"question": "Q: Why is the 60-day grace period important?",
+		"answer": "The grace period also provides time for certain spouses of nonimmigrant workers to continue their own employment if they have an Employment Authorization Document or are employment-authorized incident to status.\nWithin the grace period, eligible H-1B nonimmigrant workers may also begin employment again as soon as a new employer properly files a new H-1B petition, rather than waiting for the new petition to be approved. A worker filing for employment in another classification must wait to begin employment until the new petition is approved, but given the availability of premium processing, the wait for petition adjudication is often less than 15 business days."
+	},
+	{
+		"question": "Q: When does the 60-day grace period start?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How do I apply for the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Does the 60-day grace period apply to me if I voluntarily leave my job?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How many times can I use the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What is my status during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I work during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What if my employer rehires me during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I travel during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q. What happens if my employment is terminated while I am outside of the United States?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Is my dependent spouse’s Employment Authorization Document (EAD) valid during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens to my post-completion Optional Practical Training (OPT) EAD if my employment is terminated?",
+		"answer": "There are two kinds of job portability, or “porting,” available based on two different kinds of employer petitions:"
+	},
+	{
+		"question": "Q: Can I port to a new H-1B employer during the grace period?",
+		"answer": "If you are in another status apart from H-1B or use the grace period to change your status from H-1B to another status, you must wait for the petition with the new employer to be approved before beginning employment under the new status. As described below, however, if the petition or application for change of status is non-frivolous and filed before the end of the grace period (or your authorized validity period, whichever is shorter), you may remain in the United States in an authorized period of stay.\nAlso note that premium processing can considerably reduce the wait time for adjudication of Form I-129, Petition for Nonimmigrant Worker."
+	},
+	{
+		"question": "Q: If I find a new H-1B employer, can my new employer file the new H-1B petition without a certified Labor Condition Application (LCA)?",
+		"answer": "The timely filing of a non-frivolous application to change status will “toll,” or stop, the accrual of unlawful presence until the application is adjudicated, if the applicant did not work without authorization, either before the application was filed or while it was pending, and the applicant maintained their status prior to the filing of the request for change of status.\nFor example, if an individual files a non-frivolous application to change status before the end of the applicant’s maximum 60-day grace period, they will not accrue unlawful presence while the application remains pending, even after the maximum 60-day grace period has elapsed (again, as long as they did not work without authorization either before the application was filed or while it was pending). If the application is ultimately approved, then the individual’s status is changed, and the individual is considered to have been in a period of authorized stay for the entire time the application was pending.  If the application is denied, then the individual starts to accrue unlawful presence the day after the denial decision. Please see our Unlawful Presence and Inadmissibility page for more information.\nWorkers may use the maximum 60-day grace period to apply to change their nonimmigrant status, which, depending on eligibility, may include:"
+	},
+	{
+		"question": "Q: Can my change of status petition or application be expedited?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How soon can I start working if I change my status to an employment-authorized dependent status?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Will my pending I-539 change of status application to B-1 or B-2 be prioritized if I find a new employer who files an I-129 petition with a request for premium processing service?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I file a change of status to B-1 or B-2 if I have a pending or approved I-140?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I look for a new job while in B-1 or B-2 status?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if my prospective employer’s new petition or my application is denied? Can I file an appeal or a motion?",
+		"answer": "Some workers may be eligible to file a self-petitioned immigrant visa petition concurrently with an adjustment of status application. Examples of immigrant classifications that are eligible for self-petitioning include EB-1 Extraordinary Ability and EB-5 Immigrant Investor. Workers with a pending adjustment application are generally eligible to remain in the United States in a period of authorized stay and obtain an Employment Authorization Document (EAD).\nWorkers who are the beneficiary of an approved employment-based immigrant visa petition (Form I-140) may be eligible for a compelling circumstances Employment Authorization Document (EAD) for up to one year if they:\nA compelling circumstances EAD is a discretionary stopgap measure intended to assist certain individuals on the path to lawful permanent resident status by preventing the need to abruptly leave the United States. Workers who begin employment on a compelling circumstances EAD will no longer be maintaining nonimmigrant status but generally will be in a period of authorized stay and will not accrue unlawful presence in the United States while the EAD is valid. More information about eligibility requirements and the application process can be found on our Employment Authorization in Compelling Circumstances page."
+	},
+	{
+		"question": "Q: What is a compelling circumstances EAD?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What is my immigration status and work authorization if I’m within the grace period while a compelling circumstances EAD application is pending?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if I have a compelling circumstances EAD application approved, but a change of status application is still pending?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What will happen if I make an expedite request for my compelling circumstances EAD application?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I still file an Adjustment of Status application (Form I-485) if I am working based on a compelling circumstances EAD?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if I am working based on a compelling circumstances EAD and a new employer files a Form I-129 on my behalf?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Are my spouse and children eligible for a compelling circumstances EAD?",
+		"answer": "Some circumstances may warrant expedited adjudication, including applications to change status to a dependent status that includes eligibility for employment authorization. For example, an application to change status from H-1B to L-2 may be eligible for expedited adjudication to prevent severe financial loss. See the How to Make an Expedite Request page for additional information. Please note that USCIS generally does not consider expedite requests for petitions and applications if premium processing service is available.\nNotwithstanding the above options to extend a period of authorized stay, workers may choose to depart the United States. For H-1B and O workers who chose to depart the United States after involuntary cessation of employment, the H-1B employer or the O employer and O petitioner, as applicable, must pay the reasonable costs of transportation to the worker’s last place of foreign residence. In addition, for O workers, both the employer and the petitioner are jointly and severally liable for the reasonable cost of return transportation. (See 8 CFR 214.2(h)(4)(iii)(E) and 8 CFR 214.2(o)(16).)\nOnce abroad, H-1B holders may seek U.S. employment and readmission to the United States for any remaining period of their H-1B status. Those seeking another classification for which they may be eligible can complete the application or petition process abroad and seek readmission to the United States.\nRegulations permit a discretionary grace period that allows workers in E-1, E-2, E-3, H-1B, H-1B1, L-1, O-1, or TN classifications (and their dependents) to be considered as having maintained status in that same classification after the end of employment for up to 60 consecutive calendar days or until the end of the authorized nonimmigrant validity period, whichever is shorter (the “maximum 60-day grace period”). See 8 CFR 214.1(l)(2).\nThe worker can preserve their period of authorized stay in the United States, however, as long as the worker timely files, if eligible, an application for a change of nonimmigrant status, an application for adjustment of status, or an application for a compelling circumstances employment authorization document, or if the worker is the beneficiary of a nonfrivolous petition to change employer before their nonimmigrant status expires.\nIf the worker is an eligible H-1B nonimmigrant and an employer files a new nonfrivolous H-1B petition on their behalf, the worker can begin work immediately after USCIS receives the petition and continue to maintain their H-1B status.\nPlease see the additional sections below for a detailed overview of these options."
+	},
+	{
+		"question": "Q: Why is the 60-day grace period important?",
+		"answer": "The grace period also provides time for certain spouses of nonimmigrant workers to continue their own employment if they have an Employment Authorization Document or are employment-authorized incident to status.\nWithin the grace period, eligible H-1B nonimmigrant workers may also begin employment again as soon as a new employer properly files a new H-1B petition, rather than waiting for the new petition to be approved. A worker filing for employment in another classification must wait to begin employment until the new petition is approved, but given the availability of premium processing, the wait for petition adjudication is often less than 15 business days."
+	},
+	{
+		"question": "Q: When does the 60-day grace period start?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How do I apply for the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Does the 60-day grace period apply to me if I voluntarily leave my job?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How many times can I use the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What is my status during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I work during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What if my employer rehires me during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I travel during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q. What happens if my employment is terminated while I am outside of the United States?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Is my dependent spouse’s Employment Authorization Document (EAD) valid during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens to my post-completion Optional Practical Training (OPT) EAD if my employment is terminated?",
+		"answer": "There are two kinds of job portability, or “porting,” available based on two different kinds of employer petitions:"
+	},
+	{
+		"question": "Q: Can I port to a new H-1B employer during the grace period?",
+		"answer": "If you are in another status apart from H-1B or use the grace period to change your status from H-1B to another status, you must wait for the petition with the new employer to be approved before beginning employment under the new status. As described below, however, if the petition or application for change of status is non-frivolous and filed before the end of the grace period (or your authorized validity period, whichever is shorter), you may remain in the United States in an authorized period of stay.\nAlso note that premium processing can considerably reduce the wait time for adjudication of Form I-129, Petition for Nonimmigrant Worker."
+	},
+	{
+		"question": "Q: If I find a new H-1B employer, can my new employer file the new H-1B petition without a certified Labor Condition Application (LCA)?",
+		"answer": "The timely filing of a non-frivolous application to change status will “toll,” or stop, the accrual of unlawful presence until the application is adjudicated, if the applicant did not work without authorization, either before the application was filed or while it was pending, and the applicant maintained their status prior to the filing of the request for change of status.\nFor example, if an individual files a non-frivolous application to change status before the end of the applicant’s maximum 60-day grace period, they will not accrue unlawful presence while the application remains pending, even after the maximum 60-day grace period has elapsed (again, as long as they did not work without authorization either before the application was filed or while it was pending). If the application is ultimately approved, then the individual’s status is changed, and the individual is considered to have been in a period of authorized stay for the entire time the application was pending.  If the application is denied, then the individual starts to accrue unlawful presence the day after the denial decision. Please see our Unlawful Presence and Inadmissibility page for more information.\nWorkers may use the maximum 60-day grace period to apply to change their nonimmigrant status, which, depending on eligibility, may include:"
+	},
+	{
+		"question": "Q: Can my change of status petition or application be expedited?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How soon can I start working if I change my status to an employment-authorized dependent status?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Will my pending I-539 change of status application to B-1 or B-2 be prioritized if I find a new employer who files an I-129 petition with a request for premium processing service?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I file a change of status to B-1 or B-2 if I have a pending or approved I-140?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I look for a new job while in B-1 or B-2 status?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if my prospective employer’s new petition or my application is denied? Can I file an appeal or a motion?",
+		"answer": "Some workers may be eligible to file a self-petitioned immigrant visa petition concurrently with an adjustment of status application. Examples of immigrant classifications that are eligible for self-petitioning include EB-1 Extraordinary Ability and EB-5 Immigrant Investor. Workers with a pending adjustment application are generally eligible to remain in the United States in a period of authorized stay and obtain an Employment Authorization Document (EAD).\nWorkers who are the beneficiary of an approved employment-based immigrant visa petition (Form I-140) may be eligible for a compelling circumstances Employment Authorization Document (EAD) for up to one year if they:\nA compelling circumstances EAD is a discretionary stopgap measure intended to assist certain individuals on the path to lawful permanent resident status by preventing the need to abruptly leave the United States. Workers who begin employment on a compelling circumstances EAD will no longer be maintaining nonimmigrant status but generally will be in a period of authorized stay and will not accrue unlawful presence in the United States while the EAD is valid. More information about eligibility requirements and the application process can be found on our Employment Authorization in Compelling Circumstances page."
+	},
+	{
+		"question": "Q: What is a compelling circumstances EAD?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What is my immigration status and work authorization if I’m within the grace period while a compelling circumstances EAD application is pending?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if I have a compelling circumstances EAD application approved, but a change of status application is still pending?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What will happen if I make an expedite request for my compelling circumstances EAD application?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I still file an Adjustment of Status application (Form I-485) if I am working based on a compelling circumstances EAD?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if I am working based on a compelling circumstances EAD and a new employer files a Form I-129 on my behalf?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Are my spouse and children eligible for a compelling circumstances EAD?",
+		"answer": "Some circumstances may warrant expedited adjudication, including applications to change status to a dependent status that includes eligibility for employment authorization. For example, an application to change status from H-1B to L-2 may be eligible for expedited adjudication to prevent severe financial loss. See the How to Make an Expedite Request page for additional information. Please note that USCIS generally does not consider expedite requests for petitions and applications if premium processing service is available.\nNotwithstanding the above options to extend a period of authorized stay, workers may choose to depart the United States. For H-1B and O workers who chose to depart the United States after involuntary cessation of employment, the H-1B employer or the O employer and O petitioner, as applicable, must pay the reasonable costs of transportation to the worker’s last place of foreign residence. In addition, for O workers, both the employer and the petitioner are jointly and severally liable for the reasonable cost of return transportation. (See 8 CFR 214.2(h)(4)(iii)(E) and 8 CFR 214.2(o)(16).)\nOnce abroad, H-1B holders may seek U.S. employment and readmission to the United States for any remaining period of their H-1B status. Those seeking another classification for which they may be eligible can complete the application or petition process abroad and seek readmission to the United States.\nRegulations permit a discretionary grace period that allows workers in E-1, E-2, E-3, H-1B, H-1B1, L-1, O-1, or TN classifications (and their dependents) to be considered as having maintained status in that same classification after the end of employment for up to 60 consecutive calendar days or until the end of the authorized nonimmigrant validity period, whichever is shorter (the “maximum 60-day grace period”). See 8 CFR 214.1(l)(2).\nThe worker can preserve their period of authorized stay in the United States, however, as long as the worker timely files, if eligible, an application for a change of nonimmigrant status, an application for adjustment of status, or an application for a compelling circumstances employment authorization document, or if the worker is the beneficiary of a nonfrivolous petition to change employer before their nonimmigrant status expires.\nIf the worker is an eligible H-1B nonimmigrant and an employer files a new nonfrivolous H-1B petition on their behalf, the worker can begin work immediately after USCIS receives the petition and continue to maintain their H-1B status.\nPlease see the additional sections below for a detailed overview of these options."
+	},
+	{
+		"question": "Q: Why is the 60-day grace period important?",
+		"answer": "The grace period also provides time for certain spouses of nonimmigrant workers to continue their own employment if they have an Employment Authorization Document or are employment-authorized incident to status.\nWithin the grace period, eligible H-1B nonimmigrant workers may also begin employment again as soon as a new employer properly files a new H-1B petition, rather than waiting for the new petition to be approved. A worker filing for employment in another classification must wait to begin employment until the new petition is approved, but given the availability of premium processing, the wait for petition adjudication is often less than 15 business days."
+	},
+	{
+		"question": "Q: When does the 60-day grace period start?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How do I apply for the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Does the 60-day grace period apply to me if I voluntarily leave my job?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How many times can I use the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What is my status during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I work during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What if my employer rehires me during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I travel during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q. What happens if my employment is terminated while I am outside of the United States?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Is my dependent spouse’s Employment Authorization Document (EAD) valid during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens to my post-completion Optional Practical Training (OPT) EAD if my employment is terminated?",
+		"answer": "There are two kinds of job portability, or “porting,” available based on two different kinds of employer petitions:"
+	},
+	{
+		"question": "Q: Can I port to a new H-1B employer during the grace period?",
+		"answer": "If you are in another status apart from H-1B or use the grace period to change your status from H-1B to another status, you must wait for the petition with the new employer to be approved before beginning employment under the new status. As described below, however, if the petition or application for change of status is non-frivolous and filed before the end of the grace period (or your authorized validity period, whichever is shorter), you may remain in the United States in an authorized period of stay.\nAlso note that premium processing can considerably reduce the wait time for adjudication of Form I-129, Petition for Nonimmigrant Worker."
+	},
+	{
+		"question": "Q: If I find a new H-1B employer, can my new employer file the new H-1B petition without a certified Labor Condition Application (LCA)?",
+		"answer": "The timely filing of a non-frivolous application to change status will “toll,” or stop, the accrual of unlawful presence until the application is adjudicated, if the applicant did not work without authorization, either before the application was filed or while it was pending, and the applicant maintained their status prior to the filing of the request for change of status.\nFor example, if an individual files a non-frivolous application to change status before the end of the applicant’s maximum 60-day grace period, they will not accrue unlawful presence while the application remains pending, even after the maximum 60-day grace period has elapsed (again, as long as they did not work without authorization either before the application was filed or while it was pending). If the application is ultimately approved, then the individual’s status is changed, and the individual is considered to have been in a period of authorized stay for the entire time the application was pending.  If the application is denied, then the individual starts to accrue unlawful presence the day after the denial decision. Please see our Unlawful Presence and Inadmissibility page for more information.\nWorkers may use the maximum 60-day grace period to apply to change their nonimmigrant status, which, depending on eligibility, may include:"
+	},
+	{
+		"question": "Q: Can my change of status petition or application be expedited?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How soon can I start working if I change my status to an employment-authorized dependent status?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Will my pending I-539 change of status application to B-1 or B-2 be prioritized if I find a new employer who files an I-129 petition with a request for premium processing service?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I file a change of status to B-1 or B-2 if I have a pending or approved I-140?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I look for a new job while in B-1 or B-2 status?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if my prospective employer’s new petition or my application is denied? Can I file an appeal or a motion?",
+		"answer": "Some workers may be eligible to file a self-petitioned immigrant visa petition concurrently with an adjustment of status application. Examples of immigrant classifications that are eligible for self-petitioning include EB-1 Extraordinary Ability and EB-5 Immigrant Investor. Workers with a pending adjustment application are generally eligible to remain in the United States in a period of authorized stay and obtain an Employment Authorization Document (EAD).\nWorkers who are the beneficiary of an approved employment-based immigrant visa petition (Form I-140) may be eligible for a compelling circumstances Employment Authorization Document (EAD) for up to one year if they:\nA compelling circumstances EAD is a discretionary stopgap measure intended to assist certain individuals on the path to lawful permanent resident status by preventing the need to abruptly leave the United States. Workers who begin employment on a compelling circumstances EAD will no longer be maintaining nonimmigrant status but generally will be in a period of authorized stay and will not accrue unlawful presence in the United States while the EAD is valid. More information about eligibility requirements and the application process can be found on our Employment Authorization in Compelling Circumstances page."
+	},
+	{
+		"question": "Q: What is a compelling circumstances EAD?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What is my immigration status and work authorization if I’m within the grace period while a compelling circumstances EAD application is pending?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if I have a compelling circumstances EAD application approved, but a change of status application is still pending?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What will happen if I make an expedite request for my compelling circumstances EAD application?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I still file an Adjustment of Status application (Form I-485) if I am working based on a compelling circumstances EAD?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if I am working based on a compelling circumstances EAD and a new employer files a Form I-129 on my behalf?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Are my spouse and children eligible for a compelling circumstances EAD?",
+		"answer": "Some circumstances may warrant expedited adjudication, including applications to change status to a dependent status that includes eligibility for employment authorization. For example, an application to change status from H-1B to L-2 may be eligible for expedited adjudication to prevent severe financial loss. See the How to Make an Expedite Request page for additional information. Please note that USCIS generally does not consider expedite requests for petitions and applications if premium processing service is available.\nNotwithstanding the above options to extend a period of authorized stay, workers may choose to depart the United States. For H-1B and O workers who chose to depart the United States after involuntary cessation of employment, the H-1B employer or the O employer and O petitioner, as applicable, must pay the reasonable costs of transportation to the worker’s last place of foreign residence. In addition, for O workers, both the employer and the petitioner are jointly and severally liable for the reasonable cost of return transportation. (See 8 CFR 214.2(h)(4)(iii)(E) and 8 CFR 214.2(o)(16).)\nOnce abroad, H-1B holders may seek U.S. employment and readmission to the United States for any remaining period of their H-1B status. Those seeking another classification for which they may be eligible can complete the application or petition process abroad and seek readmission to the United States.\nRegulations permit a discretionary grace period that allows workers in E-1, E-2, E-3, H-1B, H-1B1, L-1, O-1, or TN classifications (and their dependents) to be considered as having maintained status in that same classification after the end of employment for up to 60 consecutive calendar days or until the end of the authorized nonimmigrant validity period, whichever is shorter (the “maximum 60-day grace period”). See 8 CFR 214.1(l)(2).\nThe worker can preserve their period of authorized stay in the United States, however, as long as the worker timely files, if eligible, an application for a change of nonimmigrant status, an application for adjustment of status, or an application for a compelling circumstances employment authorization document, or if the worker is the beneficiary of a nonfrivolous petition to change employer before their nonimmigrant status expires.\nIf the worker is an eligible H-1B nonimmigrant and an employer files a new nonfrivolous H-1B petition on their behalf, the worker can begin work immediately after USCIS receives the petition and continue to maintain their H-1B status.\nPlease see the additional sections below for a detailed overview of these options."
+	},
+	{
+		"question": "Q: Why is the 60-day grace period important?",
+		"answer": "The grace period also provides time for certain spouses of nonimmigrant workers to continue their own employment if they have an Employment Authorization Document or are employment-authorized incident to status.\nWithin the grace period, eligible H-1B nonimmigrant workers may also begin employment again as soon as a new employer properly files a new H-1B petition, rather than waiting for the new petition to be approved. A worker filing for employment in another classification must wait to begin employment until the new petition is approved, but given the availability of premium processing, the wait for petition adjudication is often less than 15 business days."
+	},
+	{
+		"question": "Q: When does the 60-day grace period start?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How do I apply for the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Does the 60-day grace period apply to me if I voluntarily leave my job?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How many times can I use the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What is my status during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I work during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What if my employer rehires me during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I travel during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q. What happens if my employment is terminated while I am outside of the United States?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Is my dependent spouse’s Employment Authorization Document (EAD) valid during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens to my post-completion Optional Practical Training (OPT) EAD if my employment is terminated?",
+		"answer": "There are two kinds of job portability, or “porting,” available based on two different kinds of employer petitions:"
+	},
+	{
+		"question": "Q: Can I port to a new H-1B employer during the grace period?",
+		"answer": "If you are in another status apart from H-1B or use the grace period to change your status from H-1B to another status, you must wait for the petition with the new employer to be approved before beginning employment under the new status. As described below, however, if the petition or application for change of status is non-frivolous and filed before the end of the grace period (or your authorized validity period, whichever is shorter), you may remain in the United States in an authorized period of stay.\nAlso note that premium processing can considerably reduce the wait time for adjudication of Form I-129, Petition for Nonimmigrant Worker."
+	},
+	{
+		"question": "Q: If I find a new H-1B employer, can my new employer file the new H-1B petition without a certified Labor Condition Application (LCA)?",
+		"answer": "The timely filing of a non-frivolous application to change status will “toll,” or stop, the accrual of unlawful presence until the application is adjudicated, if the applicant did not work without authorization, either before the application was filed or while it was pending, and the applicant maintained their status prior to the filing of the request for change of status.\nFor example, if an individual files a non-frivolous application to change status before the end of the applicant’s maximum 60-day grace period, they will not accrue unlawful presence while the application remains pending, even after the maximum 60-day grace period has elapsed (again, as long as they did not work without authorization either before the application was filed or while it was pending). If the application is ultimately approved, then the individual’s status is changed, and the individual is considered to have been in a period of authorized stay for the entire time the application was pending.  If the application is denied, then the individual starts to accrue unlawful presence the day after the denial decision. Please see our Unlawful Presence and Inadmissibility page for more information.\nWorkers may use the maximum 60-day grace period to apply to change their nonimmigrant status, which, depending on eligibility, may include:"
+	},
+	{
+		"question": "Q: Can my change of status petition or application be expedited?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How soon can I start working if I change my status to an employment-authorized dependent status?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Will my pending I-539 change of status application to B-1 or B-2 be prioritized if I find a new employer who files an I-129 petition with a request for premium processing service?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I file a change of status to B-1 or B-2 if I have a pending or approved I-140?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I look for a new job while in B-1 or B-2 status?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if my prospective employer’s new petition or my application is denied? Can I file an appeal or a motion?",
+		"answer": "Some workers may be eligible to file a self-petitioned immigrant visa petition concurrently with an adjustment of status application. Examples of immigrant classifications that are eligible for self-petitioning include EB-1 Extraordinary Ability and EB-5 Immigrant Investor. Workers with a pending adjustment application are generally eligible to remain in the United States in a period of authorized stay and obtain an Employment Authorization Document (EAD).\nWorkers who are the beneficiary of an approved employment-based immigrant visa petition (Form I-140) may be eligible for a compelling circumstances Employment Authorization Document (EAD) for up to one year if they:\nA compelling circumstances EAD is a discretionary stopgap measure intended to assist certain individuals on the path to lawful permanent resident status by preventing the need to abruptly leave the United States. Workers who begin employment on a compelling circumstances EAD will no longer be maintaining nonimmigrant status but generally will be in a period of authorized stay and will not accrue unlawful presence in the United States while the EAD is valid. More information about eligibility requirements and the application process can be found on our Employment Authorization in Compelling Circumstances page."
+	},
+	{
+		"question": "Q: What is a compelling circumstances EAD?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What is my immigration status and work authorization if I’m within the grace period while a compelling circumstances EAD application is pending?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if I have a compelling circumstances EAD application approved, but a change of status application is still pending?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What will happen if I make an expedite request for my compelling circumstances EAD application?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I still file an Adjustment of Status application (Form I-485) if I am working based on a compelling circumstances EAD?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if I am working based on a compelling circumstances EAD and a new employer files a Form I-129 on my behalf?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Are my spouse and children eligible for a compelling circumstances EAD?",
+		"answer": "Some circumstances may warrant expedited adjudication, including applications to change status to a dependent status that includes eligibility for employment authorization. For example, an application to change status from H-1B to L-2 may be eligible for expedited adjudication to prevent severe financial loss. See the How to Make an Expedite Request page for additional information. Please note that USCIS generally does not consider expedite requests for petitions and applications if premium processing service is available.\nNotwithstanding the above options to extend a period of authorized stay, workers may choose to depart the United States. For H-1B and O workers who chose to depart the United States after involuntary cessation of employment, the H-1B employer or the O employer and O petitioner, as applicable, must pay the reasonable costs of transportation to the worker’s last place of foreign residence. In addition, for O workers, both the employer and the petitioner are jointly and severally liable for the reasonable cost of return transportation. (See 8 CFR 214.2(h)(4)(iii)(E) and 8 CFR 214.2(o)(16).)\nOnce abroad, H-1B holders may seek U.S. employment and readmission to the United States for any remaining period of their H-1B status. Those seeking another classification for which they may be eligible can complete the application or petition process abroad and seek readmission to the United States.\nRegulations permit a discretionary grace period that allows workers in E-1, E-2, E-3, H-1B, H-1B1, L-1, O-1, or TN classifications (and their dependents) to be considered as having maintained status in that same classification after the end of employment for up to 60 consecutive calendar days or until the end of the authorized nonimmigrant validity period, whichever is shorter (the “maximum 60-day grace period”). See 8 CFR 214.1(l)(2).\nThe worker can preserve their period of authorized stay in the United States, however, as long as the worker timely files, if eligible, an application for a change of nonimmigrant status, an application for adjustment of status, or an application for a compelling circumstances employment authorization document, or if the worker is the beneficiary of a nonfrivolous petition to change employer before their nonimmigrant status expires.\nIf the worker is an eligible H-1B nonimmigrant and an employer files a new nonfrivolous H-1B petition on their behalf, the worker can begin work immediately after USCIS receives the petition and continue to maintain their H-1B status.\nPlease see the additional sections below for a detailed overview of these options."
+	},
+	{
+		"question": "Q: Why is the 60-day grace period important?",
+		"answer": "The grace period also provides time for certain spouses of nonimmigrant workers to continue their own employment if they have an Employment Authorization Document or are employment-authorized incident to status.\nWithin the grace period, eligible H-1B nonimmigrant workers may also begin employment again as soon as a new employer properly files a new H-1B petition, rather than waiting for the new petition to be approved. A worker filing for employment in another classification must wait to begin employment until the new petition is approved, but given the availability of premium processing, the wait for petition adjudication is often less than 15 business days."
+	},
+	{
+		"question": "Q: When does the 60-day grace period start?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How do I apply for the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Does the 60-day grace period apply to me if I voluntarily leave my job?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How many times can I use the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What is my status during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I work during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What if my employer rehires me during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I travel during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q. What happens if my employment is terminated while I am outside of the United States?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Is my dependent spouse’s Employment Authorization Document (EAD) valid during the grace period?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens to my post-completion Optional Practical Training (OPT) EAD if my employment is terminated?",
+		"answer": "There are two kinds of job portability, or “porting,” available based on two different kinds of employer petitions:"
+	},
+	{
+		"question": "Q: Can I port to a new H-1B employer during the grace period?",
+		"answer": "If you are in another status apart from H-1B or use the grace period to change your status from H-1B to another status, you must wait for the petition with the new employer to be approved before beginning employment under the new status. As described below, however, if the petition or application for change of status is non-frivolous and filed before the end of the grace period (or your authorized validity period, whichever is shorter), you may remain in the United States in an authorized period of stay.\nAlso note that premium processing can considerably reduce the wait time for adjudication of Form I-129, Petition for Nonimmigrant Worker."
+	},
+	{
+		"question": "Q: If I find a new H-1B employer, can my new employer file the new H-1B petition without a certified Labor Condition Application (LCA)?",
+		"answer": "The timely filing of a non-frivolous application to change status will “toll,” or stop, the accrual of unlawful presence until the application is adjudicated, if the applicant did not work without authorization, either before the application was filed or while it was pending, and the applicant maintained their status prior to the filing of the request for change of status.\nFor example, if an individual files a non-frivolous application to change status before the end of the applicant’s maximum 60-day grace period, they will not accrue unlawful presence while the application remains pending, even after the maximum 60-day grace period has elapsed (again, as long as they did not work without authorization either before the application was filed or while it was pending). If the application is ultimately approved, then the individual’s status is changed, and the individual is considered to have been in a period of authorized stay for the entire time the application was pending.  If the application is denied, then the individual starts to accrue unlawful presence the day after the denial decision. Please see our Unlawful Presence and Inadmissibility page for more information.\nWorkers may use the maximum 60-day grace period to apply to change their nonimmigrant status, which, depending on eligibility, may include:"
+	},
+	{
+		"question": "Q: Can my change of status petition or application be expedited?",
+		"answer": ""
+	},
+	{
+		"question": "Q: How soon can I start working if I change my status to an employment-authorized dependent status?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Will my pending I-539 change of status application to B-1 or B-2 be prioritized if I find a new employer who files an I-129 petition with a request for premium processing service?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I file a change of status to B-1 or B-2 if I have a pending or approved I-140?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I look for a new job while in B-1 or B-2 status?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if my prospective employer’s new petition or my application is denied? Can I file an appeal or a motion?",
+		"answer": "Some workers may be eligible to file a self-petitioned immigrant visa petition concurrently with an adjustment of status application. Examples of immigrant classifications that are eligible for self-petitioning include EB-1 Extraordinary Ability and EB-5 Immigrant Investor. Workers with a pending adjustment application are generally eligible to remain in the United States in a period of authorized stay and obtain an Employment Authorization Document (EAD).\nWorkers who are the beneficiary of an approved employment-based immigrant visa petition (Form I-140) may be eligible for a compelling circumstances Employment Authorization Document (EAD) for up to one year if they:\nA compelling circumstances EAD is a discretionary stopgap measure intended to assist certain individuals on the path to lawful permanent resident status by preventing the need to abruptly leave the United States. Workers who begin employment on a compelling circumstances EAD will no longer be maintaining nonimmigrant status but generally will be in a period of authorized stay and will not accrue unlawful presence in the United States while the EAD is valid. More information about eligibility requirements and the application process can be found on our Employment Authorization in Compelling Circumstances page."
+	},
+	{
+		"question": "Q: What is a compelling circumstances EAD?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What is my immigration status and work authorization if I’m within the grace period while a compelling circumstances EAD application is pending?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if I have a compelling circumstances EAD application approved, but a change of status application is still pending?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What will happen if I make an expedite request for my compelling circumstances EAD application?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Can I still file an Adjustment of Status application (Form I-485) if I am working based on a compelling circumstances EAD?",
+		"answer": ""
+	},
+	{
+		"question": "Q: What happens if I am working based on a compelling circumstances EAD and a new employer files a Form I-129 on my behalf?",
+		"answer": ""
+	},
+	{
+		"question": "Q: Are my spouse and children eligible for a compelling circumstances EAD?",
+		"answer": "Some circumstances may warrant expedited adjudication, including applications to change status to a dependent status that includes eligibility for employment authorization. For example, an application to change status from H-1B to L-2 may be eligible for expedited adjudication to prevent severe financial loss. See the How to Make an Expedite Request page for additional information. Please note that USCIS generally does not consider expedite requests for petitions and applications if premium processing service is available.\nNotwithstanding the above options to extend a period of authorized stay, workers may choose to depart the United States. For H-1B and O workers who chose to depart the United States after involuntary cessation of employment, the H-1B employer or the O employer and O petitioner, as applicable, must pay the reasonable costs of transportation to the worker’s last place of foreign residence. In addition, for O workers, both the employer and the petitioner are jointly and severally liable for the reasonable cost of return transportation. (See 8 CFR 214.2(h)(4)(iii)(E) and 8 CFR 214.2(o)(16).)\nOnce abroad, H-1B holders may seek U.S. employment and readmission to the United States for any remaining period of their H-1B status. Those seeking another classification for which they may be eligible can complete the application or petition process abroad and seek readmission to the United States."
+	}
+]
