@@ -1,0 +1,44 @@
+{
+	"id": "G-325A ",
+	"title": "G-325A | Biographic Information (for Deferred Action)",
+	"link": "https://www.uscis.gov/g-325a",
+	"description": "Use this form to provide biographic information when submitting a request for deferred action for certain military service members and their family members, or non-military deferred action (other than deferred action based on Deferred Action for Childhood Arrivals (DACA), Violence Against Women Act A-3, G-5 nonimmigrants , and T and U nonimmigrant visas).",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "g-325a.pdf",
+			"title": "Form G-325A",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/g-325a.pdf",
+			"description": "(PDF, 397.49 KB)",
+			"file_online": false
+		},
+		{
+			"id": "g-325ainstr.pdf",
+			"title": "Instructions for Form G-325A",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/g-325ainstr.pdf",
+			"description": "(PDF, 313.31 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"g-325a": {
+			"id": "g-325a",
+			"topic_id": "97247",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97247",
+			"filings": [
+				{
+					"category": "Initial and Subsequent Request",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you select “Yes” in Part 3., Item Number 1. to request an EAD upon approval of Deferred Action and you are applying under:Labor Investigation-Based (LIB DA);Spouse, Widower(er), Parent, Son, or Daughter of Active Duty Service member of the U.S. armed forces or Individual in the Selected Reserve of the Ready Reserve (MIL DA);Spouse, Widower(er), Parent, Son, or Daughter of Individual (Whether Living or Deceased) who Previously Served on Active Duty Service or in the Selected Reserve of the Ready Reserve (MIL DA);Medical or Humanitarian;Statelessness;Government Referral (Other than Labor Agency); orOther",
+					"paper_fee": "$520"
+				},
+				{
+					"category": "If you select “Yes” in Part 3., Item Number 1. to request an EAD upon approval of Deferred Action and you are applying under:Special Immigrant Juvenile (SIJ DA)",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

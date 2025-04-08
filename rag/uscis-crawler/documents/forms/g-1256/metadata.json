@@ -1,0 +1,23 @@
+{
+	"id": "G-1256 ",
+	"title": "G-1256 | Declaration for Interpreted USCIS Interview",
+	"link": "https://www.uscis.gov/g-1256",
+	"description": "The interviewing officer uses this form to: Record the presence of  an interpreter that you have provided for your USCIS interview; Document your satisfaction with the interpreter’s ability to interpret from English to your language, and from your language to English; Acknowledge that your interpreter may learn confidential information during your interview;  \nEnsure the interpreter understands the requirements to serve as an interpreter, which includes accurately, literally, and fully interpreting for both you and the interviewing officer; and Notify you that the interviewing officer can deny permission for the interpreter to participate in the interview",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "g-1256.pdf",
+			"title": "Form G-1256",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/g-1256.pdf",
+			"description": "(PDF, 260.14 KB)",
+			"file_online": false
+		},
+		{
+			"id": "g-1256instr.pdf",
+			"title": "Instructions for Form G-1256",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/g-1256instr.pdf",
+			"description": "(PDF, 296.74 KB)",
+			"file_online": false
+		}
+	]
+}

@@ -1,0 +1,62 @@
+{
+	"id": "I-907 ",
+	"title": "I-907 | Request for Premium Processing Service",
+	"link": "https://www.uscis.gov/i-907",
+	"description": "Use this form to request faster processing of Form I-129, Petition for a Nonimmigrant Worker, Form I-140, Immigrant Petition for Alien Workers, and certain classifications of Form I-765, Application for Employment Authorization.",
+	"file_online": true,
+	"forms": [
+		{
+			"id": "i-907.pdf",
+			"title": "Form I-907",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-907.pdf",
+			"description": "(PDF, 383.95 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-907instr.pdf",
+			"title": "Instructions for Form I-907",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-907instr.pdf",
+			"description": "(PDF, 224.67 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-907": {
+			"id": "i-907",
+			"topic_id": "97333",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97333",
+			"filings": [
+				{
+					"category": "Form I-907 with Form I-129, Petition for a Nonimmigrant WorkerH-1B nonimmigrant classification.",
+					"paper_fee": "$2,805*",
+					"online_fee": "$2,805*"
+				},
+				{
+					"category": "Form I-907 with Form I-129, Petition for a Nonimmigrant WorkerE-1, E-2, E-3, H-3, L1 (including Blanket L-1), O, P, Q, or TN nonimmigrant classification.",
+					"paper_fee": "$2,805*",
+					"online_fee": "N/A"
+				},
+				{
+					"category": "Form I-907 with Form I-129, Petition for a Nonimmigrant WorkerH-2B or R nonimmigrant classification.",
+					"paper_fee": "$1,685*",
+					"online_fee": "N/A"
+				},
+				{
+					"category": "Form I-907 with Form I-140, Immigrant Petition for Alien WorkersEB-1 (E11, E12, E13), EB-2 (E21 NIW, E21 non-NIW), or EB-3 (E31, E32, EW3) immigrant classification.",
+					"paper_fee": "$2,805*",
+					"online_fee": "N/A"
+				},
+				{
+					"category": "Form I-907 with Form I-539, Application to Extend/Change Nonimmigrant StatusF-1, F-2, J-1, J-2, M-1, or M-2 nonimmigrant classification.",
+					"paper_fee": "$1,965*",
+					"online_fee": "$1,965*"
+				},
+				{
+					"category": "Form I-907 with Form I-765, Application for Employment AuthorizationI-765 categories.",
+					"paper_fee": "$1,685*",
+					"online_fee": "$1,685*"
+				}
+			]
+		}
+	}
+}

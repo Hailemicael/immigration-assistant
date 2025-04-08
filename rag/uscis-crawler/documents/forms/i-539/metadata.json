@@ -1,0 +1,66 @@
+{
+	"id": "I-539 ",
+	"title": "I-539 | Application to Extend/Change Nonimmigrant Status",
+	"link": "https://www.uscis.gov/i-539",
+	"description": "The following groups use this form: Certain nonimmigrants extending their stay or changing to another nonimmigrant status; CNMI residents applying for an initial grant of status; F and M nonimmigrants applying for reinstatement; and, Persons seeking V nonimmigrant status or an extension of stay as a V nonimmigrant.",
+	"file_online": true,
+	"forms": [
+		{
+			"id": "i-539.pdf",
+			"title": "Form I-539",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-539.pdf",
+			"description": "(PDF, 483.42 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-539instr.pdf",
+			"title": "Instructions for Form I-539 and Supplemental Form I-539A",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-539instr.pdf",
+			"description": "(PDF, 440.07 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-539a.pdf",
+			"title": "Form I-539A",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-539a.pdf",
+			"description": "(PDF, 417.05 KB)",
+			"file_online": false
+		},
+		{
+			"id": "m-752.pdf",
+			"title": "Form M-752, Helpful Filing Tips for Form I-539",
+			"link": "https://www.uscis.gov/sites/default/files/document/tips/m-752.pdf",
+			"description": "(PDF, 99.23 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-539": {
+			"id": "i-539",
+			"topic_id": "97292",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97292",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$470",
+					"online_fee": "$420"
+				},
+				{
+					"category": "If filing into or out of A, G, or NATO nonimmigrant status.",
+					"paper_fee": "$0",
+					"online_fee": "$0"
+				},
+				{
+					"category": "Victims of severe form of trafficking (T nonimmigrants).",
+					"paper_fee": "$0",
+					"online_fee": "$0"
+				},
+				{
+					"category": "Victims of qualifying criminal activity (U nonimmigrants).",
+					"paper_fee": "$0",
+					"online_fee": "$0"
+				}
+			]
+		}
+	}
+}

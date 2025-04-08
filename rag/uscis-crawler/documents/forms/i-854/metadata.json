@@ -1,0 +1,43 @@
+{
+	"id": "I-854 ",
+	"title": "I-854 | Inter-Agency Alien Witness and Informant Record",
+	"link": "https://www.uscis.gov/i-854",
+	"description": "Law enforcement agencies use Form I-854A to request an alien witness and/or informant receive classification as an S nonimmigrant.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-854a.pdf",
+			"title": "Form I-854A",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-854a.pdf",
+			"description": "(PDF, 460.39 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-854b.pdf",
+			"title": "Form I-854B",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-854b.pdf",
+			"description": "(PDF, 348.03 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-854instr.pdf",
+			"title": "Instructions for Form I-854",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-854instr.pdf",
+			"description": "(PDF, 326.61 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-854": {
+			"id": "i-854",
+			"topic_id": "97325",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97325",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

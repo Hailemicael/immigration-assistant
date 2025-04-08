@@ -1,0 +1,48 @@
+{
+	"id": "I-881 ",
+	"title": "I-881 | Application for Suspension of Deportation or Special Rule Cancellation of Removal (Pursuant to Section 203 of Public Law 105-100 (NACARA))",
+	"link": "https://www.uscis.gov/i-881",
+	"description": "Use this form if you are an alien who is eligible to apply for suspension of deportation or special rule cancellation of removal under the Nicaraguan Adjustment and Central American Relief Act (NACARA).",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-881.pdf",
+			"title": "Form I-881",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-881.pdf",
+			"description": "(PDF, 757.27 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-881instr.pdf",
+			"title": "Instructions for Form I-881",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-881instr.pdf",
+			"description": "(PDF, 431.99 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-881": {
+			"id": "i-881",
+			"topic_id": "97331",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97331",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$340"
+				},
+				{
+					"category": "If you are filing as an abused spouse or child applying for benefits under Nicaraguan Adjustment and Central American Relief Act (NACARA).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing with the Immigration Court (Executive Office of Immigration Review). The court will charge a single fee separate from the USCIS filing fee for applications filed by one or more applicants in the same proceeding.",
+					"paper_fee": "$165 Immigration Court Fee"
+				},
+				{
+					"category": "If we refer the application to the Immigration Court, the court will not charge a fee separate from the USCIS filing fee (if any).",
+					"paper_fee": "$0 Immigration Court Fee"
+				}
+			]
+		}
+	}
+}

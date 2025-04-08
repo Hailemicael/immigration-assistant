@@ -1,0 +1,60 @@
+{
+	"id": "I-212 ",
+	"title": "I-212 | Application for Permission to Reapply for Admission into the United States After Deportation or Removal",
+	"link": "https://www.uscis.gov/i-212",
+	"description": "If you are inadmissible under sections 212(a)(9)(A) or (C) of the Immigration and Nationality Act (INA), use this form to ask for consent to reapply for admission to the United States so you can lawfully return to the United States.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-212.pdf",
+			"title": "Form I-212",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-212.pdf",
+			"description": "(PDF, 538.23 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-212instr.pdf",
+			"title": "Instructions for Form I-212",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-212instr.pdf",
+			"description": "(PDF, 462.47 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-212": {
+			"id": "i-212",
+			"topic_id": "97279",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97279",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$1,175"
+				},
+				{
+					"category": "If you are applying for a nonimmigrant visa, you may contact the U.S. Consulate with jurisdiction over your nonimmigrant visa to receive payment instructions.",
+					"paper_fee": "$1,175"
+				},
+				{
+					"category": "If you are applying with the Department of Justice, Executive Office for Immigration Review (EOIR) during removal proceedings, you must submit the payment as instructed by the immigration court with jurisdiction over your case.  For information about EOIR, visit the EOIR website.",
+					"paper_fee": "$1,175"
+				},
+				{
+					"category": "If you are applying with U.S. Customs and Border Protection (CBP) at a U.S. Port-of-Entry, use the following guidelines when you prepare your check or money order for the Form I-212 filing fee:You must make your check or money order payable to U.S. Customs and Border Protection.  Certain CBP-designated U.S. Ports-of-Entry and certain CBP-designated pre-clearance offices may accept payment in the form of cash or credit cards.  We recommend that you contact the CBP pre-clearance office or CBP U.S. Port-of-Entry where you intend to be processed for payment instructions.  To locate the CBP pre-clearance office or CBP U.S. Port-of-Entry, visit the CBP website.If you are a citizen of Palau, the Federal States of Micronesia, or the Marshall Islands, you may contact CBP at Guam Port-of-Entry or the nearest U.S. Embassy or U.S. Consulate to receive payment instructions.  To locate the U.S. Embassy or U.S. Consulate, visit the Department of State website.",
+					"paper_fee": "$1,175"
+				},
+				{
+					"category": "If you are filing with U.S. Citizenship and Immigration Services (USCIS) as a person seeking or granted special immigrant visa or status as:An Afghan or Iraqi translator or interpreter;An Iraqi national employed by or on behalf of the U.S. Government;An Afghan national employed by or on behalf of the U.S. Government or employed by the International Security Assistance Force (ISAF); orA derivative beneficiary of one of the above.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing with USCIS as a person seeking or granted adjustment of status as an abused spouse or child under the Cuban Adjustment Act (CAA) or the Haitian Refugee Immigration Fairness Act (HRIFA).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing with USCIS as a person seeking or granted immigrant classification as a Violence Against Women Act (VAWA) self-petitioner (including derivatives).",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

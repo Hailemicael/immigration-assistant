@@ -1,0 +1,23 @@
+{
+	"id": "G-1041 ",
+	"title": "G-1041 | Genealogy Index Search Request",
+	"link": "https://www.uscis.gov/g-1041",
+	"description": "Use Form G-1041 to request a search of USCIS historical indices. (To obtain copies of USCIS historical records, use Form G-1041A, Genealogy Records Request.)",
+	"file-online": false,
+	"forms": [
+		{
+			"id": "g-1041.pdf",
+			"title": "Form G-1041",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/g-1041.pdf",
+			"description": "(PDF, 338.79 KB)",
+			"file-online": false
+		},
+		{
+			"id": "g-1041instr.pdf",
+			"title": "Instructions for Form G-1041",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/g-1041instr.pdf",
+			"description": "(PDF, 238.64 KB)",
+			"file-online": false
+		}
+	]
+}

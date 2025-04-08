@@ -1,0 +1,47 @@
+{
+	"id": "I-821 ",
+	"title": "I-821 | Application for Temporary Protected Status",
+	"link": "https://www.uscis.gov/i-821",
+	"description": "If you believe you are an eligible national of a designated country or a person without nationality who last habitually resided in the designated country, use this form to apply for Temporary Protected Status (TPS).",
+	"file_online": true,
+	"forms": [
+		{
+			"id": "i-821.pdf",
+			"title": "Form I-821",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-821.pdf",
+			"description": "(PDF, 876.15 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-821instr.pdf",
+			"title": "Instructions for Form I-821",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-821instr.pdf",
+			"description": "(PDF, 440.69 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-821": {
+			"id": "i-821",
+			"topic_id": "97321",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97321",
+			"filings": [
+				{
+					"category": "If you are filing for initial registration.",
+					"paper_fee": "$50 plus additional fees",
+					"online_fee": "$50 plus additional fees"
+				},
+				{
+					"category": "If you are filing for re-registration.",
+					"paper_fee": "$0 plus additional fees",
+					"online_fee": "$0 plus additional fees"
+				},
+				{
+					"category": "Additional Fees:Biometrics Services FeePayment for this fee may be made in the form of a single check or money order when also paying the initial registration fee, or as two separate checks or money orders.",
+					"paper_fee": "$30",
+					"online_fee": "$30"
+				}
+			]
+		}
+	}
+}

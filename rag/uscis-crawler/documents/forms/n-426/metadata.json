@@ -1,0 +1,36 @@
+{
+	"id": "N-426 ",
+	"title": "N-426 | Request for Certification of Military or Naval Service",
+	"link": "https://www.uscis.gov/n-426",
+	"description": "This form is used by an applicant for naturalization to request that the Department of Defense verify the applicant's military or naval service.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "n-426.pdf",
+			"title": "Form N-426",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/n-426.pdf",
+			"description": "(PDF, 288.38 KB)",
+			"file_online": false
+		},
+		{
+			"id": "n-426instr.pdf",
+			"title": "Instructions for Form N-426",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/n-426instr.pdf",
+			"description": "(PDF, 228.72 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"n-426": {
+			"id": "n-426",
+			"topic_id": "97353",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97353",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

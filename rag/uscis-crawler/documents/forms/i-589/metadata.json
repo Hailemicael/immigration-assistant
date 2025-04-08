@@ -1,0 +1,204 @@
+{
+	"id": "I-589 ",
+	"title": "I-589 | Application for Asylum and for Withholding of Removal",
+	"link": "https://www.uscis.gov/i-589",
+	"description": "Use this form to apply for asylum in the United States and for withholding of removal (formerly called “withholding of deportation”). You may file for asylum if you are physically in the United States and you are not a U.S. citizen.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-589.pdf",
+			"title": "Form I-589",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-589.pdf",
+			"description": "(PDF, 822.81 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-589instr.pdf",
+			"title": "Instructions for Form I-589",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-589instr.pdf",
+			"description": "(PDF, 341.72 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Form%20with%20Watermark_AR.pdf",
+			"title": "I-589 النموذج (Arabic)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Form%2520with%2520Watermark_AR.pdf",
+			"description": "(PDF, 649.38 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Instruction_AR.pdf",
+			"title": "I-589 التعليمات الخاصة بالنموذج (Arabic)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Instruction_AR.pdf",
+			"description": "(PDF, 1021.58 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Form%20with%20Watermark_CH.pdf",
+			"title": "I-589 表格（Simplified Chinese)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Form%2520with%2520Watermark_CH.pdf",
+			"description": "(PDF, 628.96 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Instructions_CH.pdf",
+			"title": "I-589 表格说明（Simplfied Chinese)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Instructions_CH.pdf",
+			"description": "(PDF, 547.19 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Form%20with%20Watermark_DAR.pdf",
+			"title": "I-589 فورم (Dari)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Form%2520with%2520Watermark_DAR.pdf",
+			"description": "(PDF, 751.38 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Instructions_DAR.pdf",
+			"title": "I-589 دستورالعمل های فورم (Dari)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Instructions_DAR.pdf",
+			"description": "(PDF, 946.49 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Form%20with%20Watermark_FR.pdf",
+			"title": "Formulaire I-589 (French)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Form%2520with%2520Watermark_FR.pdf",
+			"description": "(PDF, 930.27 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Instructions_FR.pdf",
+			"title": "Instructions pour le formulaire I-589 (French)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Instructions_FR.pdf",
+			"description": "(PDF, 524.55 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Form%20with%20Watermark_HC.pdf",
+			"title": "Fòm I-589 (Haitian Creole)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Form%2520with%2520Watermark_HC.pdf",
+			"description": "(PDF, 780.86 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Instructions_HC.pdf",
+			"title": "I-589 Enstriksyon (Haitian Creole)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Instructions_HC.pdf",
+			"description": "(PDF, 723.76 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Form%20with%20Watermark_PSH.pdf",
+			"title": "فورمه I-589 د (Pashto)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Form%2520with%2520Watermark_PSH.pdf",
+			"description": "(PDF, 922.58 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Instructions_PSH.pdf",
+			"title": "فورمی لارښوونې I-589 د (Pashto)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Instructions_PSH.pdf",
+			"description": "(PDF, 976.66 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Form%20with%20Watermark_PT.pdf",
+			"title": "Formulário I-589 (Portuguese)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Form%2520with%2520Watermark_PT.pdf",
+			"description": "(PDF, 757.8 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Instructions_PT.pdf",
+			"title": "Instruções para o Formulário I-589 (Portuguese)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Instructions_PT.pdf",
+			"description": "(PDF, 635.41 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Form%20with%20Watermark_RU.pdf",
+			"title": "Форма I-589 (Russian)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Form%2520with%2520Watermark_RU.pdf",
+			"description": "(PDF, 950.69 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Instructions_RU.pdf",
+			"title": "Инструкции к I-589 (Russian)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Instructions_RU.pdf",
+			"description": "(PDF, 642.41 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Form%20with%20Watermark_SO.pdf",
+			"title": "Foomka I-589 (Somali)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Form%2520with%2520Watermark_SO.pdf",
+			"description": "(PDF, 522.9 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Instructions_SO.pdf",
+			"title": "I-589 Tilmaamaha (Somali)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Instructions_SO.pdf",
+			"description": "(PDF, 1.2 MB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Form%20with%20Watermark_TUR.pdf",
+			"title": "I-589 Formu (Turkish)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Form%2520with%2520Watermark_TUR.pdf",
+			"description": "(PDF, 982.01 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Instructions_TUR.pdf",
+			"title": "I-589 Talimatları (Turkish)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Instructions_TUR.pdf",
+			"description": "(PDF, 1.28 MB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Form%20with%20Watermark_VI.pdf",
+			"title": "Mẫu đơn I-589 (Vietnamese)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Form%2520with%2520Watermark_VI.pdf",
+			"description": "(PDF, 1.39 MB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Instructions_VI.pdf",
+			"title": "Bản Hướng dẫn Mẫu đơn I-589 (Vietnamese)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Instructions_VI.pdf",
+			"description": "(PDF, 1.11 MB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Form%20with%20Watermark_ES.pdf",
+			"title": "Formulario I-589 (Spanish)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Form%2520with%2520Watermark_ES.pdf",
+			"description": "(PDF, 614 KB)",
+			"file_online": false
+		},
+		{
+			"id": "I-589%20Instructions_ES.pdf",
+			"title": "Instrucciones para el Formulario I-589 (Spanish)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/I-589%2520Instructions_ES.pdf",
+			"description": "(PDF, 655.87 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-589": {
+			"id": "i-589",
+			"topic_id": "97294",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97294",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,169 @@
+{
+	"id": "I-129 ",
+	"title": "I-129 | Petition for a Nonimmigrant Worker",
+	"link": "https://www.uscis.gov/i-129",
+	"description": "Petitioners use this form to file on behalf of a nonimmigrant worker to come to the United States temporarily to perform services or labor, or to receive training, as an H-1B, H-2A, H-2B, H-3, L-1, O-1, O-2, P-1, P-1S, P-2, P-2S, P-3, P-3S, Q-1 or R-1 nonimmigrant worker. Petitioners may also use this form to request an extension of stay in or change of status to E-1, E-2, E-3, H-1B1 or TN, or one of the above classifications for an alien.",
+	"file_online": true,
+	"forms": [
+		{
+			"id": "i-129.pdf",
+			"title": "Form I-129",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-129.pdf",
+			"description": "(PDF, 2.19 MB)",
+			"file_online": false
+		},
+		{
+			"id": "i-129instr.pdf",
+			"title": "Instructions for Form I-129",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-129instr.pdf",
+			"description": "(PDF, 500.38 KB)",
+			"file_online": false
+		},
+		{
+			"id": "m-735.pdf",
+			"title": "Optional Checklist for Form I-129 H-1B Filings",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/m-735.pdf",
+			"description": "(PDF, 281.25 KB)",
+			"file_online": false
+		},
+		{
+			"id": "m-1097.pdf",
+			"title": "Optional Checklist for Form I-129 H-2A Filings",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/m-1097.pdf",
+			"description": "(PDF, 271.19 KB)",
+			"file_online": false
+		},
+		{
+			"id": "m-1087.pdf",
+			"title": "Optional Checklist for Form I-129 H-2B Filings",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/m-1087.pdf",
+			"description": "(PDF, 271.43 KB)",
+			"file_online": false
+		},
+		{
+			"id": "m-736.pdf",
+			"title": "Optional Checklist for Form I-129 R-1 Filings (Religious Workers)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/m-736.pdf",
+			"description": "(PDF, 355.32 KB)",
+			"file_online": false
+		},
+		{
+			"id": "m-746.pdf",
+			"title": "Dictionary of Occupational Titles (DOT) Codes",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/m-746.pdf",
+			"description": "(PDF, 123.74 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-129h-1b": {
+			"id": "i-129h-1b",
+			"topic_id": "97264",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97264",
+			"filings": [
+				{
+					"category": "If you are filing H-1B or H-1B1 petitions.If you are filing as a Small Employer or Nonprofit.",
+					"paper_fee": "$780 plus additional fees$460 plus additional fees, if applicable",
+					"online_fee": "$730 plus additional fees$460 plus additional fees, if applicable"
+				}
+			]
+		},
+		"i-129h-2a": {
+			"id": "i-129h-2a",
+			"topic_id": "97262",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97262",
+			"filings": [
+				{
+					"category": "If you are filing an H-2A petition with named workers.(limited to 25 beneficiaries per petition)If you are filing as a Small Employer or Nonprofit.",
+					"paper_fee": "$1,090 plus additional fees$545 plus additional fees, if applicable"
+				},
+				{
+					"category": "If you are filing an H-2A petition with unnamed workers.(no limit to number of beneficiaries per petition)If you are filing as a Small Employer or Nonprofit.",
+					"paper_fee": "$530 plus additional fees$460 plus additional fees, if applicable"
+				},
+				{
+					"category": "Additional Fees:Asylum Program FeeIf you are filing as a Regular PetitionerIf you are filing as a NonprofitIf you are filing as a Small EmployerIf paying by check or money order, submit the fee separately.",
+					"paper_fee": "$600$0$300"
+				}
+			]
+		},
+		"i-129h-2b": {
+			"id": "i-129h-2b",
+			"topic_id": "97263",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97263",
+			"filings": [
+				{
+					"category": "If you are filing an H-2B petition with named workers.(limited to 25 beneficiaries per petition)If you are filing as a Small Employer or Nonprofit.",
+					"paper_fee": "$1,080 plus additional fees$540 plus additional fees"
+				},
+				{
+					"category": "If you are filing H-2B petitions with unnamed workers.(no limit to number of beneficiaries per petition)If you are filing as a Small Employer or Nonprofit.",
+					"paper_fee": "$580 plus additional fees$460 plus additional fees"
+				},
+				{
+					"category": "Additional Fees:H-2B petitioners must submit an additional Fraud Prevention and Detection fee.Asylum Program FeeIf you are filing as a Regular PetitionerIf you are filing as a Nonprofit;If you are filing as a Small Employer.If paying by check or money order, submit the fee separately.",
+					"paper_fee": "$150Varies $600$0$300"
+				}
+			]
+		},
+		"i-129l": {
+			"id": "i-129l",
+			"topic_id": "97265",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97265",
+			"filings": [
+				{
+					"category": "If you are filing L petitions.If you are filing as a Small Employer or Nonprofit.",
+					"paper_fee": "$1,385 plus additional fees$695 plus additional fees, if applicable"
+				},
+				{
+					"category": "Additional Fees:Asylum Program FeeIf you are filing as a Regular PetitionerIf you are filing as a NonprofitIf you are filing as a Small EmployerIf paying by check or money order, submit the fee separately.",
+					"paper_fee": "Varies$600$0$300"
+				},
+				{
+					"category": "L petitioners must submit a Fraud Prevention and Detection fee if they are:Seeking initial approval of L nonimmigrant status for a beneficiary;Seeking approval to employ an L nonimmigrant currently working for another petitioner; orFor blanket petitions, seeking approval for an L nonimmigrant to continue employment with an entity different from the previous petitioner.If paying by check or money order, submit the fee separately.",
+					"paper_fee": "$500"
+				},
+				{
+					"category": "L-1 petitioners are required to submit an additional fee mandated by Public Law 114-113, if:They are required to submit the Fraud Prevention and Detection fee;They employ 50 or more individuals in the United States; andMore than 50 percent of those employees are in H-1B, L-1A, or L-1B nonimmigrant status.If paying by check or money order, submit the fee separately.",
+					"paper_fee": "$4,500"
+				}
+			]
+		},
+		"i-129s": {
+			"id": "i-129s",
+			"topic_id": "97269",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97269",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0 plus additional fees, if applicable"
+				}
+			]
+		}
+	}
+}filing as a Small EmployerIf paying by check or money order, submit the fee separately.",
+					"paper_fee": "Varies$600$0$300"
+				},
+				{
+					"category": "L petitioners must submit a Fraud Prevention and Detection fee if they are:Seeking initial approval of L nonimmigrant status for a beneficiary;Seeking approval to employ an L nonimmigrant currently working for another petitioner; orFor blanket petitions, seeking approval for an L nonimmigrant to continue employment with an entity different from the previous petitioner.If paying by check or money order, submit the fee separately.",
+					"paper_fee": "$500"
+				},
+				{
+					"category": "L-1 petitioners are required to submit an additional fee mandated by Public Law 114-113, if:They are required to submit the Fraud Prevention and Detection fee;They employ 50 or more individuals in the United States; andMore than 50 percent of those employees are in H-1B, L-1A, or L-1B nonimmigrant status.If paying by check or money order, submit the fee separately.",
+					"paper_fee": "$4,500"
+				}
+			]
+		},
+		"i-129s": {
+			"id": "i-129s",
+			"topic_id": "97269",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97269",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0 plus additional fees, if applicable"
+				}
+			]
+		}
+	}
+}

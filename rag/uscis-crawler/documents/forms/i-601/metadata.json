@@ -1,0 +1,91 @@
+{
+	"id": "I-601 ",
+	"title": "I-601 | Application for Waiver of Grounds of Inadmissibility",
+	"link": "https://www.uscis.gov/i-601",
+	"description": "If you are inadmissible to the United States and are seeking an immigrant visa, adjustment of status, certain nonimmigrant statuses, or certain other immigration benefits, you must file this form to seek a waiver of certain grounds of inadmissibility.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-601.pdf",
+			"title": "Form I-601",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-601.pdf",
+			"description": "(PDF, 613.42 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-601instr.pdf",
+			"title": "Instructions for Form I-601",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-601instr.pdf",
+			"description": "(PDF, 491.86 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-601chart.pdf",
+			"title": "Flowchart: Filing Certain Waivers of Inadmissibility",
+			"link": "https://www.uscis.gov/sites/default/files/document/charts/i-601chart.pdf",
+			"description": "(PDF, 578.67 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-601": {
+			"id": "i-601",
+			"topic_id": "97301",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97301",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$1,050"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted Special Immigrant Juvenile classification.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted T nonimmigrant status.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted U nonimmigrant status.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted special immigrant visa or adjustment of status as:An Afghan or Iraqi translator or interpreter;An Iraqi national employed by or on behalf of the U.S. Government;An Afghan national employed by or on behalf of the U.S. Government or employed by the International Security Assistance Force (ISAF); orA derivative beneficiary of one of the above.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are an Afghan national who is the beneficiary of an approved Form I-130, Petition for Alien Relative, with an immigrant visa immediately available.",
+					"paper_fee": "$0 (through Sept. 30, 2024) $1,050 (after Sept. 30, 2024)"
+				},
+				{
+					"category": "If you are filing this form in connection with a Form I-485, Application to Register Permanent Residence or Adjust Status, under Section 13 of Pub. L. 85-316 as an Afghan Diplomat or immediate family member who held valid A or G status on July 14, 2021.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted adjustment of status as an abused spouse or child under the Cuban Adjustment Act (CAA).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted adjustment of status as an abused spouse or child under the Haitian Refugee Immigration Fairness Act (HRIFA).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are an abused spouse or child seeking benefits under the Nicaraguan Adjustment and Central American Relief Act (NACARA).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted immigrant classification as a Violence Against Women Act (VAWA) self-petitioner (including derivatives).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "For applicants for adjustment of status of Indochina refugees under Pub. L. 95-145.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a Haitian child paroled into the United States as an adopted child of a U.S. citizen with an approved or pending Form I-800 seeking to adjust status.",
+					"paper_fee": "$0 (through Sept. 30, 2025)"
+				}
+			]
+		}
+	}
+}

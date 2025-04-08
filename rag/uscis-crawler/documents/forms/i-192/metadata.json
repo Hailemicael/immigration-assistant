@@ -1,0 +1,48 @@
+{
+	"id": "I-192 ",
+	"title": "I-192 | Application for Advance Permission to Enter as a Nonimmigrant",
+	"link": "https://www.uscis.gov/i-192",
+	"description": "Use this form if you want to apply for advance permission to temporarily enter the United States and you are an: Inadmissible nonimmigrant and already have the appropriate documents; or Applicant for T or U nonimmigrant status.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-192.pdf",
+			"title": "Form I-192",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-192.pdf",
+			"description": "(PDF, 440.84 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-192instr.pdf",
+			"title": "Instructions for Form I-192",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-192instr.pdf",
+			"description": "(PDF, 452.51 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-192": {
+			"id": "i-192",
+			"topic_id": "97277",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97277",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$1,100"
+				},
+				{
+					"category": "If you are filing as a petitioner for U nonimmigrant status (including derivatives).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as an applicant for T nonimmigrant status (including derivatives).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If filing with U.S. Customs and Border Protection (CBP)If you are applying to CBP, use the following guidelines when you prepare your check or money order for the Form I-192 filing fee:The check or money order must be made payable to U.S Customs and Border Protection.  The check or money order must be drawn on a bank or other financial institution located in the United States and must be payable in U.S. currency. Certain CBP-designated Ports-of-Entry may accept payment in the form of cash or credit cards.We recommend that you contact the CBP preclearance office or CBP Port-of-Entry where you intend to be processed for payment instructions. Please visit the CBP website (go to the search box and type “Form I-192,” “I-192,” “192,” or “waiver”).Special Instructions for Citizens of Palau, the Federated States of Micronesia, or the Marshall Islands.  You may contact the nearest U.S. Embassy or U.S. Consulate to receive payment instructions.  You may also receive instructions by emailing the CBP/Admissibility Review Office (ARO) at: aroinquirywaiver@cbp.dhs.gov.",
+					"paper_fee": "$1,100"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,36 @@
+{
+	"id": "I-687 ",
+	"title": "I-687 | Application for Status as a Temporary Resident Under Section 245A of the Immigration and Nationality Act",
+	"link": "https://www.uscis.gov/i-687",
+	"description": "For use during the Immigration and Nationality Act (INA) Section 245A legalization program of the 1986 Immigration Reform and Control Act, which ended in 1988. The form is now used to apply to USCIS for benefits under the terms and conditions of certain settlement agreements.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-687.pdf",
+			"title": "Form I-687",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-687.pdf",
+			"description": "(PDF, 1.14 MB)",
+			"file_online": false
+		},
+		{
+			"id": "i-687instr.pdf",
+			"title": "Instructions for Form I-687",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-687instr.pdf",
+			"description": "(PDF, 260.53 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-687": {
+			"id": "i-687",
+			"topic_id": "97305",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97305",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$1,240"
+				}
+			]
+		}
+	}
+}

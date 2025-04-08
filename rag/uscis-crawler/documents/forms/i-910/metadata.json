@@ -1,0 +1,36 @@
+{
+	"id": "I-910 ",
+	"title": "I-910 | Application for Civil Surgeon Designation",
+	"link": "https://www.uscis.gov/i-910",
+	"description": "Use this form to apply for civil surgeon designation. You do not need to apply for civil surgeon designation if you fall under the limited blanket designations for military physicians and state and local health departments.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-910.pdf",
+			"title": "Form I-910",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-910.pdf",
+			"description": "(PDF, 484.83 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-910instr.pdf",
+			"title": "Instructions for Form I-910",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-910instr.pdf",
+			"description": "(PDF, 274.1 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-910": {
+			"id": "i-910",
+			"topic_id": "97334",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97334",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$990"
+				}
+			]
+		}
+	}
+}

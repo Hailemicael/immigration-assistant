@@ -1,0 +1,122 @@
+{
+	"id": "I-600A ",
+	"title": "I-600A | Application for Advance Processing of an Orphan Petition",
+	"link": "https://www.uscis.gov/i-600a",
+	"description": "U.S. citizens who plan to adopt a foreign-born child use this form to allow USCIS to adjudicate the application that relates to the suitability and eligibility of the applicant(s) as prospective adoptive parent(s).",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-600a.pdf",
+			"title": "Form I-600A",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-600a.pdf",
+			"description": "(PDF, 566.67 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-600ainstr.pdf",
+			"title": "Instructions for Form I-600A",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-600ainstr.pdf",
+			"description": "(PDF, 447.69 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-600asup1.pdf",
+			"title": "Form I-600A/I-600 Supplement 1 (Listing of Adult Member of the Household)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-600asup1.pdf",
+			"description": "(PDF, 400.12 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-600asup2.pdf",
+			"title": "Form I-600A/I-600 Supplement 2 (Consent to Disclose Information)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-600asup2.pdf",
+			"description": "(PDF, 286.81 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-600asup3.pdf",
+			"title": "Form I-600A/I-600 Supplement 3 (Request for Action on Approved Form I-600A/I-600)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-600asup3.pdf",
+			"description": "(PDF, 447.12 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-600a": {
+			"id": "i-600a",
+			"topic_id": "97297",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97297",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$920"
+				},
+				{
+					"category": "Filed due to change in marital status after prior Form I-600A is approved.",
+					"paper_fee": "$920"
+				},
+				{
+					"category": "Filed due to change in marital status while prior Form I-600A is pending.",
+					"paper_fee": "$0"
+				}
+			]
+		},
+		"i-600asup1": {
+			"id": "i-600asup1",
+			"topic_id": "97298",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97298",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		},
+		"i-600asup2": {
+			"id": "i-600asup2",
+			"topic_id": "97299",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97299",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		},
+		"i-600asup3": {
+			"id": "i-600asup3",
+			"topic_id": "97300",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97300",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$455"
+				},
+				{
+					"category": "Filed for a FIRST or SECOND extension of your Form I-600A.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "Filed for a THIRD or SUBSEQUENT extension of your Form I-600A.",
+					"paper_fee": "$455"
+				},
+				{
+					"category": "Filed for a new approval notice based on a significant change and updated home study after we approved your Form I-600A or Form I-600 and there is no request for a first or second extension of your Form I-600A approval or a first or second change of non-Hague Adoption Convention country on the same Supplement 3.",
+					"paper_fee": "$455"
+				},
+				{
+					"category": "Filed for a FIRST or SECOND change to a new non-Hague Adoption Convention country for which you were not previously approved in your suitability determination.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "Filed for a THIRD or SUBSEQUENT change to a new non-Hague Adoption Convention country for which you were not previously approved in your suitability determination.",
+					"paper_fee": "$455"
+				},
+				{
+					"category": "Filed for a duplicate approval notice.",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

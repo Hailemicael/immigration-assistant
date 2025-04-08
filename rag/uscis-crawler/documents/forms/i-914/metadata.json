@@ -1,0 +1,79 @@
+{
+	"id": "I-914 ",
+	"title": "I-914 | Application for T Nonimmigrant Status",
+	"link": "https://www.uscis.gov/i-914",
+	"description": "Use this form to request temporary immigration benefits if you are a victim of a severe form of trafficking in persons, also known as human trafficking.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-914.pdf",
+			"title": "Form I-914",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-914.pdf",
+			"description": "(PDF, 655.08 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-914instr.pdf",
+			"title": "Instructions for Form I-914",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-914instr.pdf",
+			"description": "(PDF, 395.39 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-914supa.pdf",
+			"title": "Form I-914, Supplement A, Application for Derivative T Nonimmigrant Status",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-914supa.pdf",
+			"description": "(PDF, 656.7 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-914supb.pdf",
+			"title": "Form I-914, Supplement B, Declaration for Trafficking Victim",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-914supb.pdf",
+			"description": "(PDF, 361.93 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-914supbinstr.pdf",
+			"title": "Instructions for Form I-914, Supplement B",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-914supbinstr.pdf",
+			"description": "(PDF, 301.83 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-914": {
+			"id": "i-914",
+			"topic_id": "97336",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97336",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		},
+		"i-914supa": {
+			"id": "i-914supa",
+			"topic_id": "97337",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97337",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		},
+		"i-914supb": {
+			"id": "i-914supb",
+			"topic_id": "97338",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97338",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

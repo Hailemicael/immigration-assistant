@@ -1,0 +1,42 @@
+{
+	"id": "N-565 ",
+	"title": "N-565 | Application for Replacement Naturalization/Citizenship Document",
+	"link": "https://www.uscis.gov/n-565",
+	"description": "Use this form to apply for a replacement Declaration of Intention; Naturalization Certificate; Certificate of Citizenship; or Repatriation Certificate; or to apply for a special certificate of naturalization as a U.S. citizen to be recognized by a foreign country.",
+	"file_online": true,
+	"forms": [
+		{
+			"id": "n-565.pdf",
+			"title": "Form N-565",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/n-565.pdf",
+			"description": "(PDF, 467.56 KB)",
+			"file_online": false
+		},
+		{
+			"id": "n-565instr.pdf",
+			"title": "Instructions for Form N-565",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/n-565instr.pdf",
+			"description": "(PDF, 257.24 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"n-565": {
+			"id": "n-565",
+			"topic_id": "97355",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97355",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$555",
+					"online_fee": "$505"
+				},
+				{
+					"category": "If you are filing because your certificate contains incorrect information due to USCIS error.",
+					"paper_fee": "$0",
+					"online_fee": "$0"
+				}
+			]
+		}
+	}
+}

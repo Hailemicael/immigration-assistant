@@ -1,0 +1,72 @@
+{
+	"id": "I-290B ",
+	"title": "I-290B | Notice of Appeal or Motion",
+	"link": "https://www.uscis.gov/i-290b",
+	"description": "Use this form to file:\n\nAn appeal with the Administrative Appeals Office (AAO); \nA motion with the USCIS office that issued the latest decision in your case (including a field office, service center, or the AAO); or\nCertain appeals of the denial of an Immigration and Customs Enforcement (ICE) Form I-17, “Petition for Approval of School for Attendance by Nonimmigrant Student” with the ICE Student and Exchange Visitor Program.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-290b.pdf",
+			"title": "Form I-290B",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-290b.pdf",
+			"description": "(PDF, 353.31 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-290binstr.pdf",
+			"title": "Instructions for Form I-290B",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-290binstr.pdf",
+			"description": "(PDF, 243.31 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-290b": {
+			"id": "i-290b",
+			"topic_id": "97280",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97280",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$800"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted Special Immigrant Juvenile classification (only if filed for any benefit request filed before adjusting status or a motion filed for Form I-485, Application to Register Permanent Residence or Adjust Status, and an associated ancillary form).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted T nonimmigrant status (including derivatives) (only if filed for any benefit request filed before adjusting status or a motion filed for Form I-485 and an associated ancillary form).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a petitioner for U nonimmigrant status (including derivatives) (only if filed for any benefit request filed before adjusting status or a motion filed for Form I-485 and an associated ancillary form).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted special immigrant visa or status as:An Afghan or Iraqi translator or interpreter;An Iraqi national employed by or on behalf of the U.S. Government;An Afghan national employed by or on behalf of the U.S. Government or employed by the International Security Assistance Force (ISAF); orA derivative beneficiary of one of the above.If Form I-290B is filed for any benefit request filed before adjusting status or a motion filed for a Form I-485.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If this is the first I-290B filing for a parole request (Form I-131, Application for Travel Document) filed on behalf of a national of Afghanistan outside the United States, and that parole request was denied between Aug. 1, 2021, and Sept. 30, 2023.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted adjustment of status as an abused spouse or child under the Cuban Adjustment Act (CAA) - if Form I-290B is filed for any benefit request filed before adjustment of status, or a motion filed on Form I-485.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted adjustment of status as an abused spouse or child under the Haitian Refugee Immigration Fairness Act (HRIFA) - if Form I-290B is filed for any benefit request filed before adjustment of status or a motion filed on Form I-485.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted immigrant classification as a Violence Against Women Act (VAWA) self-petitioner (including derivatives):For any benefit request filed before adjustment of status, a motion filed on Form I-485, or an associated ancillary form.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are a conditional permanent resident filing a waiver of the joint filing requirement (Form I-751, Petition to Remove Conditions on Residence) based on battery or extreme cruelty.",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

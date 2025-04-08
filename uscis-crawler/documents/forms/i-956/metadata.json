@@ -1,0 +1,23 @@
+{
+	"id": "I-956 ",
+	"title": "I-956 | Application for Regional Center Designation",
+	"link": "https://www.uscis.gov/i-956",
+	"description": "Use Form I-956 to request U.S. Citizenship and Immigration Services (USCIS) designation as a regional center under Immigration and Nationality Act (INA) section 203(b)(5)(E), or to request an amendment to an approved regional center designated under INA 203(b)(5)(E).",
+	"file-online": false,
+	"forms": [
+		{
+			"id": "i-956.pdf",
+			"title": "Form I-956",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-956.pdf",
+			"description": "(PDF, 1.13 MB)",
+			"file-online": false
+		},
+		{
+			"id": "i-956instr.pdf",
+			"title": "Instructions for Form I-956",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-956instr.pdf",
+			"description": "(PDF, 276.58 KB)",
+			"file-online": false
+		}
+	]
+}

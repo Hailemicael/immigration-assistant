@@ -1,0 +1,70 @@
+{
+	"id": "I-131 ",
+	"title": "I-131 | Application for Travel Documents, Parole Documents, and Arrival/Departure Records",
+	"link": "https://www.uscis.gov/i-131",
+	"description": "Use this form to apply for travel documents, parole documents, or arrival/departure records.",
+	"file_online": true,
+	"forms": [
+		{
+			"id": "i-131.pdf",
+			"title": "Form I-131",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-131.pdf",
+			"description": "(PDF, 642.87 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-131instr.pdf",
+			"title": "Instructions for Form I-131",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-131instr.pdf",
+			"description": "(PDF, 522.68 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-131cmni": {
+			"id": "i-131cmni",
+			"topic_id": "99068",
+			"link": "https://www.uscis.gov/g-1055?topic_id=99068",
+			"filings": [
+				{
+					"category": "Advance Permission to Travel for Commonwealth of Northern Mariana Islands (CNMI) Long-Term Residents (Part 1. Item 5.L. on Form I-131)If you are applying for advance permission to travel as a CNMI long-term resident.Not eligible for a Fee Waiver request.",
+					"paper_fee": "$630"
+				}
+			]
+		},
+		"i-131pip": {
+			"id": "i-131pip",
+			"topic_id": "99070",
+			"link": "https://www.uscis.gov/g-1055?topic_id=99070",
+			"filings": [
+				{
+					"category": "Initial Request for Arrival/Departure Record for Parole In Place (for individuals who are inside the United States) (Part 1. Item 8.A.(1) and Item 8.A.(2) on Form I-131)If you are applying for Military Parole in Place (PIP), only on your behalf, as a:Current or former service member (Part 1. Item 8.A.(1)); orSpouse, parent, son, or daughter of a current or former service member (Part 1. Item 8.A.(2)).If you are filing Form I-131 on behalf of another person, a fee exemption ($0) applies only if the person on whose behalf you are filing meets the eligibility requirements for a fee exemption.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "Initial Request for Arrival/Departure Record for Parole In Place (for individuals who are inside the United States) (Part 1. Item 8.B. on Form I-131)Family Reunification Task Force (FRTF). If you are requesting parole in place for purposes of Family Reunification for children or family members affected by family separations at the United States-Mexico border by DHS between the dates of Jan. 20, 2017, and Jan. 20, 2021, (Ms. L. v. ICE, 18-cv-00428 (S.D. Cal.)).If you are filing Form I-131 on behalf of another person, a fee exemption ($0) applies only if the person on whose behalf you are filing meets the eligibility requirements for a fee exemption.",
+					"paper_fee": "$0 (through Dec. 11, 2029)"
+				},
+				{
+					"category": "Initial Request for Arrival/Departure Record for Parole In Place (for individuals who are inside the United States) (Part 1. Item 8.C. on Form I-131)If you are filing under another specific parole program or process.If you are filing Form I-131 on behalf of another person, a fee exemption ($0) applies only if the person on whose behalf you are filing meets the eligibility requirements for a fee exemption.",
+					"paper_fee": "$630"
+				},
+				{
+					"category": "Initial Request for Arrival/Departure Record for Parole In Place (for individuals who are inside the United States) (Part 1. Item 9. on Form I-131)If you are applying for an initial period of parole in place under INA 212(d)(5)(A) for yourself or someone else inside the United States, but not under a specific parole process.If you are filing Form I-131 on behalf of another person, a fee exemption ($0) applies only if the person on whose behalf you are filing meets the eligibility requirements for a fee exemption.",
+					"paper_fee": "$630"
+				}
+			]
+		},
+		"i-131tps": {
+			"id": "i-131tps",
+			"topic_id": "99066",
+			"link": "https://www.uscis.gov/g-1055?topic_id=99066",
+			"filings": [
+				{
+					"category": "Travel Authorization Document (for Temporary Protected Status (TPS) beneficiaries who are inside the United States) (Part 1. Item 4. on Form I-131)If you are a TPS beneficiary in the United States, and you are applying for a TPS Travel Authorization Document under INA 244(f)(3) to allow you to seek admission under TPS upon your return from abroad.",
+					"paper_fee": "$630"
+				}
+			]
+		}
+	}
+}

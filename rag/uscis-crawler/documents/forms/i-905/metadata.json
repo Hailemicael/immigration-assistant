@@ -1,0 +1,36 @@
+{
+	"id": "I-905 ",
+	"title": "I-905 | Application for Authorization to Issue Certification for Health Care Workers",
+	"link": "https://www.uscis.gov/i-905",
+	"description": "Use this form if you work with an organization and want to apply for authorization to issue certificates to health care workers.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-905.pdf",
+			"title": "Form I-905",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-905.pdf",
+			"description": "(PDF, 333.48 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-905instr.pdf",
+			"title": "Instructions for Form I-905",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-905instr.pdf",
+			"description": "(PDF, 264.29 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-905": {
+			"id": "i-905",
+			"topic_id": "97332",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97332",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$230"
+				}
+			]
+		}
+	}
+}

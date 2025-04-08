@@ -1,0 +1,95 @@
+{
+	"id": "I-131A ",
+	"title": "I-131A | Application for Carrier Documentation",
+	"link": "https://www.uscis.gov/i-131a",
+	"description": "Use this form if you are a lawful permanent resident (LPR), including an LPR with conditions, and wish to apply for a travel document (carrier documentation) that allows you to board an airline or other transportation carrier without the airline or transportation carrier being penalized.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-131a.pdf",
+			"title": "Form I-131A",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-131a.pdf",
+			"description": "(PDF, 431.84 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-131ainstr.pdf",
+			"title": "Instructions for Form I-131A",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-131ainstr.pdf",
+			"description": "(PDF, 312.43 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-131a": {
+			"id": "i-131a",
+			"topic_id": "97272",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97272",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$575"
+				},
+				{
+					"category": "If you are a refugee, a person paroled as a refugee, or a lawful permanent resident who obtained such status as a refugee in the United States.",
+					"paper_fee": "$0"
+				}
+			]
+		},
+		"i-131apd": {
+			"id": "i-131apd",
+			"topic_id": "99067",
+			"link": "https://www.uscis.gov/g-1055?topic_id=99067",
+			"filings": [
+				{
+					"category": "Advance Parole Document (for individuals who are inside the United States) (Part 1. Item 5.A. on Form I-131)If you have a pending Form I-485, Application to Register Permanent Residence or Adjust Status.",
+					"paper_fee": "$630"
+				},
+				{
+					"category": "Advance Parole Document (for individuals who are inside the United States) (Part 1. Item 5.B. on Form I-131)If you have a pending Form I-589, Application for Asylum and for Withholding of Removal.Certain applicants may be eligible for a Fee Waiver. See Form I-912, Request for Fee Waiver, Instructions.",
+					"paper_fee": "$630"
+				},
+				{
+					"category": "Advance Parole Document (for individuals who are inside the United States) (Part 1. Item 5.C. on Form I-131)If you have a pending initial Form I-821, Application for Temporary Protected Status.Certain applicants may be eligible for a Fee Waiver. See Form I-912, Request for Fee Waiver, Instructions.",
+					"paper_fee": "$630"
+				},
+				{
+					"category": "Advance Parole Document (for individuals who are inside the United States) (Part 1. Item 5.D. on Form I-131)If you have been granted Deferred Enforced Departure.",
+					"paper_fee": "$630"
+				},
+				{
+					"category": "Advance Parole Document (for individuals who are inside the United States) (Part 1. Item 5.E. on Form I-131)If you have an approved Form I-821D, Consideration of Deferred Action for Childhood Arrivals.",
+					"paper_fee": "$630"
+				},
+				{
+					"category": "Advance Parole Document (for individuals who are inside the United States) (Part 1. Item 5.F. on Form I-131)If you have an approved Form I-914, Application for T Nonimmigrant Status, or Form I-914, Supplement A, Application for Family Member of T-1 Recipient.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "Advance Parole Document (for individuals who are inside the United States) (Part 1. Item 5.G. on Form I-131)If you have an approved Form I-918, Petition for U Nonimmigrant Status, or Form I-918, Supplement A, Petition for Qualifying Family Member of U-1 Recipient",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "Advance Parole Document (for individuals who are inside the United States) (Part 1. Item 5.H. on Form I-131)If you are a current parolee under INA 212(d)(5).",
+					"paper_fee": "$630"
+				},
+				{
+					"category": "Advance Parole Document (for individuals who are inside the United States) (Part 1. Item 5.I. on Form I-131)If you have an approved Form I-817, Application for Family Unity Benefits.",
+					"paper_fee": "$630"
+				},
+				{
+					"category": "Advance Parole Document (for individuals who are inside the United States) (Part 1. Item 5.J. on Form I-131)If you have a pending Form I-687, Application for Status as a Temporary Resident Under Section 245A of the Immigration and Nationality Act.",
+					"paper_fee": "$630"
+				},
+				{
+					"category": "Advance Parole Document (for individuals who are inside the United States) (Part 1. Item 5.K. on Form I-131)If you hold V Nonimmigrant Status.",
+					"paper_fee": "$630"
+				},
+				{
+					"category": "Advance Parole Document (for individuals who are inside the United States) (Part 1. Item 5.M. on Form I-131)Other request for Advance Parole.",
+					"paper_fee": "$630"
+				}
+			]
+		}
+	}
+}

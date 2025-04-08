@@ -1,0 +1,88 @@
+{
+	"id": "I-485 ",
+	"title": "I-485 | Application to Register Permanent Residence or Adjust Status",
+	"link": "https://www.uscis.gov/i-485",
+	"description": "Use this form to apply for lawful permanent resident status if you are in the United States.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-485.pdf",
+			"title": "Form I-485",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-485.pdf",
+			"description": "(PDF, 1.15 MB)",
+			"file_online": false
+		},
+		{
+			"id": "i-485instr.pdf",
+			"title": "Instructions for Form I-485",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-485instr.pdf",
+			"description": "(PDF, 929.84 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-485": {
+			"id": "i-485",
+			"topic_id": "97286",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97286",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$1,440"
+				},
+				{
+					"category": "If under 14 years of age and submitting Form I-485 concurrently with the Form I-485 of one parent.",
+					"paper_fee": "$950"
+				},
+				{
+					"category": "If you are filing as an applicant who served honorably on active duty in the U.S. armed forces and who is filing under the Immigration and Nationality Act (INA) section 101(a)(27)(K). Select Part 2., Item Number 3.c.: Certain U.S. Armed Forces Members (also known as the Six and Six program) (does not include non-military derivative spouses or children).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are a refugee or you were paroled as a refugee. Select Part 2., Item Number 3.d.: Refugee Status (INA section 207); or indicate refugee status or paroled as refugee in Part 1.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are in deportation, exclusion, or removal proceedings before an immigration judge, and the court waives your application fee.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted Special Immigrant Juvenile classification. Select Part 2., Item Number 3.c.: Special Immigrant Juvenile.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a U nonimmigrant seeking adjustment of status under INA section 245(m). Select Part 2., Item Number 3.e.: Victim of Qualifying Criminal Activity (U Nonimmigrant).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a T nonimmigrant seeking adjustment of status under INA section 245(l). Select Part 2., Item Number 3.e.: Human Trafficking Victim (T Nonimmigrant).",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking or granted special immigrant visa or status as:An Afghan or Iraqi translator or interpreter;An Iraqi national employed by or on behalf of the U.S. Government;An Afghan national employed by or on behalf of the U.S. Government or employed by the International Security Assistance Force (ISAF); orA derivative beneficiary of one of the above.Select Part 2., Item Number 3.c.: Certain Afghan or Iraqi National.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing under Section 13 of Pub. L. 85-316 as an Afghan diplomat or immediate family member who held valid A or G status on July 14, 2021. Select Part 2., Item Number 3.f.: Diplomats or High-Ranking Officials Unable to Return Home.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking adjustment of status as an abused spouse or child under the Cuban Adjustment Act (CAA). Select Part 2., Item Number 3.f.: A Victim of Battery or Extreme Cruelty as a Spouse or Child Under the Cuban Adjustment Act.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking adjustment of status as an abused spouse or child under the Haitian Refugee Immigration Fairness Act (HRIFA). Select Part 2., Item Number 3.f.: A Victim of Battery or Extreme Cruelty as a Spouse or Child Applying Based on Dependent Status Under the Haitian Refugee Immigrant Fairness Act.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a person seeking immigrant classification as a Violence Against Women Act (VAWA) self-petitioner (including derivatives). Select Part 2., Item Number 3.a.: VAWA self-petitioning spouse, child, or parent.",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a Haitian child who was paroled into the United States as an adopted child of a U.S. citizen with an approved or pending Form I-800 seeking to adjust status.",
+					"paper_fee": "$0 (through Sept. 30, 2025)"
+				}
+			]
+		}
+	}
+}

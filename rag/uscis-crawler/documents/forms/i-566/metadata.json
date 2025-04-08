@@ -1,0 +1,36 @@
+{
+	"id": "I-566 ",
+	"title": "I-566 | Interagency Record of Request - A, G or NATO Dependent Employment Authorization or Change/Adjustment to/from A, G or NATO Status",
+	"link": "https://www.uscis.gov/i-566",
+	"description": "Submit this form with your application for:\nDependent employment authorization as an eligible A-1, A-2, G-1, G-3, G-4, or NATO 1-6 dependent; or \nChange or adjustment of status to, or from, A, G or NATO status",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-566.pdf",
+			"title": "Form I-566",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-566.pdf",
+			"description": "(PDF, 486.96 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-566instr.pdf",
+			"title": "Instructions for Form I-566",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-566instr.pdf",
+			"description": "(PDF, 465.08 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-566": {
+			"id": "i-566",
+			"topic_id": "97293",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97293",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}

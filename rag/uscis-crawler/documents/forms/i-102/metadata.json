@@ -1,0 +1,72 @@
+{
+	"id": "I-102 ",
+	"title": "I-102 | Application for Replacement/Initial Nonimmigrant Arrival-Departure Document",
+	"link": "https://www.uscis.gov/i-102",
+	"description": "Use this form if you are a nonimmigrant and need to apply for a new or replacement Form I-94 or I-95, Nonimmigrant Arrival-Departure Document.",
+	"file_online": false,
+	"forms": [
+		{
+			"id": "i-102.pdf",
+			"title": "Form I-102",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-102.pdf",
+			"description": "(PDF, 430.32 KB)",
+			"file_online": false
+		},
+		{
+			"id": "i-102instr.pdf",
+			"title": "Instructions for Form I-102",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-102instr.pdf",
+			"description": "(PDF, 320.3 KB)",
+			"file_online": false
+		}
+	],
+	"fees": {
+		"i-102": {
+			"id": "i-102",
+			"topic_id": "97260",
+			"link": "https://www.uscis.gov/g-1055?topic_id=97260",
+			"filings": [
+				{
+					"category": "General Filing",
+					"paper_fee": "$560"
+				},
+				{
+					"category": "If you are filing because you were not issued Form I-94 when you were admitted by U.S. Customs and Border Protection (CBP) at a port-of-entry in the United States (whether at a land border, airport, or seaport).(Part 2. Item 1.e. on Form I-102)",
+					"paper_fee": "$560"
+				},
+				{
+					"category": "If you are filing to correct your Form I-94, I-94W, or Form I-95 through no fault of your own and you were admitted to the United States by U.S. Customs and Border Protection (CBP) at an airport or seaport after April 30, 2013, and were issued an electronic Form I-94 by CBP, or you require a replacement paper Form I-94 issued by CBP, and you cannot obtain your Form I-94 from the CBP website.(Part 2. Item 1.f. on Form I-102)",
+					"paper_fee": "$0"
+				},
+				{
+					"category": "If you are filing as a nonimmigrant member of the U.S. armed forces.(Part 2. Item 1.g. on Form I-102)",
+					"paper_fee": "Initial Request:$0"
+				},
+				{
+					"category": "Subsequent Request",
+					"paper_fee": "$560"
+				},
+				{
+					"category": "If you are filing as a participant in a North Atlantic Treaty Organization (NATO) armed forces or civil component.",
+					"paper_fee": "Initial Request:$0"
+				},
+				{
+					"category": "Subsequent Request",
+					"paper_fee": "$560"
+				},
+				{
+					"category": "If you are filing as a nonimmigrant member of the Partnership for Peace military program under the Status of Forces Agreement (SOFA).",
+					"paper_fee": "Initial Request:$0"
+				},
+				{
+					"category": "Subsequent Request",
+					"paper_fee": "$560"
+				},
+				{
+					"category": "If you are filing for a replacement for Department of Homeland Security error.(Part 2. Item 1.f. on Form I-102)",
+					"paper_fee": "$0"
+				}
+			]
+		}
+	}
+}
