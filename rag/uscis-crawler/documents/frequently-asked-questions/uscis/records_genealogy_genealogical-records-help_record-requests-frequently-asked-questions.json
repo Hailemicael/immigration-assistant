@@ -1,0 +1,38 @@
+[
+	{
+		"question": "What is a Record Request?",
+		"answer": "A Genealogy Program record request is a request for USCIS to retrieve a specific record or file related to a particular individual. The requester identifies the file by number and the USCIS Genealogy Program will locate, retrieve, review, duplicate, and return to the requester a copy of that record. The requester may have obtained the USCIS file number through a previous genealogy index search request or from another source. You can find the filing fee for Form G-1041A by vising our Fee Schedule page."
+	},
+	{
+		"question": "What is in the records?",
+		"answer": "File content varies by the record series and immigrant. Find more information about our historical records series."
+	},
+	{
+		"question": "Should I submit a record request?",
+		"answer": "The USCIS Genealogy Program can only fulfill record requests that include a valid file number. View our list of file types for sample file numbers. If you do not have a file number, or if you are unsure whether or not USCIS maintains a record of your ancestor, you should make an index search request prior to making a record request. Any USCIS file numbers included in your index search results can be used to make a record request with your Case ID.\nIf you believe you have a valid file number, you may choose to forgo the index search and request a record without a Case ID. Please note that the USCIS Genealogy Program will not provide refunds for a record request without a Case ID that includes an invalid citation and/or results in a “No Records” response.\nImportant: A single immigrant may have several USCIS records. For example, an immigrant who entered the U.S. in 1924 and naturalized in 1930 may have both a Visa File and a C-File. Researchers who wish to know about all of an immigrant’s USCIS records should file an index search request. An index search returns citations for all of an immigrant’s records, while a record request without a Case ID will return only the specific file(s) requested."
+	},
+	{
+		"question": "What information do I need to make a successful record request?",
+		"answer": "To make a record request you will need to identify the correct record series and provide the immigrant’s:\nIf the immigrant was born less than 100 years ago, you will also need to provide proof of his/her death. Acceptable forms of proof of death include:\nPlease submit copies of these records with your request. Do not submit original documents as these documents will not be returned.\nAlso note that you are required to submit the record request fee at the time you make your request."
+	},
+	{
+		"question": "What are the different file number types?",
+		"answer": "Four different types of file numbers relate to the five series of agency records available from USCIS:\nView our list of file types for sample file numbers.\nImportant: File Numbers can be confusing. Accordingly, the Genealogy Program suggests you submit an index search request before completing your Form G-1041A, Genealogy Records Request."
+	},
+	{
+		"question": "Will you send the best possible copies?",
+		"answer": "Due to the aging of microfilm, the quality of each document will vary. However, our specialists will do their best to provide you with the best possible copy available of each document. The quality of the documents may also be affected if the records must go through Freedom of Information Act processing."
+	},
+	{
+		"question": "90 days have passed - where are the records I requested?",
+		"answer": "You may not have received the records you requested for one or more of the following reasons:"
+	},
+	{
+		"question": "How can I help to make the processing of my record request faster?",
+		"answer": "You can help speed our response to your record request by providing proof of death for any other persons you expect will be identified in a file. If all individuals identified in the file are proven deceased, the file can be released without processing under the Freedom of Information and Privacy Act. Other persons most commonly found in the records are the immigrant subject's children, spouse, and/or siblings. Acceptable documentary proof includes any of the following:\nThe Genealogy Program most often finds other persons (\"third parties\") named and identified in the following files:"
+	},
+	{
+		"question": "Can the USCIS Genealogy Program provide a certified copy of naturalization records?",
+		"answer": "No - The Genealogy Program cannot provide certified copies. A record request can provide a photocopy of a naturalization record only.\nIf you need only a copy of the naturalization certificate (not certified) to satisfy requirements for your foreign application for dual citizenship, you may submit a Form G-1041A, Records Request for the naturalization certificate only. Doing so can eliminate any additional processing delay resulting from information about the immigrant's children that may require review under the Freedom of Information and Privacy Act. To request only the certificate, write \"Dual Citz-Natz Certificate Only\" on your Form G-1041A or type this information in the \"Optional Information Section\" of your online request."
+	}
+]
