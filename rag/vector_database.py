@@ -27,7 +27,7 @@ class VectorDatabase(abc.ABC):
         self.query_embedding_prefix = query_embedding_prefix
 
     @abc.abstractmethod
-    async def populate_db(self, pool: asyncpg.Pool) -> None:
+    async def populate(self, pool: asyncpg.Pool) -> None:
         """
         Populate the database with data from files.
 
@@ -37,7 +37,7 @@ class VectorDatabase(abc.ABC):
         pass
 
     @abc.abstractmethod
-    async def search(self, pool: asyncpg.Pool, search_query: str, limit: int = 10):
+    async def search(self, pool: asyncpg.Pool, search_query: str, limit: int = 10, verbose: bool = False):
         """
         Search the database for entries matching the query.
 
@@ -45,6 +45,7 @@ class VectorDatabase(abc.ABC):
             pool: Database connection pool
             search_query: Query string to search for
             limit: Maximum number of results to return
+            verbose:
 
         Returns:
             List of matching entries
@@ -53,7 +54,7 @@ class VectorDatabase(abc.ABC):
 
     @staticmethod
     @abc.abstractmethod
-    async def clear_db(pool: asyncpg.Pool) -> None:
+    async def clear(pool: asyncpg.Pool) -> None:
         """
         Clear all data from the database tables.
 

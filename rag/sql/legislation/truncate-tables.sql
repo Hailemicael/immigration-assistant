@@ -1,13 +1,12 @@
-CREATE OR REPLACE PROCEDURE truncate_immigration_tables()
+CREATE OR REPLACE PROCEDURE truncate_legislation_tables()
     LANGUAGE plpgsql
 AS $$
 BEGIN
-    TRUNCATE TABLE form_pdfs CASCADE;
-    TRUNCATE TABLE form_pdf_chunks CASCADE;
-    TRUNCATE TABLE form_fees CASCADE;
-    TRUNCATE TABLE form_filings CASCADE;
-    TRUNCATE TABLE form_html_chunks CASCADE;
+    Truncate table legislation_html cascade;
 
-    RAISE NOTICE 'All immigration form tables have been truncated successfully.';
+    Truncate table legislation_html_chunks cascade;
+
+
+    RAISE NOTICE 'All immigration legislation tables have been truncated successfully.';
 END;
 $$;

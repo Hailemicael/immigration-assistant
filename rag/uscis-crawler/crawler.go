@@ -43,7 +43,7 @@ func writeToFile(dir, name string, data []byte) error {
 	return nil
 }
 
-func loadMetadaFromFile(path string) (metadata *FormMetadata, err error) {
+func loadMetadataFromFile(path string) (metadata *FormMetadata, err error) {
 	// Open the file
 	file, err := os.Open(filepath.Join(path, "metadata.json"))
 	if err != nil {
