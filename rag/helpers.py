@@ -6,7 +6,6 @@ import pydantic_core
 from PyPDF2 import PdfReader
 from bs4 import BeautifulSoup
 from sentence_transformers import SentenceTransformer
-from sympy.strategies.core import switch
 
 
 def read_file_to_string(file_path):

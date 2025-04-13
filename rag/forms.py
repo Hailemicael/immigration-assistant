@@ -59,119 +59,113 @@ class FormsDatabase(VectorDatabase):
         super().__init__(model, data_dir, insert_embedding_prefix, query_embedding_prefix)
 
     async def populate(self, pool: asyncpg.Pool) -> None:
-        """Build the forms database from JSON files."""
         print("Populating Forms tables...")
-        # If no JSON files exist yet, create a sample file
         metadata_paths = list(self.data_dir.rglob("*.json"))
-
         print(f"Found {len(metadata_paths)} forms to process.")
 
-        print("Processing form data files...")
-        sem = asyncio.Semaphore(5)  # Limit concurrent processing
+        sem = asyncio.Semaphore(5)
 
         async with asyncio.TaskGroup() as tg:
             for path in metadata_paths:
                 tg.create_task(self.process_form_files(sem, pool, path))
 
-        print("Database build complete.")
+        print("\u2714 Forms table build complete.")
 
-    async def process_form_files(self,
-                                 sem: asyncio.Semaphore,
-                                 pool: asyncpg.Pool,
-                                 metadata_path: Path,
-                                 ) -> None:
-        """Process a single form JSON file and insert its data into the database."""
+    async def process_form_files(self, sem: asyncio.Semaphore, pool: asyncpg.Pool, metadata_path: Path) -> None:
         async with sem:
             try:
-                print(f"Processing {metadata_path}...")
-
-                # Load and validate the JSON data
+                print(f"\u2192 Processing Form File: {metadata_path.name}")
                 with open(metadata_path, 'r') as f:
                     json_data = dict(json.load(f))
 
                 metadata = form_metadata_adapter.validate_python(json_data)
+                print(f"  \u2192 Form ID: {metadata.id}")
+                await self.process_form_pdf(pool, metadata)
+                await self.process_form_documents(pool, metadata_path ,metadata)
+                await self.process_form_instructions(pool, metadata_path, metadata)
                 await self.process_form_filings(pool, metadata)
-                await self.process_form_pdfs(pool, metadata_path, metadata)
                 await self.process_form_html(pool, metadata_path, metadata)
 
             except Exception as e:
-                print(f"Error processing {metadata_path}: {e}")
+                print(f"❌ Error processing {metadata_path.name}: {e}")
 
-    async def process_form_pdfs(self,
-                                pool: asyncpg.Pool,
-                                metadata_path: Path,
-                                metadata: FormMetadata,
-                                ) -> None:
+    async def process_form_pdf(self, pool, metadata: FormMetadata) -> None:
+        exists = await pool.fetchval(
+            'SELECT 1 FROM forms.pdfs WHERE form_id = $1',
+            metadata.id,
+        )
+        if exists:
+            print(f"      → Skipping existing PDF: {metadata.id}")
+            return
+        async with pool.acquire() as conn:
+            async with conn.transaction():
+                try:
+                    print(f"    → Generating description embedding for {metadata.id}")
+                    description_embedding_json = helpers.generate_embeddings(self.model, metadata.description, prefix=self.insert_embedding_prefix)
 
-        print(f"Generating description embedding for: {metadata.id}")
-        description_embedding_json = helpers.generate_embeddings(self.model, metadata.description,
-                                                                 prefix=self.insert_embedding_prefix)
+                    await conn.execute(
+                        '''
+                        INSERT INTO forms.pdfs (form_id, description, description_embedding)
+                        VALUES ($1, $2, $3)
+                        ''',
+                        metadata.id,
+                        metadata.description,
+                        description_embedding_json,
+                        )
+
+                    print(f"✔ Processed {metadata.id}")
+                except Exception as e:
+                    print(f"❌ Failed to process PDF {metadata.id}: {e}")
+                    raise
+
+    async def process_form_documents(self, pool, metadata_path: Path, metadata: FormMetadata) -> None:
         for form in metadata.forms:
-            print(f"Generating title embedding for: {metadata.id} - {form.id}")
-            title_embedding_json = helpers.generate_embeddings(self.model, form.title, prefix=self.insert_embedding_prefix)
-            # Check if this pdf already exists
+            if "Instructions" in form.title or "instr" in form.id:
+                continue
+
             exists = await pool.fetchval(
-                'SELECT 1 FROM form_pdfs WHERE form_id = $1 AND file_name = $2',
+                'SELECT 1 FROM forms.documents WHERE form_id = $1 AND file_name = $2',
                 metadata.id, form.id
             )
-
             if exists:
-                print(f"Skipping existing entry: {metadata.id} - {form.id}")
+                print(f"      → Skipping existing PDF: {form.id}")
                 continue
 
             async with pool.acquire() as conn:
                 async with conn.transaction():
                     try:
+                        print(f"    → Generating title embedding for {form.id}")
+                        title_embedding_json = helpers.generate_embeddings(self.model, form.title, prefix=self.insert_embedding_prefix)
+
                         await conn.execute(
                             '''
-                            INSERT INTO form_pdfs (form_id, file_name, file_url, title, description, metadata, is_instructions, title_embedding, description_embedding)
-                            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+                            INSERT INTO forms.documents (form_id, file_name, file_url, title, metadata, title_embedding)
+                            VALUES ($1, $2, $3, $4, $5, $6)
                             ''',
                             metadata.id,
                             form.id,
                             form.link,
                             form.title,
-                            metadata.description,
                             form.description,
-                            "Instructions" in form.title or "instr" in form.id,
                             title_embedding_json,
-                            description_embedding_json,
                             )
 
-                        print(f"Inserted: {metadata.id} - {form.id}")
-                        try:
-                            chunks = helpers.read_and_chunk_pdf(f"{metadata_path.parent}/{form.id}", chunk_size="Pages")
-                        except Exception as e:
-                            print(f"An error occurred reading PDF, {metadata.id} - {form.id}", e)
-                            raise
-
-                        # Process each chunk in the pdf
+                        chunks = helpers.read_and_chunk_pdf(f"{metadata_path.parent}/{form.id}", chunk_size="Pages")
                         for i, chunk in enumerate(chunks):
-                            # Check if this filing already exists
                             exists = await conn.fetchval(
-                                'SELECT 1 FROM form_pdf_chunks WHERE form_name = $1 AND content_chunk = $2',
+                                'SELECT 1 FROM forms.document_chunks WHERE form_name = $1 AND content_chunk = $2',
                                 form.id, chunk
                             )
-
                             if exists:
-                                print(f"Skipping existing entry: {metadata.id} - {form.id} - chunk: {i}")
+                                print(f"        → Chunk {i}: Skipped (already exists)")
                                 continue
 
-                            # Generate embedding for the category text
-                            print(f"Generating embedding for: {metadata.id} - {form.id} - chunk: {i}")
-
-                            context = {
-                                "form_id": [metadata.id, form.id],
-                                "form_title": [metadata.title, form.title],
-                                "description": metadata.description,
-
-                            }
+                            print(f"        → Chunk {i}: Embedding and inserting")
                             embedding_json = helpers.generate_embeddings(self.model, chunk, prefix=self.insert_embedding_prefix)
 
-                            # Insert into database
                             await conn.execute(
                                 '''
-                                INSERT INTO form_pdf_chunks (form_id, form_name, content_chunk, chunk_embedding)
+                                INSERT INTO forms.document_chunks (form_id, form_name, content_chunk, chunk_embedding)
                                 VALUES ($1, $2, $3, $4)
                                 ''',
                                 metadata.id,
@@ -179,66 +173,96 @@ class FormsDatabase(VectorDatabase):
                                 chunk,
                                 embedding_json,
                             )
-                            print(f"Inserted: {metadata.id} - {form.id} - chunk: {i}")
-                        print(f"Processed {metadata.id} - {form.id} ({len(chunks)} chunks)")
+                        print(f"      ✔ Processed {form.id} ({len(chunks)} chunks)")
                     except Exception as e:
-                        print("An error occurred, rolling back the transaction:", e)
+                        print(f"❌ Failed to process PDF {form.id}: {e}")
                         raise
 
-    async def process_form_filings(self,
-                                   pool: asyncpg.Pool,
-                                   metadata: FormMetadata,
-                                   ) -> None:
-        # Process each filing in the form
+    async def process_form_instructions(self, pool, metadata_path: Path, metadata: FormMetadata) -> None:
+        for form in metadata.forms:
+            if not ("Instructions" in form.title or "instr" in form.id):
+                continue
+
+            print(f"    → Inserting instruction entry for {form.id}")
+            async with pool.acquire() as conn:
+                async with conn.transaction():
+                    await conn.execute(
+                        '''
+                        INSERT INTO forms.instructions (form_id, file_name, file_url, title, description, metadata)
+                        VALUES ($1, $2, $3, $4, $5, $6)
+                        ON CONFLICT DO NOTHING
+                        ''',
+                        metadata.id,
+                        form.id,
+                        form.link,
+                        form.title,
+                        form.description,
+                        metadata.description,
+                    )
+
+                    chunks = helpers.read_and_chunk_pdf(f"{metadata_path.parent}/{form.id}", chunk_size="Pages")
+                    for i, chunk in enumerate(chunks):
+                        exists = await conn.fetchval(
+                            'SELECT 1 FROM forms.instructions_chunks WHERE form_name = $1 AND content_chunk = $2',
+                            form.id, chunk
+                        )
+                        if exists:
+                            print(f"        → Instruction Chunk {i}: Skipped (already exists)")
+                            continue
+
+                        print(f"        → Instruction Chunk {i}: Embedding and inserting")
+                        embedding_json = helpers.generate_embeddings(self.model, chunk, prefix=self.insert_embedding_prefix)
+
+                        await conn.execute(
+                            '''
+                            INSERT INTO forms.instructions_chunks (form_id, form_name, content_chunk, chunk_embedding)
+                            VALUES ($1, $2, $3, $4)
+                            ''',
+                            metadata.id,
+                            form.id,
+                            chunk,
+                            embedding_json,
+                        )
+
+    async def process_form_filings(self, pool: asyncpg.Pool, metadata: FormMetadata) -> None:
         for fee in metadata.fees.values():
-            # Check if this filing already exists
             exists = await pool.fetchval(
-                'SELECT 1 FROM form_fees WHERE form_id = $1 AND topic_id = $2',
+                'SELECT 1 FROM forms.fees WHERE form_id = $1 AND topic_id = $2',
                 metadata.id, fee.topic_id
             )
-
             if exists:
-                print(f"Skipping existing entry: {metadata.id} - {fee.topic_id}")
+                print(f"    → Skipping existing fee entry: {fee.topic_id}")
                 continue
+
             async with pool.acquire() as conn:
                 async with conn.transaction():
                     try:
                         await conn.execute(
                             '''
-                              INSERT INTO form_fees (form_id, topic_id, fee_link)
-                              VALUES ($1, $2, $3)
-                              ''',
+                            INSERT INTO forms.fees (form_id, topic_id, fee_link)
+                            VALUES ($1, $2, $3)
+                            ''',
                             metadata.id,
                             fee.topic_id,
                             fee.link,
                         )
                         for filing in fee.filings or []:
-                            # Check if this filing already exists
                             exists = await conn.fetchval(
-                                'SELECT 1 FROM form_filings WHERE form_id = $1 AND topic_id = $2 AND category = $3',
+                                'SELECT 1 FROM forms.filings WHERE form_id = $1 AND topic_id = $2 AND category = $3',
                                 metadata.id,
                                 fee.topic_id,
                                 filing.category
                             )
-
                             if exists:
-                                print(f"Skipping existing entry: {metadata.id} - {filing.category}")
+                                print(f"        → Skipping filing: {filing.category}")
                                 continue
 
-                            # Generate embedding for the category text
-                            print(f"Generating embedding for: {filing.category}")
-                            context = {
-                                "form_id": metadata.id,
-                                "form_title": metadata.title,
-                                "description": metadata.description,
-                            }
-                            embedding_json = helpers.generate_embeddings(self.model, filing.category,
-                                                                         prefix=self.insert_embedding_prefix)
+                            print(f"        → Inserting filing: {filing.category}")
+                            embedding_json = helpers.generate_embeddings(self.model, filing.category, prefix=self.insert_embedding_prefix)
 
-                            # Insert into database
                             await conn.execute(
                                 '''
-                                INSERT INTO form_filings (form_id, topic_id, category, paper_fee, online_fee, category_embedding)
+                                INSERT INTO forms.filings (form_id, topic_id, category, paper_fee, online_fee, category_embedding)
                                 VALUES ($1, $2, $3, $4, $5, $6)
                                 ''',
                                 metadata.id,
@@ -248,53 +272,32 @@ class FormsDatabase(VectorDatabase):
                                 filing.online_fee,
                                 embedding_json,
                             )
-
-                            print(f"Inserted: {metadata.id} - {filing.category}")
-                        print(
-                            f"Processed {metadata.id} - {metadata.title} ({len(fee.filings or [])} filings)")
+                        print(f"      ✔ Processed fee topic {fee.topic_id}")
                     except Exception as e:
-                        print("An error occurred, rolling back the transaction:", e)
+                        print(f"❌ Error inserting filings for topic {fee.topic_id}: {e}")
                         raise
 
-    async def process_form_html(self,
-                                pool: asyncpg.Pool,
-                                metadata_path: Path,
-                                metadata: FormMetadata) -> None:
-
+    async def process_form_html(self, pool: asyncpg.Pool, metadata_path: Path, metadata: FormMetadata) -> None:
         html_paths = metadata_path.parent.glob("*.html")
         for html_path in html_paths:
-            # Step 1: Read the HTML content
             html_content = helpers.read_file_to_string(html_path)
-
-            # Step 2: Chunk the HTML content
             for i, chunk in enumerate(helpers.chunk_html_content(html_content, "html.parser")):
                 async with pool.acquire() as conn:
                     async with conn.transaction():
                         try:
-                            # Check if this pdf already exists
                             exists = await conn.fetchval(
-                                'SELECT 1 FROM form_html_chunks WHERE form_id = $1 AND file_name = $2 AND content_chunk = $3',
+                                'SELECT 1 FROM forms.html_chunks WHERE form_id = $1 AND file_name = $2 AND content_chunk = $3',
                                 metadata.id, html_path.name, chunk
                             )
-
                             if exists:
-                                print(f"Skipping existing entry: {metadata.id} - {html_path.name} - chunk: {i}")
+                                print(f"      → HTML Chunk {i}: Skipped")
                                 continue
 
-                            # Generate embedding for the category text
-                            print(f"Generating embedding for: {metadata.id} - {html_path.name} - chunk: {i}")
-
-                            context = {
-                                "form_id": metadata.id,
-                                "form_title": metadata.title,
-                                "description": metadata.description,
-                            }
                             embedding_json = helpers.generate_embeddings(self.model, chunk, prefix=self.insert_embedding_prefix)
 
-                            # Insert into database
                             await conn.execute(
                                 '''
-                                INSERT INTO form_html_chunks (form_id, file_name, content_chunk, chunk_embedding)
+                                INSERT INTO forms.html_chunks (form_id, file_name, content_chunk, chunk_embedding)
                                 VALUES ($1, $2, $3, $4)
                                 ''',
                                 metadata.id,
@@ -302,84 +305,64 @@ class FormsDatabase(VectorDatabase):
                                 chunk,
                                 embedding_json,
                             )
-                            print(f"Inserted: {metadata.id} - {html_path.name} - chunk: {i}")
+                            print(f"      → HTML Chunk {i}: Inserted")
                         except Exception as e:
-                            print("An error occurred, rolling back the transaction:", e)
+                            print(f"❌ Error processing HTML chunk {i}: {e}")
                             raise
 
     async def search(self, pool: asyncpg.Pool, search_query: str, limit: int = 10, verbose: bool = False):
-        """
-        Search for immigration forms based on query similarity.
-        Returns form objects with form ID, links, relevant chunks, and appropriate fees.
-
-        Args:
-            pool: Database connection pool
-            search_query: Query string to search for
-            limit: Maximum number of results to return
-            verbose:
-
-        Returns:
-            List of form objects with relevant content and metadata
-        """
         if verbose:
-            print(f"Searching for: {search_query}")
+            print(f"🔍 Searching for: {search_query}")
 
-        # Generate embedding for the search query
-        embedding_json = helpers.generate_embeddings(self.model, search_query, prefix=self.query_embedding_prefix)
+        embedding_json = helpers.generate_embeddings(
+            self.model, search_query, prefix=self.query_embedding_prefix
+        )
 
         async with pool.acquire() as conn:
-            # Execute the stored procedure instead of the SQL file
             rows = await conn.fetch(
-                "SELECT * FROM find_related_immigration_documentation($1, $2)",
+                "SELECT * FROM forms.find_related_immigration_documentation($1, $2)",
                 embedding_json,
                 limit
             )
 
-            forms_dict = {}
+        forms_dict = {}
 
-            for row in rows:
-                form_id = row['form_id']
+        for row in rows:
+            form_id = row['form_id']
 
-                # Create a new form object if it doesn't exist
-                if form_id not in forms_dict:
-                    forms_dict[form_id] = {
-                        'form_id': form_id,
-                        'form_title': row['title'],  # Changed from form_title to title
-                        'form_url': row['pdf_url'],  # Changed from form_url to pdf_url
-                        'instructions_url': row['instructions_url'],
-                        'description': row['description'],
-                        'fee_category': row['related_filing_category'],  # Changed from category
-                        'paper_fee': row['related_filing_paper_fee'],  # Changed from paper_fee
-                        'online_fee': row['related_filing_online_fee'],  # Changed from online_fee
-                        'topic_id': row['related_filing_topic_id'],  # Changed from topic_id
-                        'chunks': [],
-                        'similarity_score': row['similarity_score'],  # Primary similarity score
-                    }
+            if form_id not in forms_dict:
+                forms_dict[form_id] = {
+                    'form_id': form_id,
+                    'form_title': row['title'],
+                    'form_url': row['pdf_url'],
+                    'instructions_url': row['instructions_url'],
+                    'description': row['description'],
+                    'fee_category': row['related_filing_category'],
+                    'paper_fee': row['related_filing_paper_fee'],
+                    'online_fee': row['related_filing_online_fee'],
+                    'topic_id': row['related_filing_topic_id'],
+                    'chunks': [],
+                    'similarity_score': row['similarity_score']
+                }
 
-                # Add the chunk to the form (if not NULL)
-                if row['content_chunk']:
-                    # print(row['content_chunk'])
-                    # print("---------------------")
-                    forms_dict[form_id]['chunks'].append({
-                        'content': row['content_chunk'],
-                        'similarity_score': row['chunk_similarity'],  # Changed from content_similarity
-                        'source': row['chunk_source']  # New field to indicate pdf or html source
-                    })
+            if row['content_chunk']:
+                forms_dict[form_id]['chunks'].append({
+                    'content': row['content_chunk'],
+                    'similarity_score': row['chunk_similarity'],
+                    'source': row['chunk_source']
+                })
 
-            # Convert the dictionary to a list of form objects
-            results = list(forms_dict.values())
+        results = list(forms_dict.values())
+        results.sort(key=lambda x: x['similarity_score'])
 
-            if verbose:
-                print(f"\nFound {len(results)} matching forms")
+        if verbose:
+            print(f"\u2705 Found {len(results)} matching forms")
 
-            return results
+        return results
 
     @staticmethod
     async def clear(pool: asyncpg.Pool) -> None:
-        """Clear all forms tables in the database."""
         async with pool.acquire() as conn:
             print("Clearing immigration form tables...")
-            await conn.execute(
-                '''CALL truncate_forms_tables()'''
-            )
+            await conn.execute('''CALL truncate_forms_tables()''')
         return None

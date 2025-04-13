@@ -1,99 +1,68 @@
-CREATE OR REPLACE FUNCTION find_related_legislation(
+CREATE OR REPLACE FUNCTION legislation.search_legislation_chunks(
     search_embedding VECTOR(384),
-    limit_count INTEGER DEFAULT 10
+    limit_count INTEGER DEFAULT 10,
+    sim_threshold FLOAT DEFAULT 0.5
 )
     RETURNS TABLE (
-                      act TEXT,
-                      code TEXT,
-                      description TEXT,
-                      content_chunk TEXT,
-                      content_similarity FLOAT,
-                      description_similarity FLOAT,
-                      combined_score FLOAT,
-                      link TEXT,
-                      rank INTEGER,
-                      match_source TEXT
-                  ) AS $$
-BEGIN
-    RETURN QUERY
-        WITH description_matches AS (
-            SELECT
-                lh.act,
-                lh.code,
-                lh.description,
-                lh.link,
-                lh.description_embedding <=> search_embedding AS description_similarity,
-                ROW_NUMBER() OVER (ORDER BY lh.description_embedding <=> search_embedding)::INTEGER AS description_rank
-            FROM legislation_html lh
-            WHERE lh.description_embedding <=> search_embedding < 0.4  -- Description similarity threshold
-        ),
-             ranked_chunks AS (
-                 SELECT
-                     lhc.act,
-                     lhc.code,
-                     lhc.content_chunk,
-                     lhc.chunk_embedding <=> search_embedding AS similarity_score,
-                     ROW_NUMBER() OVER (PARTITION BY lhc.act, lhc.code ORDER BY lhc.chunk_embedding <=> search_embedding)::INTEGER AS rank
-                 FROM legislation_html_chunks lhc
-                 WHERE lhc.chunk_embedding <=> search_embedding < 0.3  -- Content similarity threshold
-             ),
-             combined_results AS (
-                 -- Results from content chunks
-                 SELECT
-                     rc.act,
-                     rc.code,
-                     l.description,
-                     rc.content_chunk,
-                     rc.similarity_score AS content_similarity,
-                     l.description_embedding <=> search_embedding AS description_similarity,
-                     CASE
-                         WHEN rc.similarity_score < 0.3 AND l.description_embedding <=> search_embedding < 0.4
-                             THEN (rc.similarity_score + (l.description_embedding <=> search_embedding)) / 2  -- Average when both match
-                         WHEN rc.similarity_score < 0.3
-                             THEN rc.similarity_score  -- Content only match
-                         ELSE l.description_embedding <=> search_embedding  -- Description only match
-                         END AS combined_score,
-                     l.link,
-                     rc.rank,
-                     'content' AS match_source
-                 FROM ranked_chunks rc
-                          JOIN legislation_html l ON rc.act = l.act AND rc.code = l.code
-                 WHERE rc.rank <= 3  -- Return top 3 chunks per legislation
+                      match_id TEXT,
+                      title TEXT,
+                      chapter TEXT,
+                      subchapter TEXT,
+                      chunk TEXT,
+                      chunk_similarity FLOAT
+                  )
+    LANGUAGE sql
+AS $$
+WITH unified_chunks AS (
+    SELECT
+        CONCAT_WS('.', p.part_code, s.section_code, ss.subsection_code, sss.sub_subsection_code) AS match_id,
+        t.description AS title,
+        c.description AS chapter,
+        sc.description AS subchapter,
+        sss.text AS chunk,
+        sss.chunk_embedding <=> search_embedding AS chunk_similarity
+    FROM legislation.sub_subsections sss
+             JOIN legislation.subsections ss ON sss.subsection_id = ss.id
+             JOIN legislation.sections s ON ss.section_id = s.id
+             JOIN legislation.parts p ON s.part_id = p.id
+             JOIN legislation.subchapters sc ON p.subchapter_id = sc.id
+             JOIN legislation.chapters c ON sc.chapter_id = c.id
+             JOIN legislation.titles t ON c.title_id = t.id
 
-                 UNION ALL
+    UNION ALL
 
-                 -- Results from description matches (even if no content match)
-                 SELECT
-                     dm.act,
-                     dm.code,
-                     dm.description,
-                     NULL AS content_chunk,
-                     1 AS content_similarity,  -- Default content similarity
-                     dm.description_similarity,
-                     dm.description_similarity AS combined_score,
-                     dm.link,
-                     1::INTEGER AS rank,
-                     'description' AS match_source
-                 FROM description_matches dm
-                 WHERE dm.description_rank <= 5  -- Get top 5 description matches
-                   AND NOT EXISTS (
-                     SELECT 1 FROM ranked_chunks rc
-                     WHERE rc.act = dm.act AND rc.code = dm.code
-                 )  -- Only include legislation not already matched by content
-             )
-        SELECT
-            cr.act,
-            cr.code,
-            cr.description,
-            cr.content_chunk,
-            cr.content_similarity,
-            cr.description_similarity,
-            cr.combined_score,
-            cr.link,
-            cr.rank::INTEGER,
-            cr.match_source
-        FROM combined_results cr
-        ORDER BY cr.combined_score, cr.act, cr.code, cr.rank
-        LIMIT limit_count;
-END;
-$$ LANGUAGE plpgsql;
+    SELECT
+        CONCAT_WS('.', p.part_code, s.section_code, ss.subsection_code) AS match_id,
+        t.description AS title,
+        c.description AS chapter,
+        sc.description AS subchapter,
+        ss.text AS chunk,
+        ss.chunk_embedding <=> search_embedding AS chunk_similarity
+    FROM legislation.subsections ss
+             JOIN legislation.sections s ON ss.section_id = s.id
+             JOIN legislation.parts p ON s.part_id = p.id
+             JOIN legislation.subchapters sc ON p.subchapter_id = sc.id
+             JOIN legislation.chapters c ON sc.chapter_id = c.id
+             JOIN legislation.titles t ON c.title_id = t.id
+
+    UNION ALL
+
+    SELECT
+        CONCAT_WS('.', p.part_code, s.section_code) AS match_id,
+        t.description AS title,
+        c.description AS chapter,
+        sc.description AS subchapter,
+        s.text AS chunk,
+        s.chunk_embedding <=> search_embedding AS chunk_similarity
+    FROM legislation.sections s
+             JOIN legislation.parts p ON s.part_id = p.id
+             JOIN legislation.subchapters sc ON p.subchapter_id = sc.id
+             JOIN legislation.chapters c ON sc.chapter_id = c.id
+             JOIN legislation.titles t ON c.title_id = t.id
+)
+SELECT *
+FROM unified_chunks
+WHERE chunk_similarity <= sim_threshold
+ORDER BY chunk_similarity ASC
+LIMIT limit_count;
+$$;

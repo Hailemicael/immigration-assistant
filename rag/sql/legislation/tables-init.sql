@@ -1,26 +1,88 @@
+-- Create schema namespace
+CREATE SCHEMA IF NOT EXISTS legislation;
+
+-- Enable vector extension
 CREATE EXTENSION IF NOT EXISTS vector;
 
-CREATE TABLE IF NOT EXISTS legislation_html
+-- Titles
+CREATE TABLE IF NOT EXISTS legislation.titles
 (
-    id                    SERIAL PRIMARY KEY,
-    act                   TEXT        NOT NULL,
-    code                  TEXT        NOT NULL,
-    description           TEXT        NOT NULL,
-    link                  TEXT        NOT NULL,
-    description_embedding VECTOR(384) NOT NULL
+    id          SERIAL PRIMARY KEY,
+    title_code  TEXT UNIQUE NOT NULL,
+    description TEXT        NOT NULL
 );
 
-CREATE INDEX IF NOT EXISTS idx_legislation_html_act_code ON legislation_html (act, code);
-CREATE INDEX IF NOT EXISTS idx_legislation_html_description_embedding ON legislation_html USING hnsw (description_embedding vector_cosine_ops);
+-- Chapters
+CREATE TABLE IF NOT EXISTS legislation.chapters
+(
+    id           SERIAL PRIMARY KEY,
+    title_id     INTEGER REFERENCES legislation.titles (id),
+    chapter_code TEXT NOT NULL,
+    description  TEXT NOT NULL,
+    UNIQUE (title_id, chapter_code)
+);
 
-CREATE TABLE IF NOT EXISTS legislation_html_chunks
+-- Subchapters
+CREATE TABLE IF NOT EXISTS legislation.subchapters
 (
     id              SERIAL PRIMARY KEY,
-    act             TEXT        NOT NULL,
-    code            TEXT        NOT NULL,
-    content_chunk   TEXT        NOT NULL,
-    chunk_embedding VECTOR(384) NOT NULL
+    chapter_id      INTEGER REFERENCES legislation.chapters (id),
+    subchapter_code TEXT NOT NULL,
+    description     TEXT NOT NULL,
+    UNIQUE (chapter_id, subchapter_code)
 );
 
-CREATE INDEX IF NOT EXISTS idx_legislation_html_chunks_act_code ON legislation_html_chunks (act, code);
-CREATE INDEX IF NOT EXISTS idx_legislation_html_chunks_chunk_embedding ON legislation_html_chunks USING hnsw (chunk_embedding vector_cosine_ops);
+-- Parts
+CREATE TABLE IF NOT EXISTS legislation.parts
+(
+    id            SERIAL PRIMARY KEY,
+    subchapter_id INTEGER REFERENCES legislation.subchapters (id),
+    part_code     TEXT NOT NULL,
+    description   TEXT NOT NULL,
+    UNIQUE (subchapter_id, part_code)
+);
+
+-- Sections
+CREATE TABLE IF NOT EXISTS legislation.sections
+(
+    id              SERIAL PRIMARY KEY,
+    part_id         INTEGER REFERENCES legislation.parts (id),
+    section_code    TEXT NOT NULL,
+    description     TEXT NOT NULL,
+    text            TEXT NOT NULL,
+    chunk_embedding VECTOR(384) NOT NULL,
+    UNIQUE (part_id, section_code)
+);
+
+CREATE INDEX IF NOT EXISTS legislation_idx_sections_chunk_embedding
+    ON legislation.sections USING hnsw (chunk_embedding vector_cosine_ops);
+
+-- Subsections
+CREATE TABLE IF NOT EXISTS legislation.subsections
+(
+    id              SERIAL PRIMARY KEY,
+    section_id      INTEGER REFERENCES legislation.sections (id),
+    subsection_code TEXT NOT NULL,
+    title           TEXT,
+    text            TEXT NOT NULL,
+    chunk_embedding VECTOR(384) NOT NULL,
+    UNIQUE (section_id, subsection_code)
+);
+
+CREATE INDEX IF NOT EXISTS legislation_idx_subsections_chunk_embedding
+    ON legislation.subsections USING hnsw (chunk_embedding vector_cosine_ops);
+
+-- Sub-subsections
+CREATE TABLE IF NOT EXISTS legislation.sub_subsections
+(
+    id                  SERIAL PRIMARY KEY,
+    subsection_id       INTEGER REFERENCES legislation.subsections (id),
+    sub_subsection_code TEXT NOT NULL,
+    title               TEXT,
+    text                TEXT NOT NULL,
+    chunk_embedding     VECTOR(384) NOT NULL,
+    UNIQUE (subsection_id, sub_subsection_code)
+);
+
+CREATE INDEX IF NOT EXISTS legislation_idx_sub_subsections_chunk_embedding
+    ON legislation.sub_subsections USING hnsw (chunk_embedding vector_cosine_ops);

@@ -83,6 +83,7 @@ class RAGAgent(metaclass=Singleton):
             db_config: DBConfig,
             rag_config: Config,
             embedding_model: SentenceTransformer,
+            legalese_model: legislation.LegaleseTranslator
     ):
         """
         Initialize the RAG agent with configurations and an embedding model.
@@ -94,7 +95,7 @@ class RAGAgent(metaclass=Singleton):
         self.rag_config = rag_config
         self.db_init = False
         self.forms_db =  forms.FormsDatabase(embedding_model, rag_config.forms_path)
-        self.legislation_db = legislation.LegislationDatabase(embedding_model, rag_config.legislation_path)
+        self.legislation_db = legislation.LegislationDatabase(embedding_model, legalese_model, rag_config.legislation_path)
 
 
     async def init_database(self):
@@ -152,11 +153,11 @@ class RAGAgent(metaclass=Singleton):
         async with self.db_pool() as pool:
             if clear:
                 await self.forms_db.clear(pool)
-                await self.legislation_db.clear(pool)
+                # await self.legislation_db.clear(pool)
             # Populate forms
             await self.forms_db.populate(pool)
             # Populate legislation
-            await self.legislation_db.populate(pool)
+            # await self.legislation_db.populate(pool)
         print("Database population complete.")
 
     async def query(self, query_text: str, top_k: int = 5, verbose: bool = False) -> dict:
@@ -211,7 +212,6 @@ async def main():
     # Load the embedding model (SentenceTransformer)
     print("Loading SentenceTransformer model...")
     embedding_model = SentenceTransformer("sentence-transformers/multi-qa-MiniLM-L6-cos-v1")
-    # embedding_model = SentenceTransformer("nomic-ai/nomic-embed-text-v1", trust_remote_code=True)
 
     # RAG configuration
     rag_config =  Config(
@@ -222,15 +222,19 @@ async def main():
         # query_embedding_prefix = "search_query:"
 
     )
+
+    print("Loading Translation model...")
+    legalese_model = legislation.LegaleseTranslator("aiguy68/Super_legal_text_summarizer",disabled=True)
+
     # Initialize the RAGAgent
-    rag_agent = RAGAgent(db_config, rag_config, embedding_model)
+    rag_agent = RAGAgent(db_config, rag_config, embedding_model, legalese_model)
 
     # Initialize database connection
-    # await rag_agent.init_database()
-    #
-    # # Populate the database
-    #
-    # await rag_agent.populate_database(clear=True)
+    await rag_agent.init_database()
+
+    # Populate the database
+    await rag_agent.populate_database(clear=True)
+
 
     faq_path = Path("./uscis-crawler/documents/frequently-asked-questions/immigration_faqs.json")
     with open(faq_path, 'r') as file:
@@ -250,7 +254,7 @@ async def main():
                 "legislation": 0
             },
         }
-        for item in data:
+        for i , item in enumerate(data):
             res["total"]+= 1
             # Query the database
             # query_string = "How much does it cost for a green card?"
@@ -258,15 +262,20 @@ async def main():
             results = await rag_agent.query(query, top_k=3)
             res["question | answer"]["forms"] += len(results["sources"]["forms"])
             res["question | answer"]["legislation"] += len(results["sources"]["legislation"])
+            if i == 0 :
+                print(json.dumps(results, indent=2))
 
             results = await rag_agent.query(item["question"], top_k=3)
             res["question"]["forms"] += len(results["sources"]["forms"])
             res["question"]["legislation"] += len(results["sources"]["legislation"])
+            if i == 0 :
+                print(json.dumps(results, indent=2))
 
             results = await rag_agent.query(item["answer"], top_k=3)
             res["answer"]["forms"] += len(results["sources"]["forms"])
             res["answer"]["legislation"] += len(results["sources"]["legislation"])
-
+            if i == 0 :
+                print(json.dumps(results, indent=2))
         print(res)
 
 

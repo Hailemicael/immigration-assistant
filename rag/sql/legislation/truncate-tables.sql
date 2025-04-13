@@ -2,11 +2,16 @@ CREATE OR REPLACE PROCEDURE truncate_legislation_tables()
     LANGUAGE plpgsql
 AS $$
 BEGIN
-    Truncate table legislation_html cascade;
+    TRUNCATE TABLE
+        legislation.sub_subsections,
+        legislation.subsections,
+        legislation.sections,
+        legislation.parts,
+        legislation.subchapters,
+        legislation.chapters,
+        legislation.titles
+        CASCADE;
 
-    Truncate table legislation_html_chunks cascade;
-
-
-    RAISE NOTICE 'All immigration legislation tables have been truncated successfully.';
+    RAISE NOTICE 'All legislation schema tables have been truncated successfully.';
 END;
 $$;
