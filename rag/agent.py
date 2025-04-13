@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any, Dict, Tuple, AsyncGenerator
 import asyncio
 import asyncpg
+import numpy as np
 from sentence_transformers import SentenceTransformer
 
 import helpers
@@ -153,11 +154,11 @@ class RAGAgent(metaclass=Singleton):
         async with self.db_pool() as pool:
             if clear:
                 await self.forms_db.clear(pool)
-                # await self.legislation_db.clear(pool)
+                await self.legislation_db.clear(pool)
             # Populate forms
             await self.forms_db.populate(pool)
             # Populate legislation
-            # await self.legislation_db.populate(pool)
+            await self.legislation_db.populate(pool)
         print("Database population complete.")
 
     async def query(self, query_text: str, top_k: int = 5, verbose: bool = False) -> dict:
@@ -229,11 +230,11 @@ async def main():
     # Initialize the RAGAgent
     rag_agent = RAGAgent(db_config, rag_config, embedding_model, legalese_model)
 
-    # Initialize database connection
-    await rag_agent.init_database()
-
-    # Populate the database
-    await rag_agent.populate_database(clear=True)
+    # # Initialize database connection
+    # await rag_agent.init_database()
+    #
+    # # Populate the database
+    # await rag_agent.populate_database(clear=True)
 
 
     faq_path = Path("./uscis-crawler/documents/frequently-asked-questions/immigration_faqs.json")
@@ -242,16 +243,43 @@ async def main():
         res = {
             "total": 0,
             "question": {
-                "forms": 0,
-                "legislation": 0
+                "misses": 0,
+                "forms": {
+                    "misses": 0,
+                    "count": 0,
+                    "similarity_score": 0
+                },
+                "legislation":{
+                    "misses": 0,
+                    "count": 0,
+                    "similarity_score": 0
+                },
             },
             "answer": {
-                "forms": 0,
-                "legislation": 0
+                "misses": 0,
+                "forms": {
+                    "misses": 0,
+                    "count": 0,
+                    "similarity_score": 0
+                },
+                "legislation":{
+                    "misses": 0,
+                    "count": 0,
+                    "similarity_score": 0
+                },
             },
             "question | answer": {
-                "forms": 0,
-                "legislation": 0
+                "misses": 0,
+                "forms": {
+                    "misses": 0,
+                    "count": 0,
+                    "similarity_score": 0
+                },
+                "legislation":{
+                    "misses": 0,
+                    "count": 0,
+                    "similarity_score": 0
+                },
             },
         }
         for i , item in enumerate(data):
@@ -260,23 +288,73 @@ async def main():
             # query_string = "How much does it cost for a green card?"
             query = f'''question: {item["question"]} | answer: {item["answer"]}'''
             results = await rag_agent.query(query, top_k=3)
-            res["question | answer"]["forms"] += len(results["sources"]["forms"])
-            res["question | answer"]["legislation"] += len(results["sources"]["legislation"])
+
+            form_count = len(results["sources"]["forms"])
+            if form_count == 0 :
+                res["question | answer"]["forms"]["misses"] += 1
+
+            law_count = len(results["sources"]["legislation"])
+            if law_count == 0 :
+                res["question | answer"]["legislation"]["misses"] += 1
+
+            if law_count == 0 and form_count == 0 :
+                res["question | answer"]["misses"] += 1
+
+            res["question | answer"]["forms"]["count"] += form_count
+            res["question | answer"]["legislation"]["count"] += law_count
+            res["question | answer"]["forms"]["similarity_score"] += np.sum([form["similarity_score"] for form in results["sources"]["forms"]])
+            res["question | answer"]["legislation"]["similarity_score"] += np.sum([law["chunk_similarity"] for law in results["sources"]["legislation"]])
             if i == 0 :
                 print(json.dumps(results, indent=2))
 
             results = await rag_agent.query(item["question"], top_k=3)
-            res["question"]["forms"] += len(results["sources"]["forms"])
-            res["question"]["legislation"] += len(results["sources"]["legislation"])
+            form_count = len(results["sources"]["forms"])
+            if form_count == 0 :
+                res["question"]["forms"]["misses"] += 1
+
+            law_count = len(results["sources"]["legislation"])
+            if law_count == 0 :
+                res["question"]["legislation"]["misses"] += 1
+
+            if law_count == 0 and form_count == 0 :
+                res["question"]["misses"] += 1
+
+            res["question"]["forms"]["count"] += form_count
+            res["question"]["legislation"]["count"] += law_count
+            res["question"]["forms"]["similarity_score"] += np.sum([form["similarity_score"] for form in results["sources"]["forms"]])
+            res["question"]["legislation"]["similarity_score"] += np.sum([law["chunk_similarity"] for law in results["sources"]["legislation"]])
             if i == 0 :
                 print(json.dumps(results, indent=2))
 
             results = await rag_agent.query(item["answer"], top_k=3)
-            res["answer"]["forms"] += len(results["sources"]["forms"])
-            res["answer"]["legislation"] += len(results["sources"]["legislation"])
+            form_count = len(results["sources"]["forms"])
+            if form_count == 0 :
+                res["answer"]["forms"]["misses"] += 1
+
+            law_count = len(results["sources"]["legislation"])
+            if law_count == 0 :
+                res["answer"]["legislation"]["misses"] += 1
+
+            if law_count == 0 and form_count == 0 :
+                res["answer"]["misses"] += 1
+
+            res["answer"]["forms"]["count"] += form_count
+            res["answer"]["legislation"]["count"] += law_count
+            res["answer"]["forms"]["similarity_score"] += np.sum([form["similarity_score"] for form in results["sources"]["forms"]])
+            res["answer"]["legislation"]["similarity_score"] += np.sum([law["chunk_similarity"] for law in results["sources"]["legislation"]])
             if i == 0 :
                 print(json.dumps(results, indent=2))
-        print(res)
+
+        for group in ["question", "answer", "question | answer"]:
+            for source in ["forms", "legislation"]:
+                count = res[group][source]["count"]
+                total_score = res[group][source]["similarity_score"]
+                avg_key = "avg_similarity_score"
+                if count > 0:
+                    res[group][source][avg_key] = total_score / count
+                else:
+                    res[group][source][avg_key] = 0
+        print(json.dumps(res, indent=2))
 
 
 
