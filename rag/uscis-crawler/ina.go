@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"path"
 	"regexp"
 	"strings"
 	"sync"
@@ -431,9 +432,10 @@ func (t *Title8) Build(meta MetaData) {
 	}
 }
 
-func crawlECFR(path string) {
+func crawlLegislation(dir string, name string) {
+	dir = path.Join(dir, "legislation")
 	var metadata MetaData
-	err := metadata.Load(path)
+	err := metadata.Load(path.Join(dir, name))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -445,7 +447,7 @@ func crawlECFR(path string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	err = writeToFile("./documents/legislation", "INA.json", data)
+	err = writeToFile(dir, "INA.json", data)
 	if err != nil {
 		log.Fatal(err)
 	}

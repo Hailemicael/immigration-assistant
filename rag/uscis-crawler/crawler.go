@@ -84,11 +84,11 @@ func downloadContent(url, dir, name string, retryCount int) (err error) {
 }
 
 func main() {
-	crawlECFR("/Users/osono/Library/CloudStorage/OneDrive-NorthCarolinaA&TStateUniversity/COMP 710 - 2A Specifications and Design/Project/immigration-assistant/rag/uscis-crawler/documents/legislation/title-8.json")
-	//wd, _ := os.Getwd()
-	//dir := filepath.Join(wd, "documents")
-	//crawlFAQ(dir).Wait()
-	//defer crawlLegislation(dir).Wait()
-	//crawlImmigrationForms(dir).Wait()
-	//crawlFeeSchedule(dir).Wait()
+	wd, _ := os.Getwd()
+	dir := filepath.Join(wd, "documents")
+	crawlFAQ(dir).Wait()
+	crawlImmigrationForms(dir).Wait()
+	crawlFeeSchedule(dir).Wait()
+	crawlLegislation(dir, "title-8.json")
+
 }
