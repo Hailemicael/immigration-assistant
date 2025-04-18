@@ -1,15 +1,19 @@
 import json
 from contextlib import asynccontextmanager
 from pathlib import Path
-from typing import Any, Dict, Tuple, AsyncGenerator
+from typing import Any, Dict, Tuple, AsyncGenerator, Optional
 import asyncio
 import asyncpg
 import numpy as np
+from langchain_core.runnables import Runnable, RunnableConfig
 from sentence_transformers import SentenceTransformer
 
 import helpers
 import forms
 import legislation
+from query_results import QueryResult
+from ..orchestration.state import AgentState
+
 
 class Singleton(type):
     _instances = {}
@@ -78,7 +82,7 @@ def _merge_and_sort_results(form_results, legislation_results):
     return sorted(combined, key=lambda x: x["score"])
 
 
-class RAGAgent(metaclass=Singleton):
+class RAGAgent(Runnable, metaclass=Singleton):
     def __init__(
             self,
             db_config: DBConfig,
@@ -161,7 +165,7 @@ class RAGAgent(metaclass=Singleton):
             await self.legislation_db.populate(pool)
         print("Database population complete.")
 
-    async def query(self, query_text: str, top_k: int = 5, verbose: bool = False) -> dict:
+    async def query(self, query_text: str, top_k: int = 5, verbose: bool = False) -> QueryResult:
         """
         Query the database using the embedding model to find relevant forms and legislation.
         Combines results from both sources into a unified result set.
@@ -174,7 +178,7 @@ class RAGAgent(metaclass=Singleton):
         Returns:
             Dictionary containing combined results from forms and legislation.
         """
-        async with self.db_pool() as pool:
+        async with (self.db_pool() as pool):
             # Run both searches in parallel for efficiency
             form_task = asyncio.create_task(
                 self.forms_db.search(pool, query_text, top_k, verbose)
@@ -188,17 +192,49 @@ class RAGAgent(metaclass=Singleton):
             form_results, legislation_results = await asyncio.gather(form_task, legislation_task)
 
             # Combine the results
-            combined_results = {
-                "query": query_text,
-                "sources": {
-                    "forms": form_results,
-                    "legislation": legislation_results
-                },
-            }
+            combined_results = QueryResult(
+                query=query_text,
+                forms=form_results,
+                legislation=legislation_results
+            )
+
 
             return combined_results
 
+    async def invoke(self, state: AgentState, config: Optional[RunnableConfig] = None, **kwargs: Any) -> Dict:
+        verbose = state.get("verbose", self.verbose)
+        question = state.get("question", "")
+        if verbose:
+            print(f"\n[DEBUG - RAGAgent] Looking up relevant information for: {question}")
 
+        results = await self.query(question)
+
+
+        if verbose:
+            print(f"[DEBUG - RAGAgent] Found legislation: {results.legislation}")
+            print(f"[DEBUG - RAGAgent] Found forms: {results.forms}")
+
+        # Update history
+        history = state.get("history", [])
+        history.append({
+            "agent": "RAGAgent",
+            "found_legislation": len(results.legislation) > 0,
+            "found_forms": len(results.forms) > 0
+        })
+
+        return {
+            "legislation": results.legislation,
+            "forms": results.forms,
+            "history": history
+        }
+
+
+    def check_forms(self, state: AgentState) -> str:
+        if state.get("verbose", self.verbose):
+            print(f"[📄 Form Check] → Forms Found: {len(state.get('forms', []))}")
+        if state.get("forms") and state.get("generation_stage") == "initial":
+            return "TimelineAgent"
+        return "ReasoningAgent"
 # Example usage
 async def main():
     # Database configuration
@@ -289,11 +325,11 @@ async def main():
             query = f'''question: {item["question"]} | answer: {item["answer"]}'''
             results = await rag_agent.query(query, top_k=3)
 
-            form_count = len(results["sources"]["forms"])
+            form_count = len(results.forms)
             if form_count == 0 :
                 res["question | answer"]["forms"]["misses"] += 1
 
-            law_count = len(results["sources"]["legislation"])
+            law_count = len(results.legislation)
             if law_count == 0 :
                 res["question | answer"]["legislation"]["misses"] += 1
 
@@ -302,17 +338,17 @@ async def main():
 
             res["question | answer"]["forms"]["count"] += form_count
             res["question | answer"]["legislation"]["count"] += law_count
-            res["question | answer"]["forms"]["similarity_score"] += np.sum([form["similarity_score"] for form in results["sources"]["forms"]])
-            res["question | answer"]["legislation"]["similarity_score"] += np.sum([law["chunk_similarity"] for law in results["sources"]["legislation"]])
+            res["question | answer"]["forms"]["similarity_score"] += np.sum([form["similarity_score"] for form in results.forms])
+            res["question | answer"]["legislation"]["similarity_score"] += np.sum([law["chunk_similarity"] for law in results.legislation])
             if i == 0 :
                 print(json.dumps(results, indent=2))
 
             results = await rag_agent.query(item["question"], top_k=3)
-            form_count = len(results["sources"]["forms"])
+            form_count = len(results.forms)
             if form_count == 0 :
                 res["question"]["forms"]["misses"] += 1
 
-            law_count = len(results["sources"]["legislation"])
+            law_count = len(results.legislation)
             if law_count == 0 :
                 res["question"]["legislation"]["misses"] += 1
 
@@ -321,17 +357,17 @@ async def main():
 
             res["question"]["forms"]["count"] += form_count
             res["question"]["legislation"]["count"] += law_count
-            res["question"]["forms"]["similarity_score"] += np.sum([form["similarity_score"] for form in results["sources"]["forms"]])
-            res["question"]["legislation"]["similarity_score"] += np.sum([law["chunk_similarity"] for law in results["sources"]["legislation"]])
+            res["question"]["forms"]["similarity_score"] += np.sum([form["similarity_score"] for form in results.forms])
+            res["question"]["legislation"]["similarity_score"] += np.sum([law["chunk_similarity"] for law in results.legislation])
             if i == 0 :
                 print(json.dumps(results, indent=2))
 
             results = await rag_agent.query(item["answer"], top_k=3)
-            form_count = len(results["sources"]["forms"])
+            form_count = len(results.forms)
             if form_count == 0 :
                 res["answer"]["forms"]["misses"] += 1
 
-            law_count = len(results["sources"]["legislation"])
+            law_count = len(results.legislation)
             if law_count == 0 :
                 res["answer"]["legislation"]["misses"] += 1
 
@@ -340,8 +376,8 @@ async def main():
 
             res["answer"]["forms"]["count"] += form_count
             res["answer"]["legislation"]["count"] += law_count
-            res["answer"]["forms"]["similarity_score"] += np.sum([form["similarity_score"] for form in results["sources"]["forms"]])
-            res["answer"]["legislation"]["similarity_score"] += np.sum([law["chunk_similarity"] for law in results["sources"]["legislation"]])
+            res["answer"]["forms"]["similarity_score"] += np.sum([form["similarity_score"] for form in results.forms])
+            res["answer"]["legislation"]["similarity_score"] += np.sum([law["chunk_similarity"] for law in results.legislation])
             if i == 0 :
                 print(json.dumps(results, indent=2))
 
