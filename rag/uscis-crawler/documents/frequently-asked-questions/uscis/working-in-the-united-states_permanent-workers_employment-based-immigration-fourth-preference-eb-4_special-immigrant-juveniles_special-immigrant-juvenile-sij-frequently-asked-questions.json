@@ -1,0 +1,182 @@
+[
+	{
+		"question": "Q1. If I file Form I-360, Petition for Amerasian, Widow(er), or Special Immigrant, as a special immigrant juvenile (SIJ), will you make a deferred action assessment at the same time as the Form I-360 assessment?",
+		"answer": "A1. For most pending and future SIJ cases, we will automatically make a deferred action determination immediately after we approve Form I-360, Petition for Amerasian, Widow(er), or Special Immigrant. This is like the process to consider deferred action for self-petitioners under the Violence Against Women Act. After we adjudicate Form I-360 and deferred action, we will issue a Form I-797, Notice of Action, that includes information about the decision on the Form I-360 and a determination on deferred action.\nIn certain cases, the deferred action determination may take place after we approve the Form I-360 because we need additional information to decide. In these cases, you will receive notification of the deferred action determination separately from the Form I-360 approval."
+	},
+	{
+		"question": "Q2. What is the timeline for granting deferred action?",
+		"answer": "A2. We began making deferred action determinations on May 6, 2022, 60 days after publishing the Policy Manual update announcing the SIJ deferred action policy. Processing times may vary depending on the circumstances of the case."
+	},
+	{
+		"question": "Q3. If you grant deferred action, and I file Form I-765, Application for Employment Authorization, how long will you take to adjudicate my Form I-765?",
+		"answer": "A3. We try to adjudicate all benefit requests in a timely manner. We adjudicate Forms I-765 submitted after a grant of SIJ deferred action in the order we receive them. For more information on processing times for Form I-765, please see egov.uscis.gov/processing-times/i765."
+	},
+	{
+		"question": "Q4. I am an SIJ-classified alien with a pending Form I-485, Application to Register Permanent Residence or Adjust Status, and I no longer have a current visa number due to a\n. Will you consider me for deferred action?",
+		"answer": "Q4. I am an SIJ-classified alien with a pending Form I-485, Application to Register Permanent Residence or Adjust Status, and I no longer have a current visa number due to a visa retrogression. Will you consider me for deferred action?\nA4. If you applied for adjustment of status when a visa number was available or when we were accepting Form I-485 based on the “Dates for Filing” chart of the Visa Bulletin, the Visa Bulletin subsequently retrogressed, and your Form I-485 is still pending, you may file Form G-325A, Biographic Information (For Deferred Action), to be considered for an initial request of deferred action if you have not received a notice indicating that you were already considered for SIJ deferred action., For additional information, see Q11. below."
+	},
+	{
+		"question": "Q5. I received a Form I-360 approval with no corresponding deferred action decision, and there is no apparent reason for delay. Can you explain why this might happen and what I can do to receive deferred action?",
+		"answer": "A5. As of May 6, 2022, we are considering deferred action when we adjudicate Form I-360 for all pending and future SIJ-based Form I-360 petitioners who do not have a current visa number available.\nGenerally, we will issue a deferred action determination together with our decision on Form I-360. However, if we need additional information, which may include requesting biometrics, to make the deferred action determination, we may issue a decision on Form I-360 first."
+	},
+	{
+		"question": "Q6. Do I need to submit biometric information to receive an SIJ deferred action determination?",
+		"answer": "A6. We generally do not require a separate biometrics submission to grant SIJ deferred action. However, we complete background and security checks when we adjudicate an SIJ petition and, depending on the facts and circumstances of your case, we may ask you to submit biometrics or to appear for an interview before we grant deferred action. See 8 CFR 103.2(b)(9)."
+	},
+	{
+		"question": "Q7. Are there factors you consider for deferred action that are not already part of the Form I-360 adjudication?",
+		"answer": "A7. Deferred action is a temporary, favorable exercise of prosecutorial discretion that gives some cases lower priority for immigration enforcement action. We examine the totality of the circumstances in an individual case and weigh positive and negative factors to determine whether to grant deferred action.\nIf you have been approved for SIJ classification, that is a strong positive factor toward granting deferred action. If background and security checks indicate you may be inadmissible under INA 212(a) on a ground that cannot be waived and that would make you ineligible for SIJ-based adjustment of status, that would generally be a strong negative factor against granting deferred action.\nWe may decide, on a case-by-case basis, that other adverse factors weigh against granting deferred action, such as serious unresolved criminal charges that may result in an unwaivable inadmissibility ground that would render you ineligible for SIJ-based adjustment of status. We may also grant deferred action despite these concerns if case-specific circumstances warrant it."
+	},
+	{
+		"question": "Q8. What evidence will you rely on when considering deferred action?",
+		"answer": "A8. We will weigh positive and negative factors on a case-by-case basis to determine whether to grant deferred action. An approved SIJ petition is a particularly strong positive discretionary factor.\nWe will not issue a request for evidence (RFE) or notice of intent to deny (NOID) in the context of SIJ deferred action determinations."
+	},
+	{
+		"question": "Q9. How do you handle deferred action if I am in removal proceedings, and I have SIJ classification? Many SIJs have approved Form I-360 petitions and are still in removal proceedings. Some file Form I-485 before their priority date is current because certain judges allow or require it. And some file Form I-485 while their priority date is current, but the date retrogresses.",
+		"answer": "Yes, we may grant deferred action to SIJ-classified individuals without a current visa number who are in removal proceedings.\nWe will consider deferred action for SIJ-classified aliens as quickly and efficiently as possible. We do not presently have a way to expedite review if an individual is in removal proceedings. For additional information about USCIS expedite criteria see Policy Manual Vol. 01, Part A, Chapter 05.\nIf you are an SIJ-classified alien in removal proceedings, and you have a Form I-485 pending with the U.S. Department of Justice, Executive Office of Immigration Review (EOIR), we will only consider deferred action if a visa number in the EB-4 category is not currently available. Note that if you have a pending Form I-485, you are eligible for work authorization under 8 C.F.R. 274.12(c)(9).\nYes, if your removal proceedings were terminated in immigration court, we may still consider you for SIJ deferred action, if you are otherwise eligible."
+	},
+	{
+		"question": "Q10. If I submitted a Form I-485 application, but you rejected my application due to a change in the visa bulletin, will you still consider me for deferred action?",
+		"answer": "A10. If you do not have an approved Form I-485 and an immigrant visa number is not available, we may consider you for SIJ deferred action. A rejected Form I-485 will not affect our consideration of SIJ deferred action."
+	},
+	{
+		"question": "Q11. Do I need to request that you renew my SIJ deferred action, or will you automatically consider renewing it?",
+		"answer": "A11. USCIS may consider requests for a subsequent period of deferred action for aliens with SIJ classification who remain ineligible to apply for adjustment of status because an immigrant visa number is not immediately available. To submit a request for a subsequent period of deferred action to USCIS, you must file Form G-325A, Biographic Information (For Deferred Action). You may file up to 150 days before expiration of your current period of deferred action. You may not file Form G-325A to request an initial grant of SIJ deferred action unless you have an approved SIJ-based Form I-360, an immigrant visa number is not immediately available to apply to adjust status, and you did not previously receive a notice indicating that you were considered for SIJ deferred action. Requests for a subsequent period of deferred action are subject to the same guidance in the USCIS Policy Manual regarding eligibility and consideration for an initial grant of SIJ deferred action."
+	},
+	{
+		"question": "Q12. The Policy Manual says USCIS authorizes deferred action for 4 years. Will all grants of deferred action to SIJ recipients be for 4 years? Will employment authorization based on SIJ deferred action also be valid for 4 years?",
+		"answer": "A12. We will grant deferred action for up to 4 years. If you receive deferred action, you may obtain employment authorization for the period of deferred action. This means that if you receive employment authorization following a grant of deferred action, your employment authorization will expire the same day your deferred action expires."
+	},
+	{
+		"question": "Q13. What types of detention qualify as “immigration detention,” as referenced in footnote 29 of the SIJ Deferred Action Policy Manual Update?",
+		"answer": "A13. Immigration detention as referenced in footnote 29 of Volume 6, Part J, Chapter 4 of the USCIS Policy Manual refers to detention with U.S. Immigration and Customs Enforcement (ICE). It does not include custody under the U.S. Department of Health and Human Services, Office of Refugee Resettlement (ORR) for unaccompanied minors."
+	},
+	{
+		"question": "Q14. If I receive deferred action under this policy, will I be eligible for advance parole?",
+		"answer": "A14. No, SIJ-classified aliens with deferred action under this policy are not eligible for advance parole."
+	},
+	{
+		"question": "Q15. If you do not grant or terminate my deferred action, can I ask you to reconsider? If I believe USCIS made a mistake in my deferred action adjudication, what is the best way to ask USCIS to review it?",
+		"answer": "A15. Because deferred action is by its nature an exercise of prosecutorial discretion and not a benefit, the agency does not have a process for you to file an administrative appeal or a motion to reopen or to reconsider. However, you may contact the USCIS Contact Center at 800-375-5283 if you have a question about your deferred action determination."
+	},
+	{
+		"question": "Q16. When SIJ-classified aliens have a Notice to Appear (NTA) that has not been filed with immigration court, do you cancel that NTA after you approve their Form I-360 and grant deferred action?",
+		"answer": "A16. We do not cancel or terminate outstanding NTAs after we approve an SIJ-based Form I-360 and grant deferred action. Entities other than USCIS, such as ICE or Customs and Border Protection (CBP), may issue an NTA, and after the NTA is filed with the immigration court at the EOIR, removal proceedings are generally initiated. We do not have the authority to cancel NTAs that are filed with EOIR. If you have an NTA issued by ICE or CBP, you should contact those agencies directly for more information on NTA issuance and cancellation."
+	},
+	{
+		"question": "Q17. Is there a fee to file a Form I-765, Application for Employment Authorization, based on deferred action through SIJ?",
+		"answer": "A17. There is no fee to file Form I-765 for persons seeking or granted SIJ classification.\nWhen you apply for employment authorization, you should include evidence that you were approved or filed for SIJ classification (for example, Form I-360 or a copy of Form I-797, Notice of Action, for Form I-360) together with your Form I-765, Application for Employment Authorization to show that you are eligible for the fee exemption."
+	},
+	{
+		"question": "Q18. Can I submit my Form I-765 application together with my Form I-360 petition?",
+		"answer": "A19. No. You can only file Form I-765 after you have received deferred action.\nWe receive and process SIJ-based Forms I-360 and Forms I-765 based on SIJ deferred action through different workstreams, and different officers in separate divisions adjudicate them. Because of this, it is not practical to accept and adjudicate them together. If we did, the processing times for both forms would increase."
+	},
+	{
+		"question": "Q20. Where do I submit my Form I-765 based on deferred action through SIJ?",
+		"answer": "A20. Depending on your state of residence, file Form I-765 with the Chicago Lockbox or the Phoenix Lockbox, Attn: I-765 C14.\nYou can find more information on our Direct Filing Addresses for Form I-765, Application for Employment Authorization page."
+	},
+	{
+		"question": "Q21. If an applicant’s physical address and mailing address are in different states, which Lockbox should they use to file Form I-765? For example, if they physically reside in Missouri but they use their attorney’s address in California as their safe or alternate mailing address, should they file their Form I-765 with the Chicago Lockbox or the Phoenix Lockbox?",
+		"answer": "A21. You should file with the Lockbox for the location where you physically reside. If you prefer to receive correspondence at another address, such as your attorney’s address, you may list an alternate mailing address in the “U.S. Mailing Address” field on Form I-765."
+	},
+	{
+		"question": "Q22. I have an approved SIJ Form I-360 and am subject to the visa backlog. I filed a Form I-765 under category (c)(11) that is still pending, arguing that because I was paroled, I was eligible for an EAD. What will happen to that Form I-765?",
+		"answer": "A22. We will not convert the Form I-765 you filed under category (c)(11). If we grant you deferred action, you must file a new Form I-765, indicating category (c)(14), to receive employment authorization under deferred action."
+	},
+	{
+		"question": "Q23. How will you determine “economic necessity” for work authorization under category (c)(14) based on SIJ deferred action? Will you prevent children too young to work from obtaining EADs?",
+		"answer": "A23. We will presume economic necessity based on an approved SIJ-based Form I-360. We do not require Form I-765WS, Worksheet, to determine economic necessity.\nThere is no age requirement to file Form I-765; even those too young to work may seek an EAD. An EAD may serve as a form of government-issued identification, in addition to granting authorization to work lawfully."
+	},
+	{
+		"question": "Q24. Can I submit Form I-765 if I see a grant of deferred action on USCIS Case Status Online, even if I have not received the notice in the mail?",
+		"answer": "A24. Yes, you may submit Form I-765 based on a grant of deferred action as indicated on Case Status Online."
+	},
+	{
+		"question": "Q25. Is there any way to expedite Form I-765 for an SIJ-classified individual granted deferred action who is experiencing extreme poverty or other emergency circumstances?",
+		"answer": "A25. We will consider expedite requests on a case-by-case basis under the criteria in the USCIS Policy Manual at Vol. 1, Part 1, Chap. 5, Requests to Expedite Applications or Petitions. Find more information on the How to Make an Expedite Request webpage."
+	},
+	{
+		"question": "Q26. I do not have a government-issued photo ID. If I am filing Form I-765 based on SIJ deferred action, can I use the ORR Verification of Release Form as a form of identification?",
+		"answer": "A26. Yes, the ORR Verification of Release form is a valid form of government identification when you are filing for an EAD based on SIJ deferred action. We have given our officers guidance to this effect, consistent with 8 CFR 204.11(d)(2)."
+	},
+	{
+		"question": "Q27. How do I reschedule my biometrics appointment?",
+		"answer": "A27. You may contact the USCIS Contact Center at 800-375-5283 to request that USCIS reschedule your biometrics appointment."
+	},
+	{
+		"question": "Q28. What forms of identification are acceptable at the Application Support Center (ASC) appointment for biometrics submission?",
+		"answer": "A28. We know that some SIJ petitioners and recipients may not have official government-issued photo identification but may have other forms of identification. A juvenile court-issued order citing the SIJ petitioner or recipient as the subject of the order is typically enough to verify identity. The order does not need to include a photograph of the juvenile. The ORR Verification of Release form is also a valid form of government identification."
+	},
+	{
+		"question": "Q29. If USCIS grants my deferred action, how will you notify me? In writing?",
+		"answer": "A29. If we grant you SIJ deferred action, we will issue a Form I- 797, Notice of Action, containing either an initial or amended approval of your Form I-360, together with the grant of deferred action. We also will update Case Status Online. You can access your Case Status Online information by entering the receipt number for your Form I-360.\nIf a Form G-28, Notice of Entry of Appearance as Attorney or Accredited Representative, is on file for a Form I-360, we will send a courtesy notice to the attorney or accredited representative."
+	},
+	{
+		"question": "Q30. What is the best way to make sure you have my updated address?",
+		"answer": "A30. To update your mailing address, file Form AR-11, Alien’s Change of Address Card, online at USCIS.gov using the Change of Address page or mail Form AR- 11 to:\nU.S. Department of Homeland SecurityCitizenship and Immigration ServicesAttn: Change of Address1344 Pleasants DriveHarrisonburg, VA 22801"
+	},
+	{
+		"question": "Q31. If I have already received SIJ classification and don't have a Form I-360 pending, what is the best way to ask that documents related to deferred action go to my safe mailing address?",
+		"answer": "A31. Safe mailing addresses are for those protected under the confidentiality provisions of 8 U.S.C. 1367 (petitioners and recipients of U nonimmigrant status, T nonimmigrant status, or relief under the Violence Against Women Act).\nAlthough petitioners and recipients of SIJ classification are not covered by the 8 U.S.C. 1367 protections, SIJ petitioners may ask us to use an alternate address for mail correspondence by entering an alternate address in Part 1, question 7, on Form I- 360. If the alternate address you provided on Form I-360 is still your preferred address, you do not need to update your address with USCIS.\nIf you have already been approved for SIJ classification and would like to update your alternate mailing address with USCIS, you may list the alternate address in the “Mailing Address” field on Form AR-11, Alien’s Change of Address Card."
+	},
+	{
+		"question": "Q32. What is the best way to communicate with USCIS about my SIJ case, including issues related to deferred action or long processing times?",
+		"answer": "A32. Generally, for all matters related to an SIJ-based Form I-360, you may call the USCIS Contact Center at 800-375-5283. We have discontinued the SIJ NBC email box for general inquiries, but if you call the Contact Center, that will generate an internally trackable inquiry that will go to the NBC for resolution. However, before you call the Contact Center, you may also check your Case Status Online on USCIS.gov."
+	},
+	{
+		"question": "Q33. If I call the Contact Center, and I need to send a document to USCIS, will you follow up with me by email, so I can email that document?",
+		"answer": "A33. We generally cannot accept documents via email. If you need to submit documents to respond to (for example) a Contact Center request, a Request for Evidence, or a Notice of Intent to Deny, please follow the instructions provided on how to transmit the requested information.\nIf you need to submit documents related to your SIJ Form I-360 that are not in response to a request from USCIS, please mail them to the address below. Be sure to include your name, date of birth, A-Number, and receipt number. Please mail them to:\nU.S. Department of Homeland SecurityCitizenship and Immigration ServicesNational Benefits Center, Overland ParkAttn: Special Immigrant JuvenileP.O. Box 25920Overland Park, KS 66225"
+	},
+	{
+		"question": "Q34. I filed my SIJ-based Form I-485 with the immigration court, and the court terminated my removal proceedings. How do I transfer my case to USCIS?",
+		"answer": "A34. If the immigration court terminated or dismissed your removal proceedings so that we can adjudicate your Form I-485, ICE counsel should forward your A-File to the appropriate USCIS office to adjudicate your adjustment application. You may also call the USCIS Contact Center to request that we transfer a Form I-485 you initially filed with the immigration court so that we can adjudicate your application. After we receive your request, our Contact Center staff will verify that removal proceedings are terminated and then will refer your request to the adjudicating office. We may also send you a Request for Evidence to obtain a copy of your Form I-485 and other supporting documents if these documents are not in your A-File.\nFor additional information, please go to the Immigration Benefits in EOIR Removal Proceedings page."
+	},
+	{
+		"question": "Q35. I filed my SIJ-based Form I-485 with USCIS, but it was administratively closed for lack of jurisdiction because I was still in removal proceedings before the immigration court. The immigration court has now dismissed or terminated my proceedings. How do I reopen my Form I-485 with USCIS?",
+		"answer": "A35. Following termination of removal proceedings, you may call the USCIS Contact Center to request reopening of a Form I-485 that was filed with USCIS. (The receipt number will start with “MSC.”) The Contact Center will notify the adjudicating office, which will issue a Request for Evidence to obtain a copy of the order terminating removal proceedings, a copy of the Form I-485, and supporting documents, or other information, as required.\nFor additional information, please go to the Immigration Benefits in EOIR Removal Proceedings page."
+	},
+	{
+		"question": "Q36. Given the recission of automatic revocation if an applicant is married after Form I-360 application was approved, are there any consequences related to Form I-360 approval if I get married?",
+		"answer": "A36. If you get married before your Form I-360 is approved, you are ineligible for SIJ classification under 8 CFR §204.11(b)(2), which provides that a petitioner must be “unmarried at the time of filing and adjudication.” To be eligible for SIJ classification, you must remain unmarried at the time of filing and adjudication of the Form I-360. However, if you marry after we approve your Form I-360, but before you adjust status to lawful permanent resident, we will no longer automatically revoke your Form I-360 petition."
+	},
+	{
+		"question": "Q37. Under the final rule, if my priority date is not current, and I got married before the rule became final, can I adjust status when my priority date is current, even though I married before this rule was published?",
+		"answer": "A37. You may apply for SIJ-based adjustment of status if your SIJ approval has not been revoked and you are otherwise eligible."
+	},
+	{
+		"question": "Q38. Under the new SIJ regulations, if I married after you approved my Form I-360 petition, I am still eligible to apply to adjust status. If I get married after I file Form I-485, and my Form I-485 was pending before April 7, 2022, when the SIJ rule went into effect, will you still adjudicate my pending Form I-485 under the new regulations?",
+		"answer": "A38. Yes. If your SIJ approval has not been revoked and you are otherwise eligible, we will adjudicate your pending Form I-485 under the new regulations."
+	},
+	{
+		"question": "Q39. Because marriage no longer results in automatic revocation of Form I-360 approval, do I need to update USCIS about a marriage that occurred after you approved my Form I-360?",
+		"answer": "A39. No. You do not need to update USCIS if you get married after we approve your Form I-360."
+	},
+	{
+		"question": "Q40. How do I know if my SIJ classification was automatically revoked?",
+		"answer": "A40. If the facts of a case trigger an automatic revocation under 8 CFR 204.11(j), we will issue a Notice of Automatic Revocation to you and to your attorney of record."
+	},
+	{
+		"question": "Q41. Do I have to keep the guardianship or custodial relationship with my guardian or custodial parent during the entire process, including Form I-485 processing?",
+		"answer": "A41. If you leave a court-ordered placement, that will not, by itself, affect your SIJ eligibility. However, in general, you must remain under the jurisdiction of the juvenile court at the time of the filing and adjudication of your SIJ-based Form I-360, with some exceptions. If you are no longer under the jurisdiction of the juvenile court for a reason related to your underlying eligibility for SIJ classification, you may no longer be eligible for SIJ classification. This may include cases in which you are no longer under the jurisdiction of the court because:\nWe will not re-adjudicate Form I-360 when we adjudicate Form I-485. However, an approved Form I-360 is automatically revoked as of the date of the approval if either of the following circumstances occur before we issue a decision on Form I-485:"
+	},
+	{
+		"question": "Q42. If I obtain a juvenile court order in the state where I live and move to another state before you approve my Form I-360, do I need a new juvenile court order in the new state?",
+		"answer": "A42. A juvenile court order does not necessarily terminate because you move to another court’s jurisdiction. In general, a court maintains jurisdiction when it orders the juvenile placed in a different state or makes a custody determination and the juvenile and the legal custodian relocate to a new jurisdiction. You only need a new juvenile court order if the original juvenile court order is no longer valid or in effect, unless the order terminated because you aged out of the juvenile court jurisdiction or a child welfare permanency goal was reached, such as adoption.\nIf the original order is terminated because you move, but another order is issued in a new jurisdiction, we consider the dependency or custody to have continued through the time of adjudication of the SIJ petition, even if there is a lapse between the court orders."
+	},
+	{
+		"question": "Q43. Where can I find information and data relating to SIJ classification?",
+		"answer": "A43. For recent engagements, policy updates, and other information, please visit USCIS’ Electronic Reading Room. For general data and statistics, please visit USCIS’ Immigration and Citizenship Data page.\nFor additional information on SIJ classification and related adjustment of status, please visit the USCIS Policy Manual at Volume 6, Part J: Special Immigrant Juveniles, and Volume 7, Part F, Chapter 7: Special Immigrant Juvenile Adjustment."
+	},
+	{
+		"question": "Q44. What efforts has USCIS made to meet the 180-day adjudication deadline for SIJ Forms I-360?",
+		"answer": "A44. We work hard to issue decisions on properly filed petitions for SIJ classification within 180 days. We have taken several steps to achieve this goal, including increasing the number of officers adjudicating SIJ Form I-360 petitions, reviewing workflow process points to identify efficiencies, and shifting SIJ-based Form I-485 adjudication to field offices so that the National Benefits Center has increased capacity to focus on the SIJ-based Form I-360."
+	},
+	{
+		"question": "Q45. Can USCIS allow SIJ-eligible aliens to file Form I-360 electronically, given age-out issues? If not, can you use the mailbox rule rather than the receipt rule to ensure that individuals aging out do not lose the opportunity to receive SIJ classification because of mailing issues?",
+		"answer": "A45. At this time, you cannot file an SIJ-based Form I-360 electronically. However, we understand the challenges related to filing and age-out issues for the SIJ Form I-360, and we recently instituted flexibilities to address this issue. First, in March 2023, we updated the USCIS Policy Manual to address situations when the last day to file a benefit request (for example, the day before an SIJ-eligible alien turns 21) or respond to a USCIS action falls on a Saturday, Sunday, or federal holiday. In these situations, we will consider a filing or response submitted on paper timely if we receive it by the end of the next business day. Second, to help petitioners file their SIJ Form I-360 before their 21st birthday, we will allow petitioners to file Form I-360 in person at a USCIS field office within 2 weeks before they turn 21. For more information, see the Special Immigrant Juveniles page."
+	},
+	{
+		"question": "Q46. Does USCIS require a Form I-601 waiver for SIJs with prior removal orders?",
+		"answer": "A46. If we have jurisdiction over your application for adjustment of status because you are an arriving alien, and there is an unexecuted final removal order, we will request a Form I-601, Application for Waiver of Inadmissibility, for an inadmissibility ground that may be waived under INA 245(h), relating to inadmissibility grounds that apply to SIJs."
+	}
+]

@@ -43,7 +43,7 @@ func writeToFile(dir, name string, data []byte) error {
 	return nil
 }
 
-func loadMetadaFromFile(path string) (metadata *FormMetadata, err error) {
+func loadMetadataFromFile(path string) (metadata *FormMetadata, err error) {
 	// Open the file
 	file, err := os.Open(filepath.Join(path, "metadata.json"))
 	if err != nil {
@@ -87,7 +87,8 @@ func main() {
 	wd, _ := os.Getwd()
 	dir := filepath.Join(wd, "documents")
 	crawlFAQ(dir).Wait()
-	//defer crawlLegislation(dir).Wait()
-	//crawlImmigrationForms(dir).Wait()
-	//crawlFeeSchedule(dir).Wait()
+	crawlImmigrationForms(dir).Wait()
+	crawlFeeSchedule(dir).Wait()
+	crawlLegislation(dir, "title-8.json")
+
 }

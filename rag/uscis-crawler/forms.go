@@ -69,7 +69,7 @@ func crawlImmigrationForms(parentDir string) *colly.Collector {
 	//Find and visit all PDFs
 	c.OnHTML("span.file.file--mime-application-pdf.file--application-pdf", func(e *colly.HTMLElement) {
 		dir := filepath.Join(contentDir, e.Request.URL.Path)
-		metadata, err := loadMetadaFromFile(dir)
+		metadata, err := loadMetadataFromFile(dir)
 		if err != nil {
 			log.Println(
 				"Error loading metadata for form",
@@ -109,7 +109,7 @@ func crawlImmigrationForms(parentDir string) *colly.Collector {
 		}
 		id := segments[1]
 		dir := filepath.Join(contentDir, id)
-		_, err := loadMetadaFromFile(dir)
+		_, err := loadMetadataFromFile(dir)
 		if err != nil {
 			return
 		}

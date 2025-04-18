@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any, Dict, Tuple, AsyncGenerator
 import asyncio
 import asyncpg
+import numpy as np
 from sentence_transformers import SentenceTransformer
 
 import helpers
@@ -18,13 +19,17 @@ class Singleton(type):
         return cls._instances[cls]
 
 class Config:
-    def __init__(self, forms_path: str, legislation_path: str, chunk_size: int = 512):
+    def __init__(self, forms_path: str, legislation_path: str, chunk_size: int = 512, input_embedding_prefix: str = "None", query_embedding_prefix: str = "None"):
         self.forms_path = Path(forms_path)
         self.legislation_path = Path(legislation_path)
         self.chunk_size = chunk_size
+        self.input_embedding_prefix = input_embedding_prefix
+        self.query_embedding_prefix = query_embedding_prefix
+
 
 class DBConfig:
-    def __init__(self, dsn: str = "postgresql://@localhost:5432", database: str = "maia", pool_size: Tuple[int, int] = (1, 10) ):
+    def __init__(self, schema_dir: str, dsn: str = "postgresql://@localhost:5432", database: str = "maia", pool_size: Tuple[int, int] = (1, 10) ):
+        self.schema_dir = Path(schema_dir)
         self.dsn = dsn
         self.database = database
         self.min_pool_size = pool_size[0]
@@ -79,6 +84,7 @@ class RAGAgent(metaclass=Singleton):
             db_config: DBConfig,
             rag_config: Config,
             embedding_model: SentenceTransformer,
+            legalese_model: legislation.LegaleseTranslator
     ):
         """
         Initialize the RAG agent with configurations and an embedding model.
@@ -88,8 +94,9 @@ class RAGAgent(metaclass=Singleton):
         """
         self.db_config = db_config
         self.rag_config = rag_config
-        self.embedding_model = embedding_model
         self.db_init = False
+        self.forms_db =  forms.FormsDatabase(embedding_model, rag_config.forms_path)
+        self.legislation_db = legislation.LegislationDatabase(embedding_model, legalese_model, rag_config.legislation_path)
 
 
     async def init_database(self):
@@ -114,7 +121,9 @@ class RAGAgent(metaclass=Singleton):
                         print(f"Database {database} already exists.")
 
                     print("Setting up database schema...")
-                    await conn.execute(helpers.read_file_to_string("sql/forms-db-init.sql"))
+                    for schema_file in self.db_config.schema_dir.rglob("*.sql"):
+                        print(f"Executing {schema_file}...")
+                        await conn.execute(helpers.read_file_to_string(schema_file))
                     self.db_init = True
             except Exception as e:
                 print(f"Error initializing database: {e}")
@@ -137,19 +146,22 @@ class RAGAgent(metaclass=Singleton):
 
 
 
-    async def populate_database(self):
+    async def populate_database(self, clear: bool = True):
         """
         Populate the database with forms and legislation data.
         """
         print("Populating the database...")
         async with self.db_pool() as pool:
+            if clear:
+                await self.forms_db.clear(pool)
+                await self.legislation_db.clear(pool)
             # Populate forms
-            await forms.populate_db(self.embedding_model, pool, self.rag_config.forms_path)
+            await self.forms_db.populate(pool)
             # Populate legislation
-            await legislation.populate_db(self.embedding_model, pool, self.rag_config.legislation_path)
+            await self.legislation_db.populate(pool)
         print("Database population complete.")
 
-    async def query(self, query_text: str, top_k: int = 5) -> dict:
+    async def query(self, query_text: str, top_k: int = 5, verbose: bool = False) -> dict:
         """
         Query the database using the embedding model to find relevant forms and legislation.
         Combines results from both sources into a unified result set.
@@ -157,6 +169,7 @@ class RAGAgent(metaclass=Singleton):
         Args:
             query_text: The input query string.
             top_k: Number of top results to retrieve per source.
+            verbose:
 
         Returns:
             Dictionary containing combined results from forms and legislation.
@@ -164,11 +177,11 @@ class RAGAgent(metaclass=Singleton):
         async with self.db_pool() as pool:
             # Run both searches in parallel for efficiency
             form_task = asyncio.create_task(
-                forms.search(self.embedding_model, pool, query_text, top_k)
+                self.forms_db.search(pool, query_text, top_k, verbose)
             )
 
             legislation_task = asyncio.create_task(
-                legislation.search(self.embedding_model, pool, query_text, top_k)
+                self.legislation_db.search(pool, query_text, top_k, verbose)
             )
 
             # Wait for both searches to complete
@@ -181,8 +194,6 @@ class RAGAgent(metaclass=Singleton):
                     "forms": form_results,
                     "legislation": legislation_results
                 },
-                # Create a unified list of results, sorted by combined_score
-                "combined_results": _merge_and_sort_results(form_results, legislation_results)
             }
 
             return combined_results
@@ -192,37 +203,160 @@ class RAGAgent(metaclass=Singleton):
 async def main():
     # Database configuration
     db_config = DBConfig(
+        schema_dir = "./sql",
         dsn = "postgresql://@localhost:5432",
         database= "maia",
         pool_size = (10, 10)
     )
 
 
+    # Load the embedding model (SentenceTransformer)
+    print("Loading SentenceTransformer model...")
+    embedding_model = SentenceTransformer("sentence-transformers/multi-qa-MiniLM-L6-cos-v1")
+
     # RAG configuration
     rag_config =  Config(
         forms_path = "./uscis-crawler/documents/forms",
         legislation_path = "./uscis-crawler/documents/legislation",
-        chunk_size = 512  # Chunk size for content ingestion
+        chunk_size = 1024, # Chunk size for content ingestion
+        # input_embedding_prefix = "search_document:",
+        # query_embedding_prefix = "search_query:"
+
     )
 
-    # Load the embedding model (SentenceTransformer)
-    print("Loading SentenceTransformer model...")
-    embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
+    print("Loading Translation model...")
+    legalese_model = legislation.LegaleseTranslator("aiguy68/Super_legal_text_summarizer",disabled=True)
 
     # Initialize the RAGAgent
-    rag_agent = RAGAgent(db_config, rag_config, embedding_model)
+    rag_agent = RAGAgent(db_config, rag_config, embedding_model, legalese_model)
 
     # # Initialize database connection
     # await rag_agent.init_database()
     #
     # # Populate the database
-    #
-    # await rag_agent.populate_database()
+    # await rag_agent.populate_database(clear=True)
 
-    # Query the database
-    query_string = "what is the replacement fee for Form I-765?"
-    results = await rag_agent.query(query_string, top_k=3)
-    print("Query Results:", json.dumps(results, indent=4))
+
+    faq_path = Path("./uscis-crawler/documents/frequently-asked-questions/immigration_faqs.json")
+    with open(faq_path, 'r') as file:
+        data = json.load(file)
+        res = {
+            "total": 0,
+            "question": {
+                "misses": 0,
+                "forms": {
+                    "misses": 0,
+                    "count": 0,
+                    "similarity_score": 0
+                },
+                "legislation":{
+                    "misses": 0,
+                    "count": 0,
+                    "similarity_score": 0
+                },
+            },
+            "answer": {
+                "misses": 0,
+                "forms": {
+                    "misses": 0,
+                    "count": 0,
+                    "similarity_score": 0
+                },
+                "legislation":{
+                    "misses": 0,
+                    "count": 0,
+                    "similarity_score": 0
+                },
+            },
+            "question | answer": {
+                "misses": 0,
+                "forms": {
+                    "misses": 0,
+                    "count": 0,
+                    "similarity_score": 0
+                },
+                "legislation":{
+                    "misses": 0,
+                    "count": 0,
+                    "similarity_score": 0
+                },
+            },
+        }
+        for i , item in enumerate(data):
+            res["total"]+= 1
+            # Query the database
+            # query_string = "How much does it cost for a green card?"
+            query = f'''question: {item["question"]} | answer: {item["answer"]}'''
+            results = await rag_agent.query(query, top_k=3)
+
+            form_count = len(results["sources"]["forms"])
+            if form_count == 0 :
+                res["question | answer"]["forms"]["misses"] += 1
+
+            law_count = len(results["sources"]["legislation"])
+            if law_count == 0 :
+                res["question | answer"]["legislation"]["misses"] += 1
+
+            if law_count == 0 and form_count == 0 :
+                res["question | answer"]["misses"] += 1
+
+            res["question | answer"]["forms"]["count"] += form_count
+            res["question | answer"]["legislation"]["count"] += law_count
+            res["question | answer"]["forms"]["similarity_score"] += np.sum([form["similarity_score"] for form in results["sources"]["forms"]])
+            res["question | answer"]["legislation"]["similarity_score"] += np.sum([law["chunk_similarity"] for law in results["sources"]["legislation"]])
+            if i == 0 :
+                print(json.dumps(results, indent=2))
+
+            results = await rag_agent.query(item["question"], top_k=3)
+            form_count = len(results["sources"]["forms"])
+            if form_count == 0 :
+                res["question"]["forms"]["misses"] += 1
+
+            law_count = len(results["sources"]["legislation"])
+            if law_count == 0 :
+                res["question"]["legislation"]["misses"] += 1
+
+            if law_count == 0 and form_count == 0 :
+                res["question"]["misses"] += 1
+
+            res["question"]["forms"]["count"] += form_count
+            res["question"]["legislation"]["count"] += law_count
+            res["question"]["forms"]["similarity_score"] += np.sum([form["similarity_score"] for form in results["sources"]["forms"]])
+            res["question"]["legislation"]["similarity_score"] += np.sum([law["chunk_similarity"] for law in results["sources"]["legislation"]])
+            if i == 0 :
+                print(json.dumps(results, indent=2))
+
+            results = await rag_agent.query(item["answer"], top_k=3)
+            form_count = len(results["sources"]["forms"])
+            if form_count == 0 :
+                res["answer"]["forms"]["misses"] += 1
+
+            law_count = len(results["sources"]["legislation"])
+            if law_count == 0 :
+                res["answer"]["legislation"]["misses"] += 1
+
+            if law_count == 0 and form_count == 0 :
+                res["answer"]["misses"] += 1
+
+            res["answer"]["forms"]["count"] += form_count
+            res["answer"]["legislation"]["count"] += law_count
+            res["answer"]["forms"]["similarity_score"] += np.sum([form["similarity_score"] for form in results["sources"]["forms"]])
+            res["answer"]["legislation"]["similarity_score"] += np.sum([law["chunk_similarity"] for law in results["sources"]["legislation"]])
+            if i == 0 :
+                print(json.dumps(results, indent=2))
+
+        for group in ["question", "answer", "question | answer"]:
+            for source in ["forms", "legislation"]:
+                count = res[group][source]["count"]
+                total_score = res[group][source]["similarity_score"]
+                avg_key = "avg_similarity_score"
+                if count > 0:
+                    res[group][source][avg_key] = total_score / count
+                else:
+                    res[group][source][avg_key] = 0
+        print(json.dumps(res, indent=2))
+
+
 
 
 # Run the main function

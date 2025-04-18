@@ -1,0 +1,130 @@
+[
+	{
+		"question": "How did USCIS determine what enhancements should be made to the online accounts for the H-1B electronic registration and online filing processes?",
+		"answer": "USCIS conducted usability testing on the organizational accounts with individuals who serve a variety of roles in the H-1B registration and petition filing processes, including employers, human resources personnel, attorneys, and paralegals. The goal of these sessions was to gather feedback that would make the new account experience easier to understand and use. The feedback received resulted in enhancements to content and improvements in interactions and functionality throughout the organizational accounts. We will continue to seek feedback from organizational accounts users and release enhancements to the experience in the future."
+	},
+	{
+		"question": "Are organizational accounts available for use?",
+		"answer": "Yes,  organizational accounts were launched on Feb. 28, 2024."
+	},
+	{
+		"question": "If I have an existing applicant account, do I have to create an organizational account? What happens to my old account? Do I need to use a new email address to set up the organizational account?",
+		"answer": "The applicant account type cannot be used for H-1B-related submissions. If you already have an applicant account but want to create and submit H-1B registrations, Form I-129 H-1B petitions, and related Form I-907 requests for premium processing, then you will need to create a separate organizational account using an email address that is not associated with your applicant account.\nIf you had an H-1B registrant account for the FY 2021 – FY 2024 H-1B registration seasons, but you did not use the account for FY 2025, your existing account will be converted to an organizational account after your next log in.\nIf your organization selects you to be an Administrator and asks you to create a Company Group, log in to your existing registrant account or create a new organizational account and choose “Create a Company Group” from the options  to use the organizational account features."
+	},
+	{
+		"question": "How can I prepare for the FY 2026 H-1B registration process?",
+		"answer": "Prospective petitioning companies must set up or already have organizational accounts.  At least one person in the company must be designated as an Administrator."
+	},
+	{
+		"question": "What if I choose the wrong account type when I am creating a USCIS online account? Will I be able to change it to the correct account type later?",
+		"answer": "Please choose the correct account type - organizational or Legal Representative, as applicable - when you create your online account. Only these 2 account types may create and submit H-1B registrations and file Form I-129 H-1B petitions, and related Form I-907 requests for premium processing.  If you choose the wrong account type, you may use a different email address to create a new USCIS online account and choose the correct account type. Alternatively, there are a few limited instances where the organizational or Legal Representative account may be deleted. Please see the steps outlined in the Tips for Filing Forms Online page to see if your account qualifies."
+	},
+	{
+		"question": "What are the roles and permissions for organizational and legal representative accounts?",
+		"answer": "This infographic explains the permissions of the administrator, member, representative, and paralegal in the organizational accounts setting."
+	},
+	{
+		"question": "Can I submit H-1B electronic registrations the same way I did in the past?",
+		"answer": "Organizational accounts offer flexibility in how you set up your Company Group. If you would like to submit H-1B registrations the way you did in the past, follow these steps:"
+	},
+	{
+		"question": "I have not filed a form with USCIS online. How do I learn how the process works?",
+		"answer": "You can also learn more about filing online by visiting our File Online page."
+	},
+	{
+		"question": "Can I submit online applications for H-4 dependents concurrently with an online Form I-129 for the principal H-1B prospective employee?",
+		"answer": "No, not at this time. If you want to concurrently file Form I-539 for H-4 dependents with Form I-129 for the H-1B principal, you must file by paper.\nIf filing a paper form for a dependent and an online Form I-129 for the principal H-1B beneficiary, file the Form I-129 first, and then file the paper Form I-539 and Form I-765, as applicable, with a printed copy of the online-filed Form I-129 receipt notice. Please note that these forms will not be considered concurrently filed with Form I-129 and may be adjudicated at different times."
+	},
+	{
+		"question": "What new online account enhancements will be available for the FY 2026 H-1B electronic registration and online filing processes?\nCan I file Form I-907 to request premium processing for a Form I-129 I filed online?",
+		"answer": "Yes. You may concurrently file Form I-907 online with a Form I-129 H-1B petition.\nYou may also file Form I-907 after the Form I-129 is filed. If you want to request an upgrade to premium processing service for a Form I-129 petition after the filing is accepted for processing, you need to file Form I-907 using the same filing method used to file the Form I-129."
+	},
+	{
+		"question": "Can I still file paper forms?",
+		"answer": "Yes, you will continue to have the option to file a paper Form I-129 H-1B petition and any associated Form I-907 if you prefer. However,  you will not be able to link a paper-filed Form I-129 or Form I-907 to an online account."
+	},
+	{
+		"question": "Are processing times for online-filed cases faster than paper-filed cases?",
+		"answer": "No. Our adjudication processes for online-filed and paper-filed cases are the same. However, online filing has time-saving features not related to USCIS’ internal workflows:"
+	},
+	{
+		"question": "If I file Form I-129 or an associated Form I-907 by paper, can I link it to my USCIS online account?",
+		"answer": "No, paper-filed Forms I-129 and Forms I-907 cannot be linked to an online account at this time. This functionality is being planned for future releases.\nBe sure to check the filing locations for paper Form I-129 H-1B petitions and Form I-907 requests."
+	},
+	{
+		"question": "Will a company's different groups be linked because they use the same EIN?",
+		"answer": "No. Each Company Group is separate. Someone in Company Group “A” will not be able to see what happens in Company Group “B,” even if those 2 Company Groups represent the same company with the same EIN."
+	},
+	{
+		"question": "Can the beneficiary be invited to join a Company Group?",
+		"answer": "There is nothing preventing you from inviting a beneficiary to join a Company Group. However, there is currently no Beneficiary role in the Company Group. Additionally, companies should keep in mind that anyone in the Company Group can see and edit all H-1B registrations and Form I-129 petitions. Organizations may wish to avoid the inappropriate sharing of personal information with unauthorized individuals and reserve inclusion in the Company Group for company employees."
+	},
+	{
+		"question": "I have an H-1B registrant account from previous seasons and was asked by my company to be an Administrator and set up a Company Group. What do I need to do?",
+		"answer": "The steps are easy and intuitive. If your organization designates you to be an Administrator and wants you to set up a Company Group, you will sign into your existing H-1B registrant account at my.uscis.gov. You will see a new company onboarding page after you log in. You should choose the third box, Create a Company Group.\nFollow the prompts to enter information about your company and yourself. You will need to enter an Employer Identification Number (EIN), Social Security number (SSN), or Individual Taxpayer Identification Number (ITIN) to create a Company Group.  After 3 screens, you will see a welcome banner indicating you have created a Company Group. These steps take about 3 minutes.  At this point you will be on the enhanced platform with the role of Administrator. Once you have completed these steps, the Company Group cannot be deleted or undone.\nBecause you are an Administrator, you can invite coworkers to join your group as either Administrators or Members. You can also invite one or more legal representatives to collaborate."
+	},
+	{
+		"question": "I have an H-1B registrant account from previous seasons, but I was not designated to be an Administrator responsible for setting up a Company Group. What do I need to do?",
+		"answer": "You need to wait for an invitation from the person in your company who set up the Administrator account. If you already have an H-1B registrant account but were not designated as an Administrator responsible for setting up the Company Group, an Administrator chosen by your organization may invite you to their Company Group by sending an invitation to the appropriate email address. You could be invited as an Administrator or Member. You need to wait to receive the invitation, which will have a link to join the group.\nWhen you log in, you will come to the company onboarding page shown below. Choose the first box, “Review your pending invitations.”"
+	},
+	{
+		"question": "How do I build a Company Group?",
+		"answer": "If you are an Administrator and you created a Company Group, you can invite other people to your group. You can build the group to meet your needs. There are a few things to consider:\nTo add people to your Company Group:\nGo to the “My Company” tab on the top of your homepage.\nChoose “Manage Company Group.”\nChoose “Add user.”\nEnter the person’s name and email address and select their role.\nClick \"Send request.\"\nYou can then track the status of your invitation under “Manage invitations.”"
+	},
+	{
+		"question": "How do I invite a legal representative to collaborate with my Company Group?",
+		"answer": "For H-1B filings, we simplified how you work with a legal representative by replacing the representative passcode process with an invitation process.\nTo invite a representative to collaborate:\nGo to the “My Representatives” tab at the top of your home page.\nSelect “Add a representative.”\nEnter their name and email address.\nChoose “Send invitation.”"
+	},
+	{
+		"question": "What can an Administrator do in the organizational account setting?\nCan I add a representative to my case after it is already filed?",
+		"answer": "A representative can file a standalone Form G-28 online for a Form I-129 that the company filed online. This can occur with or without Form I-907.\nIf a company filed a paper Form I-129, a representative would need to file a standalone paper Form G-28 to become the recognized representative."
+	},
+	{
+		"question": "Can I be in more than one Company Group?",
+		"answer": "Your email address can only be used one time to create an account. This prevents you from using your account in more than one Company Group."
+	},
+	{
+		"question": "What should we do if an Administrator leaves the company?",
+		"answer": "We strongly recommend that every Company Group have at least 2 Administrators so you have a backup of this role. This way, if an Administrator leaves the company or is unavailable, someone else has the same permissions and can serve as Administrator.\nIf you have only 1 Administrator and that person is about to leave the company, they should invite another person to their Company Group and assign that person the role of Administrator before they leave. Then the second Administrator can remove the first Administrator once they have left the company.\nIf your only Administrator leaves your company before they invite a second person to be an Administrator, you may be unable to  access cases in the collaboration space because the Company Group is associated with the sole Administrator’s online account."
+	},
+	{
+		"question": "Can a large company create Company Groups for each of their sub-entities with different EIN numbers?",
+		"answer": "Yes, each sub-entity with a different EIN could be its own Company Group."
+	},
+	{
+		"question": "Do Company Groups need to be EIN-specific?",
+		"answer": "No, Company Groups do not need to be EIN-specific, but they could be. People from multiple entities with different EINs can join the same Company Group. However, the person who is the Administrator over that Company Group must have the authority to sign for, pay for, and submit registrations and forms for each entity."
+	},
+	{
+		"question": "Can Paralegals be on more than one Legal Team?",
+		"answer": "As a legal representative, you can work with paralegals by inviting them in your online account to join your legal team. Paralegal accounts are being enhanced for FY 2026 cap season so that a paralegal can be invited to join  more than one legal team. However, each legal team can only have one legal representative."
+	},
+	{
+		"question": "Can we use our third-party case management software to prepare forms using the USCIS online platform?",
+		"answer": "At this time, we do not have an application programming interface (API) that allows you to use third-party software to complete forms using the USCIS online platform. For more information on available APIs, please visit developer.uscis.gov."
+	},
+	{
+		"question": "How should we set up the Legal Team if multiple attorneys in our law firm submit registrations or file petitions for the same employer? Can a Company Group collaborate with more than one Legal Team?",
+		"answer": "Company Groups can collaborate with more than one Legal Team, whether the Representatives are in the same law firm or different law firms.\nSuppose your law firm has 5 attorneys who file H-1B petitions for the same company. The Administrator over the Company Group could invite each of the 5 attorneys to collaborate by sending individual invitations. This would result in collaborating with 5 different Legal Teams. Alternatively, each representative could send an invitation to collaborate to the Administrator. This also would result in collaborating with 5 Legal Teams.\nOne important thing to remember is that each Legal Team will not be able to see the work performed by other Legal Teams."
+	},
+	{
+		"question": "Can a Legal Team prepare and file H-1B petitions without the client needing to create an online account?",
+		"answer": "No. If you plan to file H-1B registrations and Form I-129 H-1B petitions online on behalf of your company client, you must either:\nThe invitation process replaces the previous representative passcode exchange that was used to connect representative and applicant accounts to support representative-client collaboration."
+	},
+	{
+		"question": "How does a company change Representatives after registrations or forms have been submitted and/or filed by another Representative?",
+		"answer": "The Administrator needs to withdraw the Form G-28 from all cases that the original Representative is associated with. Then, in the My Representatives tab, the Administrator can remove the Representative entirely from their Company Group, if they wish. The Administrator will then add a new Representative by selecting, “Add a Representative.” The new Representative will need to file a standalone Form G-28 for any existing cases on which they will represent the organization."
+	},
+	{
+		"question": "Even though the Representative cannot work on any H-1B registrations started by the company, will they be able to see if the company has prepared or submitted any registrations, to avoid duplicate submissions?\nWhen the Representative is notified that a form is ready for review, does the message identify the company and beneficiary name?\nWill an invited Legal Team be able to retrieve electronic registration selection notices and file Form I-129 H-1B petitions online for selected beneficiaries based on a registration prepared by the employer?",
+		"answer": "Any Legal Team can prepare online Form I-129 H-1B petitions for selected beneficiaries on behalf of a company client. However, only the Legal Team that prepared and submitted the H-1B registration for the selected beneficiary will be able to see the selection notice (if they are still the attorney of record for that company client with a filed Form G-28). If a new Legal Team is invited to collaborate after H-1B registration selection notices are sent out, the company client will need to provide the relevant information about the selected beneficiary to the Legal Team outside of the organizational account platform."
+	},
+	{
+		"question": "Can the same Representative create multiple Legal Teams?\nWhat happens if an attorney represents a company that has several offices throughout the United States that all have the same EIN but different human resources contacts (signatory representatives for each of the offices or departments)? How does the attorney set them up as a client and allow the contact for each division to sign for submissions of employees in their division? Does the client need to provide only one company contact for all their offices?",
+		"answer": "The Legal Representative can collaborate with multiple company groups. The company would need to have an individual at each office create an organizational account and establish themself as the Administrator. The Administrator would then invite the Legal Representative to collaborate. The attorney would then be able to send the registrations to the Administrator for review and submission."
+	},
+	{
+		"question": "Are there any changes to the H-1B electronic registration form for FY 2026?",
+		"answer": "The FY 2026 H-1B electronic registration form is very similar to last year. You still only need to provide basic information about the prospective petitioner and beneficiary, as well as valid passport or travel document information for each beneficiary.\nThe passport or travel document provided must be the same as the beneficiary used to enter the United States; if or when they are outside the United States, it must be the document they intend to use to enter the United States if they receive an H-1B visa. Also, the passport or travel document’s validity period must be current and unexpired. Each beneficiary must be registered under only 1 passport or travel document.\nThe passport or travel document must be valid at the time of registration. If the passport or travel document expires between when a registration is submitted and when the H-1B petition is filed, the petitioner should follow the form instructions regarding which passport information should be entered on Page 3, Part 3 of Form I-129, Petition for Nonimmigrant Worker. In support of the H-1B petition, the petitioner should provide documentation for both passports or travel documents to establish that the passport or travel document was valid at the time of registration and an explanation as to why there was a change in identifying information.\nIn rare instances, such as for nationals of Venezuela, the passport or travel document may be past the expiration date listed on the document (that is, facially expired) but may have had its validity extended by decree or automatically by the national government or issuing authority that issued the passport or travel document. In these unusual circumstances, we would consider those documents to be valid since they were extended by decree or automatically.​ Registrants should enter the expiration date of the passport or travel document based on the extension, rather than the date which appears in the passport itself. If an H-1B petition is filed based on such registration, USCIS will review the copy of the facially expired document along with any relevant information about the extension to ensure the information entered at registration was accurate."
+	}
+]

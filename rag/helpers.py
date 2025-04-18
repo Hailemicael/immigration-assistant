@@ -31,14 +31,18 @@ def read_and_chunk_pdf(pdf_path:str | Path, password: str = "", chunk_size=500):
         except Exception as e:
             print(f"Failed to decrypt PDF: {e}")
             return
-
     full_text = ""
-    for page in reader.pages:
-        full_text += page.extract_text()
-
-    # Chunk the text
-    chunks = [full_text[i:i + chunk_size] for i in range(0, len(full_text), chunk_size)]
-    return chunks
+    match chunk_size:
+        case None:
+            for page in reader.pages:
+                full_text += page.extract_text()
+            return [full_text]
+        case "Pages":
+            return [page.extract_text() for page in reader.pages]
+        case _ :
+            for page in reader.pages:
+                full_text += page.extract_text()
+            return  [full_text[i:i + chunk_size] for i in range(0, len(full_text), chunk_size)]
 
 def chunk_html_content(content: str, features: str, chunk_size: int = 512) -> list[str]:
     """
@@ -67,12 +71,14 @@ def chunk_html_content(content: str, features: str, chunk_size: int = 512) -> li
 
     return chunks
 
-def generate_embeddings(model: SentenceTransformer, content: str) -> str:
+def generate_embeddings(model: SentenceTransformer, content: str, prefix: str = None) -> str:
     # if context is None:
     #     context = {}
     #
     # context[content] = content
     # Use sentence-transformers to generate the embedding
+    if content is not None:
+        content = f"{prefix}: {content}"
     embedding_vector = model.encode(content)
 
     # Convert numpy array to list for JSON serialization

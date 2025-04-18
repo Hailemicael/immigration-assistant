@@ -1,0 +1,62 @@
+[
+	{
+		"question": "When should I register?",
+		"answer": "USCIS strongly recommends that you register at least 5-7 business days prior to the training seminar; however, please register as soon as possible. USCIS will accept late registrations, if space permits. Registration will close once the event venue reaches full capacity."
+	},
+	{
+		"question": "How will I know if my registration was received?",
+		"answer": "Once USCIS receives your completed registration form, we will send you a confirmation email within 5-7 business days of receipt. If you do not receive a confirmation email, please send us a message to office.of.citizenship@uscis.dhs.gov."
+	},
+	{
+		"question": "Will I have to go through security at the event?",
+		"answer": "For events held at a USCIS facility, you must go through security to gain entry into the building. Please bring a valid government-issued photo identification."
+	},
+	{
+		"question": "If I have attended a USCIS training seminar in the past, should I still attend?",
+		"answer": "Yes. USCIS tries to introduce new ideas and promising practices for building, enhancing, and maintaining a comprehensive adult citizenship education program."
+	},
+	{
+		"question": "What if I need to cancel my registration?",
+		"answer": "Please send an email to office.of.citizenship@uscis.dhs.gov no later than five business days prior to the training seminar."
+	},
+	{
+		"question": "May I attend if I live outside the state where the event is being held?",
+		"answer": "Yes. Seminars are open to all educators regardless of place of residence."
+	},
+	{
+		"question": "What materials or documents should I bring to the training seminar?",
+		"answer": "USCIS supplies the basic materials you will need for the seminar; however, you should bring a paper and pen to take notes, as well as a copy of your registration form. For some seminars, you may be instructed to download certain handouts from the Citizenship Resource Center, or instructed to read designated materials prior to the event."
+	},
+	{
+		"question": "Can someone else attend the seminar in my place?",
+		"answer": "Substitutions may be made at any time. Please contact us at office.of.citizenship@uscis.dhs.gov with the name and registration form of the person who will be taking your place, if known prior to the event. Otherwise, your substitute may notify us at the registration table on the day of the seminar."
+	},
+	{
+		"question": "Will the seminar be canceled if bad weather is expected?",
+		"answer": "USCIS makes every effort to hold all scheduled training seminars as planned. In instances of severe weather, USCIS will notify all registered participants via email to confirm if the training will be held. If the seminar is held at a USCIS facility and the federal government is closed in your area, the seminar will be canceled."
+	},
+	{
+		"question": "Will there be food or drinks provided at the event?",
+		"answer": "No. Snacks and meals will not be provided. A list of nearby restaurants will be available at the event."
+	},
+	{
+		"question": "Does USCIS provide travel and hotel accommodations?",
+		"answer": "No. You will be responsible for your own travel and lodging."
+	},
+	{
+		"question": "What if I need special accommodations?",
+		"answer": "USCIS training events are accessible to people with disabilities. If you would like to request special accommodations to attend a training seminar, please contact us at office.of.citizenship@uscis.dhs.gov 45 days prior to the training to allow us time to make arrangements. Please note that USCIS does not provide wheelchairs, scooters, or other mobility devices. Participants with mobility impairments must bring their own mobility devices."
+	},
+	{
+		"question": "Where can I park?",
+		"answer": "If available, parking information will be sent to all registered participants at least two business days prior to the event."
+	},
+	{
+		"question": "May I tape record or videotape the seminar?",
+		"answer": "No. Audio and/or video recording is not permitted at USCIS seminars."
+	},
+	{
+		"question": "Does USCIS provide attendance certificates?",
+		"answer": "Yes. All seminar attendees will be provided with a certificate of participation. Certificates will be mailed to late registrants and walk-ins."
+	}
+]

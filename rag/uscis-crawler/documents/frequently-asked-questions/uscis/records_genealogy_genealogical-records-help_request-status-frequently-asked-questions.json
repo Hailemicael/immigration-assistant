@@ -1,0 +1,18 @@
+[
+	{
+		"question": "How do I know you received my request?",
+		"answer": "The Genealogy Program acknowledges your online requests by generating a receipt after we process the request you submitted. The receipt includes the case identification number/Case ID (such as GEN-1000XXXX) and date of submission (open date). You will not receive any additional correspondence from us until we complete your request. Please do not submit a duplicate request on the same immigrant as it only delays your initial request and adds to our backlog.\n\nTo confirm your Genealogy mail requests, we will send you an acknowledgment letter through the U.S. Postal Service to the address provided in your request. The acknowledgment letter will include the date we received your request and the assigned case identification number (such as CMT-1XXXXXXXX). If you do not receive our acknowledgment letter within 20 days, please email us."
+	},
+	{
+		"question": "How can I check on the progress of my request?",
+		"answer": "Email your case status inquiries Genealogy.USCIS@uscis.dhs.gov. You can also monitor your request status through our Genealogy Request Case Status Inquiry webpage."
+	},
+	{
+		"question": "I am waiting for my request and it has been longer than the average wait time. Why?",
+		"answer": "You may not have received the records you requested for one or more of the following reasons:"
+	},
+	{
+		"question": "How can I help to make processing my record request faster?",
+		"answer": "You can help speed our response to your record request by providing proof of death for any other persons you expect to be in the file. If all individuals identified in the file are proven deceased, we can release the file without processing it under the Freedom of Information/Privacy Act. Other persons most commonly found in the records are the immigrant subject's children, spouse, and/or siblings. Acceptable documentary proof includes the following:\nThe Genealogy Program most often finds other persons (\"third parties\") named and identified in the following files:"
+	}
+]
