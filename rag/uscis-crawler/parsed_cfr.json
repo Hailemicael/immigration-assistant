@@ -1,0 +1,45 @@
+{
+  "id": "312.2",
+  "label": {
+    "level": "",
+    "description": ""
+  },
+  "subsections": {
+    "(a)": {
+      "id": "(a)",
+      "title": "General.",
+      "text": "No person shall be naturalized as a citizen of the United States upon his or her own application unless that person can demonstrate a knowledge and understanding of the fundamentals of the history, and of the principles and form of government, of the United States. A person who is exempt from the literacy requirement under § 312.1(b) (1) and (2) must still satisfy this requirement.",
+      "type": "subsection"
+    },
+    "(b)": {
+      "id": "(b)",
+      "title": "Exceptions.",
+      "text": "(1) The requirements of paragraph (a) of this section shall not apply to any person who is unable to demonstrate a knowledge and understanding of the fundamentals of the history, and of the principles and form of government of the United States because of a medically determinable physical or mental impairment, that already has or is expected to last at least 12 months. The loss of any cognitive skills based on the direct effects of the illegal use of drugs will not be considered in determining whether an individual may be exempted. For the purposes of this paragraph the term  means an impairment that results from anatomical, physiological, or psychological abnormalities which can be shown by medically acceptable clinical or laboratory diagnosis techniques to have resulted in functioning so impaired as to render an individual to be unable to demonstrate the knowledge required by this section or that renders the individuals unable to participate in the testing procedures for naturalization, even with reasonable modifications.",
+      "sub_subsection": {
+        "(2)": {
+          "id": "(2)",
+          "title": "Medical certification.",
+          "text": "All persons applying for naturalization and seeking an exception from the requirements of § 312.1(a) and paragraph (a) of this section based on the disability exceptions must submit Form N-648, Medical Certification for Disability Exceptions, to be completed by a medical or osteopathic doctor licensed to practice medicine in the United States or a clinical psychologist licensed to practice psychology in the United States (including the United States territories of Guam, Puerto Rico, and the Virgin Islands). Form N-648 must be submitted as an attachment to the applicant's Form N-400, Application for Naturalization. These medical professionals shall be experienced in diagnosing those with physical or mental medically determinable impairments and shall be able to attest to the origin, nature, and extent of the medical condition as it relates to the disability exceptions noted under § 312.1(b)(3) and paragraph (b)(1) of this section. In addition, the medical professionals making the disability determination must sign a statement on the Form N-648 that they have answered all the questions in a complete and truthful manner, that they (and the applicant) agree to the release of all medical records relating to the applicant that may be requested by the Service and that they attest that any knowingly false or misleading statements may subject the medical professional to the penalties for perjury pursuant to title 18, United Stated Code, Section 1546 and to civil penalties under section 274C of the Act. The Service also reserves the right to refer the applicant to another authorized medical source for a supplemental disability determination. This option shall be invoked when the Service has credible doubts about the veracity of a medical certification that has been presented by the applicant. An affidavit or attestation by the applicant, his or her relatives, or guardian on his or her medical condition is not a sufficient medical attestation for purposes of satisfying this requirement.",
+          "type": "paragraph"
+        }
+      },
+      "type": "subsection"
+    },
+    "(c)": {
+      "id": "(c)",
+      "title": "History and government examination",
+      "text": "—(1)  The examination of an applicant's knowledge of the history and form of government of the United States must be given orally in English by a designated immigration officer, except:",
+      "type": "subsection"
+    },
+    "(i)": {
+      "id": "(i)",
+      "text": "Education,",
+      "type": "subsection"
+    },
+    "(v)": {
+      "id": "(v)",
+      "text": "Opportunities available and efforts made to acquire the requisite knowledge, and",
+      "type": "subsection"
+    }
+  }
+}

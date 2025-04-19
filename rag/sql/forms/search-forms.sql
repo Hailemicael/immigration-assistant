@@ -1,5 +1,8 @@
+-- Ensure the schema exists
+CREATE SCHEMA IF NOT EXISTS forms;
+
 CREATE OR REPLACE FUNCTION forms.find_related_immigration_documentation(
-    search_embedding VECTOR(384),
+    search_embedding VECTOR(1024),
     limit_count INTEGER DEFAULT 10
 )
     RETURNS TABLE (

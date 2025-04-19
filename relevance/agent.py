@@ -19,7 +19,7 @@ class RelevanceAgent(Runnable):
     ) -> None:
         self.model = model
         self.relevance_threshold = relevance_threshold
-        self.verbose_setting = verbose
+        self.verbose = verbose
         self.baseline_path = baseline_path
         self._init()
 
@@ -34,7 +34,7 @@ class RelevanceAgent(Runnable):
     def invoke(
             self, state: AgentState, config: Optional[RunnableConfig] = None, **kwargs: Any
     ) -> AgentState:
-        verbose = state.get("verbose", self.verbose_setting)
+        verbose = state.get("verbose", self.verbose)
         prompt = state.get("question")
 
         if verbose:
@@ -42,7 +42,8 @@ class RelevanceAgent(Runnable):
             print(f"[🧠 RelevanceAgent] Input Prompt: \"{prompt}\"")
 
         prompt_embedding = self.model.encode(prompt, convert_to_tensor=True)
-        score = util.pytorch_cos_sim(prompt_embedding, self.baseline_embedding).item()
+        similarities = util.pytorch_cos_sim(prompt_embedding, self.baseline_embedding)
+        score = similarities.max().item()
         relevance = "relevant" if score > self.relevance_threshold else "irrelevant"
 
         if verbose:

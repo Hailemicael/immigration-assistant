@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS legislation.sections
     section_code    TEXT NOT NULL,
     description     TEXT NOT NULL,
     text            TEXT NOT NULL,
-    chunk_embedding VECTOR(384) NOT NULL,
+    chunk_embedding VECTOR(1024) NOT NULL,
     UNIQUE (part_id, section_code)
 );
 
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS legislation.subsections
     subsection_code TEXT NOT NULL,
     title           TEXT,
     text            TEXT NOT NULL,
-    chunk_embedding VECTOR(384) NOT NULL,
+    chunk_embedding VECTOR(1024) NOT NULL,
     UNIQUE (section_id, subsection_code)
 );
 
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS legislation.sub_subsections
     sub_subsection_code TEXT NOT NULL,
     title               TEXT,
     text                TEXT NOT NULL,
-    chunk_embedding     VECTOR(384) NOT NULL,
+    chunk_embedding     VECTOR(1024) NOT NULL,
     UNIQUE (subsection_id, sub_subsection_code)
 );
 

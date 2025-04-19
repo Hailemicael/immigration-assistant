@@ -11,8 +11,8 @@ from sentence_transformers import SentenceTransformer
 from pydantic import BaseModel, TypeAdapter
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
-import helpers
-from vector_database import VectorDatabase
+from . import helpers
+from Project.immigration_assistant.rag.vector_database import VectorDatabase
 
 
 class LegaleseTranslator:

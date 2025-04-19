@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION legislation.search_legislation_chunks(
-    search_embedding VECTOR(384),
+    search_embedding VECTOR(1024),
     limit_count INTEGER DEFAULT 10,
     sim_threshold FLOAT DEFAULT 0.5
 )

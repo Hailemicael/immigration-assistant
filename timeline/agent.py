@@ -1,15 +1,16 @@
-from typing import Dict, Optional
+from typing import Dict, Optional, Any
 
 from langchain_core.runnables import Runnable, RunnableConfig
+from langgraph.constants import END
 
 
 class TimelineAgent(Runnable):
-    def __init__(self, llm, verbose_setting):
+    def __init__(self, llm, verbose):
         self.llm = llm
-        self.verbose_setting = verbose_setting
+        self.verbose = verbose
 
     def invoke(self, state: Dict, config: Optional[RunnableConfig] = None, **kwargs: Any) -> Dict:
-        verbose = state.get("verbose", self.verbose_setting)
+        verbose = state.get("verbose", self.verbose)
         if verbose:
             print(f"\n[DEBUG - TimelineAgent] Processing forms: {state.get('forms', [])}")
 
@@ -38,4 +39,5 @@ class TimelineAgent(Runnable):
     def route_after_timeline(self, state: Dict) -> str:
         if state.get("verbose", self.verbose):
             print(f"[📆 Timeline Routing] → Generation Stage: {state.get('generation_stage')}")
-        return "ReasoningAgent" if state.get("generation_stage") == "initial" else END
+        return  END
+        # return "ReasoningAgent" if state.get("generation_stage") == "initial" else END
