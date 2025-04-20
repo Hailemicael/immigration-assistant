@@ -11,8 +11,8 @@ from sentence_transformers import SentenceTransformer
 from pydantic import BaseModel, TypeAdapter
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
-import helpers
-from vector_database import VectorDatabase
+from . import helpers
+from Project.immigration_assistant.rag.vector_database import VectorDatabase
 
 
 class LegaleseTranslator:
@@ -27,13 +27,7 @@ class LegaleseTranslator:
     def translate(self, text: str) -> str:
         if self.disabled:
             return ''
-
-        inputs = self.tokenizer(
-            text,
-            return_tensors="pt",
-            truncation=True,
-            max_length=512
-        ).to(self.model.device)
+        inputs = self.tokenizer(text, return_tensors="pt", truncation=True, max_length=512).to(self.model.device)
         outputs = self.model.generate(**inputs, max_new_tokens=512)
         return self.tokenizer.decode(outputs[0], skip_special_tokens=True)
 
@@ -67,208 +61,90 @@ class LegislationDatabase(VectorDatabase):
         self.semaphore = asyncio.Semaphore(5)
 
     async def populate(self, pool: asyncpg.Pool) -> None:
-        print("Populating Legislation tables...")
-        path = list(self.data_dir.glob("INA.json"))[0]
-        await self.process_immigration_and_nationality_act(pool, path)
-        print("Legislation tables build complete.")
+        print("Populating legislation.sections and legislation.paragraphs...")
+        json_files = list(self.data_dir.glob("*.json"))
 
-    async def process_immigration_and_nationality_act(self, pool: asyncpg.Pool, path: Path) -> None:
-        try:
-            with open(path, "r", encoding="utf-8") as f:
-                data = json.load(f)
+        for file_path in json_files:
+            print(f"📄 Processing file: {file_path.name}")
+            try:
+                with open(file_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
 
-            async with pool.acquire() as conn:
-                async with conn.transaction():
-                    await self._insert_title_and_chapters(conn, data)
+                async with pool.acquire() as conn:
+                    async with conn.transaction():
+                        await self._insert_from_flat_hierarchy(conn, data)
+            except Exception as e:
+                print(f"❌ Failed to process {file_path.name}: {e}")
 
-            print("✔ Finished importing INA content into legislation tables.")
-        except Exception as e:
-            print(f"❌ Error processing INA JSON: {e}")
+        print("✔ Legislation import complete.")
 
-    async def generate_embeddings_async(self, original: str, laymen: str | None) -> tuple:
-        async with self.semaphore:
-            emb_task = asyncio.to_thread(helpers.generate_embeddings, self.model, original, self.insert_embedding_prefix)
-            if laymen is not None:
-                laymen_emb_task = asyncio.to_thread(helpers.generate_embeddings, self.model, laymen, self.insert_embedding_prefix)
-                return await asyncio.gather(emb_task, laymen_emb_task)
-            else:
-                embedding = await emb_task
-                return embedding, None
+    async def _insert_from_flat_hierarchy(self, conn, data: dict):
+        for chapter in data.get("chapters", {}).values():
+            for subchapter in chapter.get("sub_chapters", {}).values():
+                for part in subchapter.get("parts", {}).values():
+                    for section in part.get("sections", {}).values():
+                        await self._insert_section_and_paragraphs(conn, section)
 
-    async def _insert_title_and_chapters(self, conn, data):
-        title_label = data["label"]["level"]
-        title_desc = data["label"]["description"]
-        print(f"→ Processing Title {title_label}: {title_desc}")
-
-        title_id = await conn.fetchval("""
-            INSERT INTO legislation.titles (title_code, description)
-            VALUES ($1, $2)
-            ON CONFLICT (title_code) DO UPDATE SET description = EXCLUDED.description
-            RETURNING id
-        """, title_label, title_desc)
-
-        for chapter in data["chapters"].values():
-            await self._insert_chapter(conn, title_id, chapter)
-
-    async def _insert_chapter(self, conn, title_id, chapter):
-        print(f"  → Chapter {chapter['id']}: {chapter['label']['description']}")
-
-        chapter_id = await conn.fetchval("""
-            INSERT INTO legislation.chapters (title_id, chapter_code, description)
-            VALUES ($1, $2, $3)
-            ON CONFLICT (title_id, chapter_code) DO UPDATE SET description = EXCLUDED.description
-            RETURNING id
-        """, title_id, chapter["id"], chapter["label"]["description"])
-
-        for subchapter in chapter["sub_chapters"].values():
-            await self._insert_subchapter(conn, chapter_id, subchapter)
-
-    async def _insert_subchapter(self, conn, chapter_id, subchapter):
-        print(f"    → Subchapter {subchapter['id']}: {subchapter['label']['description']}")
-
-        subchapter_id = await conn.fetchval("""
-            INSERT INTO legislation.subchapters (chapter_id, subchapter_code, description)
-            VALUES ($1, $2, $3)
-            ON CONFLICT (chapter_id, subchapter_code) DO UPDATE SET description = EXCLUDED.description
-            RETURNING id
-        """, chapter_id, subchapter["id"], subchapter["label"]["description"])
-
-        for part in subchapter["parts"].values():
-            await self._insert_part(conn, subchapter_id, part)
-
-    async def _insert_part(self, conn, subchapter_id, part):
-        print(f"      → Part {part['id']}: {part['label']['description']}")
-
-        part_id = await conn.fetchval("""
-            INSERT INTO legislation.parts (subchapter_id, part_code, description)
-            VALUES ($1, $2, $3)
-            ON CONFLICT (subchapter_id, part_code) DO UPDATE SET description = EXCLUDED.description
-            RETURNING id
-        """, subchapter_id, part["id"], part["label"]["description"])
-
-        if "subject_groups" in part:
-            for subject_group in part["subject_groups"].values():
-                await self._insert_subject_group(conn, part_id, subject_group)
-        if "sub_parts" in part:
-            for subpart in part["sub_parts"].values():
-                await self._insert_subpart(conn, part_id, subpart)
-        if "sections" in part:
-            for section in part["sections"].values():
-                await self._insert_section(conn, part_id, section)
-
-    async def _insert_subpart(self, conn, part_id, subpart):
-        print(f"        → Subpart {subpart['id']}: {subpart['label']['description']}")
-        for section in subpart["sections"].values():
-            await self._insert_section(conn, part_id, section)
-
-    async def _insert_subject_group(self, conn, part_id, group):
-        print(f"        → Subject Group {group['id']}: {group['label']['description']}")
-        for section in group["sections"].values():
-            await self._insert_section(conn, part_id, section)
-
-    async def _insert_section(self, conn, part_id, section):
+    async def _insert_section_and_paragraphs(self, conn, section: dict):
         text = section.get("text", "").strip()
         if not text:
             return
-        print(f"        → Section {section['id']}")
 
-        laymen = None
-        if not self.translator.disabled:
-            laymen = await asyncio.to_thread(self.translator.translate, text)
-
-        embedding = helpers.generate_embeddings(self.model, text)
-
-        section_id = await conn.fetchval("""
-            INSERT INTO legislation.sections (
-                part_id, section_code, description, text, chunk_embedding
-            )
-            VALUES ($1, $2, $3, $4, $5)
-            ON CONFLICT (part_id, section_code) DO NOTHING
-            RETURNING id
-        """, part_id, section["id"], section["label"]["description"], text, embedding)
-
-        if not section_id:
-            return
-
-        for subsec in (section.get("subsections") or {}).values():
-            await self._insert_subsection(conn, section_id, subsec)
-
-    async def _insert_subsection(self, conn, section_id, subsec):
-        text = subsec.get("text", "").strip()
-        if not text:
-            return
-        print(f"          → Subsection {subsec['id']}")
-
-        laymen = None
-        if not self.translator.disabled:
-            laymen = await asyncio.to_thread(self.translator.translate, text)
-
-        embedding = helpers.generate_embeddings(self.model, text)
-
-        subsection_id = await conn.fetchval("""
-            INSERT INTO legislation.subsections (
-                section_id, subsection_code, title, text, chunk_embedding
-            )
-            VALUES ($1, $2, $3, $4, $5)
-            ON CONFLICT (section_id, subsection_code) DO NOTHING
-            RETURNING id
-        """, section_id, subsec["id"], subsec.get("title"), text, embedding)
-
-        if not subsection_id:
-            return
-
-        for sss in (subsec.get("sub_subsection") or {}).values():
-            await self._insert_sub_subsection(conn, subsection_id, sss)
-
-    async def _insert_sub_subsection(self, conn, subsection_id, sss):
-        text = sss.get("text", "").strip()
-        if not text:
-            return
-        print(f"            → Sub-subsection {sss['id']}")
-
-        laymen = None
-        if not self.translator.disabled:
-            laymen = await asyncio.to_thread(self.translator.translate, text)
-
-        embedding = helpers.generate_embeddings(self.model, text)
+        print(f"→ Section {section['id']}")
+        title = section.get("label", {}).get("description") or section.get("title", "")
+        title_embedding = helpers.generate_embeddings(self.model, title)
+        text_embedding = helpers.generate_embeddings(self.model, text)
 
         await conn.execute("""
-            INSERT INTO legislation.sub_subsections (
-                subsection_id, sub_subsection_code, title, text, chunk_embedding
-            )
+            INSERT INTO legislation.sections (id, title, text, text_embedding, title_embedding)
             VALUES ($1, $2, $3, $4, $5)
-            ON CONFLICT (subsection_id, sub_subsection_code) DO NOTHING
-        """, subsection_id, sss["id"], sss.get("title"), text, embedding)
+            ON CONFLICT DO NOTHING 
+        """, section["id"], title, text, text_embedding, title_embedding)
+
+        for para in section.get("paragraphs", []):
+            await self._insert_paragraph(conn, para, section["id"])
+
+    async def _insert_paragraph(self, conn, paragraph: dict, section_id: str):
+        text = paragraph.get("text", "").strip()
+        if not text:
+            return
+
+        print(f"  → Paragraph {paragraph['id']}")
+        title = paragraph.get("title", "")
+        title_embedding = helpers.generate_embeddings(self.model, title)
+        text_embedding = helpers.generate_embeddings(self.model, text)
+
+        await conn.execute("""
+            INSERT INTO legislation.paragraphs (id, section_id, title, text, text_embedding, title_embedding)
+            VALUES ($1, $2, $3, $4, $5, $6)
+            ON CONFLICT DO NOTHING 
+           
+        """, paragraph["id"], section_id, title, text, text_embedding, title_embedding)
 
     async def search(self, pool: asyncpg.Pool, search_query: str, limit: int = 10, verbose: bool = False):
         if verbose:
             print(f"🔍 Searching legislation for: {search_query}")
 
-        embedding_vector = helpers.generate_embeddings(
-            self.model, search_query, prefix=self.query_embedding_prefix
-        )
+        embedding = helpers.generate_embeddings(self.model, search_query, prefix=self.query_embedding_prefix)
 
-        rows = await pool.fetch(
-            "SELECT * FROM legislation.search_legislation_chunks($1, $2)",
-            embedding_vector,
-            limit
-        )
+        rows = await pool.fetch("""
+            SELECT * FROM legislation.search_legislation_chunks($1, $2)
+        """, embedding, limit)
 
         results = []
         for row in rows:
             results.append({
                 'match_id': row['match_id'],
+                'source': row['source'],
                 'title': row['title'],
-                'chapter': row['chapter'],
-                'subchapter': row['subchapter'],
                 'chunk': row['chunk'],
-                'chunk_similarity': row['chunk_similarity']
+                'text_similarity': row['text_similarity'],
+                'title_similarity': row['title_similarity'],
+                'combined_score': row['combined_score'],
             })
 
-        results.sort(key=lambda x: x['chunk_similarity'])
-
         if verbose:
-            print(f"\n🔹 Found {len(results)} matching chunks")
+            print(f"\n🔹 Found {len(results)} results")
 
         return results
 
@@ -276,5 +152,4 @@ class LegislationDatabase(VectorDatabase):
     async def clear(pool: asyncpg.Pool) -> None:
         async with pool.acquire() as conn:
             print("Clearing legislation tables...")
-            await conn.execute('''CALL truncate_legislation_tables()''')
-        return None
+            await conn.execute("TRUNCATE TABLE legislation.paragraphs, legislation.sections RESTART IDENTITY CASCADE")

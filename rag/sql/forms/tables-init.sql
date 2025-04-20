@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS forms.pdfs
     id                    SERIAL PRIMARY KEY,
     form_id               TEXT UNIQUE NOT NULL,
     description           TEXT        NOT NULL,
-    description_embedding VECTOR(384) NOT NULL
+    description_embedding VECTOR(1024) NOT NULL
 );
 
 CREATE INDEX IF NOT EXISTS idx_pdfs_form_id
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS forms.documents
     file_url              TEXT        NOT NULL,
     title                 TEXT        NOT NULL,
     metadata              TEXT        NOT NULL,
-    title_embedding       VECTOR(384) NOT NULL
+    title_embedding       VECTOR(1024) NOT NULL
 );
 
 CREATE INDEX IF NOT EXISTS idx_documents_form_id
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS forms.document_chunks
     form_id         TEXT        NOT NULL REFERENCES forms.pdfs (form_id),
     form_name       TEXT        NOT NULL,
     content_chunk   TEXT        NOT NULL,
-    chunk_embedding VECTOR(384) NOT NULL
+    chunk_embedding VECTOR(1024) NOT NULL
 );
 
 CREATE INDEX IF NOT EXISTS idx_document_chunks_form_id
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS forms.instructions_chunks
     form_id         TEXT        NOT NULL REFERENCES forms.pdfs (form_id),
     form_name       TEXT        NOT NULL,
     content_chunk   TEXT        NOT NULL,
-    chunk_embedding VECTOR(384) NOT NULL
+    chunk_embedding VECTOR(1024) NOT NULL
 );
 
 CREATE INDEX IF NOT EXISTS idx_instructions_chunks_form_id
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS forms.filings
     category           TEXT        NOT NULL,
     paper_fee          TEXT,
     online_fee         TEXT,
-    category_embedding VECTOR(384) NOT NULL
+    category_embedding VECTOR(1024) NOT NULL
 );
 
 CREATE INDEX IF NOT EXISTS idx_filings_form_id
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS forms.html_chunks
     form_id         TEXT        NOT NULL REFERENCES forms.pdfs (form_id),
     file_name       TEXT        NOT NULL,
     content_chunk   TEXT        NOT NULL,
-    chunk_embedding VECTOR(384) NOT NULL
+    chunk_embedding VECTOR(1024) NOT NULL
 );
 
 CREATE INDEX IF NOT EXISTS idx_html_chunks_form_id

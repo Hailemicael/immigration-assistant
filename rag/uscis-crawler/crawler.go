@@ -86,9 +86,10 @@ func downloadContent(url, dir, name string, retryCount int) (err error) {
 func main() {
 	wd, _ := os.Getwd()
 	dir := filepath.Join(wd, "documents")
-	crawlFAQ(dir).Wait()
-	crawlImmigrationForms(dir).Wait()
-	crawlFeeSchedule(dir).Wait()
-	crawlLegislation(dir, "title-8.json")
+	crawlECFR(dir).Wait()
+	//crawlFAQ(dir).Wait()
+	//crawlImmigrationForms(dir).Wait()
+	//crawlFeeSchedule(dir).Wait()
+	//crawlLegislation(dir, "title-8.json")
 
 }
