@@ -1,0 +1,291 @@
+{% extends "base.html" %}
+
+{% block title %}USCIS Processing Times Calculator{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <!-- Header Section -->
+            <div id="upperContent">
+                <div id="ptTitle" class="col-sm-12">
+                    <div class="col-md-12">
+                        <h1>Check Case Processing Times</h1>
+                        <div style="margin-bottom: 20px;">
+                            <h2 class="h3">Select your form, form category, and the office that is processing your case</h2>
+                            <p class="subheader">
+                                Refer to your receipt notice to find your form, category, and office. For more information about case processing times and reading your receipt notice, visit the 
+                                <a href="{{ url_for('main.about') }}" title="More Information About Case Processing Times">More Information About Case Processing Times</a> page.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Processing Times Form -->
+                <form id="calculator-form" action="{{ url_for('main.calculate') }}" method="post">
+                    <div id="processingTimesDropDown" class="col-md-12 col-sm-12">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="form_number" class="required">Form</label>
+                                <select aria-label="Required" tabindex="0" id="form_number" name="form_number" class="form-control" required>
+                                    <option aria-label="Required" value="" disabled selected>Select One</option>
+                                    {% for option in form_options %}
+                                        <option value="{{ option.value }}">
+                                            {{ option.value }} | {{ option.label.split(' - ')[1] if ' - ' in option.label else option.label }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 col-sm-12">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="form_category" class="required">Form Category</label>
+                                <div id="subTypeList" tabindex="0">
+                                    <select aria-label="Required" id="form_category" name="form_category" class="form-control" required>
+                                        <option aria-label="Required" value="" disabled selected>Select One</option>
+                                        <!-- Categories will be populated via JavaScript -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 col-sm-12">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="service_center" class="required">Field Office or Service Center</label>
+                                <div id="officeOrCenterList" tabindex="0">
+                                    <select aria-label="Required" id="service_center" name="service_center" class="form-control" required>
+                                        <option aria-label="Required" value="" disabled selected>Select One</option>
+                                        <!-- Service centers will be populated via JavaScript -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 col-sm-12">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="filing_date" class="required">Filing Date</label>
+                                <input type="date" class="form-control" id="filing_date" name="filing_date" required>
+                                <small class="form-text text-muted">The date you filed your application (format: YYYY-MM-DD)</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="processing_time_button" class="col-md-12 col-sm-12 mt-3">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <button type="submit" id="getProcTimes" class="uscis-button uscis-button-blue uscis-arrow-right">
+                                    Get processing time
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Error Message Container -->
+            <div id="error-container" class="alert alert-danger mt-3" style="display: none;"></div>
+            
+            <!-- Processing Time Information -->
+            <div class="card mt-4 border-0 shadow-sm">
+                <div class="card-header bg-light">
+                    <h3 class="h5 mb-0"><i class="fas fa-info-circle me-2"></i>About USCIS Processing Times</h3>
+                </div>
+                <div class="card-body">
+                    <p>The processing time displayed on the USCIS website is the amount of time it took USCIS to complete 80% of adjudicated cases over the last six months.</p>
+                    
+                    <p>Processing time is defined as the number of days (or months) that have elapsed between the date USCIS received an application, petition, or request and the date USCIS completed the application, petition, or request (approved or denied it) in a given six-month period.</p>
+                    
+                    <p>For example, if USCIS received a Form N-400 on January 24, 2023, and completed adjudication of the application on March 5, 2023, then the processing time for that specific application is 41 days.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* USCIS-like styling */
+    .required::after {
+        content: "*";
+        color: red;
+        margin-left: 3px;
+    }
+    
+    .uscis-button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-weight: 600;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+    
+    .uscis-button-blue {
+        color: #fff;
+        background-color: #0071bc;
+        border-color: #0071bc;
+    }
+    
+    .uscis-button-blue:hover {
+        background-color: #205493;
+        border-color: #205493;
+    }
+    
+    .uscis-arrow-right::after {
+        content: " →";
+    }
+    
+    /* Form styling */
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    #upperContent h1 {
+        color: #205493;
+        margin-bottom: 1rem;
+    }
+    
+    #upperContent h2 {
+        font-size: 1.2rem;
+        color: #323a45;
+    }
+    
+    .subheader {
+        color: #555;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Form categories by form type - these match the official USCIS categories
+    const formCategories = {
+        "I-130": ["Family-based: Immediate relative", "Family-based: F1", "Family-based: F2A", "Family-based: F2B", "Family-based: F3", "Family-based: F4"],
+        "I-485": ["Family-based", "Employment-based", "Special Immigrant", "Asylee/Refugee", "VAWA"],
+        "I-765": ["Initial EAD", "Renewal EAD", "Replacement EAD"],
+        "I-90": ["Renewal/Replacement", "Biometric Update"],
+        "N-400": ["Military", "Non-Military"],
+        "I-129": ["H-1B", "L-1A", "L-1B", "O-1", "TN"],
+        "I-140": ["EB-1", "EB-2", "EB-3", "National Interest Waiver"]
+    };
+    
+    // Service centers
+    const servicesCenters = [
+        "California Service Center",
+        "Nebraska Service Center",
+        "Potomac Service Center",
+        "Texas Service Center",
+        "Vermont Service Center",
+        "National Benefits Center",
+        "Chicago Lockbox",
+        "Dallas Lockbox",
+        "Phoenix Lockbox"
+    ];
+    
+    // Form elements
+    const formSelect = document.getElementById('form_number');
+    const categorySelect = document.getElementById('form_category');
+    const centerSelect = document.getElementById('service_center');
+    
+    formSelect.addEventListener('change', function() {
+        const selectedForm = this.value;
+        
+        // Update categories
+        categorySelect.innerHTML = '<option value="" disabled selected>Select One</option>';
+        
+        if (formCategories[selectedForm]) {
+            formCategories[selectedForm].forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                categorySelect.appendChild(option);
+            });
+            categorySelect.disabled = false;
+        } else {
+            // If no categories available, add a default option
+            const defaultOption = document.createElement('option');
+            defaultOption.value = "Standard Processing";
+            defaultOption.textContent = "Standard Processing";
+            categorySelect.appendChild(defaultOption);
+            categorySelect.disabled = false;
+        }
+        
+        // Update service centers
+        centerSelect.innerHTML = '<option value="" disabled selected>Select One</option>';
+        
+        servicesCenters.forEach(center => {
+            const option = document.createElement('option');
+            option.value = center;
+            option.textContent = center;
+            centerSelect.appendChild(option);
+        });
+        centerSelect.disabled = false;
+    });
+    
+    // Set default filing date to today if empty
+    const filingDateInput = document.getElementById('filing_date');
+    if (!filingDateInput.value) {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+        filingDateInput.value = `${year}-${month}-${day}`;
+    }
+    
+    // Form validation
+    const calculatorForm = document.getElementById('calculator-form');
+    const errorContainer = document.getElementById('error-container');
+    
+    calculatorForm.addEventListener('submit', function(e) {
+        let hasErrors = false;
+        let errorMessages = [];
+        
+        // Validate form type
+        if (!formSelect.value) {
+            hasErrors = true;
+            errorMessages.push('Please select a form type');
+        }
+        
+        // Validate form category
+        if (!categorySelect.value) {
+            hasErrors = true;
+            errorMessages.push('Please select a form category');
+        }
+        
+        // Validate service center
+        if (!centerSelect.value) {
+            hasErrors = true;
+            errorMessages.push('Please select a field office or service center');
+        }
+        
+        // Validate filing date
+        if (!filingDateInput.value) {
+            hasErrors = true;
+            errorMessages.push('Please enter a filing date');
+        }
+        
+        // Display errors if any
+        if (hasErrors) {
+            e.preventDefault();
+            errorContainer.innerHTML = errorMessages.map(msg => `<div>${msg}</div>`).join('');
+            errorContainer.style.display = 'block';
+            errorContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+</script>
+{% endblock %}

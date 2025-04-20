@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+
+{% block title %}USCIS Processing Time Calculator{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <!-- Hero Section -->
+            <div class="hero-section bg-light p-4 p-md-5 mb-4 rounded shadow-sm">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h1 class="display-5 fw-bold mb-3 text-primary">Immigration Processing Timeline Calculator</h1>
+                        <p class="lead mb-4">Get accurate estimates for your USCIS application processing time based on official data.</p>
+                        <a href="{{ url_for('main.calculator') }}" class="btn btn-primary btn-lg">
+                            Calculate Your Timeline <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-none d-md-block text-center">
+                        <img src="{{ url_for('static', filename='images/immigration-icon.png') }}" alt="Immigration Icon" class="img-fluid mt-3" style="max-height: 180px;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="row mb-5">
+                <div class="col-12 mb-4 text-center">
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-subtitle">Our calculator provides accurate timeline estimates for USCIS applications</p>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-file-alt text-primary fa-3x"></i>
+                            </div>
+                            <h3 class="h4 mb-3">Select Your Form</h3>
+                            <p class="text-muted">Choose from various USCIS forms including I-130, I-485, I-765, and more.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-calendar-alt text-primary fa-3x"></i>
+                            </div>
+                            <h3 class="h4 mb-3">Enter Your Details</h3>
+                            <p class="text-muted">Provide your filing date and service center to customize your timeline.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-chart-line text-primary fa-3x"></i>
+                            </div>
+                            <h3 class="h4 mb-3">Get Your Timeline</h3>
+                            <p class="text-muted">Receive detailed processing timeline with visual representation of important dates.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popular Forms Section -->
+            <div class="card border-0 shadow-sm mb-5">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="h4 mb-0">Popular USCIS Forms</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="popular-form d-flex align-items-center">
+                                <div class="form-icon me-3 bg-light rounded-circle p-3">
+                                    <i class="fas fa-id-card text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="h5 mb-1">I-485</h3>
+                                    <p class="mb-0 text-muted small">Adjustment of Status</p>
+                                    <a href="{{ url_for('main.calculator', form='I-485') }}" class="stretched-link">Calculate timeline <i class="fas fa-chevron-right small ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="popular-form d-flex align-items-center">
+                                <div class="form-icon me-3 bg-light rounded-circle p-3">
+                                    <i class="fas fa-users text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="h5 mb-1">I-130</h3>
+                                    <p class="mb-0 text-muted small">Petition for Alien Relative</p>
+                                    <a href="{{ url_for('main.calculator', form='I-130') }}" class="stretched-link">Calculate timeline <i class="fas fa-chevron-right small ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="popular-form d-flex align-items-center">
+                                <div class="form-icon me-3 bg-light rounded-circle p-3">
+                                    <i class="fas fa-briefcase text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="h5 mb-1">I-765</h3>
+                                    <p class="mb-0 text-muted small">Employment Authorization</p>
+                                    <a href="{{ url_for('main.calculator', form='I-765') }}" class="stretched-link">Calculate timeline <i class="fas fa-chevron-right small ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="popular-form d-flex align-items-center">
+                                <div class="form-icon me-3 bg-light rounded-circle p-3">
+                                    <i class="fas fa-flag-usa text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="h5 mb-1">N-400</h3>
+                                    <p class="mb-0 text-muted small">Application for Naturalization</p>
+                                    <a href="{{ url_for('main.calculator', form='N-400') }}" class="stretched-link">Calculate timeline <i class="fas fa-chevron-right small ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefits Section -->
+            <div class="row mb-5">
+                <div class="col-12 mb-4 text-center">
+                    <h2 class="section-title">Benefits of Our Calculator</h2>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="benefit-item d-flex">
+                        <div class="benefit-icon me-3">
+                            <i class="fas fa-sync-alt text-primary fa-2x"></i>
+                        </div>
+                        <div>
+                            <h3 class="h5">Real-Time Data</h3>
+                            <p class="text-muted">Our calculator uses the latest USCIS processing time data to provide the most current estimates.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="benefit-item d-flex">
+                        <div class="benefit-icon me-3">
+                            <i class="fas fa-chart-bar text-primary fa-2x"></i>
+                        </div>
+                        <div>
+                            <h3 class="h5">Visual Timeline</h3>
+                            <p class="text-muted">See your application timeline visualized with important milestones and current progress.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="benefit-item d-flex">
+                        <div class="benefit-icon me-3">
+                            <i class="fas fa-sliders-h text-primary fa-2x"></i>
+                        </div>
+                        <div>
+                            <h3 class="h5">Personalized Factors</h3>
+                            <p class="text-muted">Account for special circumstances like expedited processing or country-specific factors.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="benefit-item d-flex">
+                        <div class="benefit-icon me-3">
+                            <i class="fas fa-mobile-alt text-primary fa-2x"></i>
+                        </div>
+                        <div>
+                            <h3 class="h5">Mobile Friendly</h3>
+                            <p class="text-muted">Access your immigration timeline on any device with our responsive calculator.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer Section -->
+            <div class="alert alert-info mb-5" role="alert">
+                <h4 class="alert-heading"><i class="fas fa-info-circle me-2"></i>Disclaimer</h4>
+                <p>This calculator provides estimates based on official USCIS processing time data. Actual processing times may vary based on individual case factors. The estimates provided are for informational purposes only.</p>
+                <hr>
+                <p class="mb-0">For official information, please visit the <a href="https://egov.uscis.gov/processing-times/" target="_blank" class="alert-link">USCIS Processing Times</a> website.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .hero-section {
+        background-color: #f8f9fa;
+        border-left: 5px solid var(--primary-color);
+    }
+    
+    .section-title {
+        color: var(--primary-color);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+    
+    .section-subtitle {
+        color: var(--text-light);
+        margin-bottom: 2rem;
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+    }
+    
+    .form-icon {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .popular-form:hover {
+        background-color: #f8f9fa;
+        border-radius: 5px;
+    }
+    
+    .benefit-icon {
+        width: 40px;
+        text-align: center;
+    }
+</style>
+{% endblock %}

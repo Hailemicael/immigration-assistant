@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}About USCIS Processing Times{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <!-- Page Title -->
+            <div class="text-center mb-4">
+                <h1 class="display-5 fw-bold text-primary">More Information About Case Processing Times</h1>
+                <p class="lead text-muted">Understanding how USCIS calculates processing times</p>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-3">Finding Your Case Information</h2>
+                    <p>You will need specific information about your case to use the processing times calculator. Below is an example of where you can find specific information on USCIS correspondence. This information is also found on USCIS receipt notices, and some information may be found on a copy of your application, petition, or request.</p>
+                    
+                    <div class="alert alert-secondary p-3 mb-4">
+                        <p class="mb-0"><strong>Key information on your receipt notice:</strong></p>
+                        <ol>
+                            <li>Form Type or Case Type</li>
+                            <li>Receipt Number</li>
+                            <li>Receipt Date</li>
+                            <li>USCIS Office</li>
+                        </ol>
+                    </div>
+                    
+                    <p>If the "USCIS Office" is the National Benefits Center (NBC) and you have filed an employment-based or family-based Form I‑485, a Form N‑400, or a Form N‑600, you should check processing times for your local field office.</p>
+                    
+                    <h2 class="h4 mb-3 mt-4">What Does the Processing Time Mean and How Is It Calculated?</h2>
+                    <p>The processing time displayed on the USCIS website is the amount of time it took us to complete 80% of adjudicated cases over the last six months. Processing time is defined as the number of days (or months) that have elapsed between the date USCIS received an application, petition, or request and the date USCIS completed the application, petition, or request (that is, approved or denied it) in a given six-month period.</p>
+                    
+                    <p>For example, if we received a Form N‑400 on Jan. 24, 2022, and completed adjudication of the application on March 5, 2022, then the processing time for that specific application is 41 days. This calculation is done for every Form N‑400 we completed in March 2022 and the five months prior to March 2022 (a six-month period).</p>
+                    
+                    <p>We then review the processing times for adjudicated cases to determine how long it took for 80% of those cases to be completed over the previous six months. So, if we completed 1,000 Form N‑400 applications in the previous six months, and 80% (or 800) of them were completed within 60 days (or two months), then the processing times webpage will display two months as the processing time for Form N‑400 in May 2022.</p>
+                    
+                    <div class="alert alert-info mb-4">
+                        <p class="mb-0">Processing times generally reflect how long we have taken to complete applications, petitions, or requests. Many factors may affect how long it takes USCIS to complete an application, petition or request, such as the number of applications, petitions, or requests we receive, workload and staffing allocations, the time a benefit requestor takes responding to a request for more information, as well as policy and operational changes, among other factors.</p>
+                    </div>
+                    
+                    <p>Most forms displayed on the processing times webpage use this methodology. However, some forms use an older methodology known as "cycle time." The cycle time measures how many months' worth of cases are awaiting a decision for a particular form.</p>
+                    
+                    <p>For example, if an office had 500 applications for Form I‑800 pending in April 2020 and the office received 200 Form I‑800s in February 2020 and 300 Form I‑800s in March 2020, then the cycle time for Form I‑800 in April 2020 was two months (200 + 300 = 500 pending applications).</p>
+                    
+                    <p class="text-muted small">Note: The following forms still use cycle time methodology: Form I‑129, and Form I‑129CW.</p>
+                    
+                    <h2 class="h4 mb-3 mt-4">When and How Can I Ask a Question About the Status of My Case?</h2>
+                    <p>Processing times are provided as a reference point for how long we have taken to complete most cases. Because many factors impact the processing time – and to better manage our limited resources by allowing staff to focus on adjudicating cases rather than responding to inquiries – we allow inquiries for cases that are taking longer than the time USCIS took to complete 93% of adjudications. Those cases are deemed to be outside normal processing times. For forms that still use the cycle time methodology, we generally define outside normal processing times as those cases that are taking longer than 130% of the cycle time.</p>
+                    
+                    <p>You must go to the processing times webpage, where we provide a tool to help you determine whether you can request an update on your case. Using the tool, you enter your receipt date, which can be found on your receipt notice, into the text box. If your case is outside normal processing times (beyond the time to complete 93% of adjudicated cases or beyond 130% of the cycle time), you will be provided a link for submitting an inquiry. If your case is within normal processing times, you will be provided an estimated date for when you can contact us.</p>
+                    
+                    <h2 class="h4 mb-3 mt-4">How Is the Case Inquiry Date Calculated?</h2>
+                    <p>This is how we calculate the case inquiry date:</p>
+                    
+                    <div class="card mb-3">
+                        <div class="card-body bg-light">
+                            <p class="font-monospace mb-0">Case Inquiry Date = [time to complete 93% of adjudicated cases] – [today's date – receipt date]</p>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Example:</strong></p>
+                    <p>If you checked our processing times webpage on Jan. 1, 2022, for a form you filed on Jan. 1, 2021, and the time to complete 93% of adjudicated cases was 13 months, your case inquiry date would be calculated as:</p>
+                    
+                    <div class="card mb-3">
+                        <div class="card-body bg-light">
+                            <p class="font-monospace mb-1">Case Inquiry Date = [13 months] – [Jan. 1, 2022 – Jan. 1, 2021]</p>
+                            <p class="font-monospace mb-1">= [13 months] – [12 months]</p>
+                            <p class="font-monospace mb-0">= one month</p>
+                        </div>
+                    </div>
+                    
+                    <p>In this example, we estimate that you would be able to contact us in one month. The tool will provide the exact date for you. If the calculation for the case inquiry date produces a negative number, you will be able to submit a question about your case.</p>
+                </div>
+            </div>
+            
+            <!-- USCIS Links -->
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-header bg-light">
+                    <h3 class="h5 mb-0">
+                        <i class="fas fa-external-link-alt me-2"></i> Official USCIS Resources
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="me-3 bg-light p-2 rounded">
+                                    <i class="fas fa-clock text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="h6 mb-1">Processing Times</h4>
+                                    <a href="https://egov.uscis.gov/processing-times/" target="_blank" class="small">
+                                        Check official USCIS processing times <i class="fas fa-external-link-alt ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="me-3 bg-light p-2 rounded">
+                                    <i class="fas fa-search text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="h6 mb-1">Case Status</h4>
+                                    <a href="https://egov.uscis.gov/casestatus/landing.do" target="_blank" class="small">
+                                        Check your case status online <i class="fas fa-external-link-alt ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="me-3 bg-light p-2 rounded">
+                                    <i class="fas fa-question-circle text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="h6 mb-1">Case Inquiry</h4>
+                                    <a href="https://egov.uscis.gov/e-request/Intro.do" target="_blank" class="small">
+                                        Submit a case inquiry <i class="fas fa-external-link-alt ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="me-3 bg-light p-2 rounded">
+                                    <i class="fas fa-file-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="h6 mb-1">Form Information</h4>
+                                    <a href="https://www.uscis.gov/forms/all-forms" target="_blank" class="small">
+                                        View all USCIS forms <i class="fas fa-external-link-alt ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back Button -->
+            <div class="text-center mt-4 mb-5">
+                <a href="{{ url_for('main.calculator') }}" class="btn btn-outline-primary">
+                    <i class="fas fa-calculator me-2"></i> Return to Calculator
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .font-monospace {
+        font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+</style>
+{% endblock %}

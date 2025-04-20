@@ -1,0 +1,339 @@
+{% extends "base.html" %}
+
+{% block title %}USCIS Processing Time Results{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <!-- Page Title -->
+            <div class="text-center mb-4">
+                <h1 class="display-5 fw-bold text-primary">Case Processing Time Results</h1>
+                <p class="lead text-muted">Based on USCIS official processing time data</p>
+            </div>
+            
+            <!-- Summary Card -->
+            <div class="card mb-4 border-0 shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2 class="h5 mb-0">
+                            <i class="fas fa-file-alt me-2"></i> 
+                            {{ timeline.form_info.form_number }} - 
+                            {{ timeline.form_info.form_description }}
+                        </h2>
+                        <a href="{{ url_for('main.calculator') }}" class="btn btn-sm btn-light">
+                            <i class="fas fa-calculator me-1"></i> New Calculation
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-3">
+                            <div class="summary-item text-center p-3">
+                                <p class="text-muted mb-1">Form Type</p>
+                                <h3 class="h4 mb-0">{{ timeline.form_info.form_number }}</h3>
+                                <small class="text-muted">{{ timeline.form_info.form_category }}</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="summary-item text-center p-3">
+                                <p class="text-muted mb-1">Filed On</p>
+                                <h3 class="h4 mb-0">{{ timeline.filing_info.filing_date }}</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="summary-item text-center p-3">
+                                <p class="text-muted mb-1">Service Center</p>
+                                <h3 class="h4 mb-0">{{ timeline.form_info.service_center }}</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="summary-item text-center p-3">
+                                <p class="text-muted mb-1">Current Status</p>
+                                <h3 class="h4 mb-0">
+                                    <span class="badge {% if timeline.case_status.current_status == 'Outside normal processing time' %}bg-danger{% elif timeline.case_status.current_status == 'Approaching final stage' %}bg-warning{% else %}bg-info{% endif %}">
+                                        {{ timeline.case_status.current_status }}
+                                    </span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Progress Bar -->
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Progress</span>
+                            <span class="badge bg-primary">{{ timeline.filing_info.progress_percent }}% Complete</span>
+                        </div>
+                        <div class="progress" style="height: 20px;">
+                            <div class="progress-bar {% if timeline.filing_info.progress_percent >= 100 %}bg-danger{% elif timeline.filing_info.progress_percent >= 75 %}bg-warning{% else %}bg-info{% endif %}" 
+                                 role="progressbar" 
+                                 style="width: {{ timeline.filing_info.progress_percent }}%;" 
+                                 aria-valuenow="{{ timeline.filing_info.progress_percent }}" 
+                                 aria-valuemin="0" 
+                                 aria-valuemax="100">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2">
+                            <small class="text-muted">Filed (Day 0)</small>
+                            <small class="text-muted">Expected Completion</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline Visualization -->
+            <div class="card mb-4 border-0 shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="h5 mb-0">
+                        <i class="fas fa-chart-line me-2"></i> Timeline Visualization
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <div class="timeline-chart-container text-center">
+                        <img id="timeline-chart" src="{{ url_for('main.serve_chart', filename=chart_url) }}" 
+                             class="img-fluid border rounded shadow-sm" 
+                             alt="Processing Timeline Chart">
+                    </div>
+                    {% if not chart_url %}
+                    <div class="alert alert-warning mt-3">
+                        <i class="fas fa-exclamation-triangle me-2"></i> 
+                        Chart could not be generated. Please try again or contact support.
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Timeline Details -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-header bg-light">
+                            <h3 class="h5 mb-0">
+                                <i class="fas fa-calendar-alt me-2"></i> Processing Time Details
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Estimated Processing Time</th>
+                                    <td>{{ timeline.processing_time.min_months }} - {{ timeline.processing_time.max_months }} months</td>
+                                </tr>
+                                <tr>
+                                    <th>Earliest Completion</th>
+                                    <td>{{ timeline.estimated_timeline.earliest_date }}</td>
+                                </tr>
+                                <tr class="table-primary">
+                                    <th>Median Completion</th>
+                                    <td>{{ timeline.estimated_timeline.median_date }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Latest Completion</th>
+                                    <td>{{ timeline.estimated_timeline.latest_date }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Days Since Filing</th>
+                                    <td>{{ timeline.filing_info.days_since_filing }} days</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-header bg-light">
+                            <h3 class="h5 mb-0">
+                                <i class="fas fa-info-circle me-2"></i> Case Status Information
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Current Status</th>
+                                    <td>
+                                        <span class="badge {% if timeline.case_status.current_status == 'Outside normal processing time' %}bg-danger{% elif timeline.case_status.current_status == 'Approaching final stage' %}bg-warning{% else %}bg-info{% endif %}">
+                                            {{ timeline.case_status.current_status }}
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Case Inquiry</th>
+                                    <td>
+                                        {% if timeline.case_status.can_submit_inquiry %}
+                                        <span class="badge bg-success">Eligible for inquiry</span>
+                                        {% else %}
+                                        <span class="badge bg-secondary">Not eligible until {{ timeline.case_status.inquiry_eligibility_date }}</span>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Data Last Updated</th>
+                                    <td>{{ timeline.data_source.last_updated }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Calculation Method</th>
+                                    <td>{{ timeline.data_source.calculation_note }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- USCIS Methodology Information -->
+            <div class="card mb-4 border-0 shadow-sm">
+                <div class="card-header bg-light">
+                    <h3 class="h5 mb-0">
+                        <i class="fas fa-question-circle me-2"></i> How USCIS Calculates Processing Times
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <p>The processing time displayed is the amount of time it took USCIS to complete 80% of adjudicated cases over the last six months.</p>
+                    
+                    <p>Processing time is defined as the number of days (or months) between when USCIS received an application, petition, or request and when they completed it (approved or denied) in a given six-month period.</p>
+                    
+                    <p class="mb-0">Case inquiry is allowed when a case exceeds the time USCIS took to complete 93% of adjudicated cases.</p>
+                </div>
+            </div>
+            
+            <!-- USCIS Links -->
+            <div class="card mb-4 border-0 shadow-sm">
+                <div class="card-header bg-light">
+                    <h3 class="h5 mb-0">
+                        <i class="fas fa-external-link-alt me-2"></i> Official USCIS Resources
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="me-3 bg-light p-2 rounded">
+                                    <i class="fas fa-clock text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="h6 mb-1">Processing Times</h4>
+                                    <a href="https://egov.uscis.gov/processing-times/" target="_blank" class="small">
+                                        Check official USCIS processing times <i class="fas fa-external-link-alt ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="me-3 bg-light p-2 rounded">
+                                    <i class="fas fa-search text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="h6 mb-1">Case Status</h4>
+                                    <a href="https://egov.uscis.gov/casestatus/landing.do" target="_blank" class="small">
+                                        Check your case status online <i class="fas fa-external-link-alt ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {% if timeline.case_status.can_submit_inquiry %}
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="me-3 bg-light p-2 rounded">
+                                    <i class="fas fa-question-circle text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="h6 mb-1">Case Inquiry</h4>
+                                    <a href="https://egov.uscis.gov/e-request/Intro.do" target="_blank" class="small">
+                                        Submit a case inquiry <i class="fas fa-external-link-alt ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="me-3 bg-light p-2 rounded">
+                                    <i class="fas fa-file-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="h6 mb-1">Form Information</h4>
+                                    <a href="https://www.uscis.gov/forms/all-forms" target="_blank" class="small">
+                                        View all USCIS forms <i class="fas fa-external-link-alt ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Disclaimer -->
+            <div class="alert alert-info" role="alert">
+                <h4 class="alert-heading h5"><i class="fas fa-info-circle me-2"></i>Disclaimer</h4>
+                <p>This calculator provides estimates based on current USCIS processing time data. Actual processing times may vary based on individual case factors, policy changes, and other circumstances.</p>
+                <hr>
+                <p class="mb-0">For the most accurate information, please check the <a href="https://egov.uscis.gov/processing-times/" target="_blank" class="alert-link">official USCIS website</a>.</p>
+            </div>
+            
+            <!-- Back Button -->
+            <div class="text-center mt-4 mb-5">
+                <a href="{{ url_for('main.calculator') }}" class="btn btn-outline-primary">
+                    <i class="fas fa-arrow-left me-2"></i> Return to Calculator
+                </a>
+                
+                <button id="print-button" class="btn btn-outline-secondary ms-2">
+                    <i class="fas fa-print me-2"></i> Print Results
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .summary-item {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+    }
+    
+    .table th {
+        width: 40%;
+        background-color: #f8f9fa;
+    }
+    
+    #timeline-chart {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    @media print {
+        .btn, .alert {
+            display: none;
+        }
+        
+        .card {
+            border: 1px solid #ddd !important;
+            box-shadow: none !important;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Print functionality
+        const printButton = document.getElementById('print-button');
+        if (printButton) {
+            printButton.addEventListener('click', function() {
+                window.print();
+            });
+        }
+        
+        // Check if chart loaded successfully
+        const timelineChart = document.getElementById('timeline-chart');
+        timelineChart.addEventListener('error', function() {
+            // Show error message if image fails to load
+            this.parentNode.innerHTML += '<div class="alert alert-warning mt-3"><i class="fas fa-exclamation-triangle me-2"></i> Chart could not be loaded. Please try refreshing the page.</div>';
+        });
+    });
+</script>
+{% endblock %}
