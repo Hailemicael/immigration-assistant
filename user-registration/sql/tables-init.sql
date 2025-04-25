@@ -1,7 +1,7 @@
 -- Ensure the schema exists
-CREATE SCHEMA IF NOT EXISTS userRegist;
+CREATE SCHEMA IF NOT EXISTS users;
 
-CREATE TABLE IF NOT EXISTS userRegist.userInfo
+CREATE TABLE IF NOT EXISTS users.userInfo
 (
     id                     SERIAL PRIMARY KEY,
     email                  TEXT UNIQUE NOT NULL,

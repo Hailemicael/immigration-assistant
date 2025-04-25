@@ -5,9 +5,12 @@ from langgraph.constants import END
 from huggingface_hub import InferenceClient
 
 from Project.immigration_assistant.orchestration.state import AgentState
+from Project.immigration_assistant.rag.agent import RAGAgent
 
 
 class ReasoningAgent(Runnable):
+    node = "ReasoningAgent"
+
     def __init__(self, endpoint_url: str, api_token: str, verbose: bool = False):
         """
         Initialize a reasoning agent with a PEFT model.
@@ -82,7 +85,7 @@ class ReasoningAgent(Runnable):
                 log(f"  → ✅ {response.answer}")
             history = state.get("history", [])
             history.append({
-                "agent": "ReasoningAgent",
+                "agent": ReasoningAgent.node,
                 "stage": "final",
                 "context_used": True,
                 "response_length": len(response.answer)
@@ -104,7 +107,7 @@ class ReasoningAgent(Runnable):
             log(f"  → ✅ {response.answer}")
         history = state.get("history", [])
         history.append({
-            "agent": "ReasoningAgent",
+            "agent": ReasoningAgent.node,
             "stage": "initial",
             "response_length": len(response.answer)
         })
@@ -122,4 +125,4 @@ class ReasoningAgent(Runnable):
         verbose = state.get("verbose", self.verbose)
         if verbose:
             print(f"[🔁 Routing Decision] Current generation stage: {state.get('generation_stage')}")
-        return "RAGAgent" if state.get("generation_stage") == "initial" else END
+        return RAGAgent.node if state.get("generation_stage") == "initial" else END

@@ -3,6 +3,8 @@ from typing import TypedDict, Literal, Optional, List, Dict
 
 class AgentState(TypedDict):
     """Definition of the state shared between agents."""
+    user: str
+    last_conversation_summary: Optional[str]
     question: str
     relevance: Literal["relevant", "irrelevant", "unknown"]
     generation_stage: Literal["initial", "final"]

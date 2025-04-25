@@ -6,10 +6,12 @@ from langgraph.constants import END
 from sentence_transformers import SentenceTransformer, util
 
 from ..orchestration.state import AgentState
+from ..summarization.agent import SummaryAgent
 
 
 # https://huggingface.co/tasks/sentence-similarity
 class RelevanceAgent(Runnable):
+    node = "RelevanceAgent"
     def __init__(
             self,
             model: SentenceTransformer,
@@ -71,8 +73,8 @@ class RelevanceAgent(Runnable):
             print(f"[🔎 Relevance Check] → Status: {state.get('relevance')}")
         match state.get("relevance"):
             case "relevant":
-                return "ReasoningAgent"
+                return SummaryAgent.node
             case "irrelevant":
                 return END
             case _:
-                return "RelevanceAgent"
+                return RelevanceAgent.node

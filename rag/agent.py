@@ -8,15 +8,13 @@ from langchain_core.runnables import Runnable, RunnableConfig
 from langgraph.constants import END
 from sentence_transformers import SentenceTransformer
 
-from Project.immigration_assistant.rag import helpers
+from Project.immigration_assistant.util import read_file_to_string
 from Project.immigration_assistant.rag import forms
 from Project.immigration_assistant.rag import legislation
 from Project.immigration_assistant.rag.config import RAGConfig
 from Project.immigration_assistant.config import database
 from Project.immigration_assistant.rag.query_results import QueryResult
 from Project.immigration_assistant.orchestration.state import AgentState
-
-model_name = "BAAI/bge-m3"
 
 class SingletonInstance:
     _instances = {}
@@ -51,6 +49,8 @@ def _merge_and_sort_results(form_results, legislation_results):
 
 
 class RAGAgent(Runnable, SingletonInstance):
+    model_name = "BAAI/bge-m3"
+    node = "RAGAgent"
     def __init__(self, db_config: database.Config, rag_config: RAGConfig, embedding_model: SentenceTransformer, legalese_model: Optional[legislation.LegaleseTranslator] = None, verbose=False):
         self.db_config = db_config
         self.rag_config = rag_config
@@ -81,7 +81,7 @@ class RAGAgent(Runnable, SingletonInstance):
                     self._log("Setting up database schema...")
                     for schema_file in self.db_config.schema_dir.rglob("*.sql"):
                         self._log(f"Executing schema file: {schema_file}")
-                        await conn.execute(helpers.read_file_to_string(schema_file))
+                        await conn.execute(read_file_to_string(schema_file))
                     self.db_init = True
             except Exception as e:
                 self._log(f"❌ Error initializing database: {e}")
@@ -140,7 +140,7 @@ class RAGAgent(Runnable, SingletonInstance):
             self._log(f"📄 Found {len(results.forms)} form matches.")
         history = state.get("history", [])
         history.append({
-            "agent": "RAGAgent",
+            "agent": RAGAgent.node,
             "found_legislation": len(results.legislation) > 0,
             "found_forms": len(results.forms) > 0
         })
@@ -156,7 +156,7 @@ class RAGAgent(Runnable, SingletonInstance):
             self._log(f"📄 Form Check → Forms Found: {len(state.get('forms', []))}")
         if state.get("forms") and state.get("generation_stage") == "initial":
             return "TimelineAgent"
-        return END
+        return SummaryAgent.node
 
 # Example usage
 async def main():
