@@ -1,8 +1,11 @@
 import json
 import os
 from typing import Dict, Optional, Any
-import psycopg2
-from psycopg2.extras import Json as PsycopgJson
+from contextlib import asynccontextmanager
+import asyncio
+import asyncpg
+from pathlib import Path
+
 from langchain_core.runnables import Runnable, RunnableConfig
 from langgraph.constants import END
 
@@ -11,65 +14,76 @@ class TimelineAgent(Runnable):
         self.llm = llm
         self.verbose = verbose
         self.db_config = db_config
-        self.db_connection = None
-        self.sql_file_path = sql_file_path
-        
-        # Initialize database connection if config is provided
-        if self.db_config:
-            self._init_db_connection()
-            if self.db_connection:
-                self._init_db_schema()
+        self.sql_file_path = Path(sql_file_path)
+        self.db_init = False
     
-    def _init_db_connection(self):
-        """Initialize the database connection"""
-        try:
-            self.db_connection = psycopg2.connect(**self.db_config)
-            if self.verbose:
-                print(f"[DEBUG - TimelineAgent] Database connection established")
-        except Exception as e:
-            print(f"[ERROR - TimelineAgent] Database connection failed: {str(e)}")
-            self.db_connection = None
+    def _log(self, message: str):
+        if self.verbose:
+            print(f"[📆 TimelineAgent] {message}", flush=True)
     
-    def _init_db_schema(self):
-        """Initialize database schema using the SQL file"""
-        if not os.path.exists(self.sql_file_path):
-            print(f"[ERROR - TimelineAgent] SQL file not found: {self.sql_file_path}")
-            return
+    async def init_database(self):
+        """Initialize the database schema using the SQL file"""
+        if not self.db_init and self.db_config:
+            if not self.sql_file_path.exists():
+                self._log(f"❌ SQL file not found: {self.sql_file_path}")
+                return
+            
+            server_dsn = self.db_config.dsn
+            database = self.db_config.database
+            
+            try:
+                self._log(f"Connecting to server to check if database '{database}' exists...")
+                conn = await asyncpg.connect(server_dsn, database=database)
+                
+                try:
+                    async with conn.transaction():
+                        self._log("Setting up timeline schema...")
+                        sql_script = self.sql_file_path.read_text()
+                        await conn.execute(sql_script)
+                        self.db_init = True
+                        self._log("✅ Timeline schema initialized successfully.")
+                except Exception as e:
+                    self._log(f"❌ Error initializing timeline schema: {e}")
+                    raise e
+                finally:
+                    await conn.close()
+            except Exception as e:
+                self._log(f"❌ Error connecting to database: {e}")
+                raise e
+    
+    @asynccontextmanager
+    async def db_pool(self):
+        """Create a connection pool to the database"""
+        server_dsn = self.db_config.dsn
+        database = self.db_config.database
+        
+        self._log(f"🔌 Connecting to database '{database}'...")
+        pool = await asyncpg.create_pool(f'{server_dsn}/{database}')
         
         try:
-            # Read the SQL file
-            with open(self.sql_file_path, 'r') as sql_file:
-                sql_script = sql_file.read()
-            
-            # Execute the SQL script
-            with self.db_connection.cursor() as cursor:
-                cursor.execute(sql_script)
-            
-            # Commit the transaction
-            self.db_connection.commit()
-            
-            if self.verbose:
-                print(f"[DEBUG - TimelineAgent] Database schema initialized from: {self.sql_file_path}")
-        
-        except Exception as e:
-            print(f"[ERROR - TimelineAgent] Database schema initialization failed: {str(e)}")
-            if self.db_connection:
-                self.db_connection.rollback()
+            yield pool
+        finally:
+            await pool.close()
     
     def invoke(self, state: Dict, config: Optional[RunnableConfig] = None, **kwargs: Any) -> Dict:
+        """Synchronous wrapper for async invoke method"""
+        return asyncio.run(self._invoke(state, config, **kwargs))
+    
+    async def _invoke(self, state: Dict, config: Optional[RunnableConfig] = None, **kwargs: Any) -> Dict:
+        """Process forms and generate timeline information"""
         verbose = state.get("verbose", self.verbose)
         if verbose:
-            print(f"\n[DEBUG - TimelineAgent] Processing forms: {state.get('forms', [])}")
+            self._log(f"Processing forms: {state.get('forms', [])}")
         
         if not state.get("forms"):
             if verbose:
-                print(f"[DEBUG - TimelineAgent] No forms found, skipping")
+                self._log("No forms found, skipping")
             return {}
         
         timeline_info = [f"{form}: 3–6 months processing" for form in state.get("forms", [])]
         
         if verbose:
-            print(f"[DEBUG - TimelineAgent] Generated timeline info: {timeline_info}")
+            self._log(f"Generated timeline info: {timeline_info}")
         
         # Update history
         history = state.get("history", [])
@@ -79,41 +93,34 @@ class TimelineAgent(Runnable):
         })
         
         # Save to database if connection is available
-        if self.db_connection and not self.db_connection.closed:
+        if self.db_config and self.db_init:
             try:
-                with self.db_connection.cursor() as cursor:
-                    # Get history entry
-                    history_entry = history[-1]
-                    generated_timelines = history_entry.get("generated_timelines", 0)
-                    
-                    # Use the database function to save the timeline data
-                    cursor.execute(
-                        """
-                        SELECT timeline.save_agent_timeline(
-                            %s,  -- agent_name_param
-                            %s,  -- generated_items_param
-                            %s,  -- state_data_param
-                            %s   -- timeline_entries_param
-                        )
-                        """,
-                        (
+                async with self.db_pool() as pool:
+                    async with pool.acquire() as conn:
+                        # Get history entry
+                        history_entry = history[-1]
+                        generated_timelines = history_entry.get("generated_timelines", 0)
+                        
+                        # Use the database function to save the timeline data
+                        await conn.execute(
+                            """
+                            SELECT timeline.save_agent_timeline(
+                                $1,  -- agent_name_param
+                                $2,  -- generated_items_param
+                                $3,  -- state_data_param
+                                $4   -- timeline_entries_param
+                            )
+                            """,
                             "TimelineAgent", 
                             generated_timelines,
-                            PsycopgJson(state),
-                            PsycopgJson(timeline_info)
+                            json.dumps(state),
+                            json.dumps(timeline_info)
                         )
-                    )
-                    
-                    # Commit the transaction
-                    self.db_connection.commit()
-                    
-                    if verbose:
-                        print(f"[DEBUG - TimelineAgent] Successfully saved data to database")
-                    
+                        
+                        if verbose:
+                            self._log("Successfully saved data to database")
             except Exception as e:
-                print(f"[ERROR - TimelineAgent] Database save failed: {str(e)}")
-                if self.db_connection:
-                    self.db_connection.rollback()
+                self._log(f"❌ Database save failed: {str(e)}")
         
         return {
             "timeline": timeline_info,
@@ -121,14 +128,8 @@ class TimelineAgent(Runnable):
         }
     
     def route_after_timeline(self, state: Dict) -> str:
+        """Determine the next step after timeline generation"""
         if state.get("verbose", self.verbose):
-            print(f"[📆 Timeline Routing] → Generation Stage: {state.get('generation_stage')}")
+            self._log(f"Timeline Routing → Generation Stage: {state.get('generation_stage')}")
         return END
         # return "ReasoningAgent" if state.get("generation_stage") == "initial" else END
-
-    def close(self):
-        """Close the database connection"""
-        if self.db_connection and not self.db_connection.closed:
-            self.db_connection.close()
-            if self.verbose:
-                print(f"[DEBUG - TimelineAgent] Database connection closed")
