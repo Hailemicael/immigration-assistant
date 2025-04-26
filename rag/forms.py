@@ -280,7 +280,7 @@ class FormsDatabase(VectorDatabase):
     async def process_form_html(self, pool: asyncpg.Pool, metadata_path: Path, metadata: FormMetadata) -> None:
         html_paths = metadata_path.parent.glob("*.html")
         for html_path in html_paths:
-            html_content = helpers.read_file_to_string(html_path)
+            html_content = html_path.read_text()
             for i, chunk in enumerate(helpers.chunk_html_content(html_content, "html.parser")):
                 async with pool.acquire() as conn:
                     async with conn.transaction():

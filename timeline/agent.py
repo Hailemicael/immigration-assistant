@@ -9,7 +9,6 @@ from langchain_core.runnables import Runnable, RunnableConfig
 from langgraph.constants import END
 
 from Project.immigration_assistant.config import database
-from Project.immigration_assistant.util import read_file_to_string
 
 
 class TimelineAgent(Runnable):
@@ -40,7 +39,7 @@ class TimelineAgent(Runnable):
                     self._log("Setting up database schema...")
                     for schema_file in self.db_config.schema_dir.rglob("*.sql"):
                         self._log(f"Executing schema file: {schema_file}")
-                        await conn.execute(read_file_to_string(schema_file))
+                        await conn.execute(schema_file.read_text())
                     self.db_init = True
             except Exception as e:
                 self._log(f"❌ Error initializing database: {e}")

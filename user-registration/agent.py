@@ -13,16 +13,16 @@ import asyncpg
 from Project.immigration_assistant import util
 from Project.immigration_assistant.config import database
 #import database #for local test
-import helpers
 
 class UserRegistration:
   #def __init__(self, db_config: Config, verbose=False):
-  def __init__(self, db_config: database.Config, verbose=False):
+    def __init__(self, db_config: database.Config, verbose=False):
         self.db_config = db_config
         self.db_init = False
         self.verbose = verbose
-
-  async def init_database(self):
+    def _log(self,message:any):
+        print(f"[👤 User Registration]: {message}")
+    async def init_database(self):
         if not self.db_init:
             server_dsn = self.db_config.dsn
             database = self.db_config.database
@@ -40,7 +40,7 @@ class UserRegistration:
                     self._log("Setting up database schema...")
                     for schema_file in self.db_config.schema_dir.rglob("*.sql"):
                         self._log(f"Executing schema file: {schema_file}")
-                        await conn.execute(util.read_file_to_string(schema_file))
+                        await conn.execute(schema_file.read_text())
                     self.db_init = True
             except Exception as e:
                 self._log(f"❌ Error initializing database: {e}")

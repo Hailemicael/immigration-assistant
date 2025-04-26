@@ -1,14 +1,11 @@
 import json
 from contextlib import asynccontextmanager
-from pathlib import Path
 from typing import Any, Dict, Tuple, AsyncGenerator, Optional
 import asyncio
 import asyncpg
 from langchain_core.runnables import Runnable, RunnableConfig
-from langgraph.constants import END
 from sentence_transformers import SentenceTransformer
 
-from Project.immigration_assistant.util import read_file_to_string
 from Project.immigration_assistant.rag import forms
 from Project.immigration_assistant.rag import legislation
 from Project.immigration_assistant.rag.config import RAGConfig
@@ -81,7 +78,7 @@ class RAGAgent(Runnable, SingletonInstance):
                     self._log("Setting up database schema...")
                     for schema_file in self.db_config.schema_dir.rglob("*.sql"):
                         self._log(f"Executing schema file: {schema_file}")
-                        await conn.execute(read_file_to_string(schema_file))
+                        await conn.execute(schema_file.read_text())
                     self.db_init = True
             except Exception as e:
                 self._log(f"❌ Error initializing database: {e}")
@@ -104,9 +101,9 @@ class RAGAgent(Runnable, SingletonInstance):
         self._log("🗄️ Populating the database with form and legislation data...")
         async with self.db_pool() as pool:
             if clear:
-                await self.forms_db.clear(pool)
+                # await self.forms_db.clear(pool)
                 await self.legislation_db.clear(pool)
-            await self.forms_db.populate(pool)
+            # await self.forms_db.populate(pool)
             await self.legislation_db.populate(pool)
         self._log("✅ Database population complete.")
 
@@ -193,7 +190,7 @@ async def main():
     await rag_agent.init_database()
 
     # Populate the database
-    await rag_agent.populate_database(clear=False)
+    await rag_agent.populate_database(clear=True)
     prompt = '''The new H-1B visa rules are outlined in USCIS’s Notice of Proposed Rulemaking (NPRM) published on August 11, 2021. The new rule changes include:
 
 Requiring employers to register with the Office of Sponsorship of International Workers (OSI) in advance of the filing of an application for H-1B visas.
