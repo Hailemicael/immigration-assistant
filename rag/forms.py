@@ -11,7 +11,7 @@ from sentence_transformers import SentenceTransformer
 from pydantic import BaseModel, TypeAdapter
 
 from . import helpers
-from immigration_assistant.rag.vector_database import VectorDatabase
+from ..rag.vector_database import VectorDatabase
 
 
 @dataclass

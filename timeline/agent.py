@@ -8,7 +8,7 @@ from pathlib import Path
 from langchain_core.runnables import Runnable, RunnableConfig
 from langgraph.constants import END
 
-from immigration_assistant.config import database
+from ..config import database
 
 
 class TimelineAgent(Runnable):

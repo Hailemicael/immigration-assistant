@@ -1,7 +1,6 @@
 from __future__ import annotations as _annotations
 
 import abc
-import asyncio
 from pathlib import Path
 
 import asyncpg

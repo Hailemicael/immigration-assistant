@@ -5,14 +5,14 @@ from langgraph.graph import StateGraph
 from sentence_transformers import SentenceTransformer
 from transformers import pipeline
 
-from immigration_assistant.rag.config import RAGConfig
-from immigration_assistant.config import database
-from immigration_assistant.orchestration.state import AgentState
-from immigration_assistant.reasoning.agent import ReasoningAgent
-from immigration_assistant.summarization.agent import SummaryAgent
-from immigration_assistant.timeline.agent import TimelineAgent
-from immigration_assistant.rag.agent import RAGAgent
-from immigration_assistant.relevance.agent import RelevanceAgent
+from ..rag.config import RAGConfig
+from ..config import database
+from ..orchestration.state import AgentState
+from ..reasoning.agent import ReasoningAgent
+from ..summarization.agent import SummaryAgent
+from ..timeline.agent import TimelineAgent
+from ..rag.agent import RAGAgent
+from ..relevance.agent import RelevanceAgent
 
 
 class RMAIA:
@@ -125,7 +125,7 @@ async def main():
 
     reasoning_agent = ReasoningAgent(
         endpoint_url="https://apc68c0a4ml2min4.us-east-1.aws.endpoints.huggingface.cloud",
-        api_token=,
+        api_token=
         verbose=True
     )
 

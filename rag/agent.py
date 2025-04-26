@@ -6,12 +6,11 @@ import asyncpg
 from langchain_core.runnables import Runnable, RunnableConfig
 from sentence_transformers import SentenceTransformer
 
-from immigration_assistant.rag import forms
-from immigration_assistant.rag import legislation
-from immigration_assistant.rag.config import RAGConfig
-from immigration_assistant.config import database
-from immigration_assistant.rag.query_results import QueryResult
-from immigration_assistant.orchestration.state import AgentState
+from ..rag import forms, legislation
+from ..rag.config import RAGConfig
+from ..config import database
+from ..rag.query_results import QueryResult
+from ..orchestration.state import AgentState
 
 class SingletonInstance:
     _instances = {}

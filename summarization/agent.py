@@ -6,9 +6,8 @@ from langchain_core.runnables import RunnableConfig, Runnable
 from langgraph.constants import END
 from transformers import pipeline
 
-from immigration_assistant.util import read_file_to_string
-from immigration_assistant.config import database
-from immigration_assistant.orchestration.state import AgentState
+from ..config import database
+from ..orchestration.state import AgentState
 
 
 class SummaryAgent(Runnable):
@@ -39,7 +38,7 @@ class SummaryAgent(Runnable):
                     self._log("Setting up database schema...")
                     for schema_file in self.db_config.schema_dir.rglob("*.sql"):
                         self._log(f"Executing schema file: {schema_file}")
-                        await conn.execute(read_file_to_string(schema_file))
+                        await conn.execute(schema_file.read_text())
                     self.db_init = True
             except Exception as e:
                 self._log(f"❌ Error initializing database: {e}")

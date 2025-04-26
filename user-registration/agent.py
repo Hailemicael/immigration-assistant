@@ -10,8 +10,8 @@ import psycopg2
 import asyncio
 import asyncpg
 
-from immigration_assistant import util
-from immigration_assistant.config import database
+from . import util
+from ..config import database
 #import database #for local test
 
 class UserRegistration:

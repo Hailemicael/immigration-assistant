@@ -4,8 +4,8 @@ from langchain_core.runnables import Runnable, RunnableConfig
 from langgraph.constants import END
 from huggingface_hub import InferenceClient
 
-from immigration_assistant.orchestration.state import AgentState
-from immigration_assistant.rag.agent import RAGAgent
+from ..orchestration.state import AgentState
+from ..rag.agent import RAGAgent
 
 
 class ReasoningAgent(Runnable):
