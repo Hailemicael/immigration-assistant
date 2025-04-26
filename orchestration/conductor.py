@@ -140,7 +140,6 @@ async def main():
     )
 
     timeline_agent = TimelineAgent(
-        llm=OllamaLLM(model="llama3"),
         verbose=True
     )
 
@@ -153,8 +152,8 @@ async def main():
         timeline_agent=timeline_agent,
         verbose=True)
 
-    question = "My home nation is a war zone and i would like to escape to the US, what do i need to do?"
-    # question = "I need to sleep"
+    # question = "My home nation is a war zone and i would like to escape to the US, what do i need to do?"
+    question = "I need to sleep"
     result = await system.ainvoke(question)
 
     print("\n--- Final Result ---", flush=True)

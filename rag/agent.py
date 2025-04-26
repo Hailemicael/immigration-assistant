@@ -8,7 +8,6 @@ from langchain_core.runnables import Runnable, RunnableConfig
 from langgraph.constants import END
 from sentence_transformers import SentenceTransformer
 
-from Project.immigration_assistant.summarization.agent import SummaryAgent
 from Project.immigration_assistant.util import read_file_to_string
 from Project.immigration_assistant.rag import forms
 from Project.immigration_assistant.rag import legislation
@@ -157,7 +156,7 @@ class RAGAgent(Runnable, SingletonInstance):
             self._log(f"📄 Form Check → Forms Found: {len(state.get('forms', []))}")
         if state.get("forms") and state.get("generation_stage") == "initial":
             return "TimelineAgent"
-        return SummaryAgent.node
+        return "SummaryAgent"
 
 # Example usage
 async def main():
