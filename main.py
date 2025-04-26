@@ -1,16 +1,19 @@
+import os
+import  sys
+from pathlib import Path
 import asyncio
 
 from sentence_transformers import SentenceTransformer
 from transformers import pipeline
 
-from Project.immigration_assistant.config import database
-from Project.immigration_assistant.orchestration.conductor import RMAIA
-from Project.immigration_assistant.rag.agent import RAGAgent
-from Project.immigration_assistant.rag.config import RAGConfig
-from Project.immigration_assistant.reasoning.agent import ReasoningAgent
-from Project.immigration_assistant.relevance.agent import RelevanceAgent
-from Project.immigration_assistant.summarization.agent import SummaryAgent
-from Project.immigration_assistant.timeline.agent import TimelineAgent
+from immigration_assistant.config import database
+from immigration_assistant.orchestration.conductor import RMAIA
+from immigration_assistant.rag.agent import RAGAgent
+from immigration_assistant.rag.config import RAGConfig
+from immigration_assistant.reasoning.agent import ReasoningAgent
+from immigration_assistant.relevance.agent import RelevanceAgent
+from immigration_assistant.summarization.agent import SummaryAgent
+from immigration_assistant.timeline.agent import TimelineAgent
 
 
 async def main():
@@ -29,22 +32,22 @@ async def main():
     )
     relevance_agent = RelevanceAgent(
         model=embedding_model,
-        baseline_path="../rag/uscis-crawler/documents/frequently-asked-questions/immigration_faqs.json",
+        baseline_path="./immigration_assistant/rag/uscis-crawler/documents/frequently-asked-questions/immigration_faqs.json",
         relevance_threshold=0.65,
         verbose=True
     )
 
     reasoning_agent = ReasoningAgent(
         endpoint_url="https://apc68c0a4ml2min4.us-east-1.aws.endpoints.huggingface.cloud",
-        api_token=
+        api_token=,
         verbose=True
     )
 
     rag_agent = RAGAgent(
         db_config=db_config.copy(schema_dir="../rag/sql"),
         rag_config=RAGConfig(
-            forms_path="../rag/uscis-crawler/documents/forms",
-            legislation_path="../rag/uscis-crawler/documents/legislation",
+            forms_path="./immigration_assistant/rag/uscis-crawler/documents/forms",
+            legislation_path="./immigration_assistant/rag/uscis-crawler/documents/legislation",
         ),
         embedding_model=embedding_model,
         verbose=True
@@ -77,4 +80,5 @@ async def main():
 
 
 if __name__ == "__main__":
+    print(os.getcwd())
     asyncio.run(main())

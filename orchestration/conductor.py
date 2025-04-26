@@ -125,7 +125,7 @@ async def main():
 
     reasoning_agent = ReasoningAgent(
         endpoint_url="https://apc68c0a4ml2min4.us-east-1.aws.endpoints.huggingface.cloud",
-        api_token=
+        api_token="",
         verbose=True
     )
 
@@ -165,5 +165,5 @@ async def main():
     print(f"Timeline: {result.get('timeline', [])}", flush=True)
 
 
-if __name__ == "__main__":
-    asyncio.run(main())
+# if __name__ == "__main__":
+#     asyncio.run(main())
