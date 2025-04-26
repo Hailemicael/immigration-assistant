@@ -72,7 +72,7 @@ class RelevanceAgent(Runnable):
             print(f"[🔎 Relevance Check] → Status: {state.get('relevance')}")
         match state.get("relevance"):
             case "relevant":
-                return "SummaryAgent"
+                return "ReasoningAgent"
             case "irrelevant":
                 return END
             case _:

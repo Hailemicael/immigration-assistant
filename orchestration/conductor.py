@@ -54,8 +54,8 @@ class RMAIA:
         builder.add_node("TimelineAgent", self.timeline_agent)
 
         builder.set_entry_point(SummaryAgent.node)
-        builder.add_conditional_edges(RelevanceAgent.node, self.relevance_agent.check_relevance)
         builder.add_conditional_edges(SummaryAgent.node, self.summary_agent.route_after_summary)
+        builder.add_conditional_edges(RelevanceAgent.node, self.relevance_agent.check_relevance)
         builder.add_conditional_edges(ReasoningAgent.node, self.reasoning_agent.check_stage_for_rag)
         builder.add_conditional_edges(RAGAgent.node, self.rag_agent.check_forms)
         builder.add_conditional_edges("TimelineAgent", self.timeline_agent.route_after_timeline)
@@ -125,7 +125,7 @@ async def main():
 
     reasoning_agent = ReasoningAgent(
         endpoint_url="https://apc68c0a4ml2min4.us-east-1.aws.endpoints.huggingface.cloud",
-        api_token=",
+        api_token=,
         verbose=True
     )
 
