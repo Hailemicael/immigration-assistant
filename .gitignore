@@ -27,5 +27,3 @@ data/processed/
 
 # Cache
 .cache/
-
-*.dump
