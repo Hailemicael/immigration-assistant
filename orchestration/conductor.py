@@ -125,7 +125,7 @@ async def main():
 
     reasoning_agent = ReasoningAgent(
         endpoint_url="https://apc68c0a4ml2min4.us-east-1.aws.endpoints.huggingface.cloud",
-        api_token=,
+        api_token=",
         verbose=True
     )
 
@@ -152,8 +152,8 @@ async def main():
         timeline_agent=timeline_agent,
         verbose=True)
 
-    # question = "My home nation is a war zone and i would like to escape to the US, what do i need to do?"
-    question = "I need to sleep"
+    question = "My home nation is a war zone and i would like to escape to the US, what do i need to do?"
+    # question = "I need to sleep"
     result = await system.ainvoke(question)
 
     print("\n--- Final Result ---", flush=True)
