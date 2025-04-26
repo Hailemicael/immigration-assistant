@@ -5,14 +5,14 @@ from langgraph.graph import StateGraph
 from sentence_transformers import SentenceTransformer
 from transformers import pipeline
 
-from Project.immigration_assistant.rag.config import RAGConfig
-from Project.immigration_assistant.config import database
-from Project.immigration_assistant.orchestration.state import AgentState
-from Project.immigration_assistant.reasoning.agent import ReasoningAgent
-from Project.immigration_assistant.summarization.agent import SummaryAgent
-from Project.immigration_assistant.timeline.agent import TimelineAgent
-from Project.immigration_assistant.rag.agent import RAGAgent
-from Project.immigration_assistant.relevance.agent import RelevanceAgent
+from immigration_assistant.rag.config import RAGConfig
+from immigration_assistant.config import database
+from immigration_assistant.orchestration.state import AgentState
+from immigration_assistant.reasoning.agent import ReasoningAgent
+from immigration_assistant.summarization.agent import SummaryAgent
+from immigration_assistant.timeline.agent import TimelineAgent
+from immigration_assistant.rag.agent import RAGAgent
+from immigration_assistant.relevance.agent import RelevanceAgent
 
 
 class RMAIA:

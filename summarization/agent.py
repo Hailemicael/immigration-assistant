@@ -6,9 +6,9 @@ from langchain_core.runnables import RunnableConfig, Runnable
 from langgraph.constants import END
 from transformers import pipeline
 
-from Project.immigration_assistant.util import read_file_to_string
-from Project.immigration_assistant.config import database
-from Project.immigration_assistant.orchestration.state import AgentState
+from immigration_assistant.util import read_file_to_string
+from immigration_assistant.config import database
+from immigration_assistant.orchestration.state import AgentState
 
 
 class SummaryAgent(Runnable):
