@@ -1,0 +1,23 @@
+{
+	"id": "I-698 ",
+	"title": "I-698 | Application to Adjust Status from Temporary to Permanent Resident (Under Section 245A of the INA)",
+	"link": "https://www.uscis.gov/i-698",
+	"description": "Use this form to apply for adjustment to permanent resident status under the amnesty program provisions of the Immigration Reform and Control Act of 1986 (IRCA).",
+	"file-online": false,
+	"forms": [
+		{
+			"id": "i-698.pdf",
+			"title": "Form I-698",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-698.pdf",
+			"description": "(PDF, 530.53 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-698instr.pdf",
+			"title": "Instructions for Form I-698",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-698instr.pdf",
+			"description": "(PDF, 310.83 KB)",
+			"file-online": false
+		}
+	]
+}

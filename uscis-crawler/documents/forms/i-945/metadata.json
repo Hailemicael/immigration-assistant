@@ -1,0 +1,23 @@
+{
+	"id": "I-945 ",
+	"title": "I-945 | Public Charge Bond",
+	"link": "https://www.uscis.gov/i-945",
+	"description": "If we determine that an applicant is inadmissible based on the public charge ground, but is otherwise admissible, the applicant may be admitted in the discretion of the secretary of homeland security after posting a suitable and proper bond. Before an applicant may post a public charge bond (on Form I-945), we must invite them to do so. The public charge bond is posted as security for performance and fulfillment of the financial obligations of a bonded alien to the U.S. government.",
+	"file-online": false,
+	"forms": [
+		{
+			"id": "i-945.pdf",
+			"title": "Form I-945",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-945.pdf",
+			"description": "(PDF, 433.1 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-945instr.pdf",
+			"title": "Instructions for Form I-945",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-945instr.pdf",
+			"description": "(PDF, 247.82 KB)",
+			"file-online": false
+		}
+	]
+}

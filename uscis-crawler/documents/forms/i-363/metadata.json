@@ -1,0 +1,23 @@
+{
+	"id": "I-363 ",
+	"title": "I-363 | Request to Enforce Affidavit of Financial Support and Intent to Petition for Legal Custody for Public Law 97-359 Amerasian",
+	"link": "https://www.uscis.gov/i-363",
+	"description": "If, after admission to the United States, the beneficiary of a petition for a Public Law 97-359 Amerasian requires enforcement of the guarantee of financial support and intent to petition for legal custody, which was executed by the beneficiary's sponsor, the beneficiary may file this form with USCIS.",
+	"file-online": false,
+	"forms": [
+		{
+			"id": "i-363.pdf",
+			"title": "Form I-363",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-363.pdf",
+			"description": "(PDF, 446.3 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-363instr.pdf",
+			"title": "Instructions for Form I-363",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-363instr.pdf",
+			"description": "(PDF, 199.42 KB)",
+			"file-online": false
+		}
+	]
+}

@@ -1,0 +1,23 @@
+{
+	"id": "I-129CWR ",
+	"title": "I-129CWR | Semiannual Report for CW-1 Employers",
+	"link": "https://www.uscis.gov/i-129cwr",
+	"description": "An employer of an approved Form I-129CW, Petition for Commonwealth of Northern Mariana Islands (CNMI) Only Transitional Worker (CW-1), uses Form I-129CWR to verify the continued employment and payment of each worker under the terms and conditions of the approved petition.",
+	"file-online": false,
+	"forms": [
+		{
+			"id": "i-129cwr.pdf",
+			"title": "Form I-129CWR",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-129cwr.pdf",
+			"description": "(PDF, 585.41 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-129cwrinstr.pdf",
+			"title": "Instructions for Form I-129CWR",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-129cwrinstr.pdf",
+			"description": "(PDF, 326.67 KB)",
+			"file-online": false
+		}
+	]
+}

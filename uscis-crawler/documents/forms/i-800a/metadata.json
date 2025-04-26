@@ -1,0 +1,44 @@
+{
+	"id": "I-800A ",
+	"title": "I-800A | Application for Determination of Suitability to Adopt a Child from a Convention Country",
+	"link": "https://www.uscis.gov/i-800a",
+	"description": "USCIS uses this form to adjudicate the eligibility and suitability of the applicant(s) who want to adopt a child who is habitually resident in a Hague Adoption Convention country.",
+	"file-online": false,
+	"forms": [
+		{
+			"id": "i-800a.pdf",
+			"title": "Form I-800A",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-800a.pdf",
+			"description": "(PDF, 621.91 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-800ainstr.pdf",
+			"title": "Instructions for Form I-800A",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-800ainstr.pdf",
+			"description": "(PDF, 534.85 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-800asup1.pdf",
+			"title": "Form I-800A Supplement 1 (Listing of Adult Member of the Household)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-800asup1.pdf",
+			"description": "(PDF, 427.56 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-800asup2.pdf",
+			"title": "Form I-800A Supplement 2 (Consent to Disclose Information)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-800asup2.pdf",
+			"description": "(PDF, 312.88 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-800asup3.pdf",
+			"title": "Form I-800A Supplement 3 (Request for Action on Approved Form I-800A)",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-800asup3.pdf",
+			"description": "(PDF, 451.04 KB)",
+			"file-online": false
+		}
+	]
+}

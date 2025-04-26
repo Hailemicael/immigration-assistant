@@ -1,0 +1,23 @@
+{
+	"id": "N-600K ",
+	"title": "N-600K | Application for Citizenship and Issuance of Certificate Under Section 322",
+	"link": "https://www.uscis.gov/n-600k",
+	"description": "Children who regularly reside in a foreign country may use this form to claim U.S. citizenship based on their parents.",
+	"file-online": true,
+	"forms": [
+		{
+			"id": "n-600k.pdf",
+			"title": "Form N-600K",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/n-600k.pdf",
+			"description": "(PDF, 630.82 KB)",
+			"file-online": false
+		},
+		{
+			"id": "n-600kinstr.pdf",
+			"title": "Instructions for Form N-600K",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/n-600kinstr.pdf",
+			"description": "(PDF, 401.03 KB)",
+			"file-online": false
+		}
+	]
+}

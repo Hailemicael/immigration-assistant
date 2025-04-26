@@ -1,0 +1,23 @@
+{
+	"id": "I-485 Supplement J ",
+	"title": "I-485 Supplement J | Confirmation of Valid Job Offer or Request for Job Portability Under INA Section 204(j)",
+	"link": "https://www.uscis.gov/i-485supj",
+	"description": "Use Supplement J to: Confirm that the job offered to you in Form I-140, Immigrant Petition for Alien Workers, remains a bona fide job offer that you intend to accept once we approve your Form I 485, Application to Register Permanent Residence or Adjust Status. If you are filing or have previously filed Form I-485 based on being the beneficiary of a valid Form I-140 in an employment-based immigrant visa category that requires a job offer, you must file Supplement J instead of submitting a job offer letter; or\nRequest job portability under INA section 204(j) to a new, full-time, permanent job offer that you intend to accept once we approve your Form I-485. This new job offer must be in the same or a similar occupational classification as the job offered to you in the Form I-140 that is the basis of your Form I-485. (For more information about how we determine which jobs are same or similar, please see USCIS Policy Manual [7 USCIS-PM E.5].",
+	"file-online": false,
+	"forms": [
+		{
+			"id": "i-485supj.pdf",
+			"title": "Form I-485, Supplement J",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-485supj.pdf",
+			"description": "(PDF, 423.85 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-485supjinstr.pdf",
+			"title": "Instructions for I-485, Supplement J",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-485supjinstr.pdf",
+			"description": "(PDF, 351.11 KB)",
+			"file-online": false
+		}
+	]
+}

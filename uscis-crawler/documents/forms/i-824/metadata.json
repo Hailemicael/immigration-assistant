@@ -1,0 +1,23 @@
+{
+	"id": "I-824 ",
+	"title": "I-824 | Application for Action on an Approved Application or Petition",
+	"link": "https://www.uscis.gov/i-824",
+	"description": "Use this form to request additional action on a previously approved application or petition.",
+	"file-online": false,
+	"forms": [
+		{
+			"id": "i-824.pdf",
+			"title": "Form I-824",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-824.pdf",
+			"description": "(PDF, 425.4 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-824instr.pdf",
+			"title": "Instructions for Form I-824",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-824instr.pdf",
+			"description": "(PDF, 264.94 KB)",
+			"file-online": false
+		}
+	]
+}

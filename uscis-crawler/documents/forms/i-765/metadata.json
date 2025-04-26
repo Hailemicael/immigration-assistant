@@ -1,0 +1,30 @@
+{
+	"id": "I-765 ",
+	"title": "I-765 | Application for Employment Authorization",
+	"link": "https://www.uscis.gov/i-765",
+	"description": "Certain aliens aliens who are in the United States may file Form I-765, Application for Employment Authorization, to request employment authorization and an Employment Authorization Document (EAD). Other aliens aliens whose immigration status authorizes them to work in the United States without restrictions may also use Form I-765 to apply to U.S. Citizenship and Immigration Services (USCIS) for an EAD that shows such authorization.",
+	"file-online": true,
+	"forms": [
+		{
+			"id": "i-765.pdf",
+			"title": "Form I-765",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-765.pdf",
+			"description": "(PDF, 467.34 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-765instr.pdf",
+			"title": "Instructions for Form I-765",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-765instr.pdf",
+			"description": "(PDF, 751.24 KB)",
+			"file-online": false
+		},
+		{
+			"id": "i-765ws.pdf",
+			"title": "Form I-765 Worksheet",
+			"link": "https://www.uscis.gov/sites/default/files/document/forms/i-765ws.pdf",
+			"description": "(PDF, 254.21 KB)",
+			"file-online": false
+		}
+	]
+}
