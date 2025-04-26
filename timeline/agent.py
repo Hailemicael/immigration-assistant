@@ -1,5 +1,4 @@
 import json
-import os
 from typing import Dict, Optional, Any
 from contextlib import asynccontextmanager
 import asyncio
@@ -9,50 +8,45 @@ from pathlib import Path
 from langchain_core.runnables import Runnable, RunnableConfig
 from langgraph.constants import END
 
-from Project.immigration_assistant.summarization.agent import SummaryAgent
+from Project.immigration_assistant.config import database
+from Project.immigration_assistant.util import read_file_to_string
 
 
 class TimelineAgent(Runnable):
-    def __init__(self, llm, verbose, db_config=None, sql_file_path="timeline.sql"):
-        self.llm = llm
+    def __init__(self, db_config: database.Config = None, verbose:bool = False):
         self.verbose = verbose
         self.db_config = db_config
-        self.sql_file_path = Path(sql_file_path)
         self.db_init = False
     
     def _log(self, message: str):
         if self.verbose:
             print(f"[📆 TimelineAgent] {message}", flush=True)
-    
-    async def init_database(self):
-        """Initialize the database schema using the SQL file"""
-        if not self.db_init and self.db_config:
-            if not self.sql_file_path.exists():
-                self._log(f"❌ SQL file not found: {self.sql_file_path}")
-                return
 
+    async def init_database(self):
+        if not self.db_init:
             server_dsn = self.db_config.dsn
             database = self.db_config.database
-
+            self._log(f"Connecting to server to check if database '{database}' exists...")
+            conn = await asyncpg.connect(server_dsn, database=database)
             try:
-                self._log(f"Connecting to server to check if database '{database}' exists...")
-                conn = await asyncpg.connect(server_dsn, database=database)
-
-                try:
-                    async with conn.transaction():
-                        self._log("Setting up timeline schema...")
-                        sql_script = self.sql_file_path.read_text()
-                        await conn.execute(sql_script)
-                        self.db_init = True
-                        self._log("✅ Timeline schema initialized successfully.")
-                except Exception as e:
-                    self._log(f"❌ Error initializing timeline schema: {e}")
-                    raise e
-                finally:
-                    await conn.close()
+                async with conn.transaction():
+                    db_exists = await conn.fetchval('SELECT 1 FROM pg_database WHERE datname = $1', database)
+                    if not db_exists:
+                        self._log(f"Creating database '{database}'...")
+                        await conn.execute(f'CREATE DATABASE {database}')
+                        self._log(f"Database '{database}' created successfully.")
+                    else:
+                        self._log(f"Database '{database}' already exists.")
+                    self._log("Setting up database schema...")
+                    for schema_file in self.db_config.schema_dir.rglob("*.sql"):
+                        self._log(f"Executing schema file: {schema_file}")
+                        await conn.execute(read_file_to_string(schema_file))
+                    self.db_init = True
             except Exception as e:
-                self._log(f"❌ Error connecting to database: {e}")
+                self._log(f"❌ Error initializing database: {e}")
                 raise e
+            finally:
+                await conn.close()
 
     @asynccontextmanager
     async def db_pool(self):
@@ -134,5 +128,18 @@ class TimelineAgent(Runnable):
         """Determine the next step after timeline generation"""
         if state.get("verbose", self.verbose):
             print(f"[📆 Timeline Routing] → Summary Stage: {state.get('generation_stage')}")
-        return SummaryAgent.node
+        return "SummaryAgent"
         # return "ReasoningAgent" if state.get("generation_stage") == "initial" else END
+async def main():
+    # Database configuration
+    config = database.Config(
+        schema_dir = "./sql",
+        dsn = "postgresql://@localhost:5432",
+        database= "maia",
+        pool_size = (10, 10)
+    )
+    agent = TimelineAgent(db_config=config)
+    await agent.init_database()
+
+if __name__ == "__main__":
+    asyncio.run(main())

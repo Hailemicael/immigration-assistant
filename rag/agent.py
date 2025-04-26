@@ -8,6 +8,7 @@ from langchain_core.runnables import Runnable, RunnableConfig
 from langgraph.constants import END
 from sentence_transformers import SentenceTransformer
 
+from Project.immigration_assistant.summarization.agent import SummaryAgent
 from Project.immigration_assistant.util import read_file_to_string
 from Project.immigration_assistant.rag import forms
 from Project.immigration_assistant.rag import legislation
@@ -171,7 +172,7 @@ async def main():
 
     # Load the embedding model (SentenceTransformer)
     print("Loading SentenceTransformer model...")
-    embedding_model = SentenceTransformer(model_name)
+    embedding_model = SentenceTransformer(RAGAgent.model_name)
 
     # RAG configuration
     rag_config =  RAGConfig(

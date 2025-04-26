@@ -47,9 +47,13 @@ CREATE TABLE IF NOT EXISTS timeline.processing_times
     receipt_date_for_inquiry DATE,
     active                   BOOLEAN   DEFAULT TRUE,
     created_at               TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at               TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE (form_id, center_id, active) WHERE active = TRUE
+    updated_at               TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Create a partial unique index for active processing times
+CREATE UNIQUE INDEX IF NOT EXISTS idx_processing_times_unique_active
+    ON timeline.processing_times (form_id, center_id)
+    WHERE active = TRUE;
 
 -- User timelines table
 CREATE TABLE IF NOT EXISTS timeline.user_timelines
@@ -119,40 +123,40 @@ DECLARE
 BEGIN
     -- Insert agent history record
     INSERT INTO timeline.agent_history
-        (agent_name, generated_items, state_data)
+    (agent_name, generated_items, state_data)
     VALUES
         (agent_name_param, generated_items_param, state_data_param)
     RETURNING history_id INTO new_history_id;
-    
+
     -- Process timeline entries
     FOR i IN 0..jsonb_array_length(timeline_entries_param) - 1 LOOP
-        entry := timeline_entries_param->i;
-        
-        -- Extract form_id and timeline_text from the entry
-        -- Expected format: "{form_id}: 3–6 months processing"
-        form_id_value := substring(entry::TEXT, 2, position(': ' in entry::TEXT) - 2);
-        timeline_text_value := entry::TEXT;
-        
-        -- Insert timeline entry
-        INSERT INTO timeline.agent_timeline_entries
+            entry := timeline_entries_param->i;
+
+            -- Extract form_id and timeline_text from the entry
+            -- Expected format: "{form_id}: 3–6 months processing"
+            form_id_value := substring(entry::TEXT, 2, position(': ' in entry::TEXT) - 2);
+            timeline_text_value := entry::TEXT;
+
+            -- Insert timeline entry
+            INSERT INTO timeline.agent_timeline_entries
             (history_id, form_id, timeline_text)
-        VALUES
-            (new_history_id, form_id_value, timeline_text_value);
-            
-        -- Update or insert processing times for this form (assuming default service center with ID 1)
-        INSERT INTO timeline.processing_times
+            VALUES
+                (new_history_id, form_id_value, timeline_text_value);
+
+            -- Update or insert processing times for this form (assuming default service center with ID 1)
+            INSERT INTO timeline.processing_times
             (form_id, center_id, min_months, median_months, max_months, last_updated)
-        VALUES
-            (form_id_value, 1, 3.0, 4.5, 6.0, CURRENT_TIMESTAMP)
-        ON CONFLICT (form_id, center_id, active) WHERE active = TRUE
-        DO UPDATE SET 
-            min_months = 3.0, 
-            median_months = 4.5, 
-            max_months = 6.0,
-            last_updated = CURRENT_TIMESTAMP,
-            updated_at = CURRENT_TIMESTAMP;
-    END LOOP;
-    
+            VALUES
+                (form_id_value, 1, 3.0, 4.5, 6.0, CURRENT_TIMESTAMP)
+            ON CONFLICT (form_id, center_id)
+                DO UPDATE SET
+                              min_months = 3.0,
+                              median_months = 4.5,
+                              max_months = 6.0,
+                              last_updated = CURRENT_TIMESTAMP,
+                              updated_at = CURRENT_TIMESTAMP;
+        END LOOP;
+
     RETURN new_history_id;
 END;
 $$ LANGUAGE plpgsql;
@@ -180,25 +184,25 @@ BEGIN
       AND active = TRUE
     ORDER BY last_updated DESC
     LIMIT 1;
-    
+
     -- If no processing time found, use default values
     IF min_months_value IS NULL THEN
         min_months_value := 3.0;
         median_months_value := 4.5;
         max_months_value := 6.0;
     END IF;
-    
+
     -- Create user timeline
     INSERT INTO timeline.user_timelines
-        (form_id, center_id, category_id, filing_date, 
-         earliest_completion_date, median_completion_date, latest_completion_date)
+    (form_id, center_id, category_id, filing_date,
+     earliest_completion_date, median_completion_date, latest_completion_date)
     VALUES
         (form_id_param, center_id_param, category_id_param, filing_date_param,
          filing_date_param + (min_months_value * INTERVAL '1 month'),
          filing_date_param + (median_months_value * INTERVAL '1 month'),
          filing_date_param + (max_months_value * INTERVAL '1 month'))
     RETURNING timeline_id INTO new_timeline_id;
-    
+
     RETURN new_timeline_id;
 END;
 $$ LANGUAGE plpgsql;
