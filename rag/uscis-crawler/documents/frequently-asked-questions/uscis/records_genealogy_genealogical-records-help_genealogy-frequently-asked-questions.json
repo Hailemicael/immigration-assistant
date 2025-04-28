@@ -1,0 +1,82 @@
+[
+	{
+		"question": "What records are included in the USCIS Genealogy Program?",
+		"answer": "The USCIS Genealogy Program provides records from the Five Series of Agency Records:"
+	},
+	{
+		"question": "How do I submit a question about my request results?",
+		"answer": "Send your questions about index search results or record copies that you have already received to genealogy.uscis@dhs.gov. Include your case identification number in the subject line and in your message."
+	},
+	{
+		"question": "Does my records request require a valid file number?",
+		"answer": "Yes. If you do not have the appropriate file number then you will need to perform an Index Search. Find more information about file numbers."
+	},
+	{
+		"question": "How long will it take to get a response?",
+		"answer": "We try to respond to all requests within 90 days. However, processing delays sometimes occur. See the request status page to learn more about how you can gauge the progress of your request or make a status inquiry."
+	},
+	{
+		"question": "Can the USCIS Genealogy Program provide a copy or a certified copy of naturalization records?",
+		"answer": "No. We can only provide a photocopy of a naturalization record.\nIf you need only a copy of the naturalization certificate (not certified) to satisfy requirements for your foreign application for dual citizenship, you may submit Form G-1041A, Genealogy Records Request for the naturalization certificate only. This can eliminate processing delay resulting from information about the immigrant's children that may require review under the Privacy Act. To request only the certificate, write \"Dual Citz-Natz Certificate Only\" on your Form G-1041A or type this information in the \"Optional Information Section\" of your online request."
+	},
+	{
+		"question": "How do I submit a request for an index search and/or a copy of a record?",
+		"answer": "See our Make a Genealogy Request webpage."
+	},
+	{
+		"question": "What information am I required to provide for a search of the historical indices, and what do I get in return?",
+		"answer": "At a minimum, you must provide the immigrant’s:\n1. Full name (including variant spellings and/or aliases);2. Date of birth (If you don’t have the exact month and/or day, the year is needed); and3. Country of birth.\nIf possible, also provide information on where the immigrant lived in the United States (For example, \"lived in NY in 1920's, then in CT in 1930 to death.\") Other information can be helpful, such as names of family members (particularly spouses and children), marriage dates, and military service.\nWe will send a report of search results for all Index Search Requests. Search results vary. A typical index search response will include a file number, information about the file series, and additional information as follows:\nA “no record” response means we couldn’t find anything in the index that matches the information provided in the request. Some \"no record\" responses will result from an inability to identify an immigrant among the millions of index entries. This occurs when:"
+	},
+	{
+		"question": "What information am I required to retrieve a copy of a historical record? What will I get in return?",
+		"answer": "To request a record, you must identify the file by the:\nIn return, we will send you the best possible copy of the requested record. File numbers may be learned from an Index Search Request or, in some cases, through independent research.  There are four series of file numbers corresponding to the five series of files available through a records request:\n* When in doubt about a file number, please submit an Index Search Request. There is no refund when the file corresponding to the file number provided in a Records Request does not match the immigrant's name provided."
+	},
+	{
+		"question": "What do I do if my password is not accepted or I received an error when I attempt to submit my genealogy records request online?\nWhat information am I required to retrieve a copy of a historical record? What will I get in return?",
+		"answer": "To request a record, you must identify the file by the:\nIn return, you will receive the best possible copy of the requested record.  File numbers may be learned from an Index Search Request or, in some cases, through independent research.  There are four series of file numbers corresponding to the five series of files available through a records request:\nC-File number for a naturalization or citizenship certificate file, 1906-1956. These numbers are found on original certificates and occasionally on other documents. More about C-File series.\nAlien Registration Number (A-Number) for a Form AR-2 and/or an A-File numbered below 8 million. These seven-digit numbers may be found among an immigrant's personal papers, or after about 1942 on some court naturalization papers. More about A-Number series.\nImportant: Form AR-2 is only available for A-Numbers 1 million to 5,980,116; A6,100,000 to 6,132,126; A7 000,000 to 7,043 999, and A7 500,000 to 7,759,142.\nVisa File number for a Visa File. These numbers were assigned internally by the immigration agency and are not available outside an index search request. Note: Visa File numbers do not appear on a ship passenger list. More about Visa File series.\nRegistry File number (R-number) for a Registry File. Some Registry File numbers are found on land border card manifests now available on National Archives microfilm. Occasionally a researcher will find an immigrant's Certificate of Registry or Certificate of Lawful Entry among personal papers, and those cards may or may not include the R-number. The majority of Registry File numbers will only be available through an Index Search Request. More about R-number series.\n* When in doubt about a file number, please submit an Index Search Request. There is no refund when the file corresponding to the file number provided in a records request does not match the immigrant's name provided."
+	},
+	{
+		"question": "Do I need to include proof of death with my request?",
+		"answer": "You must provide documentary proof of death with your request if the subject of your request was born less than 100 years before the date of your request."
+	},
+	{
+		"question": "What are acceptable forms of proof of death?",
+		"answer": "Acceptable documentary proof includes any of the following:\nPlease submit copies of these records with your request. Do not submit original documents as we will not return them to you."
+	},
+	{
+		"question": "Should I make a genealogy or Freedom of Information Act/Privacy Act request?",
+		"answer": "This depends on the records you seek. Submit a genealogy request if you are requesting records of an immigrant who:\nAnyone searching for records of a naturalization on or after April 1, 1956, or an arrival after May 1, 1951, should submit a FOIA request.\nIf the record you seek falls between 1944-1956, complete Form G-1041, Genealogy Index Search Request, and then we will identify the proper records and provide you with instructions for requesting them under FOIA. Similarly, if a FOIA request identifies records covered by the USCIS Genealogy Program, the FOIA program will provide instructions for requesting those records using Form G-1041A.\nFOIA requests of an obviously genealogical nature (such as for an immigrant born more than 100 years from the date of your request, naturalized prior to 1956, etc.) will be returned to the requester with instructions for re-submitting the request through the USCIS Genealogy Program."
+	},
+	{
+		"question": "After submitting my genealogy request, I discovered new information about the immigrant of my request; or my mailing address, email address, or phone number has changed.  How can I update this information?",
+		"answer": "Send updates or corrections to our Genealogy Mailbox. Include your Case ID number in the subject line and additional information in the body of the email."
+	},
+	{
+		"question": "How do I pay the fees?",
+		"answer": "You can find the filing fee for Form G-1041 and G-1041A by visiting our Fee Schedule page.\nThe fee is effective for filings postmarked April 1, 2024, and later.\nYou can pay the fee with a money order, personal check, cashier’s check, or pay by credit or debit card using Form G-1450, Authorization for Credit Card Transactions.  If you pay by check, you must make your check payable to the U.S. Department of Homeland Security.\nOnline Requests – When making your request online, you will be redirected to the Department of the Treasury's pay.gov service. Here you can pay by credit, debit, pre-paid card or bank withdrawal. Once the transaction is complete, you will receive a printable receipt showing your new USCIS Genealogy Case number. You can choose to pay the fee by mail (see below), but the request will not be processed until the fee is received.\nMailed Requests - When mailing your request, you can pay with a money order, personal or cashier's check, or credit or debit card by submitting Form G-1450, Authorization for Credit Card Transactions. Submit the fee with Form G-1041 or Form G-1041A. If you mail your request without payment then we will hold your request and contact you to submit the fee. If we don’t receive your payment within 30 days from when you submitted the request, we will cancel the request.\nIf you are submitting multiple forms, pay each filing fee separately. We are transitioning to electronically processing immigration benefit requests, which requires us to use multiple systems to process your package. We may reject your entire package if you submit a single, combined payment for multiple forms."
+	},
+	{
+		"question": "What is the refund policy?",
+		"answer": "There are no refunds for a search request where no records are located, or when the file located falls under the purview of the USCIS Freedom of Information/Privacy Act program and/or the National Archives.\nThere are also no refunds for a records request where the file number provided is invalid, or where proof of death is required and is not received within 30 days of receipt of the request.\nNo refunds or returns will be honored for user errors or in the event of an application cancellation or withdrawal request."
+	},
+	{
+		"question": "Where can I find naturalization records from before Sept. 27, 1906?",
+		"answer": "You can find naturalization records from before Sept. 27, 1906, in federal, state, or local/municipal court records. Only the naturalization court kept records of naturalizations before that date. Naturalization practices and procedures also varied greatly over time and geographical location. As a result, local sources usually provide the best information on how to find pre-1906 naturalization records. For more information on state and local courts, contact the state or county historical or genealogical society in the location where you believe the immigrant naturalized. For federal court records, contact the National Archives and Records Administration.\nFor more information on arrival and nationality records dated prior to Sept. 27, 1906, visit our Research Guidance page."
+	},
+	{
+		"question": "How do I get copies of USCIS records dated after the records provided by the Genealogy Program (for example, C-Files dated after April 1,1956, or Alien Files numbered above 8 million)?",
+		"answer": "For any USCIS records not included within the scope of our and not covered by any other rule or request form, file a Freedom of Information Act or Privacy Act Request."
+	},
+	{
+		"question": "Where can I find immigration passenger manifests?",
+		"answer": "The National Archives and Records Administration now maintains land, sea, and air manifests dated before December 1982.\nMany historical passenger manifests are also available online through services such as ancestry.com and ellisisland.org. However, researchers may have to pay a fee to access these websites."
+	},
+	{
+		"question": "What do I do if my password is not accepted or I received an error when I attempt to submit my Genealogy Records Request online?\nHow do I get Certification of Non-existence of a Record of Naturalization?",
+		"answer": "The current filing fee for a request for Certificate of Non-Existence is $330.00 with an anticipated online filing fee of $280.00.\nMore information can be found here for submitting Form G-1566, Request for Certificate of Non-Existence.\nIf the immigrant’s birth date is less than 100 years before the request date, you must also include a copy of their birth or death certificate.\nEffective April 1, 2024, all paper filings of Form G-1566 should be sent to the address below:\nU.S. Postal Service (USPS):USCISAttn: G-1566 Manual ProcessP.O. Box 4074Carol Stream, IL 60197-4074\nFedEx, UPS, and DHL deliveries:USCISAttn: G-1566 Manual Process2500 Westfield DriveElgin, IL 60124-7836We do not accept original requests by email and will only mail certificates to U.S. addresses.\nIf you have questions, email certificateofnonexistence@uscis.dhs.gov."
+	},
+	{
+		"question": "How do I request my own records from USCIS (or those of a living relative with his or her consent)?",
+		"answer": "To obtain copies of your own records or those of a living person with their consent, file a Freedom of Information Act or Privacy Act.\nIndividuals admitted to the United States as contracted agricultural laborers between 1942 and 1951, and between 1951 and 1965, were admitted temporarily as nonimmigrants. USCIS did not retain records of temporary admissions. Lawfully admitted Braceros who fulfilled their contracts and returned to Mexico may not appear in any USCIS record.\nBraceros who later immigrated to or adjusted to another status in the United States will in most cases have a USCIS file. However, that file may or may not contain any documentation of the immigrant’s former status as a Bracero.\nWhere and How to Submit Requests:\nIf the Bracero is living, submit your request through:\nUSCIS FOIA/PA Request\nIf the Bracero is deceased, submit your request through:\nUSCIS Genealogy Index Search Request\nIf the Bracero was born less than 100 years before the date of your request, proof of death is required. Write “Bracero” in the comments section. We will search all indices to identify any matching record and:"
+	}
+]

@@ -1,22 +1,43 @@
 from __future__ import annotations as _annotations
 
-import asyncio
 import json
 from dataclasses import dataclass
 from pathlib import Path
-
+import asyncio
 
 import asyncpg
+import torch
 from sentence_transformers import SentenceTransformer
 from pydantic import BaseModel, TypeAdapter
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
-import helpers
+from . import helpers
+from ..rag.vector_database import VectorDatabase
+
+
+class LegaleseTranslator:
+    def __init__(self, model_path: str, disabled: bool = False):
+        self.disabled = disabled
+        if not disabled:
+            self.tokenizer = AutoTokenizer.from_pretrained(model_path)
+            self.model = AutoModelForSeq2SeqLM.from_pretrained(model_path).to(
+                "cuda" if torch.cuda.is_available() else "cpu"
+            )
+
+    def translate(self, text: str) -> str:
+        if self.disabled:
+            return ''
+        inputs = self.tokenizer(text, return_tensors="pt", truncation=True, max_length=512).to(self.model.device)
+        outputs = self.model.generate(**inputs, max_new_tokens=512)
+        return self.tokenizer.decode(outputs[0], skip_special_tokens=True)
 
 
 @dataclass
 class Deps:
     model: SentenceTransformer
+    translator: LegaleseTranslator
     pool: asyncpg.Pool
+
 
 class LegislationMetadata(BaseModel):
     act: str
@@ -24,175 +45,111 @@ class LegislationMetadata(BaseModel):
     link: str
     description: str
 
+
 legislation_metadata_adapter = TypeAdapter(LegislationMetadata)
 
-async def populate_db(model:SentenceTransformer, pool: asyncpg.Pool, forms_dir: Path) -> None:
-    """Build the forms database from JSON files."""
-    print("Populating Legislation tables...")
-    # If no JSON files exist yet, create a sample file
-    metadata_paths = list(forms_dir.rglob("*.json"))
 
-    print(f"Found {len(metadata_paths)} forms to process.")
+class LegislationDatabase(VectorDatabase):
+    def __init__(self,
+                 model: SentenceTransformer,
+                 translator: LegaleseTranslator,
+                 data_dir: Path,
+                 insert_embedding_prefix: str = None,
+                 query_embedding_prefix: str = None) -> None:
+        super().__init__(model, data_dir, insert_embedding_prefix, query_embedding_prefix)
+        self.translator = translator
+        self.semaphore = asyncio.Semaphore(5)
 
-    print("Processing legislation data files...")
-    sem = asyncio.Semaphore(5)  # Limit concurrent processing
+    async def populate(self, pool: asyncpg.Pool) -> None:
+        print("Populating legislation.sections and legislation.paragraphs...")
+        json_files = list(self.data_dir.glob("*.json"))
 
-    async with asyncio.TaskGroup() as tg:
-        for path in metadata_paths:
-            tg.create_task(process_legislation_files(sem, model, pool, path))
+        for file_path in json_files:
+            print(f"📄 Processing file: {file_path.name}")
+            try:
+                with open(file_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
 
-    print("Legislation tables build complete.")
+                async with pool.acquire() as conn:
+                    async with conn.transaction():
+                        await self._insert_from_flat_hierarchy(conn, data)
+            except Exception as e:
+                print(f"❌ Failed to process {file_path.name}: {e}")
 
-async def process_legislation_files(
-        sem: asyncio.Semaphore,
-        model: SentenceTransformer,
-        pool: asyncpg.Pool,
-        metadata_path: Path,
-) -> None:
-    """Process a single form JSON file and insert its data into the database."""
-    async with sem:
-        try:
-            print(f"Processing {metadata_path}...")
+        print("✔ Legislation import complete.")
 
-            # Load and validate the JSON data
-            with open(metadata_path, 'r') as f:
-                json_data = dict(json.load(f))
+    async def _insert_from_flat_hierarchy(self, conn, data: dict):
+        for chapter in data.get("chapters", {}).values():
+            for subchapter in chapter.get("sub_chapters", {}).values():
+                for part in subchapter.get("parts", {}).values():
+                    for section in part.get("sections", {}).values():
+                        await self._insert_section_and_paragraphs(conn, section)
 
-            metadata = legislation_metadata_adapter.validate_python(json_data)
-            await process_legislation_xhtml(model, pool, metadata_path, metadata)
-        except Exception as e:
-            print(f"Error processing {metadata_path}: {e}")
+    async def _insert_section_and_paragraphs(self, conn, section: dict):
+        text = section.get("text", "").strip()
+        if not text:
+            return
 
-async def process_legislation_xhtml(
-        model: SentenceTransformer,
-        pool: asyncpg.Pool,
-        metadata_path: Path,
-        metadata: LegislationMetadata) -> None:
+        print(f"→ Section {section['id']}")
+        title = section.get("label", {}).get("description") or section.get("title", "")
+        title_embedding = helpers.generate_embeddings(self.model, title)
+        text_embedding = helpers.generate_embeddings(self.model, text)
 
-    html_paths = metadata_path.parent.glob("*.html")
-    for html_path in html_paths:
-        # Step 1: Read the HTML content
-        html_content = helpers.read_file_to_string(html_path)
-        async with pool.acquire() as conn:
-            async with conn.transaction():
-                try:
-                    exists = await conn.fetchval(
-                        'SELECT 1 FROM legislation_html WHERE act = $1 AND code = $2' ,
-                        metadata.act, metadata.code,
-                    )
-                    if exists:
-                        print(f"Skipping existing entry: {metadata.act} - {metadata.code} - chunk: {i}")
-                        continue
+        await conn.execute("""
+            INSERT INTO legislation.sections (id, title, text, text_embedding, title_embedding)
+            VALUES ($1, $2, $3, $4, $5)
+            ON CONFLICT DO NOTHING 
+        """, section["id"], title, text, text_embedding, title_embedding)
 
-                    context = {
-                        "act": metadata.act,
-                        "code": metadata.code,
-                        "description": metadata.description,
-                    }
-                    embedding_json = helpers.generate_embeddings(model, metadata.description, context)
-                    # Insert into database
-                    await conn.execute(
-                        '''
-                        INSERT INTO legislation_html (act, code, description, link, description_embedding)
-                        VALUES ($1, $2, $3)
-                        ''',
-                        metadata.act,
-                        metadata.code,
-                        metadata.description,
-                        metadata.link,
-                        embedding_json,
-                    )
-                    # Step 2: Chunk the HTML content
-                    for i, chunk in enumerate(helpers.chunk_html_content(html_content, "lxml-xml")):
-                        # Check if this pdf already exists
-                        exists = await conn.fetchval(
-                            'SELECT 1 FROM legislation_html_chunks WHERE act = $1 AND code = $2 AND content_chunk = $3',
-                            metadata.act, metadata.code, chunk
-                        )
+        for para in section.get("paragraphs", []):
+            await self._insert_paragraph(conn, para, section["id"])
 
-                        if exists:
-                            print(f"Skipping existing entry: {metadata.act} - {metadata.code} - chunk: {i}")
-                            continue
+    async def _insert_paragraph(self, conn, paragraph: dict, section_id: str):
+        text = paragraph.get("text", "").strip()
+        if not text:
+            return
 
-                        # Generate embedding for the category text
-                        print(f"Generating embedding for: {metadata.act} - {metadata.code} - chunk: {i}")
+        print(f"  → Paragraph {paragraph['id']}")
+        title = paragraph.get("title", "")
+        title_embedding = helpers.generate_embeddings(self.model, title)
+        text_embedding = helpers.generate_embeddings(self.model, text)
 
-                        embedding_json = helpers.generate_embeddings(model, chunk)
-                        # Insert into database
-                        await conn.execute(
-                            '''
-                            INSERT INTO legislation_html_chunks (act, code, content_chunk, chunk_embedding)
-                            VALUES ($1, $2, $3, $4)
-                            ''',
-                            metadata.act,
-                            metadata.code,
-                            chunk,
-                            embedding_json,
-                        )
-                        print(f"Inserted: {metadata.id} - {html_path.name} - chunk: {i}")
-                except Exception as e:
-                    print("An error occurred, rolling back the transaction:", e)
-                    raise
+        await conn.execute("""
+            INSERT INTO legislation.paragraphs (id, section_id, title, text, text_embedding, title_embedding)
+            VALUES ($1, $2, $3, $4, $5, $6)
+            ON CONFLICT DO NOTHING 
+           
+        """, paragraph["id"], section_id, title, text, text_embedding, title_embedding)
 
-async def search(model: SentenceTransformer, pool: asyncpg.Pool, search_query: str, limit: int = 10):
-    """
-    Search for immigration legislation based on query similarity.
-    Returns legislation objects with act, code, description, relevant chunks, and links.
-    Searches both legislation descriptions and content chunks.
+    async def search(self, pool: asyncpg.Pool, search_query: str, limit: int = 10, verbose: bool = False):
+        if verbose:
+            print(f"🔍 Searching legislation for: {search_query}")
 
-    Args:
-        model: SentenceTransformer model for encoding the search query
-        pool: Database connection pool
-        search_query: Query string to search for
-        limit: Maximum number of results to return
+        embedding = helpers.generate_embeddings(self.model, search_query, prefix=self.query_embedding_prefix)
 
-    Returns:
-        List of legislation objects with relevant content and metadata
-    """
-    print(f"Searching legislation for: {search_query}")
+        rows = await pool.fetch("""
+            SELECT * FROM legislation.search_legislation_chunks($1, $2)
+        """, embedding, limit)
 
-    # Generate embedding for the search query
-    embedding_json = helpers.generate_embeddings(model, search_query)
-
-    # Execute the query that fetches legislation, chunks, and links
-    rows = await pool.fetch(
-        helpers.read_file_to_string("./sql/search-legislation.sql"),
-        embedding_json,
-        limit
-    )
-
-    # Process and organize the results
-    legislation_dict = {}
-
-    for row in rows:
-        key = f"{row['act']}:{row['code']}"
-
-        # Create a new legislation object if it doesn't exist
-        if key not in legislation_dict:
-            legislation_dict[key] = {
-                'act': row['act'],
-                'code': row['code'],
-                'description': row['description'],
-                'link': row['link'],
-                'chunks': [],
-                'description_similarity': row['description_similarity'],
+        results = []
+        for row in rows:
+            results.append({
+                'match_id': row['match_id'],
+                'source': row['source'],
+                'title': row['title'],
+                'chunk': row['chunk'],
+                'text_similarity': row['text_similarity'],
+                'title_similarity': row['title_similarity'],
                 'combined_score': row['combined_score'],
-                'match_source': row['match_source']
-            }
-
-        # Add the chunk to the legislation (if not NULL)
-        if row['content_chunk']:
-            legislation_dict[key]['chunks'].append({
-                'content': row['content_chunk'],
-                'similarity_score': row['content_similarity']
             })
 
-    # Convert the dictionary to a list of legislation objects
-    results = list(legislation_dict.values())
+        if verbose:
+            print(f"\n🔹 Found {len(results)} results")
 
-    # Sort by the legislation's combined similarity score
-    results.sort(key=lambda x: x['combined_score'])
+        return results
 
-    print(f"\nFound {len(results)} matching legislation items")
-
-    return results
+    @staticmethod
+    async def clear(pool: asyncpg.Pool) -> None:
+        async with pool.acquire() as conn:
+            print("Clearing legislation tables...")
+            await conn.execute("TRUNCATE TABLE legislation.paragraphs, legislation.sections RESTART IDENTITY CASCADE")

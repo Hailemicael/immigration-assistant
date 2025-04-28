@@ -90,7 +90,7 @@ func crawlFeeSchedule(parentDir string) *colly.Collector {
 		rwmutex.RUnlock()
 		fmt.Println(feeLookup.Id, "form", rgx.FindString(feeLookup.Id))
 		dir := filepath.Join(contentDir, rgx.FindString(feeLookup.Id))
-		metadata, err := loadMetadaFromFile(dir)
+		metadata, err := loadMetadataFromFile(dir)
 		if err != nil {
 			log.Println(err)
 			return

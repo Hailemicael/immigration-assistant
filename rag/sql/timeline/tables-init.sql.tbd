@@ -1,0 +1,78 @@
+-- USCIS Timeline Calculator Database Schema
+
+-- Create timeline schema
+CREATE SCHEMA IF NOT EXISTS timeline;
+
+-- Forms table
+CREATE TABLE IF NOT EXISTS timeline.forms
+(
+    form_id     VARCHAR(20) PRIMARY KEY,
+    form_name   VARCHAR(255) NOT NULL,
+    description TEXT         NOT NULL,
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Service centers table
+CREATE TABLE IF NOT EXISTS timeline.service_centers
+(
+    center_id   SERIAL PRIMARY KEY,
+    center_name VARCHAR(255) UNIQUE NOT NULL,
+    shortcode   VARCHAR(10),
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Form categories table
+CREATE TABLE IF NOT EXISTS timeline.form_categories
+(
+    category_id   SERIAL PRIMARY KEY,
+    form_id       VARCHAR(20)  NOT NULL REFERENCES timeline.forms (form_id),
+    category_name VARCHAR(255) NOT NULL,
+    created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (form_id, category_name)
+);
+
+-- Processing times table
+CREATE TABLE IF NOT EXISTS timeline.processing_times
+(
+    time_id                  SERIAL PRIMARY KEY,
+    form_id                  VARCHAR(20)   NOT NULL REFERENCES forms (form_id),
+    center_id                INTEGER       NOT NULL REFERENCES timeline.service_centers (center_id),
+    category_id              INTEGER REFERENCES timeline.form_categories (category_id),
+    min_months               NUMERIC(5, 2) NOT NULL,
+    median_months            NUMERIC(5, 2) NOT NULL,
+    max_months               NUMERIC(5, 2) NOT NULL,
+    last_updated             TIMESTAMP     NOT NULL,
+    receipt_date_for_inquiry DATE,
+    active                   BOOLEAN   DEFAULT TRUE,
+    created_at               TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at               TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- User timelines table
+CREATE TABLE IF NOT EXISTS timeline.user_timelines
+(
+    timeline_id              SERIAL PRIMARY KEY,
+    form_id                  VARCHAR(20) NOT NULL REFERENCES timeline.forms (form_id),
+    center_id                INTEGER     NOT NULL REFERENCES timeline.service_centers (center_id),
+    category_id              INTEGER REFERENCES timeline.form_categories (category_id),
+    filing_date              DATE        NOT NULL,
+    earliest_completion_date DATE        NOT NULL,
+    median_completion_date   DATE        NOT NULL,
+    latest_completion_date   DATE        NOT NULL,
+    chart_path               TEXT,
+    user_ip                  VARCHAR(45),
+    created_at               TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Indexes
+CREATE INDEX IF NOT EXISTS idx_processing_times_form_center
+    ON timeline.processing_times (form_id, center_id, active);
+
+CREATE INDEX IF NOT EXISTS idx_user_timelines_form
+    ON timeline.user_timelines (form_id);
+
+CREATE INDEX IF NOT EXISTS idx_form_categories_form
+    ON timeline.form_categories (form_id);
