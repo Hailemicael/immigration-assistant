@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+
+{% block title %}Chat - Immigration Assistant{% endblock %}
+
+{% block content %}
+<div class="chat-container">
+    <header class="chat-header">
+        <h1>Immigration Assistant</h1>
+        <div class="user-info">
+            <span>Welcome, {{ user.first_name or user.email }}</span>
+            <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+        </div>
+    </header>
+    
+    <div class="chat-main">
+        <div class="chat-messages" id="message-container">
+            <div class="message assistant-message">
+                <div class="message-content">Hello! I'm your Immigration Assistant. How can I help you today?</div>
+            </div>
+            {% for message in messages %}
+                <div class="message {{ 'user-message' if message.role == 'user' else 'assistant-message' }}">
+                    <div class="message-content">{{ message.content }}</div>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <div class="chat-sidebar">
+            <div id="legislation-section" class="sidebar-section" style="display: none;">
+                <h3>Relevant Legislation</h3>
+                <ul id="legislation-list"></ul>
+            </div>
+            
+            <div id="forms-section" class="sidebar-section" style="display: none;">
+                <h3>Required Forms</h3>
+                <ul id="forms-list"></ul>
+            </div>
+            
+            <div id="timeline-section" class="sidebar-section" style="display: none;">
+                <h3>Process Timeline</h3>
+                <ol id="timeline-list" class="timeline-list"></ol>
+            </div>
+        </div>
+    </div>
+    
+    <form id="chat-form" class="chat-input-form">
+        <input type="text" id="message-input" class="chat-input" placeholder="Type your question here..." required>
+        <button type="submit" class="send-button">Send</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const messageContainer = document.getElementById('message-container');
+        const messageInput = document.getElementById('message-input');
+        const chatForm = document.getElementById('chat-form');
+        
+        const legislationSection = document.getElementById('legislation-section');
+        const legislationList = document.getElementById('legislation-list');
+        const formsSection = document.getElementById('forms-section');
+        const formsList = document.getElementById('forms-list');
+        const timelineSection = document.getElementById('timeline-section');
+        const timelineList = document.getElementById('timeline-list');
+        
+        // Auto-scroll to bottom of messages
+        function scrollToBottom() {
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+        }
+        
+        scrollToBottom();
+        
+        // Handle form submission
+        chatForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const message = messageInput.value.trim();
+            if (!message) return;
+            
+            // Add user message to UI
+            addMessage('user', message);
+            
+            // Clear input
+            messageInput.value = '';
+            
+            // Show loading indicator
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'message assistant-message';
+            loadingDiv.innerHTML = `
+                <div class="message-content">
+                    <div class="spinner-border spinner-border-sm text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    Thinking...
+                </div>
+            `;
+            messageContainer.appendChild(loadingDiv);
+            scrollToBottom();
+            
+            // Send to server
+            fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 
+                    question: message 
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Remove loading indicator
+                messageContainer.removeChild(loadingDiv);
+                
+                // Add assistant's response
+                addMessage('assistant', data.initial_response);
+                
+                // Update sidebar with additional information
+                updateSidebar(data);
+            })
+            .catch(error => {
+                // Remove loading indicator
+                messageContainer.removeChild(loadingDiv);
+                
+                // Add error message
+                addMessage('assistant', 'Sorry, I encountered an error while processing your request. Please try again later.');
+                console.error('Error:', error);
+            });
+        });
+        
+        function addMessage(role, content) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${role === 'user' ? 'user-message' : 'assistant-message'}`;
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            contentDiv.textContent = content;
+            
+            messageDiv.appendChild(contentDiv);
+            messageContainer.appendChild(messageDiv);
+            
+            scrollToBottom();
+        }
+        
+        function updateSidebar(data) {
+            // Update legislation
+            if (data.legislation && data.legislation.length > 0) {
+                legislationList.innerHTML = '';
+                data.legislation.forEach(item => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = item.url;
+                    a.target = '_blank';
+                    a.textContent = item.title;
+                    li.appendChild(a);
+                    legislationList.appendChild(li);
+                });
+                legislationSection.style.display = 'block';
+            } else {
+                legislationSection.style.display = 'none';
+            }
+            
+            // Update forms
+            if (data.forms && data.forms.length > 0) {
+                formsList.innerHTML = '';
+                data.forms.forEach(item => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = item.url;
+                    a.target = '_blank';
+                    a.textContent = item.title;
+                    li.appendChild(a);
+                    formsList.appendChild(li);
+                });
+                formsSection.style.display = 'block';
+            } else {
+                formsSection.style.display = 'none';
+            }
+            
+            // Update timeline
+            if (data.timeline && data.timeline.length > 0) {
+                timelineList.innerHTML = '';
+                data.timeline.forEach(item => {
+                    const li = document.createElement('li');
+                    const strong = document.createElement('strong');
+                    strong.textContent = item.title;
+                    const p = document.createElement('p');
+                    p.textContent = item.description;
+                    
+                    li.appendChild(strong);
+                    li.appendChild(p);
+                    timelineList.appendChild(li);
+                });
+                timelineSection.style.display = 'block';
+            } else {
+                timelineSection.style.display = 'none';
+            }
+        }
+    });
+</script>
+{% endblock %}

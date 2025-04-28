@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Login - Immigration Assistant{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <h1>Immigration Assistant</h1>
+            <h2 id="auth-title">Sign In</h2>
+        </div>
+        
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+        
+        <div id="login-form">
+            <form method="post" action="{{ url_for('login') }}" class="auth-form">
+                <div class="mb-3">
+                    <label for="login-email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="login-email" name="email" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="login-password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="login-password" name="password" required>
+                </div>
+                
+                <button type="submit" class="auth-button">Sign In</button>
+            </form>
+            
+            <div class="auth-toggle">
+                Don't have an account?
+                <button type="button" class="auth-toggle-button" id="show-register">Sign Up</button>
+            </div>
+        </div>
+        
+        <div id="register-form" style="display: none;">
+            <form method="post" action="{{ url_for('register') }}" class="auth-form">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="first-name" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="first-name" name="first_name" required>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                        <label for="last-name" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="last-name" name="last_name" required>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="register-email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="register-email" name="email" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="register-password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="register-password" name="password" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="confirm-password" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirm-password" name="confirm_password" required>
+                </div>
+                
+                <button type="submit" class="auth-button">Create Account</button>
+            </form>
+            
+            <div class="auth-toggle">
+                Already have an account?
+                <button type="button" class="auth-toggle-button" id="show-login">Sign In</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        const authTitle = document.getElementById('auth-title');
+        const showRegisterBtn = document.getElementById('show-register');
+        const showLoginBtn = document.getElementById('show-login');
+        
+        showRegisterBtn.addEventListener('click', function() {
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'block';
+            authTitle.textContent = 'Create Account';
+        });
+        
+        showLoginBtn.addEventListener('click', function() {
+            registerForm.style.display = 'none';
+            loginForm.style.display = 'block';
+            authTitle.textContent = 'Sign In';
+        });
+
+        // Password confirmation validation
+        const registerPasswordInput = document.getElementById('register-password');
+        const confirmPasswordInput = document.getElementById('confirm-password');
+        const registerFormElement = document.querySelector('#register-form form');
+        
+        registerFormElement.addEventListener('submit', function(e) {
+            if (registerPasswordInput.value !== confirmPasswordInput.value) {
+                e.preventDefault();
+                alert('Passwords do not match!');
+            }
+        });
+    });
+</script>
+{% endblock %}
