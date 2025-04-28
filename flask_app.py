@@ -220,6 +220,10 @@ def chat():
         
         # Process the question
         try:
+            # getting inout from the user
+            #check the user input question 
+            #gOOGLE api
+
             # Run the async function in the event loop
             loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
@@ -261,4 +265,4 @@ def chat():
 
 if __name__ == '__main__':
     print("Starting Immigration Assistant web application...")
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5011, debug=True)
