@@ -733,6 +733,7 @@ from immigration_assistant.reasoning.agent import ReasoningAgent
 from immigration_assistant.relevance.agent import RelevanceAgent
 from immigration_assistant.summarization.agent import SummaryAgent
 from immigration_assistant.timeline.agent import TimelineAgent
+from immigration_assistant.translator.agent import TranslatorAgent
 
 # Get the current working directory
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -756,7 +757,7 @@ print("Loading models and initializing system...", flush=True)
 embedding_model = SentenceTransformer(RAGAgent.model_name)
 
 db_config = database.Config(
-    dsn="postgresql://postgres:12345@localhost:5432",
+    dsn="postgresql://@localhost:5432",
     database="maia",
     pool_size=(10, 10)
 )
@@ -767,6 +768,7 @@ rag_sql_path = os.path.join(base_dir, "immigration_assistant/rag/sql")
 faqs_path = os.path.join(base_dir, "immigration_assistant/rag/uscis-crawler/documents/frequently-asked-questions/immigration_faqs.json")
 forms_path = os.path.join(base_dir, "immigration_assistant/rag/uscis-crawler/documents/forms")
 legislation_path = os.path.join(base_dir, "immigration_assistant/rag/uscis-crawler/documents/legislation")
+translator_agent = TranslatorAgent(verbose=True)
 
 summary_agent = SummaryAgent(
     db_config=db_config.copy(user_reg_sql_path),
@@ -783,7 +785,7 @@ relevance_agent = RelevanceAgent(
 
 reasoning_agent = ReasoningAgent(
     endpoint_url="https://apc68c0a4ml2min4.us-east-1.aws.endpoints.huggingface.cloud",
-    api_token="",
+    api_token=,
     verbose=True
 )
 
@@ -809,6 +811,7 @@ def get_system_for_user(user_email):
     if user_email not in system_cache:
         system_cache[user_email] = RMAIA(
             user=user_email,
+            translator_agent=translator_agent,
             summary_agent=summary_agent,
             relevance_agent=relevance_agent,
             reasoning_agent=reasoning_agent,
@@ -941,7 +944,6 @@ def chat():
             asyncio.set_event_loop(loop)
             result = loop.run_until_complete(system.ainvoke(question))
             loop.close()
-            
             # Store the conversation history in session
             if 'messages' not in session:
                 session['messages'] = []
@@ -953,7 +955,7 @@ def chat():
             
             session['messages'].append({
                 'role': 'assistant',
-                'content': result.get('initial_response', '')
+                'content': result.get('final_response', result.get('initial_response', ''))
             })
             
             session.modified = True

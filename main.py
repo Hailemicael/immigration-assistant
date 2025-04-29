@@ -14,6 +14,7 @@ from immigration_assistant.reasoning.agent import ReasoningAgent
 from immigration_assistant.relevance.agent import RelevanceAgent
 from immigration_assistant.summarization.agent import SummaryAgent
 from immigration_assistant.timeline.agent import TimelineAgent
+from immigration_assistant.translator.agent import TranslatorAgent
 
 
 async def main():
@@ -39,7 +40,7 @@ async def main():
 
     reasoning_agent = ReasoningAgent(
         endpoint_url="https://apc68c0a4ml2min4.us-east-1.aws.endpoints.huggingface.cloud",
-        api_token=,
+        api_token=
         verbose=True
     )
 
@@ -56,9 +57,10 @@ async def main():
     timeline_agent = TimelineAgent(
         verbose=True
     )
-
+    translator_agent = TranslatorAgent( verbose=True)
     system = RMAIA(
         user="bob@test.com",
+        translator_agent = translator_agent,
         summary_agent=summary_agent,
         relevance_agent=relevance_agent,
         reasoning_agent=reasoning_agent,
@@ -66,7 +68,7 @@ async def main():
         timeline_agent=timeline_agent,
         verbose=True)
 
-    question = "My home nation is a war zone and i would like to escape to the US, what do i need to do?"
+    question = "Mi país de origen es una zona de guerra y me gustaría escapar a los EE. UU. ¿Qué debo hacer?"
     # question = "I need to sleep"
     result = await system.ainvoke(question)
 

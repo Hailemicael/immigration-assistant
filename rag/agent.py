@@ -5,6 +5,7 @@ import asyncio
 import asyncpg
 from langchain_core.runnables import Runnable, RunnableConfig
 from sentence_transformers import SentenceTransformer
+from googletrans import Translator
 
 from ..rag import forms, legislation
 from ..rag.config import RAGConfig
@@ -100,9 +101,9 @@ class RAGAgent(Runnable, SingletonInstance):
         self._log("🗄️ Populating the database with form and legislation data...")
         async with self.db_pool() as pool:
             if clear:
-                # await self.forms_db.clear(pool)
+                await self.forms_db.clear(pool)
                 await self.legislation_db.clear(pool)
-            # await self.forms_db.populate(pool)
+            await self.forms_db.populate(pool)
             await self.legislation_db.populate(pool)
         self._log("✅ Database population complete.")
 

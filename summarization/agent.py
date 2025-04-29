@@ -8,6 +8,7 @@ from transformers import pipeline
 
 from ..config import database
 from ..orchestration.state import AgentState
+from ..translator.agent import TranslatorAgent
 
 
 class SummaryAgent(Runnable):
@@ -127,6 +128,6 @@ class SummaryAgent(Runnable):
         stage = state.get('generation_stage')
         if state.get("verbose", self.verbose):
             self._log(f"[Summary Routing]: {stage}")
-        if stage == "final":
-            return END
-        return "RelevanceAgent"
+        # if stage == "final":
+        #     return END
+        return TranslatorAgent.node

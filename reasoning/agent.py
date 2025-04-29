@@ -27,7 +27,8 @@ class ReasoningAgent(Runnable):
         Process the current state and generate a response.
         """
         verbose = state.get("verbose", self.verbose)
-        question = state.get("question")
+        question = state.get("question_translated")
+        question = question if question is not None else state.get('question')
         def log(msg: str):
             if verbose:
                 print(f"[🧠 ReasoningAgent] {msg}")
@@ -99,7 +100,6 @@ class ReasoningAgent(Runnable):
 
         log("🧪 No external context yet — generating initial response.")
         system_message = "You are a helpful immigration assistant. Answer clearly and concisely."
-        question = state.get("question", "")
         log("🧠 Sending initial prompt to model...")
         response = self.client.question_answering(question, system_message)
         log("✅ Initial response generated.")
@@ -125,4 +125,4 @@ class ReasoningAgent(Runnable):
         verbose = state.get("verbose", self.verbose)
         if verbose:
             print(f"[🔁 Routing Decision] Current generation stage: {state.get('generation_stage')}")
-        return RAGAgent.node if state.get("generation_stage") == "initial" else END
+        return RAGAgent.node if state.get("generation_stage") == "initial" else 'TranslatorAgent'

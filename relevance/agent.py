@@ -36,8 +36,8 @@ class RelevanceAgent(Runnable):
             self, state: AgentState, config: Optional[RunnableConfig] = None, **kwargs: Any
     ) -> AgentState:
         verbose = state.get("verbose", self.verbose)
-        prompt = state.get("question")
-
+        prompt = state.get("question_translated")
+        prompt = prompt if prompt is not None else state.get('question')
         if verbose:
             print("\n[🧠 RelevanceAgent] — Starting relevance check")
             print(f"[🧠 RelevanceAgent] Input Prompt: \"{prompt}\"")

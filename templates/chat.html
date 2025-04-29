@@ -15,7 +15,7 @@
     <div class="chat-main">
         <div class="chat-messages" id="message-container">
             <div class="message assistant-message">
-                <div class="message-content">Hello! I'm your Immigration Assistant. How can I help you today?</div>
+                <div class="message-content">Hello, {{user.first_name}}! I'm your Immigration Assistant. How can I help you today?</div>
             </div>
             {% for message in messages %}
                 <div class="message {{ 'user-message' if message.role == 'user' else 'assistant-message' }}">
@@ -113,7 +113,7 @@
                 messageContainer.removeChild(loadingDiv);
                 
                 // Add assistant's response
-                addMessage('assistant', data.initial_response);
+                addMessage('assistant', data.final_response);
                 
                 // Update sidebar with additional information
                 updateSidebar(data);
@@ -177,7 +177,6 @@
             } else {
                 formsSection.style.display = 'none';
             }
-            console.log(data)
             // Update timeline
             if (data.timeline && data.timeline.length > 0) {
                 timelineList.innerHTML = '';

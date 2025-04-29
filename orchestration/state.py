@@ -6,6 +6,8 @@ class AgentState(TypedDict):
     user: str
     last_conversation_summary: Optional[str]
     question: str
+    detected_language: Optional[str]
+    question_translated: Optional[str]
     relevance: Literal["relevant", "irrelevant", "unknown"]
     generation_stage: Literal["initial", "final"]
     initial_response: Optional[str]

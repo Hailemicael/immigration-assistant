@@ -13,12 +13,14 @@ from ..summarization.agent import SummaryAgent
 from ..timeline.agent import TimelineAgent
 from ..rag.agent import RAGAgent
 from ..relevance.agent import RelevanceAgent
+from ..translator.agent import TranslatorAgent
 
 
 class RMAIA:
     def __init__(
             self,
             user: str,
+            translator_agent: TranslatorAgent,
             summary_agent: SummaryAgent,
             relevance_agent: RelevanceAgent,
             reasoning_agent: ReasoningAgent,
@@ -28,6 +30,7 @@ class RMAIA:
             system_name: str = "Immigration Law Assistant"
     ):
         self.user = user
+        self.translator_agent = translator_agent
         self.summary_agent = summary_agent
         self.relevance_agent = relevance_agent
         self.reasoning_agent = reasoning_agent
@@ -47,6 +50,7 @@ class RMAIA:
     def _build_graph(self):
         self._log("🔧 Building agent graph...")
         builder = StateGraph(AgentState)
+        builder.add_node(TranslatorAgent.node, self.translator_agent)
         builder.add_node(SummaryAgent.node, self.summary_agent)
         builder.add_node(RelevanceAgent.node, self.relevance_agent)
         builder.add_node(ReasoningAgent.node, self.reasoning_agent)
@@ -55,6 +59,7 @@ class RMAIA:
 
         builder.set_entry_point(SummaryAgent.node)
         builder.add_conditional_edges(SummaryAgent.node, self.summary_agent.route_after_summary)
+        builder.add_conditional_edges(TranslatorAgent.node, self.translator_agent.check_translation_needed)
         builder.add_conditional_edges(RelevanceAgent.node, self.relevance_agent.check_relevance)
         builder.add_conditional_edges(ReasoningAgent.node, self.reasoning_agent.check_stage_for_rag)
         builder.add_conditional_edges(RAGAgent.node, self.rag_agent.check_forms)
@@ -116,6 +121,8 @@ async def main():
         model = pipeline("summarization", model="facebook/bart-large-cnn"),
         verbose=True
     )
+    translator_agent = TranslatorAgent(verbose=True)
+
     relevance_agent = RelevanceAgent(
         model=embedding_model,
         baseline_path="../rag/uscis-crawler/documents/frequently-asked-questions/immigration_faqs.json",
@@ -145,6 +152,7 @@ async def main():
 
     system = RMAIA(
         user="bob@test.com",
+        translator_agent=translator_agent,
         summary_agent=summary_agent,
         relevance_agent=relevance_agent,
         reasoning_agent=reasoning_agent,
