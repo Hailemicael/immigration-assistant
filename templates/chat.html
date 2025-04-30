@@ -111,9 +111,8 @@
             .then(data => {
                 // Remove loading indicator
                 messageContainer.removeChild(loadingDiv);
-                
                 // Add assistant's response
-                addMessage('assistant', data.final_response);
+                addMessage('assistant', data.final_response ?? data.initial_response);
                 
                 // Update sidebar with additional information
                 updateSidebar(data);

@@ -153,6 +153,7 @@
                 }
                 
                 const data = await response.json();
+                console.log(data)
                 displayResponse(data);
             } catch (error) {
                 showError(error.message);
@@ -162,6 +163,7 @@
         }
         
         function displayResponse(data) {
+            console.log(data)
             // Set answer text
             document.getElementById('answer-text').textContent = data.answer;
             

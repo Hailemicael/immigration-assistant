@@ -1,7 +1,7 @@
 # # from flask import Flask, render_template, request, jsonify
 # # import os
 # # from rag_system_mock import RAGSystemMock, QueryRequest, RAGResponse
-
+import json
 # # # Initialize Flask app
 # # app = Flask(__name__)
 
@@ -937,7 +937,6 @@ def chat():
         try:
             # getting inout from the user
             #check the user input question 
-            #gOOGLE api
 
             # Run the async function in the event loop
             loop = asyncio.new_event_loop()
@@ -952,7 +951,7 @@ def chat():
                 'role': 'user',
                 'content': question
             })
-            
+
             session['messages'].append({
                 'role': 'assistant',
                 'content': result.get('final_response', result.get('initial_response', ''))
