@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 from typing import Dict, Optional, Any
 
 from langchain_core.runnables import Runnable, RunnableConfig
@@ -21,7 +22,7 @@ class RelevanceAgent(Runnable):
         self.model = model
         self.relevance_threshold = relevance_threshold
         self.verbose = verbose
-        self.baseline_path = baseline_path
+        self.baseline_path = Path(baseline_path)
         self._init()
 
     def _init(self):

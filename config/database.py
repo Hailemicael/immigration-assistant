@@ -1,6 +1,14 @@
 from pathlib import Path
 from typing import Tuple, Optional
+import os
+import yaml
 
+def load_config(config_file="config.yaml"):
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    with open(os.path.join(base_dir, config_file), 'r') as f:
+        config = yaml.safe_load(f)
+    config['base_dir'] = base_dir
+    return config
 
 class Config:
     def __init__(self, schema_dir: str = "", dsn: str = "postgresql://@localhost:5432", database: str = "maia", pool_size: Tuple[int, int] = (1, 10)) -> None:

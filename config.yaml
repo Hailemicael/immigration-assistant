@@ -1,0 +1,22 @@
+secret_key: "comp-710-is-the-best!"
+session_lifetime_days: 30
+
+database:
+  dsn: "postgresql://postgres:12345@localhost:5432"
+  database: "maia"
+  pool_size: [10, 10]
+
+paths:
+  templates: "./templates"
+  user_reg_sql: "./user-registration/sql"
+  rag_sql: "./rag/sql"
+  faqs: "./rag/uscis-crawler/documents/frequently-asked-questions/immigration_faqs.json"
+  forms: "./rag/uscis-crawler/documents/forms"
+  legislation: "./rag/uscis-crawler/documents/legislation"
+
+relevance:
+  threshold: 0.65
+
+reasoning:
+  endpoint: "https://apc68c0a4ml2min4.us-east-1.aws.endpoints.huggingface.cloud"
+  api_token: "your-api-token"
