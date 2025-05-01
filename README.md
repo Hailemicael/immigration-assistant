@@ -1,6 +1,6 @@
-# Retrieval Augmented Immigration Assistant (R-MAIA) Setup Guide
+# Immigration Assistant (MAIA) Setup Guide
 
-This guide provides instructions for setting up th eRetrieval Augmented Immigration Assistant including PostgreSQL with pgvector extension, database configuration, and running the application.
+This guide provides instructions for setting up the Immigration Assistant application including PostgreSQL with pgvector extension, database configuration, and running the application.
 
 ## Prerequisites
 
@@ -8,6 +8,19 @@ This guide provides instructions for setting up th eRetrieval Augmented Immigrat
 - PostgreSQL 14 or higher
 - pip package manager
 - Access to terminal/command line
+
+## Required Python Dependencies
+
+```bash
+# Install required Python packages
+pip install flask
+pip install asyncpg
+pip install langgraph
+pip install sentence-transformers
+pip install transformers
+pip install bcrypt
+pip install PyYAML
+```
 
 ## 1. Installing PostgreSQL and pgvector
 
@@ -190,5 +203,8 @@ http://localhost:5011
 ## Additional Notes
 
 - The application uses sentence-transformers for embedding generation
+- LangGraph is used for orchestrating the different components of the system
+- Flask provides the web interface for interacting with the application
+- AsyncPG is used for asynchronous PostgreSQL connections
 - Ensure you have sufficient memory for running embedding models
 - For production use, consider changing the default password
