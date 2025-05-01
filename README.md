@@ -16,8 +16,18 @@ This guide provides instructions for setting up the Immigration Assistant applic
 pip install flask
 pip install asyncpg
 pip install langgraph
+pip install langchain_ollama
 pip install sentence-transformers
 pip install transformers
+pip install typing-extensions
+pip install langchain-core
+pip install googletrans
+pip install torch
+pip install pydantic
+pip install pandas
+pip install evaluate
+pip install pydantic-core
+pip install huggingface-hub
 pip install bcrypt
 pip install PyYAML
 ```
@@ -142,6 +152,21 @@ reasoning:
 
 Make sure to replace `"your-api-token"` with your actual API token for the reasoning service.
 
+## System Architecture Overview
+
+The Immigration Assistant is a modular system composed of several specialized agents:
+
+- **UserRegistration**: Handles user authentication and session management
+- **TranslatorAgent**: Provides translation services for multilingual support
+- **SummaryAgent**: Creates concise summaries of complex documents
+- **RelevanceAgent**: Determines the relevance of information to user queries
+- **ReasoningAgent**: Performs logical reasoning about immigration cases
+- **RAGAgent**: Retrieval-Augmented Generation for finding relevant information
+- **TimelineAgent**: Creates and manages immigration process timelines
+- **RMAIA**: Main orchestration component that coordinates all agents
+
+The system uses a PostgreSQL database with pgvector extension to store and query vector embeddings for semantic search functionality.
+
 ## 5. Running the Application
 
 Navigate to the parent directory of the `immigration_assistant` package and run:
@@ -190,15 +215,24 @@ http://localhost:5011
 - Ensure PostgreSQL service is running
 - Verify connection string in config.yaml
 - Check that user has appropriate permissions
+- Ensure pgvector extension is properly installed in the database
 
-### pgvector Extension
-- Verify extension is properly installed with `\dx` command in psql
-- Ensure vector extension is enabled in the database
+### Python Dependencies
+- If you encounter ModuleNotFoundError, install the missing dependency:
+  ```bash
+  pip install [missing-module-name]
+  ```
+- Ensure correct versions of dependencies are installed:
+  ```bash
+  pip list | grep [package-name]
+  ```
+- For torch installation issues on different platforms, refer to the PyTorch official documentation
 
 ### Application Errors
 - Check console output for error messages
 - Ensure all dependencies are installed
 - Verify file paths in config.yaml
+- For embedding model errors, ensure you have sufficient RAM available
 
 ## Additional Notes
 
@@ -206,5 +240,9 @@ http://localhost:5011
 - LangGraph is used for orchestrating the different components of the system
 - Flask provides the web interface for interacting with the application
 - AsyncPG is used for asynchronous PostgreSQL connections
+- LangChain components provide integration with local LLM models via Ollama
+- Vector database capabilities support semantic search functionality
+- The application includes a translation service using GoogleTrans
+- Hugging Face Hub integration allows access to models for summarization
 - Ensure you have sufficient memory for running embedding models
 - For production use, consider changing the default password
